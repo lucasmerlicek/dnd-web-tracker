@@ -90,7 +90,9 @@ export function calcUpcastDamage(
 export function canRitualCast(
   spell: SpellData,
   charClass: string,
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _preparedSpells: string[],
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   _spellName: string
 ): boolean {
   if (!spell.ritual) return false;
