@@ -49,8 +49,6 @@ const AETHERION_FLOOR_IMAGES: Record<number, string> = {
   6: "/images/maps/aetherion/6.png",
 };
 
-export { AETHERION_FLOOR_IMAGES };
-
 export default function MapPage() {
   const [activeMap, setActiveMap] = useState<"valerion" | "aetherion">("valerion");
   const [floor, setFloor] = useState(0);
