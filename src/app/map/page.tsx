@@ -37,7 +37,19 @@ const CATEGORY_ICONS: Record<Category, string> = {
   note: "/images/icons/icon_rumor.png",
 };
 
-const FLOOR_LABELS = ["Ground", "1st", "2nd", "3rd", "4th"];
+const FLOOR_LABELS = ["GF", "1", "2", "3", "4", "5", "6"];
+
+const AETHERION_FLOOR_IMAGES: Record<number, string> = {
+  0: "/images/maps/aetherion/GF.png",
+  1: "/images/maps/aetherion/1.png",
+  2: "/images/maps/aetherion/2.png",
+  3: "/images/maps/aetherion/3.png",
+  4: "/images/maps/aetherion/4.png",
+  5: "/images/maps/aetherion/5.png",
+  6: "/images/maps/aetherion/6.png",
+};
+
+export { AETHERION_FLOOR_IMAGES };
 
 export default function MapPage() {
   const [activeMap, setActiveMap] = useState<"valerion" | "aetherion">("valerion");
@@ -47,6 +59,7 @@ export default function MapPage() {
   const [creating, setCreating] = useState<{ x: number; y: number } | null>(null);
   const [form, setForm] = useState({ title: "", description: "", category: "note" as Category });
   const [editing, setEditing] = useState<MapMarker | null>(null);
+  const [currentScale, setCurrentScale] = useState(1);
   const mapRef = useRef<HTMLDivElement>(null);
 
   const { markers, mutate } = useMapMarkers(activeMap, activeMap === "aetherion" ? floor : undefined);
@@ -112,7 +125,7 @@ export default function MapPage() {
 
   const mapSrc = activeMap === "valerion"
     ? "/images/maps/Valerion_lowres.jpg"
-    : "/images/maps/Atherion_map.png";
+    : AETHERION_FLOOR_IMAGES[floor];
 
   return (
     <div className="relative min-h-screen bg-dark-bg">
@@ -147,17 +160,17 @@ export default function MapPage() {
 
         {/* Map */}
         <div className="overflow-hidden rounded-lg border border-dark-border">
-          <TransformWrapper minScale={0.5} maxScale={4} initialScale={1}>
+          <TransformWrapper minScale={0.5} maxScale={4} initialScale={1} onTransformed={(_ref, state) => setCurrentScale(state.scale)}>
             <TransformComponent wrapperClass="!w-full" contentClass="!w-full">
-              <div ref={mapRef} className="relative cursor-crosshair" onClick={handleMapClick}>
-                <Image src={mapSrc} alt={`${activeMap} map`} width={1200} height={800} className="w-full" priority />
+              <div ref={mapRef} className="relative aspect-[3/2] cursor-crosshair" onDoubleClick={handleMapClick}>
+                <Image src={mapSrc} alt={`${activeMap} map`} fill className="object-contain" priority />
                 {/* Markers */}
                 {filteredMarkers.map((m) => (
                   <button
                     key={m.id}
                     onClick={(e) => { e.stopPropagation(); setSelectedMarker(m); setCreating(null); setEditing(null); }}
-                    className="absolute -translate-x-1/2 -translate-y-1/2 transition hover:scale-125"
-                    style={{ left: `${m.position.x}%`, top: `${m.position.y}%` }}
+                    className="absolute transition hover:scale-125"
+                    style={{ left: `${m.position.x}%`, top: `${m.position.y}%`, transform: `translate(-50%, -50%) scale(${1 / currentScale})` }}
                     aria-label={m.title}
                   >
                     <Image src={CATEGORY_ICONS[m.category]} alt={CATEGORY_LABELS[m.category]} width={32} height={32} className="h-8 w-8 drop-shadow-lg lg:h-6 lg:w-6" />
@@ -199,7 +212,7 @@ export default function MapPage() {
                   </button>
                 ))}
               </div>
-              <input type="text" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} placeholder="Title" className="w-full rounded border border-dark-border bg-dark-bg px-2 py-1 text-sm text-parchment" aria-label="Marker title" />
+              <input type="text" value={form.title} onChange={(e) => setForm({ ...form, title: e.target.value })} onKeyDown={(e) => { if (e.key === "Enter" && form.title.trim()) createMarker(); }} placeholder="Title" className="w-full rounded border border-dark-border bg-dark-bg px-2 py-1 text-sm text-parchment" aria-label="Marker title" />
               <textarea value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} placeholder="Description" className="w-full rounded border border-dark-border bg-dark-bg px-2 py-1 text-sm text-parchment" rows={3} aria-label="Marker description" />
               <div className="flex gap-2">
                 <button onClick={createMarker} className="min-h-[44px] rounded bg-gold-dark px-4 py-2 text-sm text-parchment hover:bg-gold">Create</button>
