@@ -21,7 +21,6 @@ interface NavButtonsProps {
 
 export default function NavButtons({ currentScreen }: NavButtonsProps = {}) {
   const pathname = usePathname();
-  const activeScreen = currentScreen ?? pathname;
 
   const isActive = (href: string) => {
     if (currentScreen) {
