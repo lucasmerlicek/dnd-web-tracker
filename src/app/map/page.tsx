@@ -160,8 +160,8 @@ export default function MapPage() {
         <div className="overflow-hidden rounded-lg border border-dark-border">
           <TransformWrapper minScale={0.5} maxScale={4} initialScale={1} onTransformed={(_ref, state) => setCurrentScale(state.scale)}>
             <TransformComponent wrapperClass="!w-full" contentClass="!w-full">
-              <div ref={mapRef} className="relative aspect-[3/2] cursor-crosshair" onDoubleClick={handleMapClick}>
-                <Image src={mapSrc} alt={`${activeMap} map`} fill className="object-contain" priority />
+              <div ref={mapRef} className="relative cursor-crosshair" onDoubleClick={handleMapClick}>
+                <Image src={mapSrc} alt={`${activeMap} map`} width={1600} height={1067} className="w-full" priority />
                 {/* Markers */}
                 {filteredMarkers.map((m) => (
                   <button
