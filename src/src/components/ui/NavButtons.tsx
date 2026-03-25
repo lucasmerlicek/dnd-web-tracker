@@ -31,7 +31,7 @@ export default function NavButtons({ currentScreen }: NavButtonsProps = {}) {
 
   return (
     <nav
-      className="flex items-center gap-2 overflow-x-auto rounded-lg border border-dark-border bg-dark-surface/80 p-2 shadow-inner-dark backdrop-blur-sm md:flex-wrap md:overflow-x-visible"
+      className="flex items-center gap-2 overflow-x-auto rounded-lg border border-parchment-dark/15 bg-dark-bg/70 p-2 backdrop-blur-sm md:flex-wrap md:overflow-x-visible"
       role="navigation"
       aria-label="Main navigation"
     >
@@ -42,8 +42,8 @@ export default function NavButtons({ currentScreen }: NavButtonsProps = {}) {
           aria-current={isActive(s.href) ? "page" : undefined}
           className={`min-h-[44px] shrink-0 rounded px-4 py-2.5 font-serif text-sm transition-colors ${
             isActive(s.href)
-              ? "bg-gold-dark text-parchment shadow-gold-glow"
-              : "text-parchment/70 hover:bg-dark-border hover:text-parchment"
+              ? "bg-parchment-dark/30 text-parchment shadow-gold-glow"
+              : "text-parchment/60 hover:bg-parchment-dark/15 hover:text-parchment"
           }`}
         >
           {s.label}

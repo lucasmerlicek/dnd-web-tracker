@@ -32,7 +32,7 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-dark-bg">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm space-y-6 rounded-lg border border-dark-border bg-dark-surface p-8"
+        className="w-full max-w-sm space-y-6 rounded-lg border border-parchment-dark/15 bg-dark-surface/70 p-8 backdrop-blur-sm"
       >
         <h1 className="text-center font-serif text-2xl text-gold">
           D&amp;D Character Tracker
@@ -69,7 +69,7 @@ export default function LoginPage() {
         <button
           type="submit"
           disabled={loading}
-          className="min-h-[44px] w-full rounded bg-gold-dark py-2.5 font-serif text-parchment transition hover:bg-gold disabled:opacity-50"
+          className="min-h-[44px] w-full rounded bg-parchment-dark/25 py-2.5 font-serif text-parchment transition hover:bg-parchment-dark/40 disabled:opacity-50"
         >
           {loading ? "Entering..." : "Enter"}
         </button>

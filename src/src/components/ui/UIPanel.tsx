@@ -1,44 +1,26 @@
 "use client";
 
-import Image from "next/image";
-
 interface Props {
   variant?: "box" | "box1" | "box2" | "box4" | "dark" | "fancy";
   children: React.ReactNode;
   className?: string;
 }
 
-const VARIANT_IMAGES: Record<string, string> = {
-  box: "/images/shared/UI_box.png",
-  box1: "/images/shared/UI_Box_1.png",
-  box2: "/images/shared/UI_box_2.png",
-  box4: "/images/shared/UI_box_4.png",
-  dark: "/images/shared/UI_box_dark.png",
-  fancy: "/images/shared/UI_box_fancy.png",
-};
-
 const VARIANT_STYLES: Record<string, string> = {
-  box: "border-gold-dark/30",
-  box1: "border-gold/20",
-  box2: "border-dark-border",
-  box4: "border-gold-dark/40",
-  dark: "border-dark-border",
-  fancy: "border-gold/40",
+  box: "bg-dark-surface/70 border-parchment-dark/20",
+  box1: "bg-dark-surface/60 border-parchment-dark/15",
+  box2: "bg-dark-panel/60 border-parchment-dark/10",
+  box4: "bg-dark-surface/75 border-parchment-dark/25",
+  dark: "bg-dark-bg/80 border-dark-border/40",
+  fancy: "bg-dark-surface/65 border-gold-dark/30",
 };
 
 export default function UIPanel({ variant = "box", children, className = "" }: Props) {
   return (
     <div
-      className={`relative overflow-hidden rounded-lg border p-4 ${VARIANT_STYLES[variant]} ${className}`}
+      className={`rounded-lg border p-4 backdrop-blur-sm ${VARIANT_STYLES[variant]} ${className}`}
     >
-      <Image
-        src={VARIANT_IMAGES[variant]}
-        alt=""
-        fill
-        className="object-cover"
-        aria-hidden="true"
-      />
-      <div className="relative z-10">{children}</div>
+      {children}
     </div>
   );
 }
