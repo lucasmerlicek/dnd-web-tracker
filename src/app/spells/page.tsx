@@ -9,35 +9,21 @@ import UIPanel from "@/components/ui/UIPanel";
 import AmbientEffects from "@/components/ui/AmbientEffects";
 import DiceResultOverlay from "@/components/ui/DiceResultOverlay";
 import { useState } from "react";
-import type { DieSpec } from "@/types";
 import {
   SP_TO_SLOT_COST,
   slotToSpGain,
   convertSpToSlot as pureConvertSpToSlot,
   convertSlotToSp as pureConvertSlotToSp,
 } from "./sorcery-points";
-
-const COMMON_SPELL_DICE: { label: string; dice: DieSpec[]; modifier: number }[] = [
-  { label: "1d4", dice: [{ sides: 4, count: 1 }], modifier: 0 },
-  { label: "1d6", dice: [{ sides: 6, count: 1 }], modifier: 0 },
-  { label: "1d8", dice: [{ sides: 8, count: 1 }], modifier: 0 },
-  { label: "1d10", dice: [{ sides: 10, count: 1 }], modifier: 0 },
-  { label: "1d12", dice: [{ sides: 12, count: 1 }], modifier: 0 },
-  { label: "2d6", dice: [{ sides: 6, count: 2 }], modifier: 0 },
-  { label: "2d8", dice: [{ sides: 8, count: 2 }], modifier: 0 },
-  { label: "2d10", dice: [{ sides: 10, count: 2 }], modifier: 0 },
-  { label: "3d6", dice: [{ sides: 6, count: 3 }], modifier: 0 },
-  { label: "3d8", dice: [{ sides: 8, count: 3 }], modifier: 0 },
-  { label: "4d6", dice: [{ sides: 6, count: 4 }], modifier: 0 },
-  { label: "4d10", dice: [{ sides: 10, count: 4 }], modifier: 0 },
-];
+import SpellCard from "./SpellCard";
+import { SPELL_REGISTRY } from "@/data/spell-registry";
 
 export default function SpellsPage() {
   const { data: session } = useSession();
   const { data, loading, mutate } = useCharacterData();
   const { currentRoll, result, rollDice, dismiss } = useDiceRoll();
   const [warning, setWarning] = useState("");
-  const [selectedSpell, setSelectedSpell] = useState<{ name: string; level: string } | null>(null);
+  const [expandedSpell, setExpandedSpell] = useState<string | null>(null);
   const characterId = (session?.user as { characterId?: string })?.characterId ?? "madea";
 
   if (loading || !data) return <div className="flex min-h-screen items-center justify-center text-parchment/50">Loading...</div>;
@@ -48,12 +34,6 @@ export default function SpellsPage() {
   const showWarning = (msg: string) => {
     setWarning(msg);
     setTimeout(() => setWarning(""), 2000);
-  };
-
-  const castSpell = (level: string) => {
-    const current = data.currentSpellSlots[level] ?? 0;
-    if (current <= 0) { showWarning(`No ${level} slots remaining!`); return; }
-    mutate({ currentSpellSlots: { ...data.currentSpellSlots, [level]: current - 1 } });
   };
 
   const handleConvertSpToSlot = (level: string) => {
@@ -87,12 +67,8 @@ export default function SpellsPage() {
     });
   };
 
-  const togglePrepared = (spell: string) => {
-    const prepared = data.classResources.preparedSpells ?? [];
-    const auto = data.classResources.autoPreparedSpells ?? [];
-    if (auto.includes(spell)) return;
-    const updated = prepared.includes(spell) ? prepared.filter((s) => s !== spell) : [...prepared, spell];
-    mutate({ classResources: { ...data.classResources, preparedSpells: updated } });
+  const handleToggleSpell = (spellName: string) => {
+    setExpandedSpell((prev) => (prev === spellName ? null : spellName));
   };
 
   // Wizard level = total level - 1 (Fighter 1 / Wizard N)
@@ -116,29 +92,12 @@ export default function SpellsPage() {
               <div key={level} className="text-center">
                 <div className="text-xs text-parchment/50">{level}</div>
                 <div className="font-serif text-lg text-gold">{data.currentSpellSlots[level] ?? 0}/{max}</div>
-                <button onClick={() => castSpell(level)} className="mt-1 min-h-[44px] rounded bg-dark-border px-3 py-2 text-xs text-parchment hover:bg-gold-dark">Cast</button>
               </div>
             ))}
           </div>
         </UIPanel>
 
-        {/* Spell Damage Roller */}
-        <UIPanel variant="box2">
-          <h2 className="mb-3 font-serif text-sm text-gold/70">Spell Damage Roll</h2>
-          <div className="flex flex-wrap gap-2">
-            {COMMON_SPELL_DICE.map((d) => (
-              <button
-                key={d.label}
-                onClick={() => rollDice({ dice: d.dice, modifier: d.modifier, label: `Spell Damage (${d.label})` })}
-                className="min-h-[44px] rounded bg-dark-border px-4 py-2 text-sm text-parchment transition hover:bg-gold-dark"
-              >
-                {d.label}
-              </button>
-            ))}
-          </div>
-        </UIPanel>
-
-        {/* Sorcery Points Panel (Madea only) */}
+        {/* Sorcery Points Panel (Sorcerer only) */}
         {isSorcerer && (
           <UIPanel variant="fancy">
             <h2 className="mb-3 font-serif text-sm text-gold/70">Sorcery Points</h2>
@@ -160,7 +119,7 @@ export default function SpellsPage() {
           </UIPanel>
         )}
 
-        {/* Spell Preparation Panel (Ramil only) */}
+        {/* Spell Preparation Panel (Wizard only) */}
         {isWizard && (
           <UIPanel variant="fancy">
             <h2 className="mb-2 font-serif text-sm text-gold/70">
@@ -187,31 +146,21 @@ export default function SpellsPage() {
         {data.cantrips.length > 0 && (
           <UIPanel variant="box">
             <h2 className="mb-2 font-serif text-sm text-gold/70">Cantrips</h2>
-            <div className="flex flex-wrap gap-2">
+            <div className="space-y-1">
               {data.cantrips.map((c) => (
-                <button
+                <SpellCard
                   key={c}
-                  onClick={() => setSelectedSpell(selectedSpell?.name === c ? null : { name: c, level: "cantrip" })}
-                  className={`rounded px-2 py-1 text-sm transition ${selectedSpell?.name === c ? "bg-gold/20 text-gold" : "bg-dark-border text-parchment hover:bg-dark-border/80"}`}
-                >
-                  {c}
-                </button>
+                  spellName={c}
+                  spellLevel="cantrip"
+                  spellData={SPELL_REGISTRY[c]}
+                  characterData={data}
+                  isExpanded={expandedSpell === c}
+                  onToggle={() => handleToggleSpell(c)}
+                  onRollDice={rollDice}
+                  onMutate={mutate}
+                  onWarning={showWarning}
+                />
               ))}
-            </div>
-          </UIPanel>
-        )}
-
-        {/* Spell Detail View */}
-        {selectedSpell && (
-          <UIPanel variant="dark">
-            <div className="flex items-start justify-between">
-              <div>
-                <h3 className="font-serif text-base text-gold">{selectedSpell.name}</h3>
-                <p className="text-xs text-parchment/50">
-                  {selectedSpell.level === "cantrip" ? "Cantrip" : `${selectedSpell.level} Level`}
-                </p>
-              </div>
-              <button onClick={() => setSelectedSpell(null)} className="text-xs text-parchment/40 hover:text-parchment">✕</button>
             </div>
           </UIPanel>
         )}
@@ -221,34 +170,20 @@ export default function SpellsPage() {
           <UIPanel key={level} variant="box2">
             <h2 className="mb-2 font-serif text-sm text-gold/70">{level} Level</h2>
             <div className="space-y-1">
-              {spells.map((spell) => {
-                const isPrepared = (data.classResources.preparedSpells ?? []).includes(spell);
-                const isAuto = (data.classResources.autoPreparedSpells ?? []).includes(spell);
-                const isSelected = selectedSpell?.name === spell;
-                return (
-                  <div
-                    key={spell}
-                    className={`flex items-center justify-between rounded px-2 py-1 cursor-pointer transition ${isSelected ? "bg-gold/10" : "hover:bg-dark-border"}`}
-                    onClick={() => setSelectedSpell(isSelected ? null : { name: spell, level })}
-                    role="button"
-                    tabIndex={0}
-                    onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setSelectedSpell(isSelected ? null : { name: spell, level }); }}
-                  >
-                    <span className={`text-sm ${isSelected ? "text-gold" : "text-parchment/80"}`}>{spell}</span>
-                    <div className="flex items-center gap-2">
-                      {isWizard && (
-                        <button
-                          onClick={(e) => { e.stopPropagation(); togglePrepared(spell); }}
-                          disabled={isAuto}
-                          className={`text-xs ${isPrepared || isAuto ? "text-gold" : "text-parchment/30"} ${isAuto ? "cursor-default" : "hover:text-gold-light"}`}
-                        >
-                          {isAuto ? "Auto" : isPrepared ? "Prepared" : "Prepare"}
-                        </button>
-                      )}
-                    </div>
-                  </div>
-                );
-              })}
+              {spells.map((spell) => (
+                <SpellCard
+                  key={spell}
+                  spellName={spell}
+                  spellLevel={level}
+                  spellData={SPELL_REGISTRY[spell]}
+                  characterData={data}
+                  isExpanded={expandedSpell === spell}
+                  onToggle={() => handleToggleSpell(spell)}
+                  onRollDice={rollDice}
+                  onMutate={mutate}
+                  onWarning={showWarning}
+                />
+              ))}
             </div>
           </UIPanel>
         ))}
