@@ -1,7 +1,20 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
-  "/login/page": "app/login/page.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/auth/auth/[...nextauth]/route": "app/api/auth/auth/[...nextauth]/route.js",
+  "/actions/page": "app/actions/page.js",
+  "/api/character/update/route": "app/api/character/update/route.js",
+  "/api/character/get/route": "app/api/character/get/route.js",
+  "/api/markers/get/route": "app/api/markers/get/route.js",
+  "/api/markers/update/route": "app/api/markers/update/route.js",
+  "/attack/page": "app/attack/page.js",
   "/api/auth/[...nextauth]/route": "app/api/auth/[...nextauth]/route.js",
-  "/page": "app/page.js"
+  "/bag/page": "app/bag/page.js",
+  "/dashboard/page": "app/dashboard/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/login/page": "app/login/page.js",
+  "/journal/page": "app/journal/page.js",
+  "/map/page": "app/map/page.js",
+  "/page": "app/page.js",
+  "/saves/page": "app/saves/page.js",
+  "/spells/page": "app/spells/page.js"
 }
