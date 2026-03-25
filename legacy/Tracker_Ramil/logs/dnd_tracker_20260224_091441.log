@@ -1,0 +1,60 @@
+2026-02-24 09:14:41,154 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260224_091441.log
+2026-02-24 09:14:41,575 - INFO - Pygame initialized successfully
+2026-02-24 09:14:41,579 - INFO - Detected DPI: 144, Scale factor: 1.50
+2026-02-24 09:14:41,579 - INFO - Screen resolution: 1920x1080
+2026-02-24 09:14:41,579 - INFO - Work area: 1920x1008
+2026-02-24 09:14:41,579 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2026-02-24 09:14:41,579 - INFO - Creating D&D Character Tool application
+2026-02-24 09:14:43,552 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2026-02-24 09:14:43,569 - INFO - Loaded spell slots: {'1st': 4, '2nd': 2}
+2026-02-24 09:14:43,569 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 2}
+2026-02-24 09:14:43,569 - INFO - Loaded character: Ramil al-Sayif
+2026-02-24 09:14:43,569 - INFO - Weapons loaded: 3
+2026-02-24 09:14:43,569 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2026-02-24 09:14:43,569 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2026-02-24 09:14:43,569 - INFO - Adaptive Resolution Features:
+2026-02-24 09:14:43,570 - INFO -    - Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-02-24 09:14:43,570 - INFO -    - Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-02-24 09:14:43,570 - INFO -    - Press F11 to toggle fullscreen mode
+2026-02-24 09:14:43,571 - INFO -    - Press ESC to exit fullscreen
+2026-02-24 09:14:43,571 - INFO -    - Window is resizable - aspect ratio maintained automatically
+2026-02-24 09:14:43,588 - INFO - Starting application main loop
+2026-02-24 09:14:59,123 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:00,553 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:01,968 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:03,308 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:04,635 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:07,294 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:08,731 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:10,093 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:11,122 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:21,375 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:23,942 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:28,028 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:28,211 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:29,728 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:30,187 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:32,218 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:34,069 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:40,823 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:42,382 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:44,011 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:45,451 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:56,320 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:15:58,742 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:02,187 - INFO - Window resized to 1461x974 (aspect ratio maintained: 1.500:1)
+2026-02-24 09:16:13,461 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:17,864 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:19,823 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:21,281 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:23,222 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:43,268 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:47,023 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:51,145 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:51,344 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:53,201 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:16:54,112 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:17:05,557 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:17:40,947 - INFO - Character data saved successfully (23 characters)
+2026-02-24 09:17:46,952 - INFO - Window resized to 1461x974 (aspect ratio maintained: 1.500:1)
+2026-02-24 09:18:20,041 - INFO - Character data saved successfully (23 characters)

@@ -1,0 +1,47 @@
+2025-08-14 18:43:55,488 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20250814_184355.log
+2025-08-14 18:43:55,919 - INFO - Pygame initialized successfully
+2025-08-14 18:43:55,924 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-08-14 18:43:55,925 - INFO - Screen resolution: 1920x1080
+2025-08-14 18:43:55,925 - INFO - Work area: 1920x1008
+2025-08-14 18:43:55,926 - INFO - Adaptive window size: 1152x768 (aspect ratio: 1.500)
+2025-08-14 18:43:55,926 - INFO - Creating D&D Character Tool application
+2025-08-14 18:43:56,595 - INFO - Loading character data from character_data.json
+2025-08-14 18:43:56,605 - INFO - Loaded character: Barian the Broken
+2025-08-14 18:43:56,605 - INFO - Weapons loaded: 3
+2025-08-14 18:43:56,605 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-08-14 18:43:56,605 - INFO - Window initialized at 1152x768 (aspect ratio: 1.50:1)
+2025-08-14 18:43:56,607 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-08-14 18:43:56,609 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-08-14 18:43:56,609 - INFO -    • Press F11 to toggle fullscreen mode
+2025-08-14 18:43:56,609 - INFO -    • Press ESC to exit fullscreen
+2025-08-14 18:43:56,609 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-08-14 18:43:56,627 - INFO - Starting application main loop
+2025-08-14 18:44:06,451 - INFO - Window resized to 1352x901 (3:2 ratio maintained: 1.501:1)
+2025-08-14 18:44:09,162 - INFO - Window resized to 1461x974 (3:2 ratio maintained: 1.500:1)
+2025-08-14 18:44:18,651 - INFO - Barian the Broken has lost inspiration!
+2025-08-14 18:44:18,654 - INFO - Character data saved successfully to character_data.json
+2025-08-14 18:44:19,154 - INFO - Barian the Broken has gained inspiration!
+2025-08-14 18:44:19,158 - INFO - Character data saved successfully to character_data.json
+2025-08-14 18:44:19,493 - INFO - Barian the Broken has lost inspiration!
+2025-08-14 18:44:19,496 - INFO - Character data saved successfully to character_data.json
+2025-08-14 18:44:23,850 - INFO - Selected weapon: Mithril Broadsword (One-Handed)
+2025-08-14 18:44:25,768 - INFO - Attack roll: 20 (1d20: [13] + +7)
+2025-08-14 18:44:26,958 - INFO - Damage roll: 56 (8d10: [7, 10, 10, 1, 5, 8, 2, 7] + +6) slashing
+2025-08-14 18:44:38,021 - INFO - Character data saved successfully to character_data.json
+2025-08-14 18:44:41,586 - INFO - Selected action: Second Wind
+2025-08-14 18:44:42,997 - INFO - Second Wind: Healed 13 HP (rolled 13)
+2025-08-14 18:44:43,002 - INFO - Character data saved successfully to character_data.json
+2025-08-14 18:44:51,389 - INFO - Selected action: Second Wind
+2025-08-14 18:44:55,304 - INFO - Short rest: restored 3 HP. Current HP: 56/60
+2025-08-14 18:44:55,304 - INFO - - Recharged actions: Second Wind
+2025-08-14 18:44:55,304 - INFO - Short rest completed!
+2025-08-14 18:44:55,308 - INFO - Character data saved successfully to character_data.json
+2025-08-14 18:44:57,834 - INFO - Selected action: Second Wind
+2025-08-14 18:45:02,988 - INFO - Selected spell: Thunderwave
+2025-08-14 18:45:04,287 - WARNING - Thunderwave doesn't have delayed damage!
+2025-08-14 18:45:06,948 - INFO - Selected spell: Absorb Elements
+2025-08-14 18:45:08,625 - INFO - Spell damage: 4 (1d6: [4]) variable
+2025-08-14 18:45:08,625 - INFO - Used 1st level spell slot. Remaining: 0
+2025-08-14 18:45:08,628 - INFO - Character data saved successfully to character_data.json
+2025-08-14 18:45:30,887 - INFO - Character data saved successfully to character_data.json
+2025-08-14 18:45:49,448 - INFO - Character data saved successfully to character_data.json

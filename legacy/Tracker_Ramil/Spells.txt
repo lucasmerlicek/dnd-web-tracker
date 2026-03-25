@@ -1,0 +1,84 @@
+What I want:
+
+Cantrips:
+Booming Blade, Green Flame Blade, Mage Hand, Message?, True Strike?
+
+Level 1:
+Shield, Absorb Elements, Protection from Good and Evil, Sleep, Detect Magic?, Identify?, Mage Armor?, Thunderwave?
+
+
+Level 2:
+Misty Step, Shadow Blade, Vortex Warp!, Scorching Ray / Tasha's Mind Whip, Invisibility?, Web?
+
+Spellbook (3rd Lvl Wizzard):
+Level 1: 8 (6+2)
+Shield, Absorb Elements, Protection from Good and Evil, Sleep, Detect Magic, Identify, Mage Armor, Thunderwave
++ Charm person (magic initiate - Druid)
+
+Level 2: 2 (0+2)
+Misty Step, Shadow Blade
+
+Cantrips:
+Booming Blade, Green Flame Blade, Mage Hand
+
+Prepared Spells (3rd Lvl Wizzard):
+6: Shield, Absorb Elements, Sleep, Thunderwave, Misty Step, Shadow Blade, + Charm person (magic initiate - Druid)
+
+Promt:
+Ok so I have leveld up to Lvl 4 in the last session and I want to update my Character. Since my first lvl fighter dip, all concecutive lvls will be put into wizzard and the baldsinger subclass. (Lvl 1 fighter, Lvl 3 wizzard). Lets Make the relevant changes:
+HP: I get + 3 x d6 (I take the average 4)  HP die plus const modifier.
+I get wiizerd class features up to lvl 3:
+Spellcasting, Ritual Adept, Arcane recovery, Scholar
+And the bladsinger subclass with:
+TRAINING IN WAR AND SONG
+2nd-level Bladesinging feature
+You gain proficiency with light armor, and you gain
+proficiency with one type of one-handed melee
+weapon of your choice. (Does not matter since I am Fighter Lvl 1)
+You also gain proficiency in the Performance skill
+if you don't already have it.
+BLADE SONG
+2nd-level Bladesinging feature
+You can invoke an elven magic called the
+Bladesong, provided that you aren't wearing medium or heavy armor or using a shield. It graces you
+with supernatural speed, agility, and focus.
+You can use a bonus action to start the Bladesong,
+which lasts for 1 minute. It ends early if you are incapacitated, if you don medium or heavy armor or
+a shield, or if you use two hands to make an attack
+with a weapon. You can also dismiss the Bladesong
+at any time (no action required).
+While your Bladesong is active, you gain the following benefits:
+
+You gain a bonus to your AC equal to your Intelligence modifier (minimum of +1).
+• Your walking speed increases by 10 feet.
+• You have advantage on Dexterity (Acrobatics) checks.
+• You gain a bonus to any Constitution saving throw
+you make to maintain your concentration on a
+spell. The bonus equals your Intelligence modifier
+(minimum of + 1).
+You can use this feature a number of times equal
+to your proficiency bonus, and you regain all expended uses of it when you finish a long rest.
+
+I take Investigation Prof for the Scholar trait.
+
+For my Spellbook I take:
+Spellbook (3rd Lvl Wizzard):
+Level 1: 8 (6+2)
+Shield, Absorb Elements, Protection from Good and Evil, Sleep, Detect Magic, Identify, Mage Armor, Thunderwave
++ Charm person (magic initiate - Druid)
+
+Level 2: 2 (0+2)
+Misty Step, Shadow Blade
+
+Cantrips:
+Booming Blade, Green Flame Blade, Mage Hand
+
+Prepared Spells (3rd Lvl Wizzard):
+6: Shield, Absorb Elements, Sleep, Thunderwave, Misty Step, Shadow Blade, + Charm person (magic initiate - Druid)
+
+My Prof Bonus would still be +2
+
+
+Lets Adjust the @character_data.json in this respect and also add the Baldesong to the Actions submenue. On the right hand side of the actions submenue also add a Ui box which indicates how many uses of baldesong I have left (Prof bonus) simmilar to spell slots in the Spells submenue. Baldesing should have an activate button, that turns into a deactivate button when pressed. While baldesong is active, add the bonus to const saves, increase my AC and make a little ui element next to my AC (right) to show that bladesong is active.
+
+Also in my spells submeneue, add all the spells from my spellbook, but on each button (spell) add a indicator like the advantage indicator for rolls, that I can click on to prepare the spells. This should stay permanent until I click it to unprepare the spell. Add an inidcator of how many spells I have prepared (y/x) below my spell slots where x is the currently prepared spells and y is the maximum for my wizzard level. Don't forget that charm person is always prepared and does not count towards the number of prepared spells (magic initiate). 

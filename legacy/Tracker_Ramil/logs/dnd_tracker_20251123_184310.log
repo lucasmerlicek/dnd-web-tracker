@@ -1,0 +1,36 @@
+2025-11-23 18:43:10,398 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251123_184310.log
+2025-11-23 18:43:11,449 - INFO - Pygame initialized successfully
+2025-11-23 18:43:11,452 - INFO - Detected DPI: 96, Scale factor: 1.00
+2025-11-23 18:43:11,452 - INFO - Screen resolution: 1920x1080
+2025-11-23 18:43:11,453 - INFO - Work area: 1920x1032
+2025-11-23 18:43:11,453 - INFO - Adaptive window size: 1488x992 (aspect ratio: 1.500)
+2025-11-23 18:43:11,453 - INFO - Creating D&D Character Tool application
+2025-11-23 18:43:12,075 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-23 18:43:12,088 - INFO - Loaded spell slots: {'1st': 4, '2nd': 2}
+2025-11-23 18:43:12,088 - INFO - Loaded current spell slots: {'1st': 2, '2nd': 2}
+2025-11-23 18:43:12,088 - INFO - Loaded character: Ramil al-Sayif
+2025-11-23 18:43:12,088 - INFO - Weapons loaded: 3
+2025-11-23 18:43:12,089 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-23 18:43:12,089 - INFO - Window initialized at 1488x992 (aspect ratio: 1.50:1)
+2025-11-23 18:43:12,089 - INFO - Adaptive Resolution Features:
+2025-11-23 18:43:12,089 - INFO -    - Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-23 18:43:12,089 - INFO -    - Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-23 18:43:12,089 - INFO -    - Press F11 to toggle fullscreen mode
+2025-11-23 18:43:12,089 - INFO -    - Press ESC to exit fullscreen
+2025-11-23 18:43:12,089 - INFO -    - Window is resizable - aspect ratio maintained automatically
+2025-11-23 18:43:12,108 - INFO - Starting application main loop
+2025-11-23 18:43:39,235 - INFO - Bladesong activated! AC +3, speed +10 ft, ADV Acrobatics, +3 CON concentration saves.
+2025-11-23 18:43:39,241 - INFO - Character data saved successfully (15 characters)
+2025-11-23 18:43:48,702 - INFO - Mage Armor activated. Base AC set to 13 + DEX modifier.
+2025-11-23 18:43:48,715 - INFO - Character data saved successfully (15 characters)
+2025-11-23 18:43:53,449 - INFO - Selected spell: Shield
+2025-11-23 18:43:54,488 - INFO - Cast Shield - Reaction: +5 AC until start of your next turn
+2025-11-23 18:43:54,489 - INFO - Shield spell activated - AC increased to 24
+2025-11-23 18:43:54,489 - INFO - Used 1st level spell slot. Remaining: 1
+2025-11-23 18:43:54,492 - INFO - Character data saved successfully (15 characters)
+2025-11-23 18:45:43,306 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2025-11-23 18:45:47,216 - INFO - Selected weapon: Shortsword (Vex Mastery)
+2025-11-23 21:34:15,428 - INFO - Character data saved successfully (15 characters)
+2025-11-23 21:35:50,093 - INFO - Character data saved successfully (15 characters)
+2025-11-23 22:27:38,022 - INFO - Character data saved successfully (15 characters)
+2025-11-23 22:27:41,352 - INFO - Character data saved successfully (15 characters)

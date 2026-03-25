@@ -1,0 +1,26 @@
+2025-11-08 12:39:56,710 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251108_123956.log
+2025-11-08 12:39:56,868 - INFO - Pygame initialized successfully
+2025-11-08 12:39:56,870 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-08 12:39:56,870 - INFO - Screen resolution: 1920x1080
+2025-11-08 12:39:56,870 - INFO - Work area: 1920x1008
+2025-11-08 12:39:56,870 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2025-11-08 12:39:56,872 - INFO - Creating D&D Character Tool application
+2025-11-08 12:39:57,401 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-08 12:39:57,404 - INFO - Loaded spell slots: {}
+2025-11-08 12:39:57,404 - INFO - Loaded current spell slots: {}
+2025-11-08 12:39:57,404 - INFO - Loaded character: Ramil al-Sayif
+2025-11-08 12:39:57,404 - INFO - Weapons loaded: 3
+2025-11-08 12:39:57,405 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-08 12:39:57,405 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2025-11-08 12:39:57,407 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-08 12:39:57,407 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-08 12:39:57,407 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-08 12:39:57,407 - INFO -    • Press ESC to exit fullscreen
+2025-11-08 12:39:57,407 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-08 12:39:57,425 - INFO - Starting application main loop
+2025-11-08 12:40:07,540 - INFO - Character data saved successfully (13 characters)
+2025-11-08 12:40:15,383 - INFO - Window resized to 1575x1050 (aspect ratio maintained: 1.500:1)
+2025-11-08 12:41:16,952 - INFO - Selected spell: Guidance
+2025-11-08 12:41:18,539 - INFO - Cast Guidance - Touch one creature. Once before spell ends, target can roll d4 
+and add to one ability check of its choice
+2025-11-08 12:43:41,553 - INFO - Character data saved successfully (13 characters)

@@ -1,0 +1,233 @@
+2025-10-10 20:14:50,840 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251010_201450.log
+2025-10-10 20:14:51,072 - INFO - Pygame initialized successfully
+2025-10-10 20:14:51,075 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-10-10 20:14:51,076 - INFO - Screen resolution: 1920x1080
+2025-10-10 20:14:51,076 - INFO - Work area: 1920x1008
+2025-10-10 20:14:51,076 - INFO - Adaptive window size: 1152x768 (aspect ratio: 1.500)
+2025-10-10 20:14:51,076 - INFO - Creating D&D Character Tool application
+2025-10-10 20:14:51,828 - INFO - Loading character data from character_data.json
+2025-10-10 20:14:51,842 - INFO - Loaded character: Barian the Broken
+2025-10-10 20:14:51,842 - INFO - Weapons loaded: 3
+2025-10-10 20:14:51,842 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-10-10 20:14:51,843 - INFO - Window initialized at 1152x768 (aspect ratio: 1.50:1)
+2025-10-10 20:14:51,844 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-10-10 20:14:51,844 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-10-10 20:14:51,844 - INFO -    • Press F11 to toggle fullscreen mode
+2025-10-10 20:14:51,844 - INFO -    • Press ESC to exit fullscreen
+2025-10-10 20:14:51,844 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-10-10 20:14:51,849 - INFO - Starting application main loop
+2025-10-10 20:14:53,832 - INFO - Window resized to 1441x961 (3:2 ratio maintained: 1.499:1)
+2025-10-10 20:18:26,325 - INFO - Selected spell: Misty Step
+2025-10-10 20:18:28,127 - INFO - Cast Misty Step - Bonus action: teleport up to 30 feet
+2025-10-10 20:18:28,127 - INFO - Used 2nd level spell slot. Remaining: 1
+2025-10-10 20:18:28,128 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:18:29,221 - INFO - Cast Misty Step - Bonus action: teleport up to 30 feet
+2025-10-10 20:18:29,222 - INFO - Used 2nd level spell slot. Remaining: 0
+2025-10-10 20:18:29,224 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:18:33,465 - INFO - Long rest completed!
+2025-10-10 20:18:33,467 - INFO - - Restored 0 HP to full (84)
+2025-10-10 20:18:33,467 - INFO - - Restored all spell slots
+2025-10-10 20:18:33,469 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:18:33,978 - INFO - Long rest completed!
+2025-10-10 20:18:33,979 - INFO - - Restored 0 HP to full (84)
+2025-10-10 20:18:33,979 - INFO - - Restored all spell slots
+2025-10-10 20:18:33,982 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:18:34,760 - INFO - Long rest completed!
+2025-10-10 20:18:34,760 - INFO - - Restored 0 HP to full (84)
+2025-10-10 20:18:34,760 - INFO - - Restored all spell slots
+2025-10-10 20:18:34,762 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:18:36,356 - INFO - Long rest completed!
+2025-10-10 20:18:36,356 - INFO - - Restored 0 HP to full (84)
+2025-10-10 20:18:36,356 - INFO - - Restored all spell slots
+2025-10-10 20:18:36,358 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:19:52,506 - INFO - Selected spell: Warding Wind
+2025-10-10 20:20:24,047 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:26,246 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:27,835 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:28,037 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:28,386 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:28,712 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:28,983 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:29,298 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:29,438 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:29,578 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:29,963 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:30,310 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:30,910 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:31,182 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:31,292 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:31,857 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:32,513 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:32,634 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:32,944 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:33,294 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:34,014 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:34,650 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:34,788 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:35,030 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:35,363 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:35,579 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:35,675 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:36,195 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:36,896 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:37,445 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:37,605 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:37,784 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:38,593 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:38,956 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:39,216 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:40,298 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:40,498 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:40,682 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:40,898 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:41,398 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:20:41,529 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:03,177 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:04,296 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:04,452 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:07,043 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:07,194 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:07,353 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:07,508 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:08,433 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:08,604 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:10,853 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:21:11,111 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:23:19,976 - INFO - Character data saved successfully to character_data.json
+2025-10-10 20:37:37,537 - INFO - Selected weapon: Mithril Versitlie (One-Handed)
+2025-10-10 20:37:42,223 - INFO - Attack roll: 23 (1d20: [14] + +9)
+2025-10-10 20:37:48,554 - INFO - Attack roll: 14 (1d20: [5] + +9)
+2025-10-10 20:44:04,499 - INFO - Selected spell: Misty Step
+2025-10-10 20:53:23,441 - INFO - Selected spell: Absorb Elements
+2025-10-10 21:00:29,296 - INFO - Character data saved successfully to character_data.json
+2025-10-10 21:02:27,297 - INFO - Character data saved successfully to character_data.json
+2025-10-10 21:10:03,334 - INFO - Selected spell: Misty Step
+2025-10-10 21:37:12,863 - INFO - Selected spell: Shatter
+2025-10-10 21:48:26,838 - INFO - Character data saved successfully to character_data.json
+2025-10-10 21:52:15,808 - INFO - Barian the Broken has lost inspiration!
+2025-10-10 21:52:15,811 - INFO - Character data saved successfully to character_data.json
+2025-10-10 21:52:17,315 - INFO - Barian the Broken has gained inspiration!
+2025-10-10 21:52:17,318 - INFO - Character data saved successfully to character_data.json
+2025-10-10 21:54:53,647 - INFO - Selected spell: Shatter
+2025-10-10 21:56:57,768 - INFO - Selected spell: Shatter
+2025-10-10 21:56:59,182 - INFO - Spell damage: 18 (3d8: [8, 7, 3]) thunder
+2025-10-10 21:56:59,182 - INFO - Used 2nd level spell slot. Remaining: 1
+2025-10-10 21:56:59,185 - INFO - Character data saved successfully to character_data.json
+2025-10-10 21:59:46,384 - INFO - Selected spell: Booming Blade
+2025-10-10 21:59:52,899 - INFO - Casting Booming Blade - switching to attack menu for weapon attack!
+2025-10-10 22:00:01,341 - INFO - Selected weapon: Mithril Versitlie (One-Handed)
+2025-10-10 22:00:03,557 - INFO - Attack roll: 22 (1d20: [13] + +9)
+2025-10-10 22:00:48,141 - INFO - Damage roll: 63 (8d10: [9, 8, 3, 9, 6, 9, 9, 3] + +7) slashing
+2025-10-10 22:01:02,155 - INFO - Selected spell: Booming Blade
+2025-10-10 22:01:03,164 - INFO - Booming Blade delayed damage: 8 (1d8: [8]) thunder
+2025-10-10 22:01:03,164 - INFO - Trigger: Target takes thunder damage if it moves
+2025-10-10 22:13:25,837 - INFO - Selected spell: Shield
+2025-10-10 22:13:33,963 - INFO - Cast Shield - Reaction: +5 AC until start of your next turn
+2025-10-10 22:13:33,963 - INFO - Shield spell activated - AC increased to 24
+2025-10-10 22:13:33,964 - INFO - Used 1st level spell slot. Remaining: 3
+2025-10-10 22:13:33,966 - INFO - Character data saved successfully to character_data.json
+2025-10-10 22:13:38,510 - INFO - Cast Shield - Reaction: +5 AC until start of your next turn
+2025-10-10 22:13:38,511 - INFO - Shield spell activated - AC increased to 24
+2025-10-10 22:13:38,511 - INFO - Used 1st level spell slot. Remaining: 2
+2025-10-10 22:13:38,514 - INFO - Character data saved successfully to character_data.json
+2025-10-10 22:13:57,390 - INFO - Window resized to 1461x974 (3:2 ratio maintained: 1.500:1)
+2025-10-10 22:14:38,008 - INFO - Long rest completed!
+2025-10-10 22:14:38,009 - INFO - - Restored 0 HP to full (84)
+2025-10-10 22:14:38,009 - INFO - - Restored all spell slots
+2025-10-10 22:14:38,011 - INFO - Character data saved successfully to character_data.json
+2025-10-10 22:14:41,210 - INFO - Selected spell: Shield
+2025-10-10 22:14:42,900 - INFO - Cast Shield - Reaction: +5 AC until start of your next turn
+2025-10-10 22:14:42,900 - INFO - Shield spell activated - AC increased to 24
+2025-10-10 22:14:42,900 - INFO - Used 1st level spell slot. Remaining: 3
+2025-10-10 22:14:42,902 - INFO - Character data saved successfully to character_data.json
+2025-10-10 22:14:47,980 - INFO - Selected spell: Misty Step
+2025-10-10 22:28:15,601 - INFO - Selected weapon: Mithril Versitlie (One-Handed)
+2025-10-10 22:28:17,253 - INFO - Attack roll: 10 (1d20: [1] + +9)
+2025-10-10 22:28:43,049 - INFO - Attack roll: 21 (1d20: [12] + +9)
+2025-10-10 22:28:46,677 - INFO - Attack roll: 27 (1d20: [18] + +9)
+2025-10-10 22:28:55,249 - INFO - Damage roll: 53 (8d10: [1, 7, 8, 10, 8, 1, 2, 9] + +7) slashing
+2025-10-10 22:29:10,229 - INFO - Attack roll: 18 (1d20: [9] + +9)
+2025-10-10 22:29:22,307 - INFO - Attack roll: 24 (1d20: [15] + +9)
+2025-10-10 22:29:35,287 - INFO - Damage roll: 60 (8d10: [5, 9, 10, 3, 4, 5, 8, 9] + +7) slashing
+2025-10-10 22:30:28,827 - INFO - Selected spell: Shield
+2025-10-10 22:30:32,883 - INFO - Shield spell ended - AC returned to 19
+2025-10-10 22:30:32,886 - INFO - Character data saved successfully to character_data.json
+2025-10-10 22:34:02,945 - INFO - Selected spell: Shield
+2025-10-10 22:34:04,693 - INFO - Cast Shield - Reaction: +5 AC until start of your next turn
+2025-10-10 22:34:04,693 - INFO - Shield spell activated - AC increased to 24
+2025-10-10 22:34:04,695 - INFO - Used 1st level spell slot. Remaining: 2
+2025-10-10 22:34:04,697 - INFO - Character data saved successfully to character_data.json
+2025-10-10 22:34:39,394 - INFO - Selected spell: Shield
+2025-10-10 22:35:30,745 - WARNING - Invalid HP input: '-'. Use numbers like +5, -3, or 10
+2025-10-10 22:35:36,746 - WARNING - Invalid HP input: '-'. Use numbers like +5, -3, or 10
+2025-10-10 22:37:21,216 - WARNING - Invalid HP input: '-'. Use numbers like +5, -3, or 10
+2025-10-10 22:37:25,411 - WARNING - Invalid HP input: '-'. Use numbers like +5, -3, or 10
+2025-10-10 22:42:15,461 - INFO - Character data saved successfully to character_data.json
+2025-10-10 22:42:22,979 - INFO - Character data saved successfully to character_data.json
+2025-10-10 22:55:21,359 - INFO - Selected weapon: Mithril Versitlie (One-Handed)
+2025-10-10 22:55:26,553 - INFO - Attack roll: 17 (1d20: [8] + +9)
+2025-10-10 22:55:27,468 - INFO - Attack roll: 13 (1d20: [4] + +9)
+2025-10-10 23:07:49,318 - INFO - Shield spell ended - AC returned to 19
+2025-10-10 23:07:49,323 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:10:49,820 - INFO - Shield is not currently active - cast Shield spell to activate it
+2025-10-10 23:10:56,793 - INFO - Selected spell: Shield
+2025-10-10 23:10:58,011 - INFO - Cast Shield - Reaction: +5 AC until start of your next turn
+2025-10-10 23:10:58,011 - INFO - Shield spell activated - AC increased to 24
+2025-10-10 23:10:58,011 - INFO - Used 1st level spell slot. Remaining: 1
+2025-10-10 23:10:58,015 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:11:19,015 - INFO - Selected weapon: Mithril Versitlie (One-Handed)
+2025-10-10 23:11:20,740 - INFO - Attack roll: 16 (1d20: [7] + +9)
+2025-10-10 23:11:39,502 - INFO - Attack roll: 19 (1d20: [10] + +9)
+2025-10-10 23:11:40,314 - INFO - Attack roll: 24 (1d20: [15] + +9)
+2025-10-10 23:11:48,150 - INFO - Damage roll: 47 (8d10: [3, 1, 8, 5, 6, 1, 6, 10] + +7) slashing
+2025-10-10 23:13:38,330 - INFO - Attack roll: 13 (1d20: [4] + +9)
+2025-10-10 23:13:38,693 - INFO - Attack roll: 15 (1d20: [6] + +9)
+2025-10-10 23:13:50,374 - INFO - Attack roll: 12 (1d20: [3] + +9)
+2025-10-10 23:13:50,805 - INFO - Attack roll: 11 (1d20: [2] + +9)
+2025-10-10 23:13:52,575 - INFO - Attack roll: 21 (1d20: [12] + +9)
+2025-10-10 23:13:52,951 - INFO - Attack roll: 11 (1d20: [2] + +9)
+2025-10-10 23:19:54,200 - INFO - Selected save: DEX
+2025-10-10 23:19:56,146 - INFO - Selected save: CON
+2025-10-10 23:19:57,599 - INFO - Constitution save: 18 (1d20: [16] + +2)
+2025-10-10 23:21:24,500 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:21:29,734 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:21:34,963 - INFO - Selected action: Second Wind
+2025-10-10 23:24:32,825 - INFO - Selected save: CON
+2025-10-10 23:24:44,003 - INFO - Selected save: CON
+2025-10-10 23:24:47,220 - INFO - Constitution save: 21 (1d20: [19] + +2)
+2025-10-10 23:39:05,344 - INFO - Shield spell ended - AC returned to 19
+2025-10-10 23:39:05,347 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:41:02,730 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:42:29,876 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:44:26,623 - INFO - Selected spell: Absorb Elements
+2025-10-10 23:45:06,487 - INFO - Window resized to 1461x974 (3:2 ratio maintained: 1.500:1)
+2025-10-10 23:45:13,568 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:45:47,043 - INFO - Selected save: WIS
+2025-10-10 23:45:48,965 - INFO - Wisdom save: 18 (1d20: [18] + +0)
+2025-10-10 23:46:15,455 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:46:50,138 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:52:27,046 - INFO - Selected action: Second Wind
+2025-10-10 23:52:31,910 - INFO - Second Wind: Healed 12 HP (rolled 12)
+2025-10-10 23:52:31,914 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:52:44,165 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:55:07,651 - INFO - Selected spell: Shield
+2025-10-10 23:55:48,812 - INFO - Shield is not currently active - cast Shield spell to activate it
+2025-10-10 23:55:56,503 - INFO - Selected spell: Shield
+2025-10-10 23:55:57,858 - INFO - Cast Shield - Reaction: +5 AC until start of your next turn
+2025-10-10 23:55:57,858 - INFO - Shield spell activated - AC increased to 24
+2025-10-10 23:55:57,859 - INFO - Used 1st level spell slot. Remaining: 0
+2025-10-10 23:55:57,861 - INFO - Character data saved successfully to character_data.json
+2025-10-10 23:57:03,779 - INFO - Character data saved successfully to character_data.json
+2025-10-11 00:02:10,105 - INFO - Selected spell: Misty Step
+2025-10-11 00:02:12,260 - INFO - Cast Misty Step - Bonus action: teleport up to 30 feet
+2025-10-11 00:02:12,262 - INFO - Used 2nd level spell slot. Remaining: 1
+2025-10-11 00:02:12,264 - INFO - Character data saved successfully to character_data.json
+2025-10-11 00:06:53,644 - INFO - Selected action: Action Surge
+2025-10-11 00:06:55,286 - INFO - Selected action: Indomitable
+2025-10-11 00:06:56,408 - INFO - Selected action: Action Surge
+2025-10-11 00:06:57,366 - INFO - Selected action: Second Wind
+2025-10-11 00:08:05,094 - INFO - Selected action: Action Surge
+2025-10-11 00:08:23,187 - INFO - Selected action: Indomitable
+2025-10-11 00:08:24,247 - INFO - Selected action: Action Surge
+2025-10-11 16:21:32,211 - INFO - Window resized to 1461x974 (3:2 ratio maintained: 1.500:1)
+2025-10-11 17:14:16,176 - INFO - Character data saved successfully to character_data.json

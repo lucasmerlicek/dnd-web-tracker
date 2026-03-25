@@ -1,0 +1,72 @@
+2025-11-09 16:06:51,914 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251109_160651.log
+2025-11-09 16:06:52,154 - INFO - Pygame initialized successfully
+2025-11-09 16:06:52,156 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-09 16:06:52,156 - INFO - Screen resolution: 1920x1080
+2025-11-09 16:06:52,156 - INFO - Work area: 1920x1008
+2025-11-09 16:06:52,156 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2025-11-09 16:06:52,156 - INFO - Creating D&D Character Tool application
+2025-11-09 16:06:52,718 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-09 16:06:52,728 - INFO - Loaded spell slots: {}
+2025-11-09 16:06:52,728 - INFO - Loaded current spell slots: {}
+2025-11-09 16:06:52,728 - INFO - Loaded character: Ramil al-Sayif
+2025-11-09 16:06:52,728 - INFO - Weapons loaded: 3
+2025-11-09 16:06:52,728 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-09 16:06:52,728 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2025-11-09 16:06:52,730 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-09 16:06:52,730 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-09 16:06:52,730 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-09 16:06:52,731 - INFO -    • Press ESC to exit fullscreen
+2025-11-09 16:06:52,731 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-09 16:06:52,749 - INFO - Starting application main loop
+2025-11-09 16:07:00,461 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:03,069 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:05,886 - INFO - Selected place: Valerian
+2025-11-09 16:07:07,979 - INFO - Renamed place to: Valeria
+2025-11-09 16:07:07,982 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:11,634 - INFO - Renamed place to: Valerian
+2025-11-09 16:07:11,645 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:13,020 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:15,408 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:16,136 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:16,828 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:22,666 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:24,264 - INFO - Selected place: Valerian
+2025-11-09 16:07:29,385 - INFO - Renamed place to: Blutquell
+2025-11-09 16:07:29,389 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:46,593 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:47,343 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:07:51,377 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:12,208 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:14,001 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:17,578 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:18,352 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:22,631 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:24,305 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:24,790 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:24,847 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:27,291 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:28,112 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:30,046 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:33,005 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:33,394 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:34,282 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:34,409 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:35,384 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:36,159 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:37,661 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:37,889 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:40,263 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:40,471 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:40,678 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:43,483 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:44,016 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:44,694 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:44,759 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:47,948 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:54,042 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:57,208 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:08:57,972 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:09:01,673 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:09:02,504 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:09:04,335 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:09:07,259 - INFO - Character data saved successfully (5 characters)

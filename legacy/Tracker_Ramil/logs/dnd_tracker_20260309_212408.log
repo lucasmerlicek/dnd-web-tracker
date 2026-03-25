@@ -1,0 +1,81 @@
+2026-03-09 21:24:08,974 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260309_212408.log
+2026-03-09 21:24:09,161 - INFO - Pygame initialized successfully
+2026-03-09 21:24:09,164 - INFO - Detected DPI: 96, Scale factor: 1.00
+2026-03-09 21:24:09,165 - INFO - Screen resolution: 2048x1152
+2026-03-09 21:24:09,165 - INFO - Work area: 2048x1104
+2026-03-09 21:24:09,165 - INFO - Adaptive window size: 1536x1024 (aspect ratio: 1.500)
+2026-03-09 21:24:09,165 - INFO - Creating D&D Character Tool application
+2026-03-09 21:24:09,709 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2026-03-09 21:24:10,030 - INFO - Loaded spell slots: {'1st': 4, '2nd': 2}
+2026-03-09 21:24:10,030 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 2}
+2026-03-09 21:24:10,030 - INFO - Loaded character: Ramil al-Sayif
+2026-03-09 21:24:10,030 - INFO - Weapons loaded: 3
+2026-03-09 21:24:10,030 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2026-03-09 21:24:10,031 - INFO - Window initialized at 1536x1024 (aspect ratio: 1.50:1)
+2026-03-09 21:24:10,031 - INFO - Adaptive Resolution Features:
+2026-03-09 21:24:10,031 - INFO -    - Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-03-09 21:24:10,031 - INFO -    - Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-03-09 21:24:10,031 - INFO -    - Press F11 to toggle fullscreen mode
+2026-03-09 21:24:10,031 - INFO -    - Press ESC to exit fullscreen
+2026-03-09 21:24:10,031 - INFO -    - Window is resizable - aspect ratio maintained automatically
+2026-03-09 21:24:10,044 - INFO - Starting application main loop
+2026-03-09 22:09:29,604 - INFO - Selected spell: Mage Hand
+2026-03-09 22:09:34,632 - INFO - Selected spell: Mage Hand
+2026-03-09 22:09:34,730 - INFO - Selected spell: Shield
+2026-03-09 22:09:34,741 - INFO - Selected spell: Shield
+2026-03-09 22:09:34,841 - INFO - Selected spell: Mage Armor
+2026-03-09 22:09:34,943 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:35,323 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:35,429 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:35,439 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:35,449 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:35,461 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:35,561 - INFO - Selected spell: Mage Armor
+2026-03-09 22:09:35,916 - INFO - Selected spell: Shield
+2026-03-09 22:09:36,013 - INFO - Selected spell: Mage Hand
+2026-03-09 22:09:36,024 - INFO - Selected spell: Mage Hand
+2026-03-09 22:09:36,119 - INFO - Selected spell: Mage Hand
+2026-03-09 22:09:36,776 - INFO - Selected spell: Mage Hand
+2026-03-09 22:09:36,786 - INFO - Selected spell: Mage Hand
+2026-03-09 22:09:36,884 - INFO - Selected spell: Shield
+2026-03-09 22:09:37,835 - INFO - Selected spell: Mage Armor
+2026-03-09 22:09:38,648 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:39,210 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:39,221 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:39,323 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:40,408 - INFO - Selected spell: Misty Step
+2026-03-09 22:09:41,578 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:45,980 - INFO - Selected spell: Mage Armor
+2026-03-09 22:09:45,990 - INFO - Selected spell: Mage Armor
+2026-03-09 22:09:45,999 - INFO - Selected spell: Mage Armor
+2026-03-09 22:09:46,116 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:46,126 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:46,137 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:46,147 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:46,741 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:46,751 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:46,761 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:46,867 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:46,878 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:46,887 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:46,898 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:47,018 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:47,551 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:47,563 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:47,572 - INFO - Selected spell: Ice Knife
+2026-03-09 22:09:47,677 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:47,687 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:47,698 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:47,800 - INFO - Selected spell: Mage Armor
+2026-03-09 22:09:49,275 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:56,669 - INFO - Selected spell: Burning Hands
+2026-03-09 22:09:57,470 - INFO - Selected spell: Ice Knife
+2026-03-09 22:10:01,201 - INFO - Selected spell: Misty Step
+2026-03-09 22:10:02,521 - INFO - Selected spell: Misty Step
+2026-03-09 22:10:03,192 - INFO - Selected spell: Shadow Blade
+2026-03-09 22:10:15,973 - INFO - Selected spell: Shadow Blade
+2026-03-09 22:10:17,899 - INFO - Selected spell: Charm Person
+2026-03-09 22:10:35,201 - INFO - Selected spell: Shadow Blade
+2026-03-09 22:10:35,312 - INFO - Selected spell: Shadow Blade
+2026-03-09 22:10:35,422 - INFO - Selected spell: Shadow Blade
+2026-03-09 22:48:26,246 - INFO - Character data saved successfully (23 characters)

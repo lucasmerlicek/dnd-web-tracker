@@ -1,0 +1,105 @@
+Ramil al-Sayif – Level 1 Fighter
+================================
+
+Player: Lucas Merlicek
+Race: Human
+Class & Level: Fighter 1
+Background: Sage (legacy)
+Alignment: Neutral Good
+Experience Points: 0
+Inspiration: 2
+
+--------------------------------
+ABILITY SCORES
+--------------------------------
+Strength: 8  (−1)   | Save: +1
+Dexterity: 16 (+3)  | Save: +3
+Constitution: 14 (+2) | Save: +4
+Intelligence: 16 (+3) | Save: +3
+Wisdom: 12 (+1)     | Save: +0
+Charisma: 8 (−1)    | Save: −1
+
+Proficiency Bonus: +2
+Passive Perception: 13
+
+--------------------------------
+COMBAT
+--------------------------------
+Armor Class: 15 (Studded Leather Armor)
+Initiative: +3
+Speed: 30 ft
+Hit Points: 12 (Max 12 / Current 12 / Temp 0)
+Hit Dice: 1d10
+
+Fighting Style: Two-Weapon Fighting
+  → Add Dexterity modifier to damage of off-hand attack.
+Second Wind: 1d10 + 1 HP as a Bonus Action (1x per short/long rest)
+
+--------------------------------
+WEAPONS & MASTERY
+--------------------------------
+Weapon Masteries: Scimitar (Nick), Shortsword (Vex), Rapier (Vex)
+
+• Scimitar  | +5 to hit | 1d6 + 3 slashing | Finesse, Light
+• Shortsword | +5 to hit | 1d6 + 3 piercing | Finesse, Light
+• Rapier | +5 to hit | 1d8 + 3 piercing | Finesse
+
+Two-Weapon Fighting Routine:
+  - Attack with one (vex) Light weapon (main hand)
+  - Make an attack with the other (Nick) Light weapon in the same action (no BA) (off-hand)
+  - Add Dex modifier to both attacks' damage due to Fighting Style.
+
+--------------------------------
+SKILLS
+--------------------------------
+Acrobatics: +3
+Animal Handling: +1
+Arcana: +5
+Athletics: −1
+Deception: −1
+History: +5
+Insight: +3
+Intimidation: −1
+Investigation: +3
+Medicine: +0
+Nature: +3
+Perception: +3
+Performance: −1
+Persuasion: +1
+Religion: +3
+Sleight of Hand: +3
+Stealth: +3
+Survival: +1
+
+--------------------------------
+FEATURES & TRAITS
+--------------------------------
+Human Traits:
+• Lucky (reroll 1s on attacks, saves, or checks once per LR)
+• Insightful (gain Inspiration after each long rest)
+• ASI: +2 Dexterity, +1 Intelligence
+
+Background (Sage - legacy):
+• Skills: Arcana, History
+• Feat: Druid Initiate (cantrips: Guidance, Mending; 1st-level spell: Charm Person)
+• Languages: Common
+
+Fighter Features:
+• Two-Weapon Fighting Style
+• Second Wind
+
+--------------------------------
+EQUIPMENT
+--------------------------------
+• Studded Leather Armor
+• Scimitar
+• Shortsword
+• Dungeoneer’s Pack
+• 1 GP
+- 52 SP
+- 73 CP
+
+--------------------------------
+NOTES
+--------------------------------
+Ramil al-Sayif is a learned swordsman and scholar who blends precision and intellect in battle.

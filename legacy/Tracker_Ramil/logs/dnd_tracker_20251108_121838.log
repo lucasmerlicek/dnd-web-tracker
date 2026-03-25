@@ -1,0 +1,128 @@
+2025-11-08 12:18:38,776 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251108_121838.log
+2025-11-08 12:18:38,916 - INFO - Pygame initialized successfully
+2025-11-08 12:18:38,918 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-08 12:18:38,918 - INFO - Screen resolution: 1920x1080
+2025-11-08 12:18:38,918 - INFO - Work area: 1920x1008
+2025-11-08 12:18:38,919 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2025-11-08 12:18:38,919 - INFO - Creating D&D Character Tool application
+2025-11-08 12:18:39,433 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-08 12:18:39,444 - INFO - Loaded spell slots: {}
+2025-11-08 12:18:39,445 - INFO - Loaded current spell slots: {}
+2025-11-08 12:18:39,445 - INFO - Loaded character: Ramil al-Sayif
+2025-11-08 12:18:39,445 - INFO - Weapons loaded: 3
+2025-11-08 12:18:39,445 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-08 12:18:39,446 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2025-11-08 12:18:39,447 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-08 12:18:39,449 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-08 12:18:39,449 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-08 12:18:39,449 - INFO -    • Press ESC to exit fullscreen
+2025-11-08 12:18:39,449 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-08 12:18:39,468 - INFO - Starting application main loop
+2025-11-08 12:18:49,152 - INFO - Selected character: [P] Reyden
+2025-11-08 12:18:51,315 - INFO - Character data saved successfully (6 characters)
+2025-11-08 12:18:52,337 - INFO - Character data saved successfully (6 characters)
+2025-11-08 12:18:53,453 - INFO - Character data saved successfully (6 characters)
+2025-11-08 12:18:54,342 - INFO - Character data saved successfully (6 characters)
+2025-11-08 12:19:03,569 - INFO - Fullscreen resolution: 1920x1080 (scale: 1.50)
+2025-11-08 12:19:03,597 - INFO - Switched to fullscreen mode (1920x1080)
+2025-11-08 12:19:15,559 - INFO - Character data saved successfully (6 characters)
+2025-11-08 12:19:25,054 - INFO - Selected spell: Mending
+2025-11-08 12:19:47,551 - INFO - Switched to windowed mode (1305x870, aspect ratio: 1.500:1)
+2025-11-08 12:19:49,182 - INFO - Window resized to 1305x870 (aspect ratio maintained: 1.500:1)
+2025-11-08 12:19:52,498 - INFO - Window resized to 1854x1236 (aspect ratio maintained: 1.500:1)
+2025-11-08 12:20:17,640 - INFO - Deleted character: Character 6
+2025-11-08 12:20:17,645 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:41,220 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:41,384 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:41,841 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:42,011 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:42,329 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:42,432 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:43,005 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:43,219 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:43,378 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:43,491 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:43,639 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:43,787 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:43,889 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:44,028 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:44,162 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:44,264 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:44,393 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:44,705 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:44,709 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:44,775 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:45,004 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:45,329 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:45,565 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:45,690 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:45,819 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:45,952 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:46,088 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:46,462 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:46,770 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:46,807 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:46,810 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:46,849 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:46,983 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:47,021 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:47,024 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:47,318 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:47,481 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:20:47,639 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:00,494 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:00,655 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:00,780 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:01,300 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:01,367 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:01,435 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:01,508 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:01,578 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:01,649 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:01,718 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:01,801 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:01,874 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:01,941 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,008 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,078 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,162 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,244 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,320 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,393 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,469 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,543 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,616 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,690 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,760 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,832 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,904 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:02,975 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:03,046 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:03,498 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:03,651 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:03,774 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:03,837 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:21:10,753 - INFO - Character data saved successfully (6 characters)
+2025-11-08 12:21:10,753 - INFO - Created new character: Character 6
+2025-11-08 12:21:11,299 - INFO - Character data saved successfully (7 characters)
+2025-11-08 12:21:11,299 - INFO - Created new character: Character 7
+2025-11-08 12:21:11,879 - INFO - Character data saved successfully (8 characters)
+2025-11-08 12:21:11,880 - INFO - Created new character: Character 8
+2025-11-08 12:21:12,317 - INFO - Character data saved successfully (9 characters)
+2025-11-08 12:21:12,318 - INFO - Created new character: Character 9
+2025-11-08 12:21:12,824 - INFO - Character data saved successfully (10 characters)
+2025-11-08 12:21:12,824 - INFO - Created new character: Character 10
+2025-11-08 12:21:13,381 - INFO - Character data saved successfully (11 characters)
+2025-11-08 12:21:13,381 - INFO - Created new character: Character 11
+2025-11-08 12:21:14,514 - INFO - Character data saved successfully (12 characters)
+2025-11-08 12:21:14,515 - INFO - Created new character: Character 12
+2025-11-08 12:21:15,140 - INFO - Character data saved successfully (13 characters)
+2025-11-08 12:21:15,140 - INFO - Created new character: Character 13
+2025-11-08 12:21:41,603 - INFO - Character data saved successfully (13 characters)
+2025-11-08 12:22:08,013 - INFO - Selected character: [P] Reyden
+2025-11-08 12:22:08,962 - INFO - Selected character: [P] Madea Blackthorn
+2025-11-08 12:22:13,878 - INFO - Character data saved successfully (13 characters)
+2025-11-08 12:22:14,856 - INFO - Character data saved successfully (13 characters)
+2025-11-08 12:22:15,205 - INFO - Character data saved successfully (13 characters)
+2025-11-08 12:22:18,142 - INFO - Character data saved successfully (13 characters)
+2025-11-08 12:36:57,646 - INFO - Character data saved successfully (13 characters)

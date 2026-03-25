@@ -1,0 +1,35 @@
+2025-07-31 22:05:29,781 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20250731_220529.log
+2025-07-31 22:05:30,168 - INFO - Pygame initialized successfully
+2025-07-31 22:05:30,174 - INFO - Detected DPI: 96, Scale factor: 1.00
+2025-07-31 22:05:30,174 - INFO - Screen resolution: 1920x1080
+2025-07-31 22:05:30,174 - INFO - Adaptive window size: 1400x900
+2025-07-31 22:05:30,174 - INFO - Creating D&D Character Tool application
+2025-07-31 22:05:30,975 - INFO - Loading character data from character_data.json
+2025-07-31 22:05:30,984 - INFO - Loaded character: Barian the Broken
+2025-07-31 22:05:30,987 - INFO - Weapons loaded: 3
+2025-07-31 22:05:30,988 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-07-31 22:05:30,988 - INFO - Window initialized at 1400x900
+2025-07-31 22:05:30,990 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-07-31 22:05:30,990 - INFO -    • Press F11 to toggle fullscreen mode
+2025-07-31 22:05:30,990 - INFO -    • Press ESC to exit fullscreen
+2025-07-31 22:05:30,990 - INFO -    • Window is resizable - drag corners to adjust size
+2025-07-31 22:05:30,996 - INFO - Starting application main loop
+2025-07-31 22:05:35,747 - INFO - Selected spell: Booming Blade
+2025-07-31 22:05:38,173 - INFO - Selected spell: Absorb Elements
+2025-07-31 22:05:42,619 - INFO - Selected spell: Absorb Elements
+2025-07-31 22:05:43,674 - INFO - Selected spell: Thunderwave
+2025-07-31 22:05:45,109 - INFO - Selected spell: Absorb Elements
+2025-07-31 22:05:47,944 - INFO - Selected spell: Thunderwave
+2025-07-31 22:06:02,036 - INFO - Window resized to 1920x1009
+2025-07-31 22:06:10,864 - INFO - Window resized to 1400x900
+2025-07-31 22:06:20,086 - INFO - Window resized to 1262x631
+2025-07-31 22:06:23,633 - INFO - Shield is not currently active - cast Shield spell to activate it
+2025-07-31 22:06:25,925 - INFO - Window resized to 1280x649
+2025-07-31 22:06:33,671 - INFO - Window resized to 1280x649
+2025-07-31 22:06:37,098 - INFO - Window resized to 1262x631
+2025-07-31 22:06:41,207 - INFO - Window resized to 998x429
+2025-07-31 22:06:45,819 - INFO - Window resized to 998x553
+2025-07-31 22:06:52,410 - INFO - Window resized to 998x640
+2025-07-31 22:06:55,482 - INFO - Window resized to 998x640
+2025-07-31 22:06:59,690 - INFO - Window resized to 1280x649
+2025-07-31 22:07:03,553 - INFO - Character data saved successfully to character_data.json

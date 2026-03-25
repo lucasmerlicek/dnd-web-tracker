@@ -1,0 +1,32 @@
+2025-10-10 17:04:16,775 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251010_170416.log
+2025-10-10 17:04:17,232 - INFO - Pygame initialized successfully
+2025-10-10 17:04:17,237 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-10-10 17:04:17,237 - INFO - Screen resolution: 1920x1080
+2025-10-10 17:04:17,237 - INFO - Work area: 1920x1008
+2025-10-10 17:04:17,237 - INFO - Adaptive window size: 1152x768 (aspect ratio: 1.500)
+2025-10-10 17:04:17,237 - INFO - Creating D&D Character Tool application
+2025-10-10 17:04:19,133 - INFO - Loading character data from character_data.json
+2025-10-10 17:04:19,146 - INFO - Loaded character: Barian the Broken
+2025-10-10 17:04:19,146 - INFO - Weapons loaded: 3
+2025-10-10 17:04:19,146 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-10-10 17:04:19,146 - INFO - Window initialized at 1152x768 (aspect ratio: 1.50:1)
+2025-10-10 17:04:19,147 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-10-10 17:04:19,149 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-10-10 17:04:19,149 - INFO -    • Press F11 to toggle fullscreen mode
+2025-10-10 17:04:19,149 - INFO -    • Press ESC to exit fullscreen
+2025-10-10 17:04:19,149 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-10-10 17:04:19,167 - INFO - Starting application main loop
+2025-10-10 17:04:38,886 - INFO - Window resized to 1152x768 (3:2 ratio maintained: 1.500:1)
+2025-10-10 17:04:40,703 - INFO - Window resized to 1461x974 (3:2 ratio maintained: 1.500:1)
+2025-10-10 17:04:42,566 - INFO - Window resized to 1152x768 (3:2 ratio maintained: 1.500:1)
+2025-10-10 17:04:43,395 - INFO - Window resized to 1461x974 (3:2 ratio maintained: 1.500:1)
+2025-10-10 17:04:58,272 - INFO - Selected spell: Sword Burst
+2025-10-10 17:05:10,567 - INFO - Spell damage: 1 (1d6: [1]) force
+2025-10-10 17:05:24,476 - INFO - Selected spell: Shield
+2025-10-10 17:05:25,452 - INFO - Selected spell: Sword Burst
+2025-10-10 17:05:26,469 - INFO - Selected spell: Thunderwave
+2025-10-10 17:05:27,617 - INFO - Selected spell: Absorb Elements
+2025-10-10 17:05:33,617 - INFO - Selected spell: Booming Blade
+2025-10-10 17:05:36,138 - INFO - Selected spell: Sword Burst
+2025-10-10 17:05:40,058 - INFO - Spell damage: 2 (1d6: [2]) force
+2025-10-10 17:05:45,752 - INFO - Character data saved successfully to character_data.json

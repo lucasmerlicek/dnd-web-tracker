@@ -1,0 +1,362 @@
+{
+  "character_name": "Ramil al-Sayif",
+  "race": "Human",
+  "char_class": "Fighter 1 / Wizard 4 (Bladesinger)",
+  "level": 5,
+  "current_hp": 36,
+  "max_hp": 36,
+  "ac": 13,
+  "base_ac": 13,
+  "inspiration": 2,
+  "luck_points": 3,
+  "shield_active": false,
+  "proficiency_bonus": 3,
+  "bladesong_active": false,
+  "bladesong_uses_remaining": 4,
+  "bladesong_max_uses": 4,
+  "mage_armor_active": false,
+  "stats": {
+    "STR": {
+      "value": 8,
+      "modifier": -1
+    },
+    "DEX": {
+      "value": 16,
+      "modifier": 3
+    },
+    "CON": {
+      "value": 14,
+      "modifier": 2
+    },
+    "INT": {
+      "value": 18,
+      "modifier": 4
+    },
+    "WIS": {
+      "value": 12,
+      "modifier": 1
+    },
+    "CHA": {
+      "value": 8,
+      "modifier": -1
+    }
+  },
+  "skills": [
+    {
+      "name": "Acrobatics",
+      "stat": "DEX",
+      "proficient": false,
+      "modifier": 3
+    },
+    {
+      "name": "Animal Handling",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 1
+    },
+    {
+      "name": "Arcana",
+      "stat": "INT",
+      "proficient": true,
+      "modifier": 7
+    },
+    {
+      "name": "Athletics",
+      "stat": "STR",
+      "proficient": false,
+      "modifier": -1
+    },
+    {
+      "name": "Deception",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": -1
+    },
+    {
+      "name": "History",
+      "stat": "INT",
+      "proficient": true,
+      "modifier": 7
+    },
+    {
+      "name": "Insight",
+      "stat": "WIS",
+      "proficient": true,
+      "modifier": 4
+    },
+    {
+      "name": "Intimidation",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": -1
+    },
+    {
+      "name": "Investigation",
+      "stat": "INT",
+      "proficient": true,
+      "modifier": 7
+    },
+    {
+      "name": "Medicine",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 1
+    },
+    {
+      "name": "Nature",
+      "stat": "INT",
+      "proficient": false,
+      "modifier": 4
+    },
+    {
+      "name": "Perception",
+      "stat": "WIS",
+      "proficient": true,
+      "modifier": 4
+    },
+    {
+      "name": "Performance",
+      "stat": "CHA",
+      "proficient": true,
+      "modifier": 2
+    },
+    {
+      "name": "Persuasion",
+      "stat": "CHA",
+      "proficient": true,
+      "modifier": 2
+    },
+    {
+      "name": "Religion",
+      "stat": "INT",
+      "proficient": false,
+      "modifier": 4
+    },
+    {
+      "name": "Sleight of Hand",
+      "stat": "DEX",
+      "proficient": false,
+      "modifier": 3
+    },
+    {
+      "name": "Stealth",
+      "stat": "DEX",
+      "proficient": false,
+      "modifier": 3
+    },
+    {
+      "name": "Survival",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 1
+    }
+  ],
+  "feats_traits": [
+    "Human Traits: Lucky (reroll 1s once per LR), Insightful (+1 Inspiration per LR)",
+    "Human ASI: +2 Dexterity, +1 Intelligence",
+    "Background: Sage (Arcana, History proficiency)",
+    "Feat: Druid Initiate (Guidance, Mending cantrips; Charm Person 1/LR free)",
+    "Fighting Style: Two-Weapon Fighting (+DEX to off-hand damage)",
+    "Second Wind: 1d10 + Fighter level HP as Bonus Action (1/short or long rest)",
+    "Wizard Spellcasting: Spellbook, ritual casting, Arcane Recovery",
+    "Scholar: Investigation proficiency",
+    "ASI: +2 Intelligence (18)",
+    "Bladesong: INT mod uses/LR, +INT AC, +10 ft speed, ADV Acrobatics, INT for attacks, +INT Con saves (conc.)",
+    "Weapon Masteries: Scimitar (Nick), Shortsword (Vex), Rapier (Vex)"
+  ],
+  "spell_slots": {
+    "1st": 4,
+    "2nd": 3
+  },
+  "current_spell_slots": {
+    "1st": 4,
+    "2nd": 3
+  },
+  "druid_charm_person_used": false,
+  "cantrips": [
+    "Guidance",
+    "Mending",
+    "Booming Blade",
+    "Green Flame Blade",
+    "Mage Hand",
+    "Fire Bolt"
+  ],
+  "spells": {
+    "1st": [
+      "Shield",
+      "Absorb Elements",
+      "Prot E&G",
+      "Sleep",
+      "Identify",
+      "Mage Armor",
+      "Burning Hands",
+      "Ice Knife",
+      "Charm Person",
+      "Detect Magic"
+    ],
+    "2nd": [
+      "Misty Step",
+      "Shadow Blade",
+      "Invisibility"
+    ]
+  },
+  "prepared_spells": [
+    "Shield",
+    "Mage Armor",
+    "Burning Hands",
+    "Ice Knife",
+    "Misty Step",
+    "Shadow Blade",
+    "Invisibility"
+  ],
+  "auto_prepared_spells": [
+    "Charm Person"
+  ],
+  "weapons": [
+    {
+      "name": "Scimitar (Nick Mastery)",
+      "damage_dice": "1d6",
+      "damage_type": "slashing",
+      "attack_stat": "DEX",
+      "properties": [
+        "finesse",
+        "light",
+        "nick_mastery"
+      ],
+      "magic_bonus": 0,
+      "uses_dueling": false,
+      "two_handed": false
+    },
+    {
+      "name": "Shortsword (Vex Mastery)",
+      "damage_dice": "1d6",
+      "damage_type": "piercing",
+      "attack_stat": "DEX",
+      "properties": [
+        "finesse",
+        "light",
+        "vex_mastery"
+      ],
+      "magic_bonus": 0,
+      "uses_dueling": false,
+      "two_handed": false
+    },
+    {
+      "name": "Rapier (Vex Mastery)",
+      "damage_dice": "1d8",
+      "damage_type": "piercing",
+      "attack_stat": "DEX",
+      "properties": [
+        "finesse",
+        "vex_mastery"
+      ],
+      "magic_bonus": 0,
+      "uses_dueling": false,
+      "two_handed": false
+    }
+  ],
+  "fighting_styles": {
+    "two_weapon_fighting": true,
+    "dueling": false,
+    "dueling_bonus": 0
+  },
+  "save_proficiencies": [
+    "STR",
+    "CON"
+  ],
+  "death_saves": {
+    "successes": 0,
+    "failures": 0
+  },
+  "actions": {
+    "second_wind": {
+      "name": "Second Wind",
+      "description": "Heal 1d10 + 1 HP as Bonus Action",
+      "dice": "1d10",
+      "bonus": 1,
+      "available": true,
+      "recharge": "short_rest"
+    },
+    "bladesong": {
+      "name": "Bladesong",
+      "description": "Bonus Action: Activate bladesong for 1 minute (INT mod uses/long rest)",
+      "available": true,
+      "recharge": "long_rest",
+      "uses": 4,
+      "max_uses": 4
+    }
+  },
+  "inventory": {
+    "gear": [
+      "Studded Leather Armor",
+      "Scimitar",
+      "Shortsword",
+      "Rapier"
+    ],
+    "utility": [
+      "4 empty vials",
+      "0.1 Starcristal",
+      "Pyramid Arifact (1 spell slot regen)",
+      "3 corrupted starcrystal",
+      "Vial of Emeldir Sand (eat when fire damage)"
+    ],
+    "treasure": [
+      "Malekirs Neclace (86GP, 7SP)"
+    ]
+  },
+  "coins": {
+    "cp": 87,
+    "sp": 52,
+    "ep": 0,
+    "gp": 1,
+    "pp": 0
+  },
+  "journal": {
+    "sessions": {
+      "Ramil al-Sayif": "Ramil al-Sayif's journey starts here.\n\n\nWants the same nomadic life he knows for his family as well.\n Is not settled on man or woman, monoamy or polygamie. \n",
+      "Valerian": "Session: Sess\n\nDate: 01.11.25\n\nNotes:\n",
+      "Two Gods": "Session: Two Gods\n\nDate: 22.02.26\n\nNotes: There is some light above the mural. What we see is 12 armrings on the goddess of life.\n\nSeveral racne brake into the cave. They are burrowing insekts in the maotains. They follow a queen, mothers are subordineate to the hivemind \"mother\". There are also worker, archer warrior aracnes.\n\nAs chase them of the mother casts a spell that almost kills me and makes me bild and deaf and afraid. A herbal concotrion from madea made with water from the crystal pillars rejuvinates me fully (all spell slots as well).\n\nWe cross several rooms and riddles\n\nsargent -> sentry 1\nrot -> major 4\nschwarz -> capitan 3\nramil -> leutnant 2\ngr\u00fcn -> deputy 5\nblau -> chief 6\n\n\nDont forget, 3 is right and you fill find the light,\n\nSkarsnig and Gumbo are the goblin that was behind us and his riding frog. We are in Tzeentch manor. Inside one room underneat a picture lord grimmrock (with sickle), and one says matriarch Blackthron (no sickle). \nin the dining room the matriarc enters, elegenat black robes, human figure.\n\nDinner with the Matriarch:\nLooks young but is over 240 years old. She is the great great gandmother of madea. She says the blackthorns have a destiny. Balckthorn is the leading family of the grand witch covenant, devaut followers of Tzeetch.\n\nShe follows the weaver of ways and his plan?\n\nNagash is the dark god on the mural.\n\nGrimmrock is the leader of the mortuary cult. The followers of morwath (one of the five faces of the many face god).\n\nThe mask of the matriarch is a non concious artefact with some benefits and drawbacks. \nWe follow Skarsnig to the office. Golden Book, manuscripts in different language, contracts. The contracts are a confirmation that the mortuary cult delivered something to the witches. SOmething called WF highly volatie. Carthean Family is responisble for the delivery of these Artifacts. The Emissary was called al-Saif (Malekai). \nWith the Mask Madea can read the letters. Adeal between the grand witch cov and the morturary cult. Between matriarch and corvus grimmrock: The witches of Grand witch covenant will look for the left eye and left hand of nagash. In exchange the morturary cult gave the World Fragment.\nThis deal happend around 24 years ago.\n\nThe golden Book is a magical artifact. It is devine magic, its very differnet than the items of shak assat. Its a religious textbook for the many faced god with five chapters.\n\nNurgle, god of life and disease. \nSlaanesh godess of longing and hatered.\nMorvath: god of death and memory.\nKhorn: god of war and love.\nTzeentch: go of science and lies.\n\nIn the ritual room there is a button, that activates a number of crystals. When Madea touches one of the crystals she sees her old home with Abigale in there.\n\nWe fly back to Madeas house, Abigale is there along with her father who is hurt and her mother. In the mailbox there are letters for Tom, levina, madea from zure  and philliador from Zhavina al-Fare\ns.\n\nAbigale: A garrison from the emperor came an told them to evacuate. The attackers where using magic (from the north).\n\nevinas Raiden uncle is in the senate. The north just stationed the troups near hagendorf and did not want to attack. Someone gave the orer unknown. They gave the orders to their troups that they should not attack civilkians. her sister wanted her to show a declerationof of unified command in school. The declaration tells everyone that the Archamge Zavos Aren was placed in command. This mobilisation is temporary. \"Support the defensive opperations\". Commander of the firstbrigande was Conrad (old white ster, honerable). Zavos Aren protected this land before, during the last croocked moon. Cartheon name keeps apearing.   \n\nBasically both North and South are consolidating power on single authorities.\n\nCarthons are infamous for black market artefacts.\n\nDesert temple, he stole a world fragment from Eledir .\n                        \n                               \n\n\n           \n\n  \n\n                 \n",
+      "World Fragment": "Session: The world Fragment\n\nDate:13.11.25\n\n\nNotes:\nWe will leave for Kaldoron tomorrow. Its the newest dawnforged ruins. First ruins we found in the last 500 years. \n\nEvent tonight, midnight menagerie. For students. 6 am equipment, cloths, 6:02 at the docks.\n\nWhat professor Vitaly told us in class: what are the dawnforged, what are their motivations, how did they become extinct. Dont take things as they seem. Look from a different perpective and\nlook again. \n\nMidnight Managery: Common room next to the rooms,drinks food, catlyin, zeluvial and tom are there. 40 people.  \n\nLeona greifenhard beastiology major, cares for familiars. 10 contestants in familiar race -> midnight managerie\n\nStarfall tea -> klar und bewusst beim trinken (research)\nNightowl espresso -> macht sehr wach\n\nOnce a week there is a event like the midnight menagery.\n\nZuluvial brings the evening paper  about blutquell\n\nBlutquell -> trembling of the ground, light fire, loane figure with balck robe\nmight be a scholar of Atherion. The church has delared the sight unloly.\n\nThe city is gone, not coquerd, undone. The dead would not stay fallen. (undead) Very anti magic sentiment. A single child survived, points to the sky. \n\nCorbus Grimrock, when the name is mentioned the surrounig space becommes dark and we hear voices . We feel unsettled. \nThe letters:\n3 letters and a proclamation. \n\nTom is of the oppinion the that the anti magic proclamation will lead to division.\n\nOrthunk is pro regulation.\n\nKelaria is the academic name for Dawnforged. The ruin is called Keldaron. We will find\nNecra. \nBone warden, Flesh drudge ect. are what we can expect in the Dungeons. \n\nWe get to the ruins and are left by our teachers, Orthunk makes a fire. \nWe go into the dungeon, ivan is with us we are going to the unexplored section 3 in the lower path\n\nDawnforged leichen unter obelisk. Kelaria waffen dort die zerb\u00f6selt sind. I take simple iron sword\nand cast mending. Obelist hat hyroglyphen. When I touch the sword the floor vanishes and the \nobelisk stays floating. \n\nWe fall into deep darkness, and slide past floating water. We land in chest high water. There is a \nupward standigng sacrophage \n\nRows and rows of black clad soldiers. An army marching forward. Bruning lAnds behind them\nunstoppable flood of soldiers. This is waht we see when touching the artifact in the sacrophagus.\nWe have a deep desire to never talk to anyone else about what we saw. We also notice the symbol\non their shoulders, a red fire with a jellow star shaped from and balck at the bottom. \n\nBack at the school the high priest of the church came to ensure the control of magic at the school.\n-> The faceless. He will permanetly reside in the school . Balar, Ossiriant, Phalar and Talath have\ndelcared independance. We are urged to write a letter to our family. Offensive magic is now forbidden  everywhere. ",
+      "The Proclamation": "Session: The University\n\nDate: 27.11.25\n\nNotes:Proclemation - Kill on sight if seen casting Necromancy. Corvus Grimmrock was the Necromancer of Blutquell.\n\nMorning after returning from the dungeon, Madea saw the World Fragment above her Bed. Manu Baba wakes us up and tells us we have a lunch meeting with the research dean. Until eveing we have to decide who will be runner and racer. For the Aerodan Race. \n\nI Read a bookby  Ergo SZAX outside in the sun next to a tree guy who is the gardener. I get distracted by fighting in the arena.\n\nMadea Blackthorn thries to read a book about the armies of the dawnfoged but it is in old english and cannot be read by her.\n\nWe meet with the others of the cals and they tell us to meet them in the tea room. On the way I talk to Duneon who thinks not all of the new students should be here at the university.\n\nWe talk about who should be Runner and Racer. Levina becomes the Racer and Madea will be the Runner.  \n\nLorencraft was dealing with necromancy and was decapitated. She was the head of the sparing class. Tom looks away when talking about the faceless. Mr. Raiden is pushing for indepencance he is related to Levina. Tom pulls me aside and tells me to keep an eye out for the faceless. The curch does not always do waht they say.          \n \n\n\n\n \n      \n  \n\n\n   \n\n\n\n\n\n\n\n             \n ",
+      "Madeas Secret": "Session: What comes after\n\nDate: 13.01.26\n\nNotes: After Hagendorf, there was a blur for 3 weeks where we did nothing. We \"wake up\" in a room surrounding the artifact. We free ourselfs from the spell.\n\nSenate appointsfar el eonix is appointed as chanceloor with emergancy executive powers. \"It is with great reluctance that I agree to this calling\" He is taking all the power. \nFirst order grand army of the republic -> All soldiers assemble in Udun (Galen) \nMobilize against the north. The village of hagendorf was destroyed. Hallow anwesen is fought over\nLandrot holds, Grimmfels too, Nurnen is besiged. \nHe calls to join the army. Tom and Zulliviel seem to be enchanted too.\n\nWe have artifactology class:\nArtifacts are created with the help of Starcrystals . \nMost of them are made from the Dawnforged . \nMaking a powerfull artifacts needs percice methods that have partly been forgotten. There are concious artefacts and unconcious artifacts that dont act out  a will. \nHarmfull-Non harmfull artifacts. Harmfull concious artifacts -> cursed and are only allowed to be handeled with special permissions.\n\nThe enire castle of the university is an artifact. Concious or conciuos is still not clear. \nArtifacts are created by masters (artifact is the servant) and the created conciosness serves the will of the master.\n\nPowefull artefacts need to be split up into several ertefacts. It amplifies the capacity. This was only done by the dawnfordged. Now they where able to chain 3 artifacts. More than2 artifact chains have a controling arifacts.\n\n2OG after clas, a room apears next to Philliador. It exudes a comforting warmth.\nRound room with an old eldaher table. Its very old and used. But still very perstine. The eldaher was a single massive tree that was felled a long time ago. 4 candels on a candalier  (one new, one completely burned down, two inbetween) They are buring but the wax is not meltig. One windo. One old Bookcase. Chest next to the Bookcase (open with key). The key opens all doors.\nWhen the fire is stoked, it talks by placing embers in a font.\nThe room is both part of the castle and not -> inbetween. We are the only ones that can come in.\nWe get a bag of holding that connects to the chest in the room.\nMadea is the source of the red glow on the artifact. The fire place says it is theoretically possible for people an artifacts link, but not known.\nWhen trying to identify the arfifact it curesd me. For the rest of the game im cursed and am weak to hol damage. I touch madea, cast identify and get cursed again. Im vaunerable  to cold damage.\nMadeas heart is the second world fragment. It is in the form of a heart. Its the reason why she is alive. Part of the magic courses through her. I see scars from a surgery. There are 12 world fragments.\n\nAzure Brandson:In 2 weeks the first race, in 3 weaks exams and \"christmas\". To prepare we are riding aerodons for the first time. We get to the breeding spots. Aerodons are open and kind hearted. They are life long companions. Look into their eyes and get close, and touch heads. Pet it and if he allows it you can get the first ride.\n\nI bond with an albino Aerodon and  name him Tarron.          \n\n                 \n\n    \n\n     \n  \n             \n\n\n \n\n    \n    \n",
+      "Hagendorf": "Session: A new Dawn\n\nDate: 09.12.25\n\nNotes:\nIvan wakes us up, tells us we are expected to to to the faceless cermon. We see religious imagery,\na deciple on his knees being offerd an apple by a luminecent arm . Simple altar with a religiuos book. Golden sun on a black background (Dark Souls). First row: The Dean, ohther people we dont know.\n\nFaceless: We reach for certaintly, when we are feared. If what you study begins to wound rather than wonder -> You should talk to him.\n \nKitaly: Going to the great Pillers. The role of Wizzards is to help Society. Whatever your abilities are.\n\n\"You do not go without me\" -> Eldalie\n\nMagic is created through emotion. It connects to the big weave. It is in its raw from when it comes out of the weave. For that we use the maigc from the crystals. Small fragments can store this ordered form of magic.\n\nWe go up the stairs to the base of the crystal. The crytal absorbs spells that touch it. When touching the crystal with identify I can see that it stores around 28000 spells.\n\nWe towards Hagendorf. It is a trading village, with two bridges. A couple hundred peaolpe live here.\n\nAs we argue in the town square, one man gets hit by a chromatic orb out of nowhere. The vilage is being attacked by soldiers in chainmail. One commander with a Zweih\u00e4nder kills regina. Everyone that does not mak it to the tavern trapdoor is dying.\nGimmfeld, Alndrot, Hallow Anwesen were attacked that evening.We where rescued by Kitalys airship. Duneon and Amber are dead.\n\nWe are gathered and honered in the great hall. We feel numb, and Tom performs together with his choir.\n\nThe world Fragment appears to Levina. It allows her to gain back memories that have been manipulated -> Duneon was a corpse, reanimated and manipulated by someone.        \n\n                                          \n",
+      "The great Jh'Zagho": "Session: Two who are different\n\nDate: 25.01.26\n\nNotes:\nEmotions connect you to the waeve.\nAritfacts of Nagash harmfull concious. (Left Eye and Hand as we learn later) \n\nBook of curses written by azure Brandson. He told me that I could potentially get wrid of the curse if I have a big enough star crystal and some help.\n\nI took Tom to the in between to pull the leaver. Philiador gets inerogated \n\nFor ein paar Jahren gab es einen Twin Moon.\n\nThere was a woman in the medical wing with gray skin. The woman with the infliction was operated on, the dean mentioned someone (er) and that it should not happen agian like 27 Years go.\n\nCatlyn has been in the morge for more than a year and has a corrupted starcrystal in her neck. Jh`Zargo has had his surgeon notes stolen by someone. He can also cure curses. \n\nHe was in Emeldir and treated  my sister from a curse and talked to my uncle about artifacts. He took notes and those notes have been stolen. Professor Citaly was the only one with access. Besides the head office.  \n\nWe follow the scibblings in the poetry of madness to a cave near Rabenhall. We stop for the night at Madeas old House.\n\nWe find the cave and inside there is a mural, depicing a some sort of battle between gods.                     \n \n",
+      "Return to Atherion": "Session: Return to Atherion\n\nDate: 11.03.26\n\nNotes: The mages of the northern army have chained eldrich blasts that the grand army cannot deal with. Battle mages that cast Firestorms. The northern Armys will use the grand caves of Talimar and the mountain roads of lomin to hget further into the south.\n\nArchmage Zavos saved the contry from the croocked moon.\n\nAnnouncement of the Dean Amonius: Two letters 1) From archmage and the king.\nBoth want Aetherion to abandon its neutrality and join their site. 300 Years ago an emporer was assisted, never since. Yet the fields are burning, and we must act. New policy: go into the lands at war to protect and assist the helpless. We will bear the mark of Aetherion and both sides know about this. If we are attacked we have every right to defend ourselfs. But senseless violence will not be permitted. Should any student be found guilty, the punishment is death. Ordenary curriculum will be replace with defence calsses.\n\nMagistrate: the class structure is changed. We have to go to dean Azure Brandson. \n\nPhiliador got a letter from the Carthien, he wont talk about it.\n\n4 armies that are attacking.\n\nMemory images -> Is like a camera but for moments. Discovered during the unification wars. Takes years to master. We should relive certainmoments in the unification war.  Next to the dorms above the main hall. In there is an art gallery. There are memory images there.\nI make a promise to Philiador to reveal his identity only if nescessary. The first image is of people praying to Nurgle. The second is of a battlefield with a dragon. I enter with a corrupted star crystal. I can move in the memory which is not normal, at the end I try to cast Firebolt at the dragon adn explode out of the memory uncociuos and burnt. I get a vial of Emeldir Sand from Jh'Zargo.\n\nMadea enters a gathering of whiches memory. They are sacrificing someone in a stone circle.\n\nBattle of Ossirant Memory, Kai enters and is a battle mage on a horse (Hes a dwarf Dwarf). Ziluvial wants to Fight against the army of the North . \nJh'Zahrgo got wrid of my curses by using a corrupted Starcystal on my open brain, making me see a visualization the curses and destroy them. He also told me that my uncle had a house in Orodreth. I asked ybout Jenny, the girl that had the sickness (grey skin)  when I first saw Jh'Zhargo. She was hanged for necromancy last week. He cannot say more about it. \n\nJh*Zahrgo says that use of starcystal use can lead to a loss of character and emption -> is this the trance?                             \n\n                            \n"
+    },
+    "current_session": "Return to Atherion"
+  },
+  "characters": {
+    "Magistrate Olgorn": "Appearance : Corpal deamon with tiny wings and broad toothy grin.\n\nRole: Representative of the Senate within the university. He will handle \nadministrative issues for us.\n\nInteractions: Introduced us to the University and its rules. Brought us to the\nmain gate.",
+    "Rusty Pete": "Appearance: Hippo folk, broad an with\ntwo \"guns\" at his side. \nWears a Barret.\n\nRole: Capitan of an airship to ferry\nstudents from the edge of anfauglith \nto the university.\n\nInteractions: Ferried us accoss the sky\nfor our fst time. Told us about how the\ndragons will attack people with food.\nI asked about the magic of flying ship,\nbut he did not seem deeply knowleged.",
+    "[P] Madea Blackthorn": "Appearanc: Short human, long black\nhair and gloves, back ensamble outfit.\n\nRole: Student at the university after\ntaking someones place (Menzel) that\ndied in the massacer of Blutquell.\nHer mother was known by some of the\nprofessors. She might have even tought\nherself.\n\nInteractions:\n[Day 1,2]: She seemed flusterd at the \nadmission and  talked to the magistrate\nin a frantich hush. In a short interaction\nshe seemend burdoned by her inate magic\nWhen she was asked by the professor\nabout why she came to the uni she said\nto unserstand inate magic.\n[Day 3]: She was very in favour of the anti magic regualtions, arguing that magic cannot be left\nuncontrolled. ",
+    "[P] Kai Hyoshin": "Appearance : Elf with long arms and \nblack hair. Pearlchain around his neck.\n\nSeems more chill after reading the letter .  Wants to join the elemental sparring League .",
+    "[P] levina Raiden": "Appearance: Light blue skin, slightly\ntranslucent, dark blue hair. Is an \nairgenazi made out of wind. Necklace \nwith tear drop gem, leafs in the hair.\n\nRole: Bubbly personality .\n\nInteractions : ",
+    "[P] Philiador LeBlanc": "When he attempts to cast spells wierd things happen. He is shy and suspicios. Wants to join the experimental fireball club.\n\nArian  Carthi is his real name. ",
+    "Tom Dyke": "Ice man from the north. Pretty reasonable guy seems friendly and energetic. Is pro magic becouse\nhe comes from the north, won a tournament against 40 people to get into the univeristy.\n\nThinks the church proclamation will lead to devision.\n\nWill join the harmonics club. \n",
+    "Regina Amber": "Orc maiden \n",
+    "Catlyn Duneon": "Cocky, but clearly involved in the Blutquell incidnet. Turned out  to be a reanimated corpse manipulated by someone.  ",
+    "Ziluvial Orthon": "Pro regulation when the church proclamation was anounced.",
+    "Azure Brandson": "Research Dean, seems freindly. Knows a little bit of waht we are up to. Knew Madeas mother from studiyng together.    \n",
+    "Dean Amonius": "Dean of the University \n",
+    "Prof Kitaly": "",
+    "Ivan Zagarovic": "Subteacher of Prov Cytali\n",
+    "Jeany Wright": "Has 6 arms and looks like an air elmental her eyes are always hidden. She is one of the boat captins. Brought us to the first Dungeon. \n",
+    "Corvus Grimmrock": "Was responsible for the massacre at Blutquell. When his name is mentioned the room becomes cold and  dark  and you hear whispers. ",
+    "The Faceless": "Ahighpriest of the church ,  is placed at the university to watch overthings from the church side.",
+    "Manu BaBa": "Aperson wearing a mask and loose desert clothing. ",
+    "John skeeter cleadeus bane": "Herbalist in the  her b kitchen  in the third floor.\n",
+    "Branco": "Librarian     has a huge book and  writes things in it. I s very tall.      ",
+    "Zahiva al-Fares": "Artifactoligy teacher . Told us about  linking artefacts .  ",
+    "Raknar J\u00f6rvarson": "Cook , plays instruments.",
+    "Skarsnig": "Goblin Type  servant, rides on his Frog Gumbo.  Follower of Tzneetsch, servant of the Mtriarch insode Tzneetsches manor. Has an hourly alotment of cheese. "
+  },
+  "current_character": "Ivan Zagarovic",
+  "character_page": 1,
+  "places": {
+    "Blutquell": "Origin of the worst desaster in recent history. Brought by a former student of the University. He performed Necromancy and Fire magic. A single child survived and pointed to the sky. \n",
+    "Kel Daron": "We touched an obelisk and it sent us downward falling into darkness and flaoting water. At the \nbottom there was a sacrophagus in chains. We broke the chains and found the world shard. Phil\ntouched it and we had a vison of blackcad soldiersmarching and bringing destruction. We where \nfound 3 days later but for us only a few hours passed. ",
+    "The great Pillars": "\nNext to Hagendorf (as we look out towards  the pillars, Hagendorf is half an hour behinds us.  They grow pecouse under Landrot is a massive dawnforged city. Cannals where used to tranport and  push out  the crystals.  Magical resin is washout out from the Crystal into the rivers. The river has  an iridecent  surface. The river has a magic that is like a melody."
+  },
+  "current_place": "The great Pillars",
+  "place_page": 0
+}

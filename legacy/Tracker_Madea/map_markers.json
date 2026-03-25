@@ -1,0 +1,22 @@
+{
+  "categories": {
+    "artifact": {
+      "label": "Artifacts"
+    },
+    "treasure": {
+      "label": "Treasure"
+    },
+    "enemy": {
+      "label": "Enemy Encounter"
+    },
+    "person": {
+      "label": "Notable People"
+    },
+    "note": {
+      "label": "Notes & Rumors"
+    }
+  },
+  "markers": [],
+  "version": 1,
+  "updated_at": "2026-03-09T22:24:45.968897Z"
+}

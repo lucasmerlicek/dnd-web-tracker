@@ -1,0 +1,58 @@
+2025-11-09 15:34:12,195 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251109_153412.log
+2025-11-09 15:34:12,549 - INFO - Pygame initialized successfully
+2025-11-09 15:34:12,551 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-09 15:34:12,551 - INFO - Screen resolution: 1920x1080
+2025-11-09 15:34:12,552 - INFO - Work area: 1920x1008
+2025-11-09 15:34:12,552 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2025-11-09 15:34:12,552 - INFO - Creating D&D Character Tool application
+2025-11-09 15:34:13,144 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-09 15:34:13,145 - INFO - Loaded spell slots: {}
+2025-11-09 15:34:13,145 - INFO - Loaded current spell slots: {}
+2025-11-09 15:34:13,145 - INFO - Loaded character: Ramil al-Sayif
+2025-11-09 15:34:13,146 - INFO - Weapons loaded: 3
+2025-11-09 15:34:13,146 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-09 15:34:13,146 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2025-11-09 15:34:13,148 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-09 15:34:13,148 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-09 15:34:13,148 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-09 15:34:13,148 - INFO -    • Press ESC to exit fullscreen
+2025-11-09 15:34:13,148 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-09 15:34:13,162 - INFO - Starting application main loop
+2025-11-09 15:34:27,241 - INFO - Selected character: Character 7
+2025-11-09 15:34:29,427 - INFO - Selected character: [P] Reyden
+2025-11-09 15:34:31,416 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:34:31,416 - INFO - Created new place: Place 1
+2025-11-09 15:34:32,743 - INFO - Selected place: Place 1
+2025-11-09 15:34:33,843 - INFO - Deleted place: Place 1
+2025-11-09 15:34:33,855 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:34:34,587 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:34:34,587 - INFO - Created new place: Place 1
+2025-11-09 15:34:41,467 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:34:44,443 - INFO - Selected place: Place 1
+2025-11-09 15:41:22,720 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:22,891 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:23,461 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:23,922 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:24,049 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:24,130 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:24,270 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:24,347 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:24,427 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:24,832 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:28,596 - INFO - Selected place: Place 1
+2025-11-09 15:41:29,980 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:30,944 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:36,848 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:41:47,041 - INFO - Selected place: Place 1
+2025-11-09 15:45:39,035 - INFO - Selected character: Magistrate Olgorn
+2025-11-09 15:45:47,028 - INFO - Selected character: Character 6
+2025-11-09 15:45:57,558 - INFO - Selected place: Place 1
+2025-11-09 15:47:17,001 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:47:21,040 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:47:21,939 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:47:23,172 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:47:49,761 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:47:50,999 - INFO - Selected place: Place 1
+2025-11-09 15:47:56,445 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:47:57,830 - INFO - Selected character: Rusty Pete
+2025-11-09 15:52:25,230 - INFO - Character data saved successfully (7 characters)

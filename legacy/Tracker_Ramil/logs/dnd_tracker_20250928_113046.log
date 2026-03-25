@@ -1,0 +1,37 @@
+2025-09-28 11:30:46,374 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20250928_113046.log
+2025-09-28 11:30:46,603 - INFO - Pygame initialized successfully
+2025-09-28 11:30:46,605 - INFO - Detected DPI: 96, Scale factor: 1.00
+2025-09-28 11:30:46,606 - INFO - Screen resolution: 1920x1080
+2025-09-28 11:30:46,606 - INFO - Work area: 1920x1032
+2025-09-28 11:30:46,606 - INFO - Adaptive window size: 1399x787 (aspect ratio: 1.778)
+2025-09-28 11:30:46,606 - INFO - Creating D&D Character Tool application
+2025-09-28 11:30:47,301 - INFO - Loading character data from character_data.json
+2025-09-28 11:30:47,313 - INFO - Loaded character: Barian the Broken
+2025-09-28 11:30:47,313 - INFO - Weapons loaded: 3
+2025-09-28 11:30:47,314 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-09-28 11:30:47,314 - INFO - Window initialized at 1399x787 (aspect ratio: 1.78:1)
+2025-09-28 11:30:47,316 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-09-28 11:30:47,317 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-09-28 11:30:47,317 - INFO -    • Press F11 to toggle fullscreen mode
+2025-09-28 11:30:47,317 - INFO -    • Press ESC to exit fullscreen
+2025-09-28 11:30:47,317 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-09-28 11:30:47,321 - INFO - Starting application main loop
+2025-09-28 11:30:51,091 - INFO - Window resized to 1237x825 (3:2 ratio maintained: 1.499:1)
+2025-09-28 11:30:53,559 - INFO - Window resized to 1237x824 (3:2 ratio maintained: 1.501:1)
+2025-09-28 11:30:57,598 - INFO - Window resized to 1353x902 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:31:08,729 - INFO - Window resized to 973x649 (3:2 ratio maintained: 1.499:1)
+2025-09-28 11:31:10,987 - INFO - Window resized to 1045x697 (3:2 ratio maintained: 1.499:1)
+2025-09-28 11:31:16,403 - INFO - Window resized to 973x649 (3:2 ratio maintained: 1.499:1)
+2025-09-28 11:31:19,709 - INFO - Window resized to 1045x696 (3:2 ratio maintained: 1.501:1)
+2025-09-28 11:31:33,069 - INFO - Window resized to 973x649 (3:2 ratio maintained: 1.499:1)
+2025-09-28 11:31:49,670 - INFO - Window resized to 1045x696 (3:2 ratio maintained: 1.501:1)
+2025-09-28 11:31:54,466 - INFO - Window resized to 973x649 (3:2 ratio maintained: 1.499:1)
+2025-09-28 11:31:56,726 - INFO - Window resized to 960x640 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:32:02,116 - INFO - Window resized to 960x640 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:32:07,452 - INFO - Barian the Broken has gained inspiration!
+2025-09-28 11:32:07,454 - INFO - Character data saved successfully to character_data.json
+2025-09-28 11:32:08,085 - INFO - Barian the Broken has lost inspiration!
+2025-09-28 11:32:08,086 - INFO - Character data saved successfully to character_data.json
+2025-09-28 11:32:22,593 - INFO - Window resized to 960x640 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:32:25,331 - INFO - Window resized to 960x640 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:33:35,185 - INFO - Character data saved successfully to character_data.json

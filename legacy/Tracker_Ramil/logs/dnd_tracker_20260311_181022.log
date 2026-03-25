@@ -1,0 +1,28 @@
+2026-03-11 18:10:22,996 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260311_181022.log
+2026-03-11 18:10:23,378 - INFO - Pygame initialized successfully
+2026-03-11 18:10:23,381 - INFO - Detected DPI: 144, Scale factor: 1.50
+2026-03-11 18:10:23,381 - INFO - Screen resolution: 1920x1080
+2026-03-11 18:10:23,381 - INFO - Work area: 1920x1008
+2026-03-11 18:10:23,381 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2026-03-11 18:10:23,383 - INFO - Creating D&D Character Tool application
+2026-03-11 18:10:24,979 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2026-03-11 18:10:24,981 - INFO - Loaded spell slots: {'1st': 4, '2nd': 3}
+2026-03-11 18:10:24,981 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 3}
+2026-03-11 18:10:24,981 - INFO - Loaded character: Ramil al-Sayif
+2026-03-11 18:10:24,981 - INFO - Weapons loaded: 3
+2026-03-11 18:10:24,981 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2026-03-11 18:10:24,983 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2026-03-11 18:10:24,983 - INFO - Adaptive Resolution Features:
+2026-03-11 18:10:24,983 - INFO -    - Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-03-11 18:10:24,983 - INFO -    - Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-03-11 18:10:24,983 - INFO -    - Press F11 to toggle fullscreen mode
+2026-03-11 18:10:24,983 - INFO -    - Press ESC to exit fullscreen
+2026-03-11 18:10:24,984 - INFO -    - Window is resizable - aspect ratio maintained automatically
+2026-03-11 18:10:24,997 - INFO - Starting application main loop
+2026-03-11 18:10:27,041 - INFO - Window resized to 1461x974 (aspect ratio maintained: 1.500:1)
+2026-03-11 18:10:59,671 - INFO - Selected action: Bladesong
+2026-03-11 18:11:11,031 - INFO - Bladesong activated! AC +4, speed +10 ft, ADV Acrobatics, INT for attacks, +4 CON concentration saves.
+2026-03-11 18:11:11,036 - INFO - Character data saved successfully (23 characters)
+2026-03-11 18:11:17,753 - INFO - Bladesong dismissed. Bonuses removed.
+2026-03-11 18:11:17,758 - INFO - Character data saved successfully (23 characters)
+2026-03-11 18:12:01,058 - INFO - Character data saved successfully (23 characters)

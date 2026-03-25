@@ -1,0 +1,24 @@
+2025-11-02 01:05:06,646 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251102_010506.log
+2025-11-02 01:05:06,850 - INFO - Pygame initialized successfully
+2025-11-02 01:05:06,852 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-02 01:05:06,853 - INFO - Screen resolution: 1920x1080
+2025-11-02 01:05:06,853 - INFO - Work area: 1920x1008
+2025-11-02 01:05:06,853 - INFO - Adaptive window size: 1152x648 (aspect ratio: 1.778)
+2025-11-02 01:05:06,854 - INFO - Creating D&D Character Tool application
+2025-11-02 01:05:07,279 - INFO - Loading character data from character_data.json
+2025-11-02 01:05:07,280 - INFO - Loaded spell slots: {}
+2025-11-02 01:05:07,280 - INFO - Loaded current spell slots: {}
+2025-11-02 01:05:07,280 - INFO - Loaded character: Ramil al-Sayif
+2025-11-02 01:05:07,280 - INFO - Weapons loaded: 3
+2025-11-02 01:05:07,280 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-02 01:05:07,281 - INFO - Window initialized at 1152x648 (aspect ratio: 1.78:1)
+2025-11-02 01:05:07,283 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-02 01:05:07,283 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-11-02 01:05:07,284 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-02 01:05:07,284 - INFO -    • Press ESC to exit fullscreen
+2025-11-02 01:05:07,284 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-02 01:05:07,300 - INFO - Starting application main loop
+2025-11-02 01:05:10,392 - INFO - Character data saved successfully (1 characters)
+2025-11-02 01:05:39,667 - INFO - Character data saved successfully (1 characters)
+2025-11-02 01:05:43,344 - INFO - Character data saved successfully (1 characters)
+2025-11-02 01:05:46,540 - INFO - Character data saved successfully (1 characters)

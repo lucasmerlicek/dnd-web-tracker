@@ -1,0 +1,9 @@
+2025-07-31 21:56:00,309 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20250731_215600.log
+2025-07-31 21:56:00,805 - INFO - Pygame initialized successfully
+2025-07-31 21:56:00,805 - INFO - Creating D&D Character Tool application
+2025-07-31 21:56:01,627 - INFO - Loading character data from character_data.json
+2025-07-31 21:56:01,638 - INFO - Loaded character: Barian the Broken
+2025-07-31 21:56:01,640 - INFO - Weapons loaded: 3
+2025-07-31 21:56:01,640 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-07-31 21:56:01,647 - INFO - Starting application main loop
+2025-07-31 21:56:23,894 - INFO - Character data saved successfully to character_data.json

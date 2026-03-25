@@ -1,0 +1,274 @@
+{
+  "character_name": "Barian the Broken",
+  "race": "Human",
+  "char_class": "Fighter 8 (Eldritch Knight)",
+  "level": 7,
+  "current_hp": 42,
+  "max_hp": 60,
+  "ac": 19,
+  "base_ac": 19,
+  "inspiration": true,
+  "shield_active": false,
+  "proficiency_bonus": 3,
+  "stats": {
+    "STR": {
+      "value": 18,
+      "modifier": 4
+    },
+    "DEX": {
+      "value": 10,
+      "modifier": 0
+    },
+    "CON": {
+      "value": 14,
+      "modifier": 2
+    },
+    "INT": {
+      "value": 18,
+      "modifier": 4
+    },
+    "WIS": {
+      "value": 10,
+      "modifier": 0
+    },
+    "CHA": {
+      "value": 8,
+      "modifier": -1
+    }
+  },
+  "skills": [
+    {
+      "name": "Acrobatics",
+      "stat": "DEX",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Animal Handling",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Arcana",
+      "stat": "INT",
+      "proficient": true,
+      "modifier": 7
+    },
+    {
+      "name": "Athletics",
+      "stat": "STR",
+      "proficient": true,
+      "modifier": 7
+    },
+    {
+      "name": "Deception",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": -1
+    },
+    {
+      "name": "History",
+      "stat": "INT",
+      "proficient": true,
+      "modifier": 7
+    },
+    {
+      "name": "Insight",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Intimidation",
+      "stat": "CHA",
+      "proficient": true,
+      "modifier": 2
+    },
+    {
+      "name": "Investigation",
+      "stat": "INT",
+      "proficient": true,
+      "modifier": 4
+    },
+    {
+      "name": "Medicine",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Nature",
+      "stat": "INT",
+      "proficient": true,
+      "modifier": 4
+    },
+    {
+      "name": "Perception",
+      "stat": "WIS",
+      "proficient": true,
+      "modifier": 3
+    },
+    {
+      "name": "Performance",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": -1
+    },
+    {
+      "name": "Persuasion",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": -1
+    },
+    {
+      "name": "Religion",
+      "stat": "INT",
+      "proficient": true,
+      "modifier": 4
+    },
+    {
+      "name": "Sleight of Hand",
+      "stat": "DEX",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Stealth",
+      "stat": "DEX",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Survival",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 0
+    }
+  ],
+  "feats_traits": [
+    "Variant Human (+1 STR, +1 INT)",
+    "Fighting Style - Dueling",
+    "Second Wind (1/rest)",
+    "Action Surge (1/rest)",
+    "War Caster feat",
+    "War Magic"
+  ],
+  "spell_slots": {
+    "1st": 4,
+    "2nd": 2
+  },
+  "current_spell_slots": {
+    "1st": 1,
+    "2nd": 1
+  },
+  "cantrips": [
+    "Booming Blade",
+    "Sword Burst"
+  ],
+  "spells": {
+    "1st": [
+      "Shield",
+      "Absorb Elements",
+      "Thunderwave",
+      "Magic Missile"
+    ],
+    "2nd": [
+      "Shatter",
+      "Misty Step"
+    ]
+  },
+  "weapons": [
+    {
+      "name": "Mithril Broadsword (One-Handed)",
+      "damage_dice": "8d10",
+      "damage_type": "slashing",
+      "attack_stat": "STR",
+      "properties": [
+        "versatile",
+        "finesse"
+      ],
+      "magic_bonus": 0,
+      "uses_dueling": true,
+      "two_handed": false
+    },
+    {
+      "name": "Mithril Broadsword (Two-Handed)",
+      "damage_dice": "8d12",
+      "damage_type": "slashing",
+      "attack_stat": "STR",
+      "properties": [
+        "versatile",
+        "finesse"
+      ],
+      "magic_bonus": 0,
+      "uses_dueling": false,
+      "two_handed": true
+    },
+    {
+      "name": "Handaxe",
+      "damage_dice": "1d6",
+      "damage_type": "slashing",
+      "attack_stat": "STR",
+      "properties": [
+        "light",
+        "thrown"
+      ],
+      "magic_bonus": 0,
+      "uses_dueling": true,
+      "two_handed": false
+    }
+  ],
+  "fighting_styles": {
+    "dueling": true,
+    "dueling_bonus": 2
+  },
+  "save_proficiencies": [
+    "STR",
+    "DEX"
+  ],
+  "death_saves": {
+    "successes": 0,
+    "failures": 0
+  },
+  "actions": {
+    "second_wind": {
+      "name": "Second Wind",
+      "description": "Heal 1d10 + fighter level HP",
+      "dice": "1d10",
+      "bonus": 7,
+      "available": true,
+      "recharge": "short_rest"
+    }
+  },
+  "inventory": {
+    "gear": [
+      "Chain Mail (Mithril breast chainmail)",
+      "Mithril Broadsword",
+      "Mithril Shield",
+      "Two handaxes"
+    ],
+    "utility": [
+      "Dungeoneer's Pack",
+      "Set of bone dice"
+    ],
+    "treasure": [
+      "Silver vessel, all magic traces"
+    ]
+  },
+  "coins": {
+    "cp": 142,
+    "sp": 0,
+    "ep": 0,
+    "gp": 252,
+    "pp": 0
+  },
+  "journal": {
+    "sessions": {
+      "Reflections": "I am Barian the Broken.\n\nDate: 28.07.2025\n\nNotes:\n\nMy Story:\nBattle tested soldier from a noble house in decline. Disciplined and calculating; has a younger brother, Orin,\n whose reckless brilliance at Tharis Academy fascinated me even as I warned him. Hoping to revive our house, I quietly \nencouraged his foolishness until an unknown magical surge obliterated him.\n\n The academy offered only vague hints of an altercation and returned a singed spellbook\nmy most prized possession. \n\nGrief stricken, I deserted my post and lost comrades to certain death.\n I now wander, studying Orin's notes, imposing discipline on spellcraft, and hunting the truth. \nUntested mages rouse my distrust; brilliance without discipline killed my brother.\n\nAbout Me:\nI keep fieldtrip notes on everything: enemy tactics, arcane glyphs, even rations. \nCalm under fire; sounds that make recruits duck barely raise my eyebrows.\n\nIdeals:\nDiscipline and mastery: everything can be perfected through relentless practice. \n\nRedemption: I will atone for the deaths my desertion caused.\n\nBonds:\nMy brother's scorched spellbook rides at my hip.\n Every spell I master is a promise to his memory.\n\nFlaws:\nI test new spells on myself first; pain beats risking another life.\n\n I have no tolerance for reckless flamboyance and despise magical institutions that hid the truth of Orin's death. \nThe loss instilled a deep need for control.",
+      "Dark Tower": "Session: Dark Tower\n\nDate: 13.07.2025\n\nNotes:\n\nStarted in the Black Forge -> Giant Hammer surrounded by a Lava lake.\n\nThe party is high up in a hideout, they go towards the market and meet me there\nWe talk about the dwarfs that have ensalved the gnomes in this place (20000 gnome : 2000 Dwarfs)\nThere is a Balk Dragon, Calagror, in the lava lake, that might help us free the gnomes. \n\nI am looking for a tome, that was mentioned in my brothers journal, they agree to help in exchange for my services later on.\nParty: \nGnome Bard \nElven Ranger\nMe\n\nThe way is blocked by a necrotic barrie, slowing spell and boarded up. Once we get to the cave we get to the cave we fight\noff spiders and meet the colletoron aship in the acid lake. The collecor trades my a silver vessel with traces of all magc for\n350 silver pieces. He can upgrade weapons for 100 souls.\n\nIn the tower we meet an Expiravit in a summoning ritual (summond by a lesser vampire) along with a Banshee and a\nGraverobber. After killing them I touch the tome and have a vision of a true vampire killing my brother.",
+      "Gnome Rebellion": "Session: Gnome Rebellion\n\nDate: 28.07.2025\n\nNotes:\n\nThe tome charms me, frcing me to hold it and endure the visons. Our Bard countercharms me and orders me to destroy\nthe tome, which splinters into glass.\n\nFrom the Altar a green smoke rises and a buch of unded walk up the staris. We kill them only by cancelling the altars magic\nwith our Paladin. I almost loose my life in the process.\n\nAfter cleansing thetowe and surronding cave we feel a devine presence.\n\nWhen we get back to the blackforge I trade my sliver challice for a 60% Mithril longsword, and we talk to the gnome price \nto make a plan. The plan entails us acting as a delegation of the Tharis family Lo (Paladid) which has been orderd to \nquickly percure Mithril swords for the upcomming battle against Vulve Thargan the Lich Master.Our gnome specialist\nwill convince thedwarfs to chain p all the gnomes to increase mithril harvesting to fufill the order.Then we will command\ntheBlack Drke to destroy all the remaining Dwarfs. \n\nThe plan works, except for a handfull of gnomes that are held back by the dwarven commander and some battle ragers. \nwe charge into combat and defeat them, narrowly escaping the dragons fire.\n\nAfter the Dragon is done raging, we meet up with the freed gnomes and thei price that has died, suffering mortal wounds.\nWe can see that he as traded his soul for a devine favour.\n\nCaragorn the Black drake assumes human form and thanks us forour service. We then find the Mithril containing\nstrongbox of the dwarfs and retrive 7 mithril bars along with my silver challice.\n\nForm the mithril we each forge our equipment with the help of the freed gnomes. For me I remelt my longswort into a shorter\nBroadsword, and make a shield from mithril, along with a chainmail chest.\n\nI feel the the expeerience of this adventure push my mind and body onto new hights asi level up. \n"
+    },
+    "current_session": "Gnome Rebellion"
+  }
+}

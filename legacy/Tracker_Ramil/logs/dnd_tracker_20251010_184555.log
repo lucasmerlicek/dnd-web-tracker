@@ -1,0 +1,135 @@
+2025-10-10 18:45:55,050 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251010_184555.log
+2025-10-10 18:45:55,338 - INFO - Pygame initialized successfully
+2025-10-10 18:45:55,340 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-10-10 18:45:55,341 - INFO - Screen resolution: 1920x1080
+2025-10-10 18:45:55,341 - INFO - Work area: 1920x1008
+2025-10-10 18:45:55,342 - INFO - Adaptive window size: 1152x768 (aspect ratio: 1.500)
+2025-10-10 18:45:55,342 - INFO - Creating D&D Character Tool application
+2025-10-10 18:45:56,118 - INFO - Loading character data from character_data.json
+2025-10-10 18:45:56,119 - INFO - Loaded character: Barian the Broken
+2025-10-10 18:45:56,121 - INFO - Weapons loaded: 3
+2025-10-10 18:45:56,121 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-10-10 18:45:56,121 - INFO - Window initialized at 1152x768 (aspect ratio: 1.50:1)
+2025-10-10 18:45:56,123 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-10-10 18:45:56,123 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-10-10 18:45:56,123 - INFO -    • Press F11 to toggle fullscreen mode
+2025-10-10 18:45:56,123 - INFO -    • Press ESC to exit fullscreen
+2025-10-10 18:45:56,124 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-10-10 18:45:56,128 - INFO - Starting application main loop
+2025-10-10 18:45:59,953 - INFO - Selected action: Action Surge
+2025-10-10 18:46:14,125 - INFO - Window resized to 1441x961 (3:2 ratio maintained: 1.499:1)
+2025-10-10 18:46:42,286 - INFO - Removed gear item: Chain Mail (Mithril breast chainmail)
+2025-10-10 18:46:42,289 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:46:58,908 - INFO - Selected weapon: Mithril Versitlie (One-Handed)
+2025-10-10 18:47:06,028 - INFO - Attack roll: 23 (1d20: [14] + +9)
+2025-10-10 18:47:08,145 - INFO - Damage roll: 36 (8d10: [4, 6, 7, 2, 4, 3, 2, 1] + +7) slashing
+2025-10-10 18:47:15,663 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:47:23,890 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:55:01,100 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:55:37,178 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:55:37,178 - INFO - Added journal session: True Vampirism
+2025-10-10 18:55:37,182 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:13,227 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:13,371 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:13,492 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:13,565 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:13,760 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:13,906 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:14,076 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:14,199 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:14,339 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:14,481 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:15,010 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:15,631 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:16,914 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:17,116 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:17,488 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:17,726 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:17,840 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:17,940 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:18,318 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:18,454 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:18,567 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:18,992 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:19,134 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:19,280 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:19,384 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:19,518 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:19,660 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:19,799 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:20,355 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:20,492 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:20,652 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:21,634 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:22,506 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:23,842 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:24,141 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:24,454 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:24,654 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:25,589 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:25,667 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:25,829 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:26,578 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:26,655 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:26,836 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:27,050 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:27,155 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:27,339 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:27,434 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:27,550 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:27,682 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:27,752 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:27,869 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:27,940 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:28,327 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:28,484 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:28,559 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:28,778 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:29,050 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:29,156 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:29,254 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:29,511 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:29,655 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:30,030 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:30,121 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:30,243 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:31,064 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:31,180 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:31,371 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:31,447 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:31,565 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:31,792 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:32,006 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:32,163 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:32,365 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:32,543 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:32,694 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:33,084 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:33,216 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:33,310 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:33,469 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:33,634 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:33,736 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:33,879 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:33,975 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:35,552 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:35,666 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:35,830 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:36,115 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:36,281 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:36,475 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:36,623 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:36,843 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:36,936 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:37,090 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:37,237 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:37,454 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:37,554 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:37,607 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:37,897 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:38,084 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:38,358 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:56:38,888 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:57:45,670 - INFO - Character data saved successfully to character_data.json
+2025-10-10 18:57:51,132 - INFO - Selected spell: Warding Wind
+2025-10-10 18:57:55,758 - INFO - Character data saved successfully to character_data.json

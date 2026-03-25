@@ -1,0 +1,84 @@
+2026-03-09 23:33:23,072 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260309_233323.log
+2026-03-09 23:33:23,291 - INFO - Pygame initialized successfully
+2026-03-09 23:33:23,293 - INFO - Detected DPI: 96, Scale factor: 1.00
+2026-03-09 23:33:23,293 - INFO - Screen resolution: 2048x1152
+2026-03-09 23:33:23,293 - INFO - Work area: 2048x1104
+2026-03-09 23:33:23,293 - INFO - Adaptive window size: 1536x1024 (aspect ratio: 1.500)
+2026-03-09 23:33:23,293 - INFO - Creating D&D Character Tool application
+2026-03-09 23:33:23,799 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Madea\character_data.json
+2026-03-09 23:33:23,800 - INFO - Loaded spell slots: {'1st': 4, '2nd': 3, '3rd': 2}
+2026-03-09 23:33:23,800 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 3, '3rd': 2}
+2026-03-09 23:33:23,801 - INFO - Adding missing weapon/fighting style data...
+2026-03-09 23:33:23,804 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:23,804 - INFO - Loaded character: Madea Blackthorn
+2026-03-09 23:33:23,804 - INFO - Weapons loaded: 1
+2026-03-09 23:33:23,805 - INFO - Fighting styles: {}
+2026-03-09 23:33:23,805 - INFO - Window initialized at 1536x1024 (aspect ratio: 1.50:1)
+2026-03-09 23:33:23,806 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-03-09 23:33:23,806 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-03-09 23:33:23,806 - INFO -    • Press F11 to toggle fullscreen mode
+2026-03-09 23:33:23,807 - INFO -    • Press ESC to exit fullscreen
+2026-03-09 23:33:23,807 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2026-03-09 23:33:23,820 - INFO - Starting application main loop
+2026-03-09 23:33:34,743 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:36,534 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:37,607 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:37,611 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:37,703 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:38,198 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:38,288 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:38,463 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:38,726 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:38,817 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:38,907 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:39,088 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:39,178 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:39,279 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:39,463 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:39,638 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:39,729 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:39,991 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:40,167 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:40,433 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:40,609 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:40,786 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:41,063 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:41,260 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:41,441 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:41,617 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:41,880 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:41,980 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:42,182 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:42,360 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:42,540 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:42,643 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:42,837 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:45,151 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:33:47,363 - INFO - Selected spell: Mage Hand
+2026-03-09 23:33:47,456 - INFO - Selected spell: Infestation
+2026-03-09 23:33:47,467 - INFO - Selected spell: Infestation
+2026-03-09 23:33:47,478 - INFO - Selected spell: Infestation
+2026-03-09 23:33:47,580 - INFO - Selected spell: Message
+2026-03-09 23:33:48,005 - INFO - Selected spell: Mage Armor
+2026-03-09 23:33:48,017 - INFO - Selected spell: Mage Armor
+2026-03-09 23:33:48,029 - INFO - Selected spell: Mage Armor
+2026-03-09 23:33:48,126 - INFO - Selected spell: Shield
+2026-03-09 23:33:48,137 - INFO - Selected spell: Shield
+2026-03-09 23:33:48,148 - INFO - Selected spell: Shield
+2026-03-09 23:33:48,159 - INFO - Selected spell: Shield
+2026-03-09 23:33:48,464 - INFO - Selected spell: Silvery Barbs
+2026-03-09 23:33:48,476 - INFO - Selected spell: Silvery Barbs
+2026-03-09 23:33:48,575 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:33:48,586 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:33:48,596 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:33:48,690 - INFO - Selected spell: Bane
+2026-03-09 23:33:49,923 - INFO - Selected spell: Aganazzar's Scorcher
+2026-03-09 23:33:50,235 - INFO - Selected spell: Aganazzar's Scorcher
+2026-03-09 23:33:50,329 - INFO - Selected spell: Aganazzar's Scorcher
+2026-03-09 23:33:50,340 - INFO - Selected spell: Aganazzar's Scorcher
+2026-03-09 23:33:52,076 - INFO - Selected spell: Fear
+2026-03-09 23:34:04,077 - INFO - Selected spell: Lightning Bolt
+2026-03-09 23:34:05,936 - INFO - Selected spell: Fear
+2026-03-09 23:34:07,161 - INFO - Selected spell: Aganazzar's Scorcher
+2026-03-09 23:34:07,571 - INFO - Selected spell: Darkness
+2026-03-09 23:36:14,581 - INFO - Character data saved successfully (15 characters)

@@ -1,0 +1,169 @@
+Shadow sorcerer - Madea Blackthorn
+
+Species: Human
+Resourceful - Inspiration / LR
+Skillful - one skill prof - Insight
+Versatile - origin feat
+TOUGH
+Origin Feat
+Your Hit Point maximum increases by an amount
+equal to twice your character level when you gain
+this feat. Whenever you gain a character level
+thereafter, your Hit Point maximum increases by an
+additional 2 Hit Points. 
+
+Background Cursed one (custom):
++2 char (Hermit)
++1 char fey touched (legacy feat)
+-Misty step (lvl2) 1x/long rest
+-Bane (lvl1) 1x/long rest
+Stealth and Survival (guide skill prof)
+Tool: Herbalism Kit (Hermit)
+
+Sorcerer:
+Choose 2 skill prof: Arcana, Deception
+
+Saving throw Prof:
+Const and Char
+
+Point buy
+15 char +2 racial +1 fey touched
+14 Con
+14 Int
+10 Dex
+10 Wis
+8 STR
+
+HP: 6 (hit die) + 2 (Const) + 2 (tough feat) = 10
+
+Equipment: Daggar + Arcane Focus
+
+Lvl 1 sorcerers orign
+-Eyes of the Dark 
+EYES OF THE DARK
+Starting at lst level, you have darkvision with a range
+of 120 feet.
+When you reach 3rd level in this class, you learn
+the darkness spell, which doesn’t count against your
+number of sorcerer spells known. In addition, you can
+cast it by spending 2 sorcery points or by expending a
+spell slot. If you cast it with sorcery points, you can see
+through the darkness created by the spell.
+
+-strength of the grave
+STRENGTH OF THE GRAVE
+Starting at lst level, your existence in a twilight state between life and death makes you difficult to defeat. When
+damage reduces you to 0 hit points, you can make a Charisma saving throw (DC 5 + the damage taken). On
+a success, you instead drop to 1 hit point. You can’t use
+this feature if you are reduced to 0 hit points by radiant
+damage or by a critical hit.
+After the saving throw succeeds, you can’t use this
+feature again until you finish a long 
+
+Cantrips:
+poision spray / fire bolt / mage Hand / infestation
+
+Lvl 1 
+spells:
+Mage armor
+Chromatic orb
+
+
+
+----------------Future lvl 1 spells---------
+Shield
+Silvery Barbs? (The Idea here is to make enemies fail rolls)
+--------------------------------------------
+
+
+
+-----------------Legacy---------------
+Variant human
+Costom lineage with porficieny
+
+Fey touched feat
+-Misty step (lvl2) 1x/long rest
+-Bane (lvl1) 1x/long rest
+
+Point buy
+15 char +2 racial +1 fey touched
+14 Con
+14 Dex
+
+----------------Legacy-----------------
+
+LvL2
+Sorcery points (convert to spell slots for now)
+
+Spells
+Thunderwave
+Shield
+
+Metamagic spells
+distant spell
+empowered spell
+
+
+Lvl3
+
+Spells
+Aganazzar's Scorcher
+Web
+
+Lvl4
+
+Cantrips
+Message
+
+Spells
+Silvery Barbs
+
+
+Lvl3
+Meta magic (can only choose 2)
+-extended magic for mage armor
+-carful magic 
+-quickend spell! (Action spell as BA)
+-empowered spell! (reroll Cha mod nr of dice for damage)
+
+Second levl Spells
+-scorching ray (bursts 2 targets)
+-web?
+-hold person?
+
+Lvl 4 ASI +2 Charisma (capped)
+
+LvL 5
+3rd lvl spells
+counterspell
+fear
+hypnotic pattern
+Lightning bolt! (burst) (take it over fireball to avoid hitting hound of ill omen)
+
+
+Lvl 6 
+Hound of ill omen for 3 sorcery points
+Stats of direwolf
+One target has disadvantage against saving throws
+Can knock enemies prone
+
+Nova round:
+-round one summon hound (next to enemy to give them disadvantage) and cast bane with action
+-round two quickend spell for lightning bold BA (empowered spell), then poison spray/fire bolt
+-> 51-46 burst dmg!
+
+Lvl 7
+BLIGHT! 8d8
+
+Lvl 8
+ASI con
+or tough feat / war caster / lucky
+
+Lvl 9
+Hold monster
+synaptic static
+wall of stone
+Animate Object!  
+
+
+

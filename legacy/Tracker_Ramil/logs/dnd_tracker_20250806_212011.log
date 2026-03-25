@@ -1,0 +1,31 @@
+2025-08-06 21:20:11,853 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20250806_212011.log
+2025-08-06 21:20:12,148 - INFO - Pygame initialized successfully
+2025-08-06 21:20:12,150 - INFO - Detected DPI: 96, Scale factor: 1.00
+2025-08-06 21:20:12,150 - INFO - Screen resolution: 1920x1080
+2025-08-06 21:20:12,150 - INFO - Adaptive window size: 1399x787
+2025-08-06 21:20:12,150 - INFO - Creating D&D Character Tool application
+2025-08-06 21:20:13,627 - INFO - Loading character data from character_data.json
+2025-08-06 21:20:13,637 - INFO - Loaded character: Barian the Broken
+2025-08-06 21:20:13,638 - INFO - Weapons loaded: 3
+2025-08-06 21:20:13,638 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-08-06 21:20:13,638 - INFO - Window initialized at 1399x787 (aspect ratio: 1.78:1)
+2025-08-06 21:20:13,641 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-08-06 21:20:13,641 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-08-06 21:20:13,642 - INFO -    • Press F11 to toggle fullscreen mode
+2025-08-06 21:20:13,642 - INFO -    • Press ESC to exit fullscreen
+2025-08-06 21:20:13,643 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-08-06 21:20:13,655 - INFO - Starting application main loop
+2025-08-06 21:20:35,805 - INFO - Window resized to 1793x1009 (16:9 ratio maintained: 1.78:1)
+2025-08-06 21:20:43,875 - INFO - Window resized to 1399x786 (16:9 ratio maintained: 1.78:1)
+2025-08-06 21:20:45,481 - INFO - Switched to fullscreen mode (1399x786)
+2025-08-06 21:20:47,360 - INFO - Window resized to 1400x787 (16:9 ratio maintained: 1.78:1)
+2025-08-06 21:20:47,821 - INFO - Window resized to 1400x787 (16:9 ratio maintained: 1.78:1)
+2025-08-06 21:20:52,211 - INFO - Switched to windowed mode (1399x786, 16:9 ratio)
+2025-08-06 21:21:09,777 - INFO - Switched to fullscreen mode (1399x786)
+2025-08-06 21:21:11,287 - INFO - Window resized to 1400x787 (16:9 ratio maintained: 1.78:1)
+2025-08-06 21:21:11,768 - INFO - Window resized to 1400x787 (16:9 ratio maintained: 1.78:1)
+2025-08-06 21:21:18,591 - INFO - Window resized to 1724x970 (16:9 ratio maintained: 1.78:1)
+2025-08-06 21:21:22,200 - INFO - Window resized to 1724x970 (16:9 ratio maintained: 1.78:1)
+2025-08-06 21:21:24,122 - INFO - Window resized to 1767x994 (16:9 ratio maintained: 1.78:1)
+2025-08-06 21:21:29,756 - INFO - Window resized to 1779x1000 (16:9 ratio maintained: 1.78:1)
+2025-08-06 21:21:55,403 - INFO - Character data saved successfully to character_data.json

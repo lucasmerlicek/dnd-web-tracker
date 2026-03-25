@@ -1,0 +1,297 @@
+2026-02-22 11:09:57,415 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260222_110957.log
+2026-02-22 11:09:57,589 - INFO - Pygame initialized successfully
+2026-02-22 11:09:57,592 - INFO - Detected DPI: 96, Scale factor: 1.00
+2026-02-22 11:09:57,592 - INFO - Screen resolution: 2048x1152
+2026-02-22 11:09:57,592 - INFO - Work area: 2048x1104
+2026-02-22 11:09:57,592 - INFO - Adaptive window size: 1536x1024 (aspect ratio: 1.500)
+2026-02-22 11:09:57,592 - INFO - Creating D&D Character Tool application
+2026-02-22 11:10:06,792 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2026-02-22 11:10:07,007 - INFO - Loaded spell slots: {'1st': 4, '2nd': 2}
+2026-02-22 11:10:07,008 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 2}
+2026-02-22 11:10:07,008 - INFO - Loaded character: Ramil al-Sayif
+2026-02-22 11:10:07,008 - INFO - Weapons loaded: 3
+2026-02-22 11:10:07,008 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2026-02-22 11:10:07,008 - INFO - Window initialized at 1536x1024 (aspect ratio: 1.50:1)
+2026-02-22 11:10:07,008 - INFO - Adaptive Resolution Features:
+2026-02-22 11:10:07,008 - INFO -    - Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-02-22 11:10:07,008 - INFO -    - Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-02-22 11:10:07,009 - INFO -    - Press F11 to toggle fullscreen mode
+2026-02-22 11:10:07,009 - INFO -    - Press ESC to exit fullscreen
+2026-02-22 11:10:07,009 - INFO -    - Window is resizable - aspect ratio maintained automatically
+2026-02-22 11:10:07,019 - INFO - Starting application main loop
+2026-02-22 11:11:09,542 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:09,635 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:09,645 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:09,657 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:09,746 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:10,598 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:10,700 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:10,712 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:10,804 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:10,894 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:10,987 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:11,413 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:11,424 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:11,516 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:11,527 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:11,615 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:11,703 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:13,694 - INFO - Selected spell: Guidance
+2026-02-22 11:11:15,448 - INFO - Selected spell: Mending
+2026-02-22 11:11:16,475 - INFO - Selected spell: Booming Blade
+2026-02-22 11:11:17,305 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:11:17,708 - INFO - Selected spell: Mage Hand
+2026-02-22 11:11:18,129 - INFO - Selected spell: Shield
+2026-02-22 11:11:18,892 - INFO - Selected spell: Mage Hand
+2026-02-22 11:11:19,269 - INFO - Selected spell: Shield
+2026-02-22 11:11:19,773 - INFO - Selected spell: Mage Hand
+2026-02-22 11:11:20,335 - INFO - Selected spell: Shield
+2026-02-22 11:11:20,772 - INFO - Selected spell: Shield
+2026-02-22 11:11:20,781 - INFO - Selected spell: Shield
+2026-02-22 11:11:20,878 - INFO - Selected spell: Shield
+2026-02-22 11:11:22,492 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:23,164 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:23,326 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:23,417 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:23,641 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:23,735 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:23,747 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:23,853 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:24,572 - INFO - Selected spell: Misty Step
+2026-02-22 11:11:25,379 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:26,585 - INFO - Selected spell: Ice Knife
+2026-02-22 11:11:26,937 - INFO - Selected spell: Mage Armor
+2026-02-22 11:11:27,562 - INFO - Selected spell: Identify
+2026-02-22 11:11:27,936 - INFO - Selected spell: Shield
+2026-02-22 11:11:37,637 - INFO - Selected spell: Identify
+2026-02-22 11:11:38,344 - INFO - Selected spell: Mage Armor
+2026-02-22 11:11:38,805 - INFO - Selected spell: Ice Knife
+2026-02-22 11:11:39,343 - INFO - Selected spell: Misty Step
+2026-02-22 11:11:39,685 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:55,289 - INFO - Selected spell: Misty Step
+2026-02-22 11:11:56,078 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:11:58,778 - INFO - Selected spell: Misty Step
+2026-02-22 11:11:59,592 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:12:00,441 - INFO - Selected spell: Ice Knife
+2026-02-22 11:12:01,473 - INFO - Selected spell: Misty Step
+2026-02-22 11:12:01,999 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:12:02,964 - INFO - Selected spell: Mage Armor
+2026-02-22 11:12:03,917 - INFO - Selected spell: Identify
+2026-02-22 11:12:04,381 - INFO - Selected spell: Shield
+2026-02-22 11:12:05,357 - INFO - Selected spell: Identify
+2026-02-22 11:12:05,759 - INFO - Selected spell: Mage Armor
+2026-02-22 11:12:06,172 - INFO - Selected spell: Ice Knife
+2026-02-22 11:12:48,756 - INFO - Window resized to 1621x1081 (aspect ratio maintained: 1.500:1)
+2026-02-22 11:12:50,209 - INFO - Window resized to 1536x1024 (aspect ratio maintained: 1.500:1)
+2026-02-22 11:13:03,331 - INFO - Selected spell: Mage Armor
+2026-02-22 11:13:04,342 - INFO - Selected spell: Misty Step
+2026-02-22 11:13:05,175 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:13:36,241 - INFO - Selected weapon: Shortsword (Vex Mastery)
+2026-02-22 11:13:37,644 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2026-02-22 11:13:39,292 - INFO - Selected weapon: Shortsword (Vex Mastery)
+2026-02-22 11:13:40,865 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2026-02-22 11:13:42,277 - INFO - Selected weapon: Shortsword (Vex Mastery)
+2026-02-22 11:13:44,401 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2026-02-22 11:14:18,045 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:39,493 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:41,721 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:41,847 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:44,091 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:44,316 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:44,446 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:45,032 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:45,614 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:53,590 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:53,718 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:53,834 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:54,063 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:54,194 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:54,320 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:54,441 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:54,558 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:54,679 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:54,908 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:55,025 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:55,260 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:55,375 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:55,488 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:55,934 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:56,049 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:56,397 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:56,512 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:56,752 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:56,755 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:56,868 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:57,091 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:57,202 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:57,671 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:58,698 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:59,407 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:59,521 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:59,744 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:59,857 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:14:59,969 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:00,191 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:00,304 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:00,418 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:00,540 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:00,653 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:00,884 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:01,017 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:10,501 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:15,385 - INFO - Selected spell: Identify
+2026-02-22 11:15:15,472 - INFO - Selected spell: Identify
+2026-02-22 11:15:15,483 - INFO - Selected spell: Identify
+2026-02-22 11:15:15,493 - INFO - Selected spell: Identify
+2026-02-22 11:15:15,503 - INFO - Selected spell: Identify
+2026-02-22 11:15:15,588 - INFO - Selected spell: Identify
+2026-02-22 11:15:15,985 - INFO - Selected spell: Identify
+2026-02-22 11:15:16,144 - INFO - Selected spell: Identify
+2026-02-22 11:15:16,847 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:15:17,867 - INFO - Casting Shadow Blade - switching to attack menu for weapon attack!
+2026-02-22 11:15:17,867 - INFO - Used 2nd level spell slot. Remaining: 1
+2026-02-22 11:15:17,870 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:23,932 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2026-02-22 11:15:28,743 - INFO - Selected spell: Mage Armor
+2026-02-22 11:15:28,832 - INFO - Selected spell: Mage Armor
+2026-02-22 11:15:28,843 - INFO - Selected spell: Mage Armor
+2026-02-22 11:15:28,853 - INFO - Selected spell: Mage Armor
+2026-02-22 11:15:28,862 - INFO - Selected spell: Mage Armor
+2026-02-22 11:15:28,872 - INFO - Selected spell: Mage Armor
+2026-02-22 11:15:29,382 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:15:31,924 - INFO - Selected spell: Misty Step
+2026-02-22 11:15:32,872 - INFO - Cast Misty Step - 2nd-level conjuration
+
+Casting Time: 1 bonus action
+Range: Self
+Components: V
+Duration: Instantaneous
+
+Briefly surrounded by silvery mist, you teleport up to 30 feet to an unoccupied space that you can see.
+2026-02-22 11:15:32,872 - INFO - Used 2nd level spell slot. Remaining: 0
+2026-02-22 11:15:32,876 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:15:51,961 - INFO - Selected spell: Ice Knife
+2026-02-22 11:15:52,061 - INFO - Selected spell: Ice Knife
+2026-02-22 11:15:52,272 - INFO - Selected spell: Ice Knife
+2026-02-22 11:17:22,853 - INFO - Selected spell: Shield
+2026-02-22 11:17:23,185 - INFO - Selected spell: Identify
+2026-02-22 11:17:23,655 - INFO - Selected spell: Ice Knife
+2026-02-22 11:17:38,771 - INFO - Selected spell: Misty Step
+2026-02-22 11:17:39,988 - INFO - Selected spell: Ice Knife
+2026-02-22 11:17:43,101 - INFO - Selected spell: Mage Armor
+2026-02-22 11:17:45,114 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:19:43,471 - INFO - Selected spell: Misty Step
+2026-02-22 11:19:44,316 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:19:44,728 - INFO - Selected spell: Misty Step
+2026-02-22 11:19:45,308 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:19:46,025 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:19:46,112 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:19:47,285 - INFO - Selected spell: Misty Step
+2026-02-22 11:19:48,353 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:19:48,881 - INFO - Selected spell: Misty Step
+2026-02-22 11:19:49,712 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:30:31,212 - INFO - Selected spell: Identify
+2026-02-22 11:30:31,547 - INFO - Selected spell: Mage Armor
+2026-02-22 11:30:33,298 - INFO - Selected spell: Shield
+2026-02-22 11:30:33,652 - INFO - Selected spell: Identify
+2026-02-22 11:30:34,246 - INFO - Selected spell: Ice Knife
+2026-02-22 11:32:53,400 - INFO - Selected spell: Mage Armor
+2026-02-22 11:32:53,501 - INFO - Selected spell: Mage Armor
+2026-02-22 11:32:54,058 - INFO - Selected spell: Ice Knife
+2026-02-22 11:32:54,070 - INFO - Selected spell: Ice Knife
+2026-02-22 11:32:54,164 - INFO - Selected spell: Ice Knife
+2026-02-22 11:32:54,177 - INFO - Selected spell: Ice Knife
+2026-02-22 11:32:55,011 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,101 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,112 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,211 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,301 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,397 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,408 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,420 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,509 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,520 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,745 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,835 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,928 - INFO - Selected spell: Identify
+2026-02-22 11:32:55,940 - INFO - Selected spell: Identify
+2026-02-22 11:32:56,034 - INFO - Selected spell: Identify
+2026-02-22 11:32:56,045 - INFO - Selected spell: Identify
+2026-02-22 11:32:56,597 - INFO - Selected spell: Identify
+2026-02-22 11:32:56,608 - INFO - Selected spell: Identify
+2026-02-22 11:32:56,699 - INFO - Selected spell: Identify
+2026-02-22 11:32:56,711 - INFO - Selected spell: Identify
+2026-02-22 11:32:56,801 - INFO - Selected spell: Identify
+2026-02-22 11:32:56,960 - INFO - Selected spell: Identify
+2026-02-22 11:32:56,972 - INFO - Selected spell: Identify
+2026-02-22 11:32:57,064 - INFO - Selected spell: Identify
+2026-02-22 11:32:57,076 - INFO - Selected spell: Identify
+2026-02-22 11:32:57,087 - INFO - Selected spell: Identify
+2026-02-22 11:32:57,098 - INFO - Selected spell: Identify
+2026-02-22 11:32:57,802 - INFO - Selected spell: Mage Armor
+2026-02-22 11:32:57,813 - INFO - Selected spell: Mage Armor
+2026-02-22 11:32:58,107 - INFO - Selected spell: Mage Armor
+2026-02-22 11:32:58,386 - INFO - Selected spell: Mage Armor
+2026-02-22 11:32:58,478 - INFO - Selected spell: Mage Armor
+2026-02-22 11:32:58,489 - INFO - Selected spell: Mage Armor
+2026-02-22 11:32:58,500 - INFO - Selected spell: Mage Armor
+2026-02-22 11:33:02,398 - INFO - Selected spell: Guidance
+2026-02-22 11:33:02,412 - INFO - Selected spell: Guidance
+2026-02-22 11:33:02,503 - INFO - Selected spell: Guidance
+2026-02-22 11:33:02,596 - INFO - Selected spell: Guidance
+2026-02-22 11:33:02,893 - INFO - Selected spell: Mending
+2026-02-22 11:33:02,981 - INFO - Selected spell: Mending
+2026-02-22 11:33:02,994 - INFO - Selected spell: Mending
+2026-02-22 11:33:03,006 - INFO - Selected spell: Mending
+2026-02-22 11:33:03,103 - INFO - Selected spell: Mending
+2026-02-22 11:33:03,114 - INFO - Selected spell: Mending
+2026-02-22 11:33:03,323 - INFO - Selected spell: Mending
+2026-02-22 11:33:03,594 - INFO - Selected spell: Mending
+2026-02-22 11:33:03,685 - INFO - Selected spell: Mending
+2026-02-22 11:33:03,695 - INFO - Selected spell: Mending
+2026-02-22 11:33:03,708 - INFO - Selected spell: Mending
+2026-02-22 11:33:03,719 - INFO - Selected spell: Mending
+2026-02-22 11:33:03,810 - INFO - Selected spell: Mending
+2026-02-22 11:33:04,745 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:04,838 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:04,850 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:04,940 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:04,951 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:05,043 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:05,054 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:05,475 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:05,564 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:05,577 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:05,667 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:05,678 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:05,782 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:05,797 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:06,175 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:06,186 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:06,276 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:06,287 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:06,299 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:06,389 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:33:06,747 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:06,758 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:06,849 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:06,860 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:07,379 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:07,475 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:07,567 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:07,653 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:08,695 - INFO - Selected spell: Misty Step
+2026-02-22 11:33:09,452 - INFO - Selected spell: Misty Step
+2026-02-22 11:33:09,570 - INFO - Selected spell: Misty Step
+2026-02-22 11:33:10,584 - INFO - Selected spell: Identify
+2026-02-22 11:33:10,597 - INFO - Selected spell: Identify
+2026-02-22 11:33:10,688 - INFO - Selected spell: Identify
+2026-02-22 11:33:12,317 - INFO - Selected spell: Mage Hand
+2026-02-22 11:33:14,737 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:15,705 - INFO - Selected spell: Mage Hand
+2026-02-22 11:33:17,163 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:17,901 - INFO - Selected spell: Booming Blade
+2026-02-22 11:33:18,469 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:33:18,951 - INFO - Selected spell: Booming Blade
+2026-02-22 11:33:19,655 - INFO - Selected spell: Mage Hand
+2026-02-22 11:40:45,440 - INFO - Character data saved successfully (22 characters)

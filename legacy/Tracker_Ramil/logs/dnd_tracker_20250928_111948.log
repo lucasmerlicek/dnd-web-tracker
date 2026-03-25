@@ -1,0 +1,37 @@
+2025-09-28 11:19:48,565 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20250928_111948.log
+2025-09-28 11:19:49,025 - INFO - Pygame initialized successfully
+2025-09-28 11:19:49,029 - INFO - Detected DPI: 96, Scale factor: 1.00
+2025-09-28 11:19:49,030 - INFO - Screen resolution: 1920x1080
+2025-09-28 11:19:49,030 - INFO - Work area: 1920x1032
+2025-09-28 11:19:49,030 - INFO - Adaptive window size: 1399x933 (aspect ratio: 1.499)
+2025-09-28 11:19:49,030 - INFO - Creating D&D Character Tool application
+2025-09-28 11:19:50,805 - INFO - Loading character data from character_data.json
+2025-09-28 11:19:50,818 - INFO - Loaded character: Barian the Broken
+2025-09-28 11:19:50,818 - INFO - Weapons loaded: 3
+2025-09-28 11:19:50,818 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-09-28 11:19:50,818 - INFO - Window initialized at 1399x933 (aspect ratio: 1.50:1)
+2025-09-28 11:19:50,820 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-09-28 11:19:50,820 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-09-28 11:19:50,820 - INFO -    • Press F11 to toggle fullscreen mode
+2025-09-28 11:19:50,820 - INFO -    • Press ESC to exit fullscreen
+2025-09-28 11:19:50,820 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-09-28 11:19:50,840 - INFO - Starting application main loop
+2025-09-28 11:19:53,957 - INFO - Window resized to 1513x1009 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:19:58,601 - INFO - Window resized to 1513x1009 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:20:00,597 - INFO - Window resized to 1513x1009 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:20:03,498 - INFO - Window resized to 1399x932 (3:2 ratio maintained: 1.501:1)
+2025-09-28 11:20:13,793 - INFO - Window resized to 1513x1009 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:20:15,800 - INFO - Window resized to 1399x932 (3:2 ratio maintained: 1.501:1)
+2025-09-28 11:20:36,270 - INFO - Window resized to 1513x1009 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:20:44,730 - INFO - Window resized to 973x649 (3:2 ratio maintained: 1.499:1)
+2025-09-28 11:20:47,168 - INFO - Window resized to 973x649 (3:2 ratio maintained: 1.499:1)
+2025-09-28 11:20:48,441 - INFO - Window resized to 946x631 (3:2 ratio maintained: 1.499:1)
+2025-09-28 11:20:50,798 - INFO - Window resized to 973x649 (3:2 ratio maintained: 1.499:1)
+2025-09-28 11:20:53,362 - INFO - Window resized to 946x630 (3:2 ratio maintained: 1.502:1)
+2025-09-28 11:20:59,647 - INFO - Window resized to 945x630 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:21:14,013 - INFO - Window resized to 1513x1009 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:21:16,630 - INFO - Window resized to 1513x1009 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:21:34,872 - INFO - Window resized to 945x630 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:21:35,568 - INFO - Window resized to 1513x1009 (3:2 ratio maintained: 1.500:1)
+2025-09-28 11:21:39,012 - INFO - Character data saved successfully to character_data.json
+2025-09-28 11:28:01,821 - INFO - Character data saved successfully to character_data.json

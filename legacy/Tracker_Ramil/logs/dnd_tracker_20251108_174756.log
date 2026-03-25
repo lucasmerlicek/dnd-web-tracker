@@ -1,0 +1,153 @@
+2025-11-08 17:47:56,863 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251108_174756.log
+2025-11-08 17:47:57,313 - INFO - Pygame initialized successfully
+2025-11-08 17:47:57,317 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-08 17:47:57,317 - INFO - Screen resolution: 1920x1080
+2025-11-08 17:47:57,317 - INFO - Work area: 1920x1008
+2025-11-08 17:47:57,318 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2025-11-08 17:47:57,318 - INFO - Creating D&D Character Tool application
+2025-11-08 17:47:58,252 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-08 17:47:58,274 - INFO - Loaded spell slots: {}
+2025-11-08 17:47:58,274 - INFO - Loaded current spell slots: {}
+2025-11-08 17:47:58,274 - INFO - Loaded character: Ramil al-Sayif
+2025-11-08 17:47:58,274 - INFO - Weapons loaded: 3
+2025-11-08 17:47:58,275 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-08 17:47:58,275 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2025-11-08 17:47:58,277 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-08 17:47:58,278 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-08 17:47:58,278 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-08 17:47:58,278 - INFO -    • Press ESC to exit fullscreen
+2025-11-08 17:47:58,278 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-08 17:47:58,309 - INFO - Starting application main loop
+2025-11-08 17:48:04,422 - INFO - Window resized to 1420x947 (aspect ratio maintained: 1.499:1)
+2025-11-08 17:48:06,259 - INFO - Window resized to 1461x974 (aspect ratio maintained: 1.500:1)
+2025-11-08 17:48:29,391 - INFO - Ramil al-Sayif used inspiration! Now at 2
+2025-11-08 17:48:29,396 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:48:30,341 - INFO - Ramil al-Sayif gained inspiration! Now at 3
+2025-11-08 17:48:30,349 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:48:34,515 - INFO - Ramil al-Sayif used inspiration! Now at 2
+2025-11-08 17:48:34,520 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:48:35,720 - INFO - Ramil al-Sayif gained inspiration! Now at 3
+2025-11-08 17:48:35,725 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:48:37,003 - INFO - Ramil al-Sayif used luck point! Now at 2
+2025-11-08 17:48:37,006 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:48:37,677 - INFO - Ramil al-Sayif gained luck point! Now at 3
+2025-11-08 17:48:37,683 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:48:43,505 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:48:46,985 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:48:52,237 - INFO - Selected action: Second Wind
+2025-11-08 17:49:06,097 - INFO - Selected character: Magistrate Olgorn
+2025-11-08 17:49:12,920 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:49:15,608 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:49:17,115 - INFO - Selected character: Magistrate Olgorn
+2025-11-08 17:49:18,435 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:49:19,955 - INFO - Character data saved successfully (13 characters)
+2025-11-08 17:49:23,096 - INFO - Selected character: Rusty Pete
+2025-11-08 17:49:30,203 - INFO - Deleted character: Character 13
+2025-11-08 17:49:30,215 - INFO - Character data saved successfully (12 characters)
+2025-11-08 17:49:31,063 - INFO - Deleted character: Character 12
+2025-11-08 17:49:31,080 - INFO - Character data saved successfully (11 characters)
+2025-11-08 17:49:31,900 - INFO - Deleted character: Character 11
+2025-11-08 17:49:31,909 - INFO - Character data saved successfully (10 characters)
+2025-11-08 17:49:32,916 - INFO - Deleted character: Character 10
+2025-11-08 17:49:32,927 - INFO - Character data saved successfully (9 characters)
+2025-11-08 17:49:33,777 - INFO - Deleted character: Character 9
+2025-11-08 17:49:33,789 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:49:34,594 - INFO - Selected character: Character 8
+2025-11-08 17:49:38,443 - INFO - Character data saved successfully (9 characters)
+2025-11-08 17:49:38,443 - INFO - Created new character: Character 9
+2025-11-08 17:49:46,794 - INFO - Character data saved successfully (9 characters)
+2025-11-08 17:49:46,798 - INFO - Character data saved successfully (9 characters)
+2025-11-08 17:49:46,898 - INFO - Character data saved successfully (9 characters)
+2025-11-08 17:49:47,033 - INFO - Character data saved successfully (9 characters)
+2025-11-08 17:49:47,176 - INFO - Character data saved successfully (9 characters)
+2025-11-08 17:49:47,313 - INFO - Character data saved successfully (9 characters)
+2025-11-08 17:49:47,501 - INFO - Character data saved successfully (9 characters)
+2025-11-08 17:49:47,642 - INFO - Character data saved successfully (9 characters)
+2025-11-08 17:49:51,219 - INFO - Selected character: Character 9
+2025-11-08 17:49:51,959 - INFO - Deleted character: Character 9
+2025-11-08 17:49:51,971 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:49:54,198 - INFO - Selected character: Character 8
+2025-11-08 17:49:59,407 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:49:59,567 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:49:59,735 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:49:59,824 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:49:59,907 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,045 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,092 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,139 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,269 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,487 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,534 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,580 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,622 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,791 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,795 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,800 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:00,850 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,020 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,062 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,154 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,201 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,285 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,334 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,427 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,561 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,653 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,656 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,776 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,780 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,825 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,829 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,960 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:01,964 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:02,014 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:02,153 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:02,199 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:02,203 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:02,334 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:02,338 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:02,521 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:02,645 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:03,189 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:03,236 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:03,320 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:03,411 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:03,465 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:03,555 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:03,643 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:03,738 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:03,827 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:03,917 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,006 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,091 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,177 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,265 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,350 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,440 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,521 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,609 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,699 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,786 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,871 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:04,957 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:05,039 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:05,131 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:05,222 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:05,312 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:05,404 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:05,488 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:05,575 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:05,661 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:06,588 - INFO - Character data saved successfully (8 characters)
+2025-11-08 17:50:12,143 - INFO - Deleted character: Character 8
+2025-11-08 17:50:12,148 - INFO - Character data saved successfully (7 characters)
+2025-11-08 17:50:15,231 - INFO - Character data saved successfully (7 characters)
+2025-11-08 17:50:57,803 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2025-11-08 17:51:06,398 - INFO - Attack roll (ADVANTAGE): 12 (rolled 4 and 7, used 7 + 5)
+2025-11-08 17:51:09,325 - INFO - Attack roll: 9 (1d20: [4] + +5)
+2025-11-08 17:51:10,068 - INFO - Attack roll: 13 (1d20: [8] + +5)
+2025-11-08 17:51:11,649 - INFO - Attack roll (ADVANTAGE): 14 (rolled 9 and 6, used 9 + 5)
+2025-11-08 17:51:12,048 - INFO - Attack roll (ADVANTAGE): 21 (rolled 16 and 3, used 16 + 5)
+2025-11-08 17:51:12,545 - INFO - Attack roll (ADVANTAGE): 14 (rolled 9 and 9, used 9 + 5)
+2025-11-08 17:51:19,372 - INFO - Attack roll (ADVANTAGE): 25 (rolled 20 and 10, used 20 + 5)
+2025-11-08 18:08:15,839 - INFO - Character data saved successfully (7 characters)

@@ -1,0 +1,25 @@
+2025-07-30 22:55:45,633 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20250730_225545.log
+2025-07-30 22:55:49,882 - INFO - Pygame initialized successfully
+2025-07-30 22:55:49,884 - INFO - Creating D&D Character Tool application
+2025-07-30 22:55:50,536 - INFO - Loading character data from character_data.json
+2025-07-30 22:55:50,547 - INFO - Loaded character: Barian the Broken
+2025-07-30 22:55:50,548 - INFO - Weapons loaded: 3
+2025-07-30 22:55:50,548 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-07-30 22:55:50,556 - INFO - Starting application main loop
+2025-07-30 22:55:55,742 - INFO - Selected weapon: Mithril Broadsword (One-Handed)
+2025-07-30 22:55:56,663 - INFO - Attack roll: 18 (1d20: [11] + +7)
+2025-07-30 22:55:57,158 - INFO - Damage roll: 36 (8d10: [8, 5, 9, 1, 1, 1, 2, 3] + +6) slashing
+2025-07-30 22:56:03,224 - INFO - Added gear item: dagger
+2025-07-30 22:56:03,226 - INFO - Character data saved successfully to character_data.json
+2025-07-30 22:56:04,400 - INFO - Removed gear item: dagger
+2025-07-30 22:56:04,402 - INFO - Character data saved successfully to character_data.json
+2025-07-30 22:56:09,620 - INFO - Selected action: Second Wind
+2025-07-30 22:56:10,413 - INFO - Second Wind: Healed 17 HP (rolled 17)
+2025-07-30 22:56:10,416 - INFO - Character data saved successfully to character_data.json
+2025-07-30 22:56:15,377 - INFO - Character data saved successfully to character_data.json
+2025-07-30 22:56:16,753 - INFO - Short rest: restored 9 HP. Current HP: 51/60
+2025-07-30 22:56:16,754 - INFO - - Recharged actions: Second Wind
+2025-07-30 22:56:16,754 - INFO - Short rest completed!
+2025-07-30 22:56:16,755 - INFO - Character data saved successfully to character_data.json
+2025-07-30 22:56:22,754 - INFO - Character data saved successfully to character_data.json
+2025-07-30 22:56:25,737 - INFO - Character data saved successfully to character_data.json

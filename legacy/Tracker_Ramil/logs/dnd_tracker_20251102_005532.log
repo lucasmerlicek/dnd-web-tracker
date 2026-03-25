@@ -1,0 +1,65 @@
+2025-11-02 00:55:32,805 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251102_005532.log
+2025-11-02 00:55:33,054 - INFO - Pygame initialized successfully
+2025-11-02 00:55:33,057 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-02 00:55:33,058 - INFO - Screen resolution: 1920x1080
+2025-11-02 00:55:33,058 - INFO - Work area: 1920x1008
+2025-11-02 00:55:33,058 - INFO - Adaptive window size: 1152x648 (aspect ratio: 1.778)
+2025-11-02 00:55:33,059 - INFO - Creating D&D Character Tool application
+2025-11-02 00:55:33,652 - INFO - Loading character data from character_data.json
+2025-11-02 00:55:33,674 - INFO - Loaded spell slots: {}
+2025-11-02 00:55:33,674 - INFO - Loaded current spell slots: {}
+2025-11-02 00:55:33,674 - INFO - Loaded character: Ramil al-Sayif
+2025-11-02 00:55:33,675 - INFO - Weapons loaded: 3
+2025-11-02 00:55:33,675 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-02 00:55:33,675 - INFO - Window initialized at 1152x648 (aspect ratio: 1.78:1)
+2025-11-02 00:55:33,681 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-02 00:55:33,681 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-11-02 00:55:33,682 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-02 00:55:33,682 - INFO -    • Press ESC to exit fullscreen
+2025-11-02 00:55:33,682 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-02 00:55:33,718 - INFO - Starting application main loop
+2025-11-02 00:55:36,916 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:36,917 - INFO - Created new character: Character 1
+2025-11-02 00:55:38,114 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:38,114 - INFO - Created new character: Character 2
+2025-11-02 00:55:40,615 - INFO - Window resized to 1731x974 (16:9 ratio maintained: 1.777:1)
+2025-11-02 00:55:42,598 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:42,599 - INFO - Created new character: Character 3
+2025-11-02 00:55:43,618 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:43,619 - INFO - Created new character: Character 4
+2025-11-02 00:55:44,623 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:44,623 - INFO - Created new character: Character 5
+2025-11-02 00:55:45,655 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:45,656 - INFO - Created new character: Character 6
+2025-11-02 00:55:47,064 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:47,065 - INFO - Created new character: Character 7
+2025-11-02 00:55:48,033 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:48,034 - INFO - Created new character: Character 8
+2025-11-02 00:55:48,926 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:48,926 - INFO - Created new character: Character 9
+2025-11-02 00:55:49,793 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:49,793 - INFO - Created new character: Character 10
+2025-11-02 00:55:50,726 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:50,727 - INFO - Created new character: Character 11
+2025-11-02 00:55:51,608 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:51,608 - INFO - Created new character: Character 12
+2025-11-02 00:55:55,705 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:55,705 - INFO - Created new character: Character 13
+2025-11-02 00:55:57,014 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:55:57,904 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:04,481 - INFO - Renamed character to: Character Dean
+2025-11-02 00:56:04,483 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:11,586 - INFO - Renamed character to: Dean
+2025-11-02 00:56:11,619 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:13,286 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:13,337 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:13,453 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:13,553 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:13,654 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:13,704 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:14,749 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:16,749 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:18,730 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:18,784 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:18,842 - INFO - Character data saved successfully to character_data.json
+2025-11-02 00:56:23,451 - INFO - Character data saved successfully to character_data.json

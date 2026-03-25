@@ -1,0 +1,104 @@
+2026-02-22 11:42:20,482 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260222_114220.log
+2026-02-22 11:42:20,648 - INFO - Pygame initialized successfully
+2026-02-22 11:42:20,651 - INFO - Detected DPI: 96, Scale factor: 1.00
+2026-02-22 11:42:20,651 - INFO - Screen resolution: 2048x1152
+2026-02-22 11:42:20,651 - INFO - Work area: 2048x1104
+2026-02-22 11:42:20,651 - INFO - Adaptive window size: 1536x1024 (aspect ratio: 1.500)
+2026-02-22 11:42:20,651 - INFO - Creating D&D Character Tool application
+2026-02-22 11:42:21,148 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2026-02-22 11:42:21,149 - INFO - Loaded spell slots: {'1st': 4, '2nd': 2}
+2026-02-22 11:42:21,149 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 0}
+2026-02-22 11:42:21,149 - INFO - Loaded character: Ramil al-Sayif
+2026-02-22 11:42:21,149 - INFO - Weapons loaded: 3
+2026-02-22 11:42:21,150 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2026-02-22 11:42:21,150 - INFO - Window initialized at 1536x1024 (aspect ratio: 1.50:1)
+2026-02-22 11:42:21,150 - INFO - Adaptive Resolution Features:
+2026-02-22 11:42:21,150 - INFO -    - Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-02-22 11:42:21,150 - INFO -    - Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-02-22 11:42:21,150 - INFO -    - Press F11 to toggle fullscreen mode
+2026-02-22 11:42:21,150 - INFO -    - Press ESC to exit fullscreen
+2026-02-22 11:42:21,152 - INFO -    - Window is resizable - aspect ratio maintained automatically
+2026-02-22 11:42:21,163 - INFO - Starting application main loop
+2026-02-22 11:42:38,451 - INFO - Selected spell: Ice Knife
+2026-02-22 11:42:38,540 - INFO - Selected spell: Ice Knife
+2026-02-22 11:42:39,127 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:39,138 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:39,225 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:39,237 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:39,322 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:39,591 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:39,682 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:39,693 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:39,787 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:39,887 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:39,986 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:40,394 - INFO - Selected spell: Ice Knife
+2026-02-22 11:42:40,486 - INFO - Selected spell: Ice Knife
+2026-02-22 11:42:40,578 - INFO - Selected spell: Ice Knife
+2026-02-22 11:42:40,588 - INFO - Selected spell: Ice Knife
+2026-02-22 11:42:45,086 - INFO - Selected spell: Mage Armor
+2026-02-22 11:42:45,176 - INFO - Selected spell: Mage Armor
+2026-02-22 11:42:45,263 - INFO - Selected spell: Mage Armor
+2026-02-22 11:42:45,353 - INFO - Selected spell: Mage Armor
+2026-02-22 11:42:45,364 - INFO - Selected spell: Mage Armor
+2026-02-22 11:42:48,024 - INFO - Selected spell: Ice Knife
+2026-02-22 11:42:48,897 - INFO - Selected spell: Misty Step
+2026-02-22 11:42:49,541 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:43:52,140 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:43:53,255 - INFO - Casting Shadow Blade - switching to attack menu for weapon attack!
+2026-02-22 11:43:53,255 - WARNING - No 2nd level spell slots remaining!
+2026-02-22 11:44:00,927 - INFO - Long rest completed!
+2026-02-22 11:44:00,928 - INFO - - Restored 0 HP to full (30)
+2026-02-22 11:44:00,928 - INFO - - Restored all spell slots
+2026-02-22 11:44:00,928 - INFO - - Reset Druid Initiate free Charm Person cast
+2026-02-22 11:44:00,929 - INFO - - Reset Luck points to 3
+2026-02-22 11:44:00,933 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:44:04,032 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:44:05,477 - INFO - Casting Shadow Blade - switching to attack menu for weapon attack!
+2026-02-22 11:44:05,478 - INFO - Used 2nd level spell slot. Remaining: 1
+2026-02-22 11:44:05,481 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:44:05,481 - INFO - Shadow Blade conjured! It appears in the attack menu.
+2026-02-22 11:44:08,786 - INFO - Selected weapon: Shadow Blade
+2026-02-22 11:44:29,515 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2026-02-22 11:44:32,535 - INFO - Selected weapon: Shadow Blade
+2026-02-22 11:44:36,796 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2026-02-22 11:44:37,533 - INFO - Selected weapon: Shadow Blade
+2026-02-22 11:44:39,738 - INFO - Attack roll: 6 (1d20: [1] + +5)
+2026-02-22 11:44:41,981 - INFO - Damage roll: 17 (2d8: [6, 8] + +3) psychic
+2026-02-22 11:44:51,852 - INFO - Long rest completed!
+2026-02-22 11:44:51,853 - INFO - - Restored 0 HP to full (30)
+2026-02-22 11:44:51,853 - INFO - - Restored all spell slots
+2026-02-22 11:44:51,853 - INFO - - Reset Druid Initiate free Charm Person cast
+2026-02-22 11:44:51,854 - INFO - - Reset Luck points to 3
+2026-02-22 11:44:51,857 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:44:58,240 - INFO - Selected spell: Shadow Blade
+2026-02-22 11:44:58,952 - INFO - Casting Shadow Blade - switching to attack menu for weapon attack!
+2026-02-22 11:44:58,952 - INFO - Used 2nd level spell slot. Remaining: 1
+2026-02-22 11:44:58,954 - INFO - Character data saved successfully (22 characters)
+2026-02-22 11:44:58,955 - INFO - Shadow Blade conjured! It appears in the attack menu.
+2026-02-22 11:45:01,217 - INFO - Selected weapon: Shadow Blade
+2026-02-22 11:45:02,070 - INFO - Selected weapon: Shadow Blade
+2026-02-22 11:45:04,605 - INFO - Selected weapon: Shadow Blade
+2026-02-22 11:45:13,732 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:45:14,654 - INFO - Casting Green Flame Blade - switching to attack menu for weapon attack!
+2026-02-22 11:45:15,583 - INFO - Selected weapon: Shadow Blade
+2026-02-22 11:45:17,222 - INFO - Attack roll: 8 (1d20: [3] + +5)
+2026-02-22 11:45:18,394 - INFO - Damage roll: 6 (2d8: [1, 2] + +3) psychic
+2026-02-22 11:45:28,804 - INFO - Selected spell: Guidance
+2026-02-22 11:45:30,759 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:46:20,665 - INFO - Selected spell: Booming Blade
+2026-02-22 11:46:40,840 - INFO - Selected spell: Green Flame Blade
+2026-02-22 11:46:43,367 - INFO - Selected spell: Booming Blade
+2026-02-22 12:04:13,747 - INFO - Selected spell: Mage Armor
+2026-02-22 12:04:13,832 - INFO - Selected spell: Mage Armor
+2026-02-22 12:04:14,304 - INFO - Selected spell: Mage Armor
+2026-02-22 12:04:14,315 - INFO - Selected spell: Mage Armor
+2026-02-22 12:04:14,401 - INFO - Selected spell: Mage Armor
+2026-02-22 12:04:14,911 - INFO - Selected spell: Ice Knife
+2026-02-22 12:04:15,124 - INFO - Selected spell: Ice Knife
+2026-02-22 12:04:15,212 - INFO - Selected spell: Ice Knife
+2026-02-22 12:04:15,363 - INFO - Selected spell: Ice Knife
+2026-02-22 12:04:15,634 - INFO - Selected spell: Ice Knife
+2026-02-22 12:04:19,497 - INFO - Selected spell: Identify
+2026-02-22 12:04:19,595 - INFO - Selected spell: Identify
+2026-02-22 12:09:57,128 - INFO - Character data saved successfully (22 characters)

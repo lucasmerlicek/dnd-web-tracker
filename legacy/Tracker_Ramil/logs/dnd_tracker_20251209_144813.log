@@ -1,0 +1,31 @@
+2025-12-09 14:48:13,223 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251209_144813.log
+2025-12-09 14:48:13,534 - INFO - Pygame initialized successfully
+2025-12-09 14:48:13,537 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-12-09 14:48:13,537 - INFO - Screen resolution: 1920x1080
+2025-12-09 14:48:13,537 - INFO - Work area: 1920x1008
+2025-12-09 14:48:13,537 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2025-12-09 14:48:13,539 - INFO - Creating D&D Character Tool application
+2025-12-09 14:48:14,548 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-12-09 14:48:14,562 - INFO - Loaded spell slots: {'1st': 4, '2nd': 2}
+2025-12-09 14:48:14,562 - INFO - Loaded current spell slots: {'1st': 3, '2nd': 2}
+2025-12-09 14:48:14,562 - INFO - Loaded character: Ramil al-Sayif
+2025-12-09 14:48:14,563 - INFO - Weapons loaded: 3
+2025-12-09 14:48:14,563 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-12-09 14:48:14,563 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2025-12-09 14:48:14,563 - INFO - Adaptive Resolution Features:
+2025-12-09 14:48:14,564 - INFO -    - Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-12-09 14:48:14,564 - INFO -    - Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-12-09 14:48:14,564 - INFO -    - Press F11 to toggle fullscreen mode
+2025-12-09 14:48:14,565 - INFO -    - Press ESC to exit fullscreen
+2025-12-09 14:48:14,566 - INFO -    - Window is resizable - aspect ratio maintained automatically
+2025-12-09 14:48:14,591 - INFO - Starting application main loop
+2025-12-09 14:48:18,520 - INFO - Ramil al-Sayif used inspiration! Now at 1
+2025-12-09 14:48:18,529 - INFO - Character data saved successfully (19 characters)
+2025-12-09 14:48:35,872 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2025-12-09 14:50:46,384 - INFO - Selected weapon: Shortsword (Vex Mastery)
+2025-12-09 14:50:48,801 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2025-12-09 14:50:50,417 - INFO - Selected weapon: Shortsword (Vex Mastery)
+2025-12-09 14:54:15,871 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2025-12-09 14:54:17,703 - INFO - Selected weapon: Shortsword (Vex Mastery)
+2025-12-09 14:54:27,178 - INFO - Selected action: Bladesong
+2025-12-09 15:26:52,050 - INFO - Character data saved successfully (19 characters)

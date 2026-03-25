@@ -1,0 +1,46 @@
+2025-11-02 01:08:40,068 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251102_010840.log
+2025-11-02 01:08:40,407 - INFO - Pygame initialized successfully
+2025-11-02 01:08:40,411 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-02 01:08:40,412 - INFO - Screen resolution: 1920x1080
+2025-11-02 01:08:40,412 - INFO - Work area: 1920x1008
+2025-11-02 01:08:40,413 - INFO - Adaptive window size: 1152x648 (aspect ratio: 1.778)
+2025-11-02 01:08:40,414 - INFO - Creating D&D Character Tool application
+2025-11-02 01:08:40,628 - INFO - Loading character data from character_data.json
+2025-11-02 01:08:40,631 - INFO - Loaded spell slots: {}
+2025-11-02 01:08:40,631 - INFO - Loaded current spell slots: {}
+2025-11-02 01:08:40,631 - INFO - Loaded character: Ramil al-Sayif
+2025-11-02 01:08:40,632 - INFO - Weapons loaded: 3
+2025-11-02 01:08:40,632 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-02 01:08:40,632 - INFO - Window initialized at 1152x648 (aspect ratio: 1.78:1)
+2025-11-02 01:08:40,636 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-02 01:08:40,636 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-11-02 01:08:40,636 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-02 01:08:40,636 - INFO -    • Press ESC to exit fullscreen
+2025-11-02 01:08:40,638 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-02 01:08:40,663 - INFO - Starting application main loop
+2025-11-02 01:10:21,957 - INFO - Deleted character: Dean
+2025-11-02 01:10:21,961 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:10:26,657 - INFO - Window resized to 1731x974 (16:9 ratio maintained: 1.777:1)
+2025-11-02 01:10:33,179 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:10:48,243 - INFO - Window resized to 1152x648 (16:9 ratio maintained: 1.778:1)
+2025-11-02 01:10:50,432 - INFO - Window resized to 1731x974 (16:9 ratio maintained: 1.777:1)
+2025-11-02 01:13:07,589 - WARNING - Death save: 8 - FAILURE! (1/3 failures)
+2025-11-02 01:13:07,593 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:13:08,424 - WARNING - Death save: 3 - FAILURE! (2/3 failures)
+2025-11-02 01:13:08,429 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:13:09,299 - INFO - Death save: 16 - SUCCESS! (1/3 successes)
+2025-11-02 01:13:09,310 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:13:10,280 - WARNING - Death save: 7 - FAILURE! (3/3 failures)
+2025-11-02 01:13:10,280 - ERROR - You have died...
+2025-11-02 01:13:10,291 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:13:16,009 - INFO - Death saves reset!
+2025-11-02 01:13:16,022 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:13:17,353 - WARNING - Took damage at 0 HP! Death save failure added. (1/3 failures)
+2025-11-02 01:13:17,357 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:13:18,635 - WARNING - Death save: 5 - FAILURE! (2/3 failures)
+2025-11-02 01:13:18,640 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:13:19,485 - INFO - Death save: 17 - SUCCESS! (1/3 successes)
+2025-11-02 01:13:19,496 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:13:20,307 - INFO - Death save: 20 - NATURAL 20! Restored to 1 HP and stabilized!
+2025-11-02 01:13:20,319 - INFO - Character data saved successfully (0 characters)
+2025-11-02 01:13:43,597 - INFO - Character data saved successfully (0 characters)

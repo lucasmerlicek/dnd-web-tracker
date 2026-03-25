@@ -1,0 +1,68 @@
+2026-03-09 23:21:49,005 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260309_232149.log
+2026-03-09 23:21:49,233 - INFO - Pygame initialized successfully
+2026-03-09 23:21:49,235 - INFO - Detected DPI: 96, Scale factor: 1.00
+2026-03-09 23:21:49,235 - INFO - Screen resolution: 2048x1152
+2026-03-09 23:21:49,235 - INFO - Work area: 2048x1104
+2026-03-09 23:21:49,235 - INFO - Adaptive window size: 1536x1024 (aspect ratio: 1.500)
+2026-03-09 23:21:49,235 - INFO - Creating D&D Character Tool application
+2026-03-09 23:21:49,737 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Madea\character_data.json
+2026-03-09 23:21:49,738 - INFO - Loaded spell slots: {'1st': 4, '2nd': 3, '3rd': 2}
+2026-03-09 23:21:49,739 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 3, '3rd': 2}
+2026-03-09 23:21:49,739 - INFO - Adding missing weapon/fighting style data...
+2026-03-09 23:21:49,741 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:21:49,741 - INFO - Loaded character: Madea Blackthorn
+2026-03-09 23:21:49,741 - INFO - Weapons loaded: 1
+2026-03-09 23:21:49,741 - INFO - Fighting styles: {}
+2026-03-09 23:21:49,743 - INFO - Window initialized at 1536x1024 (aspect ratio: 1.50:1)
+2026-03-09 23:21:49,744 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-03-09 23:21:49,744 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-03-09 23:21:49,744 - INFO -    • Press F11 to toggle fullscreen mode
+2026-03-09 23:21:49,744 - INFO -    • Press ESC to exit fullscreen
+2026-03-09 23:21:49,744 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2026-03-09 23:21:49,758 - INFO - Starting application main loop
+2026-03-09 23:22:04,263 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:22:07,638 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:22:22,713 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:22:22,887 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:22:23,584 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:22:26,096 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:22:27,840 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:22:30,808 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:22:34,544 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:22:46,367 - INFO - Window resized to 1621x1081 (aspect ratio maintained: 1.500:1)
+2026-03-09 23:22:47,780 - INFO - Window resized to 1536x1024 (aspect ratio maintained: 1.500:1)
+2026-03-09 23:23:02,369 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:02,450 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:02,545 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:02,558 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:02,638 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:02,974 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:03,053 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:03,065 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:03,143 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:03,155 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:03,166 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:03,246 - INFO - Selected spell: Mage Armor
+2026-03-09 23:23:03,604 - INFO - Selected spell: Message
+2026-03-09 23:23:03,616 - INFO - Selected spell: Message
+2026-03-09 23:23:03,709 - INFO - Selected spell: Message
+2026-03-09 23:23:03,720 - INFO - Selected spell: Message
+2026-03-09 23:23:03,730 - INFO - Selected spell: Message
+2026-03-09 23:23:03,812 - INFO - Selected spell: Message
+2026-03-09 23:23:04,205 - INFO - Selected spell: Message
+2026-03-09 23:23:06,401 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:06,483 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:06,495 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:06,575 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:06,656 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:06,735 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:06,746 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:06,827 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:06,838 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:07,483 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:07,565 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:07,576 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:07,588 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:23:07,669 - INFO - Selected spell: Chromatic Orb
+2026-03-09 23:24:34,443 - INFO - Launched world map viewer.
+2026-03-09 23:27:15,163 - INFO - Character data saved successfully (15 characters)

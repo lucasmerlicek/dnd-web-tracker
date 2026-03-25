@@ -1,0 +1,74 @@
+Lvl 4->5 (fighter 1 and wizard 4)
+
+
+1 new cantrip known:
+Fire Bolt
+Source: Player's Handbook
+
+Evocation cantrip
+
+Casting Time: 1 action
+Range: 120 feet
+Components: V, S
+Duration: Instantaneous
+
+You hurl a mote of fire at a creature or object within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 fire damage. A flammable object hit by this spell ignites if it isn’t being worn or carried.
+
+At Higher Levels. This spell’s damage increases by 1d10 when you reach 5th level (2d10), 11th level (3d10), and 17th level (4d10).
+
+Spell Lists. Artificer, Sorcerer, Wizard
+
+2 new lvl 1+ spells known: 
+Detect Magic
+Source: Player's Handbook
+
+1st-level divination (ritual)
+
+Casting Time: 1 action
+Range: Self
+Components: V, S
+Duration: Concentration, up to 10 minutes
+
+For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.
+
+The spell can penetrate most barriers, but is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt.
+
+Spell Lists. Artificer, Bard, Cleric, Druid, Paladin, Ranger, Sorcerer, Wizard
+
+Invisibility
+Source: Player's Handbook
+
+2nd-level illusion
+
+Casting Time: 1 action
+Range: Touch
+Components: V, S, M (an eyelash encased in gum arabic)
+Duration: Concentration, up to 1 hour
+
+A creature you touch becomes invisible until the spell ends. Anything the target is wearing or carrying is invisible as long as it is on the target’s person. The spell ends for a target that attacks or casts a spell.
+
+At Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, you can target one additional creature for each slot level above 2nd.
+
+Spell Lists. Artificer, Bard, Sorcerer, Warlock, Wizard
+
+Spell slots increase: + 1 lvl 2 spell slot, + 1 prepared spells.
+
+HP increase: 4 (hit dice average) + 2 (con)
+
+ASI: 2 Int -> 18
+
+Also new definition of bladesong to use int for AC and attack and con save:
+Level 3: Bladesong
+As a Bonus Action, you invoke an elven magic called the Bladesong, provided you aren’t wearing armor or using a Shield.
+
+The Bladesong lasts for 1 minute and ends early if you have the Incapacitated condition, if you don armor or a Shield, or if you use two hands to make an attack with a weapon. You can dismiss the Bladesong at any time (no action required).
+
+While the Bladesong is active, you gain the following benefits. You can invoke the Bladesong a number of times equal to your Intelligence modifier (minimum of once), and you regain all expended uses when you finish a Long Rest. You regain one expended use when you use Arcane Recovery.
+
+Agility. You gain a bonus to your AC equal to your Intelligence modifier (minimum of +1), and your Speed increases by 10 feet. In addition, you have Advantage on Dexterity (Acrobatics) checks.
+
+Bladework. Whenever you attack with a weapon with which you have proficiency, you can use your Intelligence modifier for the attack and damage rolls instead of using Strength or Dexterity.
+
+Focus. When you make a Constitution saving throw to maintain Concentration, you can add your Intelligence modifier to the total.
+
+

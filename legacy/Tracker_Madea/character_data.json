@@ -1,0 +1,293 @@
+{
+  "character_name": "Madea Blackthorn",
+  "race": "Human",
+  "char_class": "Sorcerer 5",
+  "level": 5,
+  "current_hp": 42,
+  "max_hp": 42,
+  "ac": 10,
+  "base_ac": 10,
+  "default_base_ac": 10,
+  "inspiration": 3,
+  "luck_points": 3,
+  "shield_active": false,
+  "mage_armor_active": false,
+  "raven_form_active": false,
+  "raven_form_uses_remaining": 1,
+  "raven_form_max_uses": 1,
+  "hit_dice_total": 5,
+  "hit_dice_available": 5,
+  "hit_dice_size": 6,
+  "sorcery_points_max": 5,
+  "current_sorcery_points": 5,
+  "proficiency_bonus": 3,
+  "stats": {
+    "STR": {
+      "value": 8,
+      "modifier": -1
+    },
+    "DEX": {
+      "value": 10,
+      "modifier": 0
+    },
+    "CON": {
+      "value": 14,
+      "modifier": 2
+    },
+    "INT": {
+      "value": 14,
+      "modifier": 2
+    },
+    "WIS": {
+      "value": 10,
+      "modifier": 0
+    },
+    "CHA": {
+      "value": 20,
+      "modifier": 5
+    }
+  },
+  "skills": [
+    {
+      "name": "Acrobatics",
+      "stat": "DEX",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Animal Handling",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Arcana",
+      "stat": "INT",
+      "proficient": true,
+      "modifier": 5
+    },
+    {
+      "name": "Athletics",
+      "stat": "STR",
+      "proficient": false,
+      "modifier": -1
+    },
+    {
+      "name": "Deception",
+      "stat": "CHA",
+      "proficient": true,
+      "modifier": 8
+    },
+    {
+      "name": "History",
+      "stat": "INT",
+      "proficient": false,
+      "modifier": 2
+    },
+    {
+      "name": "Insight",
+      "stat": "WIS",
+      "proficient": true,
+      "modifier": 3
+    },
+    {
+      "name": "Intimidation",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": 5
+    },
+    {
+      "name": "Investigation",
+      "stat": "INT",
+      "proficient": false,
+      "modifier": 2
+    },
+    {
+      "name": "Medicine",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Nature",
+      "stat": "INT",
+      "proficient": false,
+      "modifier": 2
+    },
+    {
+      "name": "Perception",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Performance",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": 5
+    },
+    {
+      "name": "Persuasion",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": 5
+    },
+    {
+      "name": "Religion",
+      "stat": "INT",
+      "proficient": false,
+      "modifier": 2
+    },
+    {
+      "name": "Sleight of Hand",
+      "stat": "DEX",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Stealth",
+      "stat": "DEX",
+      "proficient": true,
+      "modifier": 3
+    },
+    {
+      "name": "Survival",
+      "stat": "WIS",
+      "proficient": true,
+      "modifier": 3
+    }
+  ],
+  "feats_traits": [
+    "Variant Human Traits: Resourceful, Skillful, Versatile",
+    "Feat: Tough (+2 HP per level)",
+    "Feat: Fey Touched (Bane & Misty Step 1/long rest)",
+    "Sorcerer Origin: Eyes of the Dark",
+    "Sorcerer Origin: Strength of the Grave",
+    "Sorcerous Restoration (regain SP on short rest, 1/long rest)"
+  ],
+  "spell_slots": {
+    "1st": 4,
+    "2nd": 3,
+    "3rd": 2
+  },
+  "current_spell_slots": {
+    "1st": 4,
+    "2nd": 3,
+    "3rd": 2
+  },
+  "created_spell_slots": {},
+  "druid_charm_person_used": false,
+  "fey_bane_used": false,
+  "fey_misty_step_used": false,
+  "sorcerous_restoration_used": false,
+  "cantrips": [
+    "Poison Spray",
+    "Fire Bolt",
+    "Mage Hand",
+    "Infestation",
+    "Message"
+  ],
+  "spells": {
+    "1st": [
+      "Mage Armor",
+      "Shield",
+      "Silvery Barbs",
+      "Chromatic Orb",
+      "Bane",
+      "Thunderwave"
+    ],
+    "2nd": [
+      "Misty Step",
+      "Darkness",
+      "Aganazzar's Scorcher",
+      "Web"
+    ],
+    "3rd": [
+      "Fear",
+      "Lightning Bolt"
+    ]
+  },
+  "weapons": [
+    {
+      "name": "Dagger",
+      "damage_dice": "1d4",
+      "damage_type": "piercing",
+      "attack_stat": "DEX",
+      "properties": [
+        "finesse",
+        "light",
+        "thrown"
+      ],
+      "magic_bonus": 0,
+      "uses_dueling": false,
+      "two_handed": false
+    }
+  ],
+  "fighting_styles": {},
+  "save_proficiencies": [
+    "CON",
+    "CHA"
+  ],
+  "death_saves": {
+    "successes": 0,
+    "failures": 0
+  },
+  "actions": {
+    "raven_form": {
+      "name": "Raven Form",
+      "description": "Bonus Action: Transform into raven (1/short rest)",
+      "available": true,
+      "recharge": "short_rest",
+      "uses": 1,
+      "max_uses": 1
+    }
+  },
+  "inventory": {
+    "gear": [
+      "Dagger",
+      "Arcane Focus (Crystal)"
+    ],
+    "utility": [
+      "Herbalism Kit"
+    ],
+    "treasure": []
+  },
+  "coins": {
+    "cp": 0,
+    "sp": 0,
+    "ep": 0,
+    "gp": 10,
+    "pp": 0
+  },
+  "journal": {
+    "sessions": {
+      "Session 1": "Madea Blackthorn",
+      "Session 2": "Session: Session 2\n\nDate: 13.11.2025\n\nNotes:\nSitting on a desk in the class of Citaly.\nTmrw first expedition is announce: Calderen (newest ruin they found from the dawn forged),\n first ruin they found in the last five years.\nMidnight menagerie tonight for students (near the dormitory?)\nTmrw at 6 o'clock sharp-->ready at the docks.\nOn the party: Madea drinks a nightowl espresso (southern temptation).\nStarfall tea: makes you very clear in the head.\n\nCalamity at  Blutquell Cyluviel comes to us and tells us he has news abouh:\n\nWitch fires, trembling of the earth, light, lone figure in black robe, man/ spirit born of the mountain.\nSorcery at places, necromancy-->witness tell of the dead standing up again and fighting against them.\n\nFrom the Church of Shak'Asat: corpus Grimrock-->the name made whispering voices appear, everything\nturned dark around them. Cursed name? A pupil who turned to necromancy. He has broken the\nsecret oath of the scholars. Decree: all who practice necromancy can legally be hunted down.\n\nThe dead rose again and people had to slay \n\nThe North is already thinking about becoming their own state. Now with the incident in Blutquell \nSouth blames the North even more.\n\nRamir and Madea have a heated discussion about the articles (Madea thinks they have the right to\nbe scared of magic now, while Ramil condemns the hatred in the articles).\n\nRamil tries to make amends befor turning to the dormitories but the discussion but they don't find\ncommon ground.\n\nMadea tries to read the journal of her mother in her bed at night:\nCan't read the scribblings (foreign language)\n\nSix sections:\n1. Runes and weird stuff\n2. sketches of dungeon entries\n3. Rituals and diagramms\n4. Wild scribbles\n5. Weird maps\n6. Listed names (some of them are crossed out)\n\nBecause of the night-owl espresso Madea can't sleep for hours (was awake till 4 in the morning)\nIn the morning she pays the price.\n\nAfter 20 hours of traveling on a flying ship, we arrive in the south mountains called Kel Daren.\nCitaly tells us he forgot something and boarded the ship and flew away.\nWe agree that this is probably a test.\n\nWe enter the ruin and the door closes behind us. Ivan (assistant of the prof) is there. We explore.\nMadea recognizes a rune on a obelisk from the the journal of her mother (a circle with three vertica\nand one diagonal line).\nRamil touches a sword of corpses (looking like dawn forged) and the ground breaks away, we fall,\nland on a slope. Feel water.\nWe found ourselve in a room with a standing coffin enwrapped in chains, some of them glowing with\nember. The temperature is ice cold and hot at the same time. We landed in a lake or something and\ngo into the room.\nMadea gets an uneasy burning sensation and feels dizzy.\nWhere the lake once was is now solid floor.\nRamil and Philiador open the coffin with stones and there is a skeleton inside with a metal globe,\nwhich is extremly magic. Philiador touches the crystal thing (=world fragment) and we all get a \nvision of black clad soldiers, thousands of them, marching, corpses around them as they march. \nSoldier Madea will recognize everywhere...the ones who hunted her mother and her...and killed her.\nOnce we open our eyes again we found ourselves in a long hallway, with many doors, behind which\nwe hear our class camerads scream behind those doors. And have the dooming feeling that we have\nfreed a magic that was asleep for a very long time.\nIn the hallways different coffins are standing along the wall, imbued with hyroglyphes.\nWe have such a strong feeling that what just happened needs to stay a secret at all costs.\nPhiliador gets hit by an arrow (for stepping on a pressure plate) and when he falls down he hits two\nmore tiles. There also appears a mirror imagine of him.\nMadea almost gets hit as well, but only her dress gets a scratch and the poison evaporates.\nPhiliador almost dies, they get saved by Ivan (the assistant) and their class mates all tell them they\nhave been missing for three days although for the main group it felt like three hours.\n(At the end we get XP for finding a legendary artifact and get to level 4).\nWe fly back with Rusty Pete.\nOn her shoulder plate the black clad soldiers had a symbol (red and black) like a red sun. \nWe come back to the school,in the school everyone is gathered (students and professor), at first \nwe think its for us. But its the High Priest of the Church. To ensure safety and responsibility for the\nrealm. (looks like a angel)\nMadea is happy that at least the church is here to keep an eye on the magic and ensure safety.\nHer mother has never mentioned the church in either a good or a bad way. Madea new it excisted,\nheard from it, but is pretty neutral against it.\nBalar Osiriand and Falar and Talaf have declared independence against the Republic (the North).\nThe whole North wants to be independent.\nAll magic that destroys was forbidden. Anfauglith is the only exception (for research).\nWe are urged to write letters to our closest ones.\n\n"
+    },
+    "current_session": "Session 2"
+  },
+  "characters": {
+    "Tom Dike": "",
+    "Cyluviel Orthon": "",
+    "Regina Amber": "",
+    "Magistrate Olgon": "",
+    "Atsur Brandsson": "Research Dea",
+    "DeanAmmonius Ra-Meses Khaem": "",
+    "Citaly": "",
+    "Ramir Al-Sayi (P)": "",
+    "Levinia Raiden (P)": "",
+    "Kai Hyeojin (P)": "",
+    "Philiodor Le Blanc (P)": "",
+    "Catlin Duneon": "",
+    "Leona Greifenhart": "Beastiology student (second year).",
+    "Jeany Wright": "Her eyes are covered up, has six arms, is our captain for our first excursion.",
+    "The High Priest of the Church": "Introduced himself as the faceless.\nHe kinda looks like a dark angel. And is installed in the university permanently now."
+  },
+  "current_character": "The High Priest of the Church",
+  "character_page": 1,
+  "places": {
+    "Kel Daron": "Newest found ruin of the dawn forge (= Kelaria, academic name of the dawn forged)\nFirst excursion of the research class.\nNecra= undead, often found in the ruins.\n"
+  },
+  "current_place": "Kel Daron",
+  "place_page": 0
+}

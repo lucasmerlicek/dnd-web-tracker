@@ -1,0 +1,66 @@
+2025-11-08 12:16:38,621 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251108_121638.log
+2025-11-08 12:16:38,815 - INFO - Pygame initialized successfully
+2025-11-08 12:16:38,817 - INFO - Detected DPI: 96, Scale factor: 1.00
+2025-11-08 12:16:38,817 - INFO - Screen resolution: 1920x1080
+2025-11-08 12:16:38,817 - INFO - Work area: 1920x1032
+2025-11-08 12:16:38,817 - INFO - Adaptive window size: 1488x992 (aspect ratio: 1.500)
+2025-11-08 12:16:38,819 - INFO - Creating D&D Character Tool application
+2025-11-08 12:16:39,335 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-08 12:16:39,337 - INFO - Loaded spell slots: {}
+2025-11-08 12:16:39,337 - INFO - Loaded current spell slots: {}
+2025-11-08 12:16:39,337 - INFO - Loaded character: Ramil al-Sayif
+2025-11-08 12:16:39,337 - INFO - Weapons loaded: 3
+2025-11-08 12:16:39,339 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-08 12:16:39,339 - INFO - Window initialized at 1488x992 (aspect ratio: 1.50:1)
+2025-11-08 12:16:39,340 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-08 12:16:39,340 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-08 12:16:39,341 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-08 12:16:39,341 - INFO -    • Press ESC to exit fullscreen
+2025-11-08 12:16:39,341 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-08 12:16:39,357 - INFO - Starting application main loop
+2025-11-08 12:16:46,119 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:16:47,766 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:16:47,769 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:16:51,322 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:16:51,494 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:16:51,637 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:16:52,236 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:16:52,380 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:16:52,553 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:16:56,801 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:00,262 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:00,461 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:00,650 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:01,591 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:03,546 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:03,719 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:03,880 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:04,034 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:05,910 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:06,052 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:08,320 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:09,535 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:15,961 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:19,625 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:20,664 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:20,667 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:26,257 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:29,978 - INFO - Selected character: Rusty Pete
+2025-11-08 12:17:31,308 - INFO - Selected character: [P] Madea Blackthorn
+2025-11-08 12:17:32,543 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:33,043 - INFO - Character data saved successfully (5 characters)
+2025-11-08 12:17:34,225 - INFO - Selected character: [P] Reyden
+2025-11-08 12:17:34,648 - INFO - Selected character: [P] Kai Hyoshin
+2025-11-08 12:17:45,149 - INFO - Window resized to 973x649 (aspect ratio maintained: 1.499:1)
+2025-11-08 12:17:50,813 - INFO - Window resized to 960x640 (aspect ratio maintained: 1.500:1)
+2025-11-08 12:17:52,025 - INFO - Window resized to 973x649 (aspect ratio maintained: 1.499:1)
+2025-11-08 12:17:53,589 - INFO - Window resized to 960x640 (aspect ratio maintained: 1.500:1)
+2025-11-08 12:18:01,149 - INFO - Window resized to 960x640 (aspect ratio maintained: 1.500:1)
+2025-11-08 12:18:02,781 - INFO - Character data saved successfully (6 characters)
+2025-11-08 12:18:02,781 - INFO - Created new character: Character 6
+2025-11-08 12:18:06,380 - INFO - Character data saved successfully (6 characters)
+2025-11-08 12:18:07,719 - INFO - Selected character: Magistrate Olgorn
+2025-11-08 12:18:09,350 - INFO - Window resized to 973x649 (aspect ratio maintained: 1.499:1)
+2025-11-08 12:18:11,042 - INFO - Window resized to 960x640 (aspect ratio maintained: 1.500:1)
+2025-11-08 12:18:20,314 - INFO - Character data saved successfully (6 characters)
+2025-11-08 12:18:22,785 - INFO - Character data saved successfully (6 characters)

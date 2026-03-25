@@ -1,0 +1,39 @@
+2025-11-09 16:00:22,015 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251109_160022.log
+2025-11-09 16:00:22,209 - INFO - Pygame initialized successfully
+2025-11-09 16:00:22,211 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-09 16:00:22,212 - INFO - Screen resolution: 1920x1080
+2025-11-09 16:00:22,212 - INFO - Work area: 1920x1008
+2025-11-09 16:00:22,212 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2025-11-09 16:00:22,213 - INFO - Creating D&D Character Tool application
+2025-11-09 16:00:22,813 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-09 16:00:22,821 - INFO - Loaded spell slots: {}
+2025-11-09 16:00:22,822 - INFO - Loaded current spell slots: {}
+2025-11-09 16:00:22,822 - INFO - Loaded character: Ramil al-Sayif
+2025-11-09 16:00:22,822 - INFO - Weapons loaded: 3
+2025-11-09 16:00:22,822 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-09 16:00:22,823 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2025-11-09 16:00:22,825 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-09 16:00:22,825 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-09 16:00:22,826 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-09 16:00:22,826 - INFO -    • Press ESC to exit fullscreen
+2025-11-09 16:00:22,826 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-09 16:00:22,843 - INFO - Starting application main loop
+2025-11-09 16:00:31,401 - INFO - Launched world map viewer.
+2025-11-09 16:00:42,887 - INFO - Renamed place to: Blutquel
+2025-11-09 16:00:42,899 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:00:45,275 - INFO - Renamed place to: Blutquell
+2025-11-09 16:00:45,289 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:00:46,418 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:00:58,822 - INFO - Renamed place to: Valerian
+2025-11-09 16:00:58,833 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:01:05,201 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:01:06,649 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:01:07,705 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:01:17,271 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:01:18,063 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:01:18,246 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:01:18,913 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:01:19,037 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:01:22,555 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:01:24,559 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:02:21,866 - INFO - Character data saved successfully (5 characters)

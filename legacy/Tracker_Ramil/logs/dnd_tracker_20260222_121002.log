@@ -1,0 +1,33 @@
+2026-02-22 12:10:02,237 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260222_121002.log
+2026-02-22 12:10:02,412 - INFO - Pygame initialized successfully
+2026-02-22 12:10:02,414 - INFO - Detected DPI: 96, Scale factor: 1.00
+2026-02-22 12:10:02,414 - INFO - Screen resolution: 2048x1152
+2026-02-22 12:10:02,414 - INFO - Work area: 2048x1104
+2026-02-22 12:10:02,414 - INFO - Adaptive window size: 1536x1024 (aspect ratio: 1.500)
+2026-02-22 12:10:02,415 - INFO - Creating D&D Character Tool application
+2026-02-22 12:10:02,910 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2026-02-22 12:10:02,923 - INFO - Loaded spell slots: {'1st': 4, '2nd': 2}
+2026-02-22 12:10:02,925 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 1}
+2026-02-22 12:10:02,925 - INFO - Loaded character: Ramil al-Sayif
+2026-02-22 12:10:02,925 - INFO - Weapons loaded: 3
+2026-02-22 12:10:02,925 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2026-02-22 12:10:02,925 - INFO - Window initialized at 1536x1024 (aspect ratio: 1.50:1)
+2026-02-22 12:10:02,926 - INFO - Adaptive Resolution Features:
+2026-02-22 12:10:02,926 - INFO -    - Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-02-22 12:10:02,926 - INFO -    - Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-02-22 12:10:02,926 - INFO -    - Press F11 to toggle fullscreen mode
+2026-02-22 12:10:02,926 - INFO -    - Press ESC to exit fullscreen
+2026-02-22 12:10:02,926 - INFO -    - Window is resizable - aspect ratio maintained automatically
+2026-02-22 12:10:02,936 - INFO - Starting application main loop
+2026-02-22 12:10:09,628 - INFO - Selected spell: Mage Hand
+2026-02-22 12:10:09,727 - INFO - Selected spell: Mage Hand
+2026-02-22 12:10:09,816 - INFO - Selected spell: Mage Hand
+2026-02-22 12:10:10,159 - INFO - Selected spell: Mage Hand
+2026-02-22 12:10:10,430 - INFO - Selected spell: Mage Hand
+2026-02-22 12:10:46,638 - INFO - Selected spell: Misty Step
+2026-02-22 12:10:46,649 - INFO - Selected spell: Misty Step
+2026-02-22 12:10:46,736 - INFO - Selected spell: Misty Step
+2026-02-22 12:10:46,747 - INFO - Selected spell: Misty Step
+2026-02-22 12:10:46,756 - INFO - Selected spell: Misty Step
+2026-02-22 12:10:46,765 - INFO - Selected spell: Misty Step
+2026-02-22 12:14:47,041 - INFO - Character data saved successfully (22 characters)

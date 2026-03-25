@@ -1,0 +1,57 @@
+2025-12-01 20:00:37,011 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251201_200037.log
+2025-12-01 20:00:37,515 - INFO - Pygame initialized successfully
+2025-12-01 20:00:37,518 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-12-01 20:00:37,518 - INFO - Screen resolution: 1920x1080
+2025-12-01 20:00:37,518 - INFO - Work area: 1920x1008
+2025-12-01 20:00:37,518 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2025-12-01 20:00:37,519 - INFO - Creating D&D Character Tool application
+2025-12-01 20:00:38,488 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Madea\character_data.json
+2025-12-01 20:00:38,489 - INFO - Loaded spell slots: {'1st': 4, '2nd': 3}
+2025-12-01 20:00:38,489 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 3}
+2025-12-01 20:00:38,489 - INFO - Adding missing weapon/fighting style data...
+2025-12-01 20:00:38,493 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:38,493 - INFO - Loaded character: Madea Blackthorn
+2025-12-01 20:00:38,493 - INFO - Weapons loaded: 1
+2025-12-01 20:00:38,493 - INFO - Fighting styles: {}
+2025-12-01 20:00:38,494 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2025-12-01 20:00:38,496 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-12-01 20:00:38,496 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-12-01 20:00:38,496 - INFO -    • Press F11 to toggle fullscreen mode
+2025-12-01 20:00:38,496 - INFO -    • Press ESC to exit fullscreen
+2025-12-01 20:00:38,496 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-12-01 20:00:38,521 - INFO - Starting application main loop
+2025-12-01 20:00:51,843 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:52,384 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:52,440 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:52,503 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:52,569 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:54,946 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:55,122 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:55,949 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:56,014 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:56,232 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:56,352 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:56,731 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:57,428 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:57,938 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:58,382 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:58,779 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:59,239 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:59,488 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:00:59,992 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:00,491 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:00,975 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:02,739 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:02,900 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:03,132 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:03,319 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:03,977 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:04,204 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:04,264 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:04,482 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:06,660 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:06,823 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:09,939 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:15,690 - INFO - Character data saved successfully (15 characters)
+2025-12-01 20:01:18,287 - INFO - Intelligence check: 18 + 2 = 20
+2025-12-01 23:34:17,684 - INFO - Character data saved successfully (15 characters)

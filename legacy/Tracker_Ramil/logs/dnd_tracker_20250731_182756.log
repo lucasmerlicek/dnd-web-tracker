@@ -1,0 +1,204 @@
+2025-07-31 18:27:56,918 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20250731_182756.log
+2025-07-31 18:27:57,352 - INFO - Pygame initialized successfully
+2025-07-31 18:27:57,352 - INFO - Creating D&D Character Tool application
+2025-07-31 18:27:59,296 - INFO - Loading character data from character_data.json
+2025-07-31 18:27:59,311 - INFO - Loaded character: Barian the Broken
+2025-07-31 18:27:59,312 - INFO - Weapons loaded: 3
+2025-07-31 18:27:59,313 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-07-31 18:27:59,331 - INFO - Starting application main loop
+2025-07-31 18:29:18,319 - INFO - Selected action: Second Wind
+2025-07-31 18:29:22,017 - INFO - Second Wind: Healed 9 HP (rolled 9)
+2025-07-31 18:29:22,022 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:29:36,713 - INFO - Selected spell: Sword Burst
+2025-07-31 18:29:37,774 - INFO - Selected spell: Shield
+2025-07-31 18:29:39,147 - INFO - Selected spell: Absorb Elements
+2025-07-31 18:29:40,137 - INFO - Selected spell: Magic Missile
+2025-07-31 18:29:41,458 - WARNING - Magic Missile doesn't have delayed damage!
+2025-07-31 18:29:48,200 - WARNING - Magic Missile doesn't have delayed damage!
+2025-07-31 18:29:49,547 - INFO - Selected spell: Thunderwave
+2025-07-31 18:29:51,000 - INFO - Spell damage: 6 (2d8: [3, 3]) thunder
+2025-07-31 18:29:51,000 - INFO - Used 1st level spell slot. Remaining: 0
+2025-07-31 18:29:51,003 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:29:53,785 - INFO - Selected spell: Magic Missile
+2025-07-31 18:29:56,973 - WARNING - Magic Missile doesn't have delayed damage!
+2025-07-31 18:29:59,570 - INFO - Spell damage: 2 (1d4: [1] + +1) force
+2025-07-31 18:29:59,572 - WARNING - No 1st level spell slots remaining!
+2025-07-31 18:30:13,493 - INFO - Selected spell: Magic Missile
+2025-07-31 18:30:18,258 - INFO - Spell damage: 4 (1d4: [3] + +1) force
+2025-07-31 18:30:18,259 - WARNING - No 1st level spell slots remaining!
+2025-07-31 18:30:23,813 - INFO - Selected spell: Shatter
+2025-07-31 18:30:25,423 - INFO - Spell damage: 12 (3d8: [3, 4, 5]) thunder
+2025-07-31 18:30:25,423 - INFO - Used 2nd level spell slot. Remaining: 0
+2025-07-31 18:30:25,425 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:30:26,721 - INFO - Selected spell: Shatter
+2025-07-31 18:30:27,872 - INFO - Spell damage: 8 (3d8: [2, 2, 4]) thunder
+2025-07-31 18:30:27,872 - WARNING - No 2nd level spell slots remaining!
+2025-07-31 18:30:37,530 - INFO - Selected save: CHA
+2025-07-31 18:30:40,480 - INFO - Charisma save: 2 (1d20: [3] + -1)
+2025-07-31 18:30:42,089 - INFO - Selected save: WIS
+2025-07-31 18:30:48,242 - WARNING - Death save: 7 - FAILURE! (1/3 failures)
+2025-07-31 18:30:48,246 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:30:49,636 - WARNING - Took damage at 0 HP! Death save failure added. (2/3 failures)
+2025-07-31 18:30:49,639 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:30:51,603 - INFO - Death saves reset!
+2025-07-31 18:30:51,606 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:30:52,982 - WARNING - Took damage at 0 HP! Death save failure added. (1/3 failures)
+2025-07-31 18:30:52,983 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:30:53,988 - INFO - Death saves reset!
+2025-07-31 18:30:53,990 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:31:46,119 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:31:47,738 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:32:04,243 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:32:22,173 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:32:26,556 - INFO - Barian the Broken has lost inspiration!
+2025-07-31 18:32:26,559 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:32:27,503 - INFO - Barian the Broken has gained inspiration!
+2025-07-31 18:32:27,507 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:32:30,122 - INFO - Barian the Broken has lost inspiration!
+2025-07-31 18:32:30,125 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:32:48,253 - INFO - Barian the Broken has gained inspiration!
+2025-07-31 18:32:48,256 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:34:47,149 - INFO - Short rest: restored 4 HP. Current HP: 55/60
+2025-07-31 18:34:47,150 - INFO - - Recharged actions: Second Wind
+2025-07-31 18:34:47,150 - INFO - Short rest completed!
+2025-07-31 18:34:47,152 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:34:50,507 - INFO - Short rest: restored 2 HP. Current HP: 57/60
+2025-07-31 18:34:50,507 - INFO - Short rest completed!
+2025-07-31 18:34:50,510 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:34:51,289 - INFO - Short rest: restored 1 HP. Current HP: 58/60
+2025-07-31 18:34:51,289 - INFO - Short rest completed!
+2025-07-31 18:34:51,292 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:34:55,446 - INFO - Long rest completed!
+2025-07-31 18:34:55,447 - INFO - - Restored 2 HP to full (60)
+2025-07-31 18:34:55,447 - INFO - - Restored all spell slots
+2025-07-31 18:34:55,447 - INFO - - All resources refreshed!
+2025-07-31 18:34:55,450 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:35:40,627 - INFO - Selected spell: Sword Burst
+2025-07-31 18:35:43,878 - WARNING - Sword Burst doesn't have delayed damage!
+2025-07-31 18:35:45,609 - INFO - Spell damage: 3 (1d6: [3]) force
+2025-07-31 18:35:47,624 - INFO - Selected spell: Absorb Elements
+2025-07-31 18:35:49,367 - INFO - Absorb Elements delayed damage: 3 (1d6: [3]) variable
+2025-07-31 18:35:49,367 - INFO - Trigger: Next melee attack deals extra damage
+2025-07-31 18:35:50,466 - INFO - Spell damage: 3 (1d6: [3]) variable
+2025-07-31 18:35:50,466 - INFO - Used 1st level spell slot. Remaining: 3
+2025-07-31 18:35:50,469 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:35:58,914 - INFO - Selected spell: Magic Missile
+2025-07-31 18:36:00,801 - INFO - Spell damage: 3 (1d4: [2] + +1) force
+2025-07-31 18:36:00,802 - INFO - Used 1st level spell slot. Remaining: 2
+2025-07-31 18:36:00,806 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:05,080 - INFO - Selected spell: Magic Missile
+2025-07-31 18:36:05,972 - INFO - Spell damage: 2 (1d4: [1] + +1) force
+2025-07-31 18:36:05,972 - INFO - Used 1st level spell slot. Remaining: 1
+2025-07-31 18:36:05,976 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:08,919 - INFO - Selected spell: Shatter
+2025-07-31 18:36:11,176 - INFO - Spell damage: 16 (3d8: [7, 7, 2]) thunder
+2025-07-31 18:36:11,176 - INFO - Used 2nd level spell slot. Remaining: 1
+2025-07-31 18:36:11,179 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:12,497 - INFO - Selected spell: Misty Step
+2025-07-31 18:36:13,680 - INFO - Cast Misty Step - Bonus action: teleport up to 30 feet
+2025-07-31 18:36:13,681 - INFO - Used 2nd level spell slot. Remaining: 0
+2025-07-31 18:36:13,685 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:21,907 - INFO - Added 1 CP (was 142, now 143)
+2025-07-31 18:36:21,911 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:26,064 - INFO - Removed 1 CP (was 143, now 142)
+2025-07-31 18:36:26,067 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:26,411 - INFO - Removed 1 CP (was 142, now 141)
+2025-07-31 18:36:26,413 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:28,050 - INFO - Added 1 CP (was 141, now 142)
+2025-07-31 18:36:28,052 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:28,254 - INFO - Added 1 CP (was 142, now 143)
+2025-07-31 18:36:28,258 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:44,378 - INFO - Added 20 PP (was 0, now 20)
+2025-07-31 18:36:44,381 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:49,811 - INFO - Removed 0 GP (was 252, now 252)
+2025-07-31 18:36:49,814 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:50,587 - INFO - Removed 0 GP (was 252, now 252)
+2025-07-31 18:36:50,590 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:51,606 - INFO - Removed 0 GP (was 252, now 252)
+2025-07-31 18:36:51,609 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:51,867 - INFO - Removed 0 GP (was 252, now 252)
+2025-07-31 18:36:51,869 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:52,297 - INFO - Removed 0 GP (was 252, now 252)
+2025-07-31 18:36:52,299 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:52,445 - INFO - Removed 0 GP (was 252, now 252)
+2025-07-31 18:36:52,447 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:57,690 - INFO - Removed 0 CP (was 143, now 143)
+2025-07-31 18:36:57,694 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:58,105 - INFO - Removed 0 CP (was 143, now 143)
+2025-07-31 18:36:58,108 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:58,995 - INFO - Removed 0 CP (was 143, now 143)
+2025-07-31 18:36:58,996 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:59,314 - INFO - Removed 0 CP (was 143, now 143)
+2025-07-31 18:36:59,316 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:59,480 - INFO - Removed 0 CP (was 143, now 143)
+2025-07-31 18:36:59,482 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:36:59,668 - INFO - Removed 0 CP (was 143, now 143)
+2025-07-31 18:36:59,671 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:14,480 - INFO - Removed 5 GP (was 252, now 247)
+2025-07-31 18:37:14,483 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:27,812 - INFO - Removed 5 GP (was 247, now 242)
+2025-07-31 18:37:27,814 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:29,142 - INFO - Removed 5 GP (was 242, now 237)
+2025-07-31 18:37:29,145 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:30,217 - INFO - Added 5 GP (was 237, now 242)
+2025-07-31 18:37:30,221 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:39,689 - INFO - Removed 1 GP (was 242, now 241)
+2025-07-31 18:37:39,693 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:41,193 - INFO - Removed 1 GP (was 241, now 240)
+2025-07-31 18:37:41,196 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:41,510 - INFO - Removed 1 GP (was 240, now 239)
+2025-07-31 18:37:41,514 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:41,672 - INFO - Removed 1 GP (was 239, now 238)
+2025-07-31 18:37:41,674 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:41,908 - INFO - Removed 1 GP (was 238, now 237)
+2025-07-31 18:37:41,911 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:42,385 - INFO - Removed 1 GP (was 237, now 236)
+2025-07-31 18:37:42,388 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:42,642 - INFO - Removed 1 GP (was 236, now 235)
+2025-07-31 18:37:42,645 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:45,908 - INFO - Removed 1 PP (was 20, now 19)
+2025-07-31 18:37:45,911 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:46,670 - INFO - Removed 1 PP (was 19, now 18)
+2025-07-31 18:37:46,672 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:46,874 - INFO - Removed 1 PP (was 18, now 17)
+2025-07-31 18:37:46,876 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:47,079 - INFO - Removed 1 PP (was 17, now 16)
+2025-07-31 18:37:47,082 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:47,300 - INFO - Removed 1 PP (was 16, now 15)
+2025-07-31 18:37:47,303 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:37:47,467 - INFO - Removed 1 PP (was 15, now 14)
+2025-07-31 18:37:47,469 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:38:29,181 - INFO - Added gear item: ARthur
+2025-07-31 18:38:29,184 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:38:33,546 - INFO - Removed gear item: ARthur
+2025-07-31 18:38:33,548 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:38:54,086 - INFO - Added 1 PP (was 14, now 15)
+2025-07-31 18:38:54,088 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:38:55,185 - INFO - Added 1 PP (was 15, now 16)
+2025-07-31 18:38:55,187 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:40:13,054 - INFO - Added gear item: print("hello")
+2025-07-31 18:40:13,058 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:40:21,740 - INFO - Removed gear item: print("hello")
+2025-07-31 18:40:21,744 - INFO - Character data saved successfully to character_data.json
+2025-07-31 18:42:50,259 - INFO - Selected spell: Sword Burst
+2025-07-31 18:42:55,112 - INFO - Spell damage: 1 (1d6: [1]) force
+2025-07-31 18:43:04,515 - INFO - Selected spell: Booming Blade
+2025-07-31 18:43:07,291 - INFO - Booming Blade delayed damage: 3 (1d8: [3]) thunder
+2025-07-31 18:43:07,292 - INFO - Trigger: Target takes thunder damage if it moves
+2025-07-31 18:43:13,441 - INFO - Selected spell: Sword Burst
+2025-07-31 18:43:17,212 - WARNING - Sword Burst doesn't have delayed damage!
+2025-07-31 18:43:18,626 - WARNING - Sword Burst doesn't have delayed damage!
+2025-07-31 18:43:46,559 - INFO - Selected save: INT
+2025-07-31 18:43:48,116 - INFO - Selected save: WIS
+2025-07-31 18:43:48,808 - INFO - Selected save: CHA
+2025-07-31 18:43:54,048 - INFO - Selected weapon: Mithril Broadsword (One-Handed)
+2025-07-31 18:43:56,128 - INFO - Selected weapon: Mithril Broadsword (Two-Handed)
+2025-07-31 18:43:57,105 - INFO - Selected weapon: Handaxe
+2025-07-31 18:43:59,117 - INFO - Selected weapon: Mithril Broadsword (Two-Handed)
+2025-07-31 18:44:00,718 - INFO - Selected weapon: Mithril Broadsword (One-Handed)
+2025-07-31 18:44:13,786 - INFO - Selected spell: Thunderwave
+2025-07-31 18:46:37,644 - INFO - Selected spell: Magic Missile
+2025-07-31 18:47:38,514 - INFO - Selected action: Second Wind
+2025-07-31 18:48:11,601 - INFO - Selected spell: Shatter
+2025-07-31 18:48:11,666 - INFO - Selected spell: Shatter
+2025-07-31 18:54:16,640 - INFO - Character data saved successfully to character_data.json

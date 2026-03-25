@@ -1,0 +1,57 @@
+2026-03-11 18:12:27,274 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260311_181227.log
+2026-03-11 18:12:27,484 - INFO - Pygame initialized successfully
+2026-03-11 18:12:27,487 - INFO - Detected DPI: 144, Scale factor: 1.50
+2026-03-11 18:12:27,487 - INFO - Screen resolution: 1920x1080
+2026-03-11 18:12:27,487 - INFO - Work area: 1920x1008
+2026-03-11 18:12:27,487 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2026-03-11 18:12:27,487 - INFO - Creating D&D Character Tool application
+2026-03-11 18:12:28,241 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2026-03-11 18:12:28,242 - INFO - Loaded spell slots: {'1st': 4, '2nd': 3}
+2026-03-11 18:12:28,243 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 3}
+2026-03-11 18:12:28,243 - INFO - Loaded character: Ramil al-Sayif
+2026-03-11 18:12:28,243 - INFO - Weapons loaded: 3
+2026-03-11 18:12:28,243 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2026-03-11 18:12:28,243 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2026-03-11 18:12:28,244 - INFO - Adaptive Resolution Features:
+2026-03-11 18:12:28,244 - INFO -    - Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-03-11 18:12:28,244 - INFO -    - Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-03-11 18:12:28,244 - INFO -    - Press F11 to toggle fullscreen mode
+2026-03-11 18:12:28,244 - INFO -    - Press ESC to exit fullscreen
+2026-03-11 18:12:28,244 - INFO -    - Window is resizable - aspect ratio maintained automatically
+2026-03-11 18:12:28,250 - INFO - Starting application main loop
+2026-03-11 18:12:31,476 - INFO - Window resized to 1461x974 (aspect ratio maintained: 1.500:1)
+2026-03-11 18:12:39,497 - INFO - Selected action: Bladesong
+2026-03-11 18:12:40,515 - INFO - Bladesong activated! AC +4, speed +10 ft, ADV Acrobatics, INT for attacks, +4 CON concentration saves.
+2026-03-11 18:12:40,520 - INFO - Character data saved successfully (23 characters)
+2026-03-11 18:12:48,137 - INFO - Selected spell: Mage Armor
+2026-03-11 18:12:49,898 - INFO - Cast Mage Armor - 1st-level abjuration
+
+Casting Time: 1 action
+Range: Touch
+Components: V, S, M (a piece of cured leather)
+Duration: 8 hours
+
+You touch a willing creature who isn't wearing armor, and a protective magical force surrounds it until the spell ends. The target's base AC becomes 13 + its Dexterity modifier. The spell ends if the target dons armor or if you dismiss the spell as an action.
+2026-03-11 18:12:49,898 - INFO - Mage Armor activated - Base AC is now 16
+2026-03-11 18:12:49,898 - INFO - Used 1st level spell slot. Remaining: 3
+2026-03-11 18:12:49,903 - INFO - Character data saved successfully (23 characters)
+2026-03-11 18:13:04,392 - INFO - Mage Armor dismissed. Base AC restored to worn armor.
+2026-03-11 18:13:04,398 - INFO - Character data saved successfully (23 characters)
+2026-03-11 18:13:05,056 - INFO - Bladesong dismissed. Bonuses removed.
+2026-03-11 18:13:05,061 - INFO - Character data saved successfully (23 characters)
+2026-03-11 18:13:17,209 - INFO - Long rest completed!
+2026-03-11 18:13:17,211 - INFO - - Restored 0 HP to full (36)
+2026-03-11 18:13:17,211 - INFO - - Restored all spell slots
+2026-03-11 18:13:17,211 - INFO - - Reset Druid Initiate free Charm Person cast
+2026-03-11 18:13:17,212 - INFO - - Reset Luck points to 3
+2026-03-11 18:13:17,219 - INFO - Character data saved successfully (23 characters)
+2026-03-11 18:14:46,259 - INFO - Selected spell: Prot E&G
+2026-03-11 18:14:46,308 - INFO - Selected spell: Prot E&G
+2026-03-11 18:15:08,083 - INFO - Selected spell: Identify
+2026-03-11 18:15:08,583 - INFO - Selected spell: Ice Knife
+2026-03-11 18:15:09,262 - INFO - Selected spell: Absorb Elements
+2026-03-11 18:15:09,316 - INFO - Selected spell: Sleep
+2026-03-11 18:15:11,285 - INFO - Selected spell: Invisibility
+2026-03-11 18:15:58,442 - INFO - Prepared spells updated: ['Shield', 'Mage Armor', 'Burning Hands', 'Ice Knife', 'Misty Step', 'Shadow Blade', 'Invisibility']
+2026-03-11 18:15:58,447 - INFO - Character data saved successfully (23 characters)
+2026-03-11 18:17:34,639 - INFO - Character data saved successfully (23 characters)

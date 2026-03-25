@@ -1,0 +1,9 @@
+2025-07-30 22:29:47,478 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20250730_222947.log
+2025-07-30 22:29:51,738 - INFO - Pygame initialized successfully
+2025-07-30 22:29:51,740 - INFO - Creating D&D Character Tool application
+2025-07-30 22:29:52,380 - INFO - Loading character data from character_data.json
+2025-07-30 22:29:52,396 - INFO - Starting application main loop
+2025-07-30 22:30:10,097 - INFO - Character data saved successfully to character_data.json
+2025-07-30 22:30:12,836 - INFO - Character data saved successfully to character_data.json
+2025-07-30 22:30:19,061 - INFO - Character data saved successfully to character_data.json
+2025-07-30 22:30:26,688 - INFO - Character data saved successfully to character_data.json

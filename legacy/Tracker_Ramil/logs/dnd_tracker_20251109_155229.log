@@ -1,0 +1,123 @@
+2025-11-09 15:52:29,555 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251109_155229.log
+2025-11-09 15:52:29,757 - INFO - Pygame initialized successfully
+2025-11-09 15:52:29,759 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-09 15:52:29,760 - INFO - Screen resolution: 1920x1080
+2025-11-09 15:52:29,760 - INFO - Work area: 1920x1008
+2025-11-09 15:52:29,760 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2025-11-09 15:52:29,762 - INFO - Creating D&D Character Tool application
+2025-11-09 15:52:30,322 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-09 15:52:30,331 - INFO - Loaded spell slots: {}
+2025-11-09 15:52:30,331 - INFO - Loaded current spell slots: {}
+2025-11-09 15:52:30,331 - INFO - Loaded character: Ramil al-Sayif
+2025-11-09 15:52:30,333 - INFO - Weapons loaded: 3
+2025-11-09 15:52:30,333 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-09 15:52:30,333 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2025-11-09 15:52:30,335 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-09 15:52:30,335 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-09 15:52:30,335 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-09 15:52:30,336 - INFO -    • Press ESC to exit fullscreen
+2025-11-09 15:52:30,336 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-09 15:52:30,353 - INFO - Starting application main loop
+2025-11-09 15:52:32,081 - INFO - Launched world map viewer.
+2025-11-09 15:52:41,633 - INFO - Selected character: Magistrate Olgorn
+2025-11-09 15:52:45,548 - INFO - Selected place: Place 1
+2025-11-09 15:53:51,734 - INFO - Selected character: [P] Madea Blackthorn
+2025-11-09 15:53:53,082 - INFO - Selected character: [P] Reyden
+2025-11-09 15:53:54,079 - INFO - Selected character: [P] Kai Hyoshin
+2025-11-09 15:53:55,441 - INFO - Selected character: [P] Reyden
+2025-11-09 15:54:08,240 - INFO - Renamed character to: [P] Raiden
+2025-11-09 15:54:08,244 - INFO - Character data saved successfully (7 characters)
+2025-11-09 15:54:39,782 - INFO - Deleted character: Character 6
+2025-11-09 15:54:39,795 - INFO - Character data saved successfully (6 characters)
+2025-11-09 15:54:41,146 - INFO - Deleted character: Character 7
+2025-11-09 15:54:41,150 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:54:53,594 - INFO - Selected place: Place 1
+2025-11-09 15:55:02,393 - INFO - Selected place: Place 1
+2025-11-09 15:55:09,605 - INFO - Renamed place to: Blutquell
+2025-11-09 15:55:09,608 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:12,158 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:12,330 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:12,485 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:12,613 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:12,744 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:12,883 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:13,824 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:14,095 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:14,250 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:14,314 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:14,416 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:14,506 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:15,027 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:15,155 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:15,341 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:15,486 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:15,570 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:15,681 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:15,870 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:15,957 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:16,065 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:16,707 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:16,812 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:17,388 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:17,569 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:17,758 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:17,907 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:17,994 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:18,239 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:18,512 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:18,596 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:18,707 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:55:18,939 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:00,284 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:00,466 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:00,617 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:01,221 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:01,383 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:01,903 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:01,973 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:02,039 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:02,104 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:02,174 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:02,242 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:02,310 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:02,377 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:02,565 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:02,757 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:02,910 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:03,081 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:03,250 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:03,401 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:03,575 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:03,727 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:03,879 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:06,365 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:13,626 - INFO - Renamed place to: Session 0
+2025-11-09 15:56:13,629 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:18,962 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:19,664 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:20,392 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:24,488 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:26,746 - INFO - Selected place: Session 0
+2025-11-09 15:56:33,097 - INFO - Renamed place to: Blutquell
+2025-11-09 15:56:33,110 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:35,128 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:35,979 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:40,132 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:40,949 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:41,614 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:46,776 - INFO - Renamed place to: Session 0
+2025-11-09 15:56:46,787 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:48,295 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:51,409 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:53,038 - INFO - Selected place: Session 0
+2025-11-09 15:56:56,868 - INFO - Selected character: Magistrate Olgorn
+2025-11-09 15:56:58,033 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:59,114 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:56:59,684 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:57:00,536 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:57:01,283 - INFO - Character data saved successfully (5 characters)
+2025-11-09 15:57:13,926 - INFO - Selected place: Session 0
+2025-11-09 15:57:15,595 - INFO - Selected place: Session 0
+2025-11-09 15:58:21,234 - INFO - Renamed place to: Blutquell
+2025-11-09 15:58:21,240 - INFO - Character data saved successfully (5 characters)
+2025-11-09 16:00:18,712 - INFO - Character data saved successfully (5 characters)

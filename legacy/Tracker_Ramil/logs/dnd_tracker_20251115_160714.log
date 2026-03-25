@@ -1,0 +1,97 @@
+2025-11-15 16:07:14,561 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251115_160714.log
+2025-11-15 16:07:14,838 - INFO - Pygame initialized successfully
+2025-11-15 16:07:14,840 - INFO - Detected DPI: 96, Scale factor: 1.00
+2025-11-15 16:07:14,841 - INFO - Screen resolution: 1920x1080
+2025-11-15 16:07:14,841 - INFO - Work area: 1920x1032
+2025-11-15 16:07:14,841 - INFO - Adaptive window size: 1488x992 (aspect ratio: 1.500)
+2025-11-15 16:07:14,841 - INFO - Creating D&D Character Tool application
+2025-11-15 16:07:15,590 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-15 16:07:15,591 - INFO - Loaded spell slots: {'1st': 4, '2nd': 2}
+2025-11-15 16:07:15,591 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 2}
+2025-11-15 16:07:15,592 - INFO - Loaded character: Ramil al-Sayif
+2025-11-15 16:07:15,592 - INFO - Weapons loaded: 3
+2025-11-15 16:07:15,592 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-15 16:07:15,592 - INFO - Window initialized at 1488x992 (aspect ratio: 1.50:1)
+2025-11-15 16:07:15,596 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-15 16:07:15,596 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-15 16:07:15,596 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-15 16:07:15,596 - INFO -    • Press ESC to exit fullscreen
+2025-11-15 16:07:15,596 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-15 16:07:15,617 - INFO - Starting application main loop
+2025-11-15 16:07:19,446 - INFO - Selected action: Bladesong
+2025-11-15 16:07:25,678 - INFO - Bladesong activated! AC +3, speed +10 ft, ADV Acrobatics, +3 CON concentration saves.
+2025-11-15 16:07:25,684 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:08:14,718 - INFO - Selected spell: Absorb Elements
+2025-11-15 16:08:14,795 - INFO - Selected spell: Absorb Elements
+2025-11-15 16:08:14,870 - INFO - Selected spell: Absorb Elements
+2025-11-15 16:08:14,897 - INFO - Selected spell: Absorb Elements
+2025-11-15 16:08:14,967 - INFO - Selected spell: Absorb Elements
+2025-11-15 16:08:16,337 - INFO - Selected spell: Absorb Elements
+2025-11-15 16:08:16,407 - INFO - Selected spell: Absorb Elements
+2025-11-15 16:08:16,431 - INFO - Selected spell: Absorb Elements
+2025-11-15 16:08:18,080 - INFO - Selected spell: Green Flame Blade
+2025-11-15 16:08:18,151 - INFO - Selected spell: Green Flame Blade
+2025-11-15 16:08:18,609 - INFO - Selected spell: Green Flame Blade
+2025-11-15 16:08:18,682 - INFO - Selected spell: Green Flame Blade
+2025-11-15 16:08:18,752 - INFO - Selected spell: Green Flame Blade
+2025-11-15 16:08:18,775 - INFO - Selected spell: Green Flame Blade
+2025-11-15 16:08:18,844 - INFO - Selected spell: Green Flame Blade
+2025-11-15 16:08:20,824 - INFO - Selected spell: Mage Hand
+2025-11-15 16:08:23,117 - INFO - Selected spell: Shield
+2025-11-15 16:08:25,820 - INFO - Prepared spells updated: ['Absorb Elements', 'Sleep', 'Thunderwave', 'Misty Step', 'Shadow Blade']
+2025-11-15 16:08:25,823 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:08:27,138 - INFO - Prepared spells updated: ['Shield', 'Absorb Elements', 'Sleep', 'Thunderwave', 'Misty Step', 'Shadow Blade']
+2025-11-15 16:08:27,142 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:08:28,121 - INFO - Prepared spells updated: ['Absorb Elements', 'Sleep', 'Thunderwave', 'Misty Step', 'Shadow Blade']
+2025-11-15 16:08:28,127 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:08:30,257 - INFO - Prepared spells updated: ['Shield', 'Absorb Elements', 'Sleep', 'Thunderwave', 'Misty Step', 'Shadow Blade']
+2025-11-15 16:08:30,261 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:08:43,045 - INFO - Cast Shield - Reaction: +5 AC until start of your next turn
+2025-11-15 16:08:43,046 - INFO - Shield spell activated - AC increased to 20
+2025-11-15 16:08:43,046 - INFO - Used 1st level spell slot. Remaining: 3
+2025-11-15 16:08:43,051 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:08:45,699 - INFO - Window resized to 1513x1009 (aspect ratio maintained: 1.500:1)
+2025-11-15 16:09:05,796 - INFO - Selected action: Bladesong
+2025-11-15 16:09:06,884 - INFO - Bladesong dismissed. Bonuses removed.
+2025-11-15 16:09:06,889 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:09:11,381 - INFO - Shield spell ended - AC returned to 20
+2025-11-15 16:09:11,385 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:09:17,071 - INFO - Selected action: Bladesong
+2025-11-15 16:09:18,096 - INFO - Bladesong activated! AC +3, speed +10 ft, ADV Acrobatics, +3 CON concentration saves.
+2025-11-15 16:09:18,099 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:09:27,062 - INFO - Selected spell: Shield
+2025-11-15 16:09:28,743 - INFO - Cast Shield - Reaction: +5 AC until start of your next turn
+2025-11-15 16:09:28,744 - INFO - Shield spell activated - AC increased to 20
+2025-11-15 16:09:28,744 - INFO - Used 1st level spell slot. Remaining: 2
+2025-11-15 16:09:28,749 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:11:42,281 - INFO - Selected save: CON
+2025-11-15 16:11:44,057 - INFO - Constitution save: 11 (1d20: [7] + +4)
+2025-11-15 16:11:55,270 - INFO - Selected spell: Ice Knife
+2025-11-15 16:11:57,270 - INFO - Selected spell: Ice Knife
+2025-11-15 16:11:58,513 - INFO - Selected spell: Ice Knife
+2025-11-15 16:11:59,851 - INFO - Selected spell: Ice Knife
+2025-11-15 16:12:02,869 - INFO - Selected action: Bladesong
+2025-11-15 16:12:03,914 - INFO - Bladesong dismissed. Bonuses removed.
+2025-11-15 16:12:03,920 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:12:10,798 - INFO - Selected save: CON
+2025-11-15 16:12:15,028 - INFO - Constitution save: 12 (1d20: [8] + +4)
+2025-11-15 16:12:22,516 - INFO - Constitution save: 15 (1d20: [11] + +4)
+2025-11-15 16:12:28,718 - INFO - Long rest completed!
+2025-11-15 16:12:28,718 - INFO - - Restored 0 HP to full (30)
+2025-11-15 16:12:28,718 - INFO - - Restored all spell slots
+2025-11-15 16:12:28,718 - INFO - - Reset Druid Initiate free Charm Person cast
+2025-11-15 16:12:28,721 - INFO - - Reset Luck points to 3
+2025-11-15 16:12:28,729 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:12:30,453 - INFO - Ramil al-Sayif used luck point! Now at 2
+2025-11-15 16:12:30,458 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:12:30,803 - INFO - Ramil al-Sayif used luck point! Now at 1
+2025-11-15 16:12:30,806 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:12:31,317 - INFO - Ramil al-Sayif used inspiration! Now at 2
+2025-11-15 16:12:31,324 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:12:37,648 - INFO - Selected action: Bladesong
+2025-11-15 16:12:38,910 - INFO - Bladesong activated! AC +3, speed +10 ft, ADV Acrobatics, +3 CON concentration saves.
+2025-11-15 16:12:38,916 - INFO - Character data saved successfully (15 characters)
+2025-11-15 16:12:43,139 - INFO - Selected save: CON
+2025-11-15 16:12:44,410 - INFO - Constitution save: 8 (1d20: [4] + +4)
+2025-11-15 16:14:44,607 - INFO - Window resized to 1513x1009 (aspect ratio maintained: 1.500:1)
+2025-11-15 16:16:47,526 - INFO - Character data saved successfully (15 characters)

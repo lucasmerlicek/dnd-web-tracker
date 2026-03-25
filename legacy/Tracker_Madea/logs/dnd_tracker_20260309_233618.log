@@ -1,0 +1,42 @@
+2026-03-09 23:36:18,085 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260309_233618.log
+2026-03-09 23:36:18,271 - INFO - Pygame initialized successfully
+2026-03-09 23:36:18,272 - INFO - Detected DPI: 96, Scale factor: 1.00
+2026-03-09 23:36:18,272 - INFO - Screen resolution: 2048x1152
+2026-03-09 23:36:18,272 - INFO - Work area: 2048x1104
+2026-03-09 23:36:18,274 - INFO - Adaptive window size: 1536x1024 (aspect ratio: 1.500)
+2026-03-09 23:36:18,274 - INFO - Creating D&D Character Tool application
+2026-03-09 23:36:18,782 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Madea\character_data.json
+2026-03-09 23:36:18,783 - INFO - Loaded spell slots: {'1st': 4, '2nd': 3, '3rd': 2}
+2026-03-09 23:36:18,783 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 3, '3rd': 2}
+2026-03-09 23:36:18,783 - INFO - Adding missing weapon/fighting style data...
+2026-03-09 23:36:18,786 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:36:18,786 - INFO - Loaded character: Madea Blackthorn
+2026-03-09 23:36:18,786 - INFO - Weapons loaded: 1
+2026-03-09 23:36:18,788 - INFO - Fighting styles: {}
+2026-03-09 23:36:18,788 - INFO - Window initialized at 1536x1024 (aspect ratio: 1.50:1)
+2026-03-09 23:36:18,789 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-03-09 23:36:18,789 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-03-09 23:36:18,789 - INFO -    • Press F11 to toggle fullscreen mode
+2026-03-09 23:36:18,789 - INFO -    • Press ESC to exit fullscreen
+2026-03-09 23:36:18,789 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2026-03-09 23:36:18,802 - INFO - Starting application main loop
+2026-03-09 23:36:20,747 - INFO - Selected spell: Message
+2026-03-09 23:36:20,857 - INFO - Selected spell: Mage Armor
+2026-03-09 23:36:20,871 - INFO - Selected spell: Mage Armor
+2026-03-09 23:36:20,884 - INFO - Selected spell: Mage Armor
+2026-03-09 23:36:20,894 - INFO - Selected spell: Mage Armor
+2026-03-09 23:36:20,984 - INFO - Selected spell: Shield
+2026-03-09 23:36:21,259 - INFO - Selected spell: Bane
+2026-03-09 23:36:22,445 - INFO - Selected spell: Darkness
+2026-03-09 23:36:22,456 - INFO - Selected spell: Darkness
+2026-03-09 23:36:22,466 - INFO - Selected spell: Darkness
+2026-03-09 23:36:22,566 - INFO - Selected spell: Aganazzar's Scorcher
+2026-03-09 23:36:22,581 - INFO - Selected spell: Aganazzar's Scorcher
+2026-03-09 23:36:22,956 - INFO - Selected spell: Web
+2026-03-09 23:36:23,048 - INFO - Selected spell: Fear
+2026-03-09 23:36:23,703 - INFO - Selected spell: Fear
+2026-03-09 23:36:25,447 - INFO - Selected spell: Fear
+2026-03-09 23:36:27,111 - INFO - Selected spell: Web
+2026-03-09 23:36:36,604 - INFO - Selected spell: Fear
+2026-03-09 23:36:40,240 - INFO - Selected spell: Lightning Bolt
+2026-03-09 23:36:55,409 - INFO - Character data saved successfully (15 characters)

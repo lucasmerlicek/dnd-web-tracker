@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #0e0e0e;
+    --foreground: #d4c5a9;
+  }
+
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-dark-bg text-parchment antialiased;
+    font-family: Georgia, "Palatino Linotype", "Times New Roman", serif;
+  }
+
+  /* Scrollbar styling for dark fantasy theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-surface;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dark-border rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-gold-dark;
+  }
+}
+
+@layer components {
+  /* Reusable gold-bordered panel */
+  .fantasy-panel {
+    @apply bg-dark-panel border border-gold-dark/40 rounded-lg shadow-inner-dark;
+  }
+
+  /* Gold accent text */
+  .text-accent {
+    @apply text-gold;
+  }
+
+  /* Fantasy button base */
+  .fantasy-btn {
+    @apply px-4 py-2 bg-dark-surface border border-gold-dark/50 text-parchment rounded
+           hover:bg-dark-hover hover:border-gold/60 transition-colors duration-200;
+  }
+}

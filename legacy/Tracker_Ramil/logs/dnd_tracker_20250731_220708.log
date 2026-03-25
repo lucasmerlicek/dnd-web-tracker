@@ -1,0 +1,21 @@
+2025-07-31 22:07:08,893 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20250731_220708.log
+2025-07-31 22:07:09,124 - INFO - Pygame initialized successfully
+2025-07-31 22:07:09,127 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-07-31 22:07:09,127 - INFO - Screen resolution: 1920x1080
+2025-07-31 22:07:09,128 - INFO - Adaptive window size: 1200x800
+2025-07-31 22:07:09,128 - INFO - Creating D&D Character Tool application
+2025-07-31 22:07:09,973 - INFO - Loading character data from character_data.json
+2025-07-31 22:07:09,985 - INFO - Loaded character: Barian the Broken
+2025-07-31 22:07:09,986 - INFO - Weapons loaded: 3
+2025-07-31 22:07:09,986 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-07-31 22:07:09,986 - INFO - Window initialized at 1200x800
+2025-07-31 22:07:09,988 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-07-31 22:07:09,988 - INFO -    • Press F11 to toggle fullscreen mode
+2025-07-31 22:07:09,989 - INFO -    • Press ESC to exit fullscreen
+2025-07-31 22:07:09,989 - INFO -    • Window is resizable - drag corners to adjust size
+2025-07-31 22:07:09,994 - INFO - Starting application main loop
+2025-07-31 22:07:15,196 - INFO - Window resized to 1200x966
+2025-07-31 22:07:23,369 - INFO - Window resized to 1920x974
+2025-07-31 22:07:36,153 - INFO - Window resized to 1200x966
+2025-07-31 22:07:40,033 - INFO - Window resized to 881x966
+2025-07-31 22:07:46,914 - INFO - Character data saved successfully to character_data.json

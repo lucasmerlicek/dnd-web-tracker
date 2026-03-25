@@ -1,0 +1,123 @@
+2026-02-22 12:17:23,887 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260222_121723.log
+2026-02-22 12:17:24,054 - INFO - Pygame initialized successfully
+2026-02-22 12:17:24,056 - INFO - Detected DPI: 96, Scale factor: 1.00
+2026-02-22 12:17:24,056 - INFO - Screen resolution: 2048x1152
+2026-02-22 12:17:24,057 - INFO - Work area: 2048x1104
+2026-02-22 12:17:24,057 - INFO - Adaptive window size: 1536x1024 (aspect ratio: 1.500)
+2026-02-22 12:17:24,057 - INFO - Creating D&D Character Tool application
+2026-02-22 12:17:24,549 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2026-02-22 12:17:24,560 - INFO - Loaded spell slots: {'1st': 4, '2nd': 2}
+2026-02-22 12:17:24,561 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 1}
+2026-02-22 12:17:24,561 - INFO - Loaded character: Ramil al-Sayif
+2026-02-22 12:17:24,561 - INFO - Weapons loaded: 3
+2026-02-22 12:17:24,561 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2026-02-22 12:17:24,561 - INFO - Window initialized at 1536x1024 (aspect ratio: 1.50:1)
+2026-02-22 12:17:24,561 - INFO - Adaptive Resolution Features:
+2026-02-22 12:17:24,561 - INFO -    - Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-02-22 12:17:24,562 - INFO -    - Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-02-22 12:17:24,562 - INFO -    - Press F11 to toggle fullscreen mode
+2026-02-22 12:17:24,562 - INFO -    - Press ESC to exit fullscreen
+2026-02-22 12:17:24,562 - INFO -    - Window is resizable - aspect ratio maintained automatically
+2026-02-22 12:17:24,573 - INFO - Starting application main loop
+2026-02-22 12:17:33,066 - INFO - Selected spell: Mage Hand
+2026-02-22 12:17:35,722 - INFO - Selected spell: Mage Armor
+2026-02-22 12:17:37,890 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:17:38,791 - INFO - Selected spell: Prot E&G
+2026-02-22 12:17:47,018 - INFO - Selected spell: Sleep
+2026-02-22 12:29:44,084 - INFO - Selected spell: Prot E&G
+2026-02-22 12:30:54,809 - INFO - Selected spell: Prot E&G
+2026-02-22 12:30:55,569 - INFO - Selected spell: Thunderwave
+2026-02-22 12:30:59,062 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:30:59,808 - INFO - Selected spell: Prot E&G
+2026-02-22 12:30:59,926 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:31:00,032 - INFO - Selected spell: Charm Person
+2026-02-22 12:31:00,479 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:31:00,582 - INFO - Selected spell: Charm Person
+2026-02-22 12:31:01,036 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:31:01,215 - INFO - Selected spell: Prot E&G
+2026-02-22 12:31:01,959 - INFO - Selected spell: Prot E&G
+2026-02-22 12:31:02,136 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:31:02,241 - INFO - Selected spell: Charm Person
+2026-02-22 12:31:02,819 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:31:02,922 - INFO - Selected spell: Charm Person
+2026-02-22 12:31:06,356 - INFO - Selected spell: Ice Knife
+2026-02-22 12:31:07,138 - INFO - Selected spell: Ice Knife
+2026-02-22 12:31:08,247 - INFO - Selected spell: Mage Armor
+2026-02-22 12:31:09,665 - INFO - Selected spell: Ice Knife
+2026-02-22 12:31:10,163 - INFO - Selected spell: Mage Armor
+2026-02-22 12:31:12,142 - INFO - Selected spell: Identify
+2026-02-22 12:31:13,066 - INFO - Selected spell: Mage Armor
+2026-02-22 12:31:13,436 - INFO - Selected spell: Mage Armor
+2026-02-22 12:31:13,537 - INFO - Selected spell: Identify
+2026-02-22 12:31:14,225 - INFO - Selected spell: Shield
+2026-02-22 12:31:15,031 - INFO - Selected spell: Shield
+2026-02-22 12:31:15,128 - INFO - Selected spell: Mage Hand
+2026-02-22 12:31:15,478 - INFO - Selected spell: Mage Hand
+2026-02-22 12:31:15,579 - INFO - Selected spell: Mage Hand
+2026-02-22 12:31:25,524 - INFO - Selected spell: Green Flame Blade
+2026-02-22 12:34:04,928 - INFO - Selected spell: Misty Step
+2026-02-22 12:34:05,031 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:34:05,132 - INFO - Selected spell: Charm Person
+2026-02-22 12:34:06,033 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:34:06,043 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:34:06,638 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:34:09,643 - INFO - Selected spell: Prot E&G
+2026-02-22 12:34:09,756 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:34:09,766 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:34:09,868 - INFO - Selected spell: Charm Person
+2026-02-22 12:34:09,971 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:34:10,576 - INFO - Selected spell: Misty Step
+2026-02-22 12:34:10,673 - INFO - Selected spell: Misty Step
+2026-02-22 12:34:10,773 - INFO - Selected spell: Misty Step
+2026-02-22 12:36:12,446 - INFO - Selected spell: Identify
+2026-02-22 12:36:14,791 - INFO - Selected spell: Misty Step
+2026-02-22 12:36:14,959 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:36:15,132 - INFO - Selected spell: Charm Person
+2026-02-22 12:36:18,466 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:36:18,945 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:36:19,790 - INFO - Selected spell: Prot E&G
+2026-02-22 12:36:19,896 - INFO - Selected spell: Prot E&G
+2026-02-22 12:36:20,654 - INFO - Selected spell: Prot E&G
+2026-02-22 12:36:21,270 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:36:21,378 - INFO - Selected spell: Prot E&G
+2026-02-22 12:36:22,583 - INFO - Selected spell: Sleep
+2026-02-22 12:36:22,845 - INFO - Selected spell: Sleep
+2026-02-22 12:36:23,170 - INFO - Selected spell: Sleep
+2026-02-22 12:36:23,919 - INFO - Selected spell: Thunderwave
+2026-02-22 12:37:55,651 - INFO - Selected spell: Sleep
+2026-02-22 12:38:09,119 - INFO - Selected spell: Ice Knife
+2026-02-22 12:39:50,097 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:39:50,107 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:39:50,211 - INFO - Selected spell: Prot E&G
+2026-02-22 12:39:50,608 - INFO - Selected spell: Prot E&G
+2026-02-22 12:40:02,968 - INFO - Selected spell: Prot E&G
+2026-02-22 12:40:03,070 - INFO - Selected spell: Absorb Elements
+2026-02-22 12:40:10,284 - INFO - Selected spell: Identify
+2026-02-22 12:40:11,126 - INFO - Selected spell: Mage Armor
+2026-02-22 12:40:11,230 - INFO - Selected spell: Identify
+2026-02-22 12:40:11,240 - INFO - Selected spell: Identify
+2026-02-22 12:40:11,401 - INFO - Selected spell: Shield
+2026-02-22 12:40:11,878 - INFO - Selected spell: Shield
+2026-02-22 12:40:11,888 - INFO - Selected spell: Shield
+2026-02-22 12:40:11,985 - INFO - Selected spell: Shield
+2026-02-22 12:40:11,995 - INFO - Selected spell: Shield
+2026-02-22 12:40:12,093 - INFO - Selected spell: Shield
+2026-02-22 12:40:12,380 - INFO - Selected spell: Shield
+2026-02-22 12:40:12,480 - INFO - Selected spell: Identify
+2026-02-22 12:40:12,490 - INFO - Selected spell: Identify
+2026-02-22 12:40:12,499 - INFO - Selected spell: Identify
+2026-02-22 12:40:12,509 - INFO - Selected spell: Identify
+2026-02-22 12:40:12,610 - INFO - Selected spell: Mage Armor
+2026-02-22 12:40:12,620 - INFO - Selected spell: Mage Armor
+2026-02-22 12:40:12,863 - INFO - Selected spell: Ice Knife
+2026-02-22 12:40:12,970 - INFO - Selected spell: Misty Step
+2026-02-22 12:40:12,980 - INFO - Selected spell: Misty Step
+2026-02-22 12:40:12,991 - INFO - Selected spell: Misty Step
+2026-02-22 12:40:13,000 - INFO - Selected spell: Misty Step
+2026-02-22 12:40:13,108 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:40:13,647 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:40:13,796 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:40:13,806 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:40:13,816 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:40:13,826 - INFO - Selected spell: Shadow Blade
+2026-02-22 12:44:27,610 - INFO - Character data saved successfully (22 characters)

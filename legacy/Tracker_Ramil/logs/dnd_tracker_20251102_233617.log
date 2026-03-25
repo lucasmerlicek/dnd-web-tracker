@@ -1,0 +1,34 @@
+2025-11-02 23:36:17,339 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251102_233617.log
+2025-11-02 23:36:17,766 - INFO - Pygame initialized successfully
+2025-11-02 23:36:17,771 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-02 23:36:17,771 - INFO - Screen resolution: 1920x1080
+2025-11-02 23:36:17,771 - INFO - Work area: 1920x1008
+2025-11-02 23:36:17,772 - INFO - Adaptive window size: 1152x648 (aspect ratio: 1.778)
+2025-11-02 23:36:17,772 - INFO - Creating D&D Character Tool application
+2025-11-02 23:36:17,956 - INFO - Loading character data from character_data.json
+2025-11-02 23:36:17,957 - INFO - Loaded spell slots: {}
+2025-11-02 23:36:17,957 - INFO - Loaded current spell slots: {}
+2025-11-02 23:36:17,957 - INFO - Loaded character: Ramil al-Sayif
+2025-11-02 23:36:17,959 - INFO - Weapons loaded: 3
+2025-11-02 23:36:17,959 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-02 23:36:17,959 - INFO - Window initialized at 1152x648 (aspect ratio: 1.78:1)
+2025-11-02 23:36:17,962 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-02 23:36:17,963 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-11-02 23:36:17,963 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-02 23:36:17,963 - INFO -    • Press ESC to exit fullscreen
+2025-11-02 23:36:17,963 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-02 23:36:17,984 - INFO - Starting application main loop
+2025-11-02 23:36:21,555 - INFO - Window resized to 1731x974 (16:9 ratio maintained: 1.777:1)
+2025-11-02 23:36:43,293 - INFO - Selected weapon: Scimitar (Nick Mastery)
+2025-11-02 23:36:48,553 - INFO - Attack roll: 21 (1d20: [16] + +5)
+2025-11-02 23:37:11,454 - INFO - Character data saved successfully (3 characters)
+2025-11-02 23:37:11,455 - INFO - Selected character: Magistrate Olgorn
+2025-11-02 23:37:16,586 - INFO - Character data saved successfully (3 characters)
+2025-11-02 23:37:16,587 - INFO - Selected character: Rusty Pete
+2025-11-02 23:37:18,254 - INFO - Character data saved successfully (3 characters)
+2025-11-02 23:37:18,254 - INFO - Selected character: [P] Madea Blackthorn
+2025-11-02 23:38:14,633 - INFO - Character data saved successfully (3 characters)
+2025-11-02 23:39:17,931 - INFO - Character data saved successfully (3 characters)
+2025-11-02 23:39:20,755 - INFO - Selected spell: Mending
+2025-11-02 23:40:53,201 - INFO - Character data saved successfully (3 characters)
+2025-11-02 23:41:27,186 - INFO - Character data saved successfully (3 characters)

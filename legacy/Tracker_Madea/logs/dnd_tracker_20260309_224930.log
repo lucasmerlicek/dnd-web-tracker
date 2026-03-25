@@ -1,0 +1,29 @@
+2026-03-09 22:49:30,811 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20260309_224930.log
+2026-03-09 22:49:31,006 - INFO - Pygame initialized successfully
+2026-03-09 22:49:31,008 - INFO - Detected DPI: 96, Scale factor: 1.00
+2026-03-09 22:49:31,008 - INFO - Screen resolution: 2048x1152
+2026-03-09 22:49:31,008 - INFO - Work area: 2048x1104
+2026-03-09 22:49:31,009 - INFO - Adaptive window size: 1536x1024 (aspect ratio: 1.500)
+2026-03-09 22:49:31,009 - INFO - Creating D&D Character Tool application
+2026-03-09 22:49:37,451 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Madea\character_data.json
+2026-03-09 22:49:37,778 - INFO - Loaded spell slots: {'1st': 4, '2nd': 3}
+2026-03-09 22:49:37,778 - INFO - Loaded current spell slots: {'1st': 4, '2nd': 3}
+2026-03-09 22:49:37,779 - INFO - Adding missing weapon/fighting style data...
+2026-03-09 22:49:37,781 - INFO - Character data saved successfully (15 characters)
+2026-03-09 22:49:37,781 - INFO - Loaded character: Madea Blackthorn
+2026-03-09 22:49:37,782 - INFO - Weapons loaded: 1
+2026-03-09 22:49:37,782 - INFO - Fighting styles: {}
+2026-03-09 22:49:37,782 - INFO - Window initialized at 1536x1024 (aspect ratio: 1.50:1)
+2026-03-09 22:49:37,784 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2026-03-09 22:49:37,784 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2026-03-09 22:49:37,784 - INFO -    • Press F11 to toggle fullscreen mode
+2026-03-09 22:49:37,784 - INFO -    • Press ESC to exit fullscreen
+2026-03-09 22:49:37,784 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2026-03-09 22:49:37,795 - INFO - Starting application main loop
+2026-03-09 23:03:07,363 - INFO - Long rest completed!
+2026-03-09 23:03:07,363 - INFO - - Restored 0 HP to full (34)
+2026-03-09 23:03:07,363 - INFO - - Restored all spell slots
+2026-03-09 23:03:07,363 - INFO - - Reset limited-use spells (Charm Person, Bane, Misty Step)
+2026-03-09 23:03:07,364 - INFO - - Reset Luck points to 3
+2026-03-09 23:03:07,368 - INFO - Character data saved successfully (15 characters)
+2026-03-09 23:03:27,009 - INFO - Character data saved successfully (15 characters)

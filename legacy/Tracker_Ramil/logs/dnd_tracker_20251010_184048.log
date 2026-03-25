@@ -1,0 +1,46 @@
+2025-10-10 18:40:48,748 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251010_184048.log
+2025-10-10 18:40:49,174 - INFO - Pygame initialized successfully
+2025-10-10 18:40:49,177 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-10-10 18:40:49,177 - INFO - Screen resolution: 1920x1080
+2025-10-10 18:40:49,177 - INFO - Work area: 1920x1008
+2025-10-10 18:40:49,177 - INFO - Adaptive window size: 1152x768 (aspect ratio: 1.500)
+2025-10-10 18:40:49,177 - INFO - Creating D&D Character Tool application
+2025-10-10 18:40:49,994 - INFO - Loading character data from character_data.json
+2025-10-10 18:40:49,996 - INFO - Loaded character: Barian the Broken
+2025-10-10 18:40:49,996 - INFO - Weapons loaded: 3
+2025-10-10 18:40:49,996 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-10-10 18:40:49,998 - INFO - Window initialized at 1152x768 (aspect ratio: 1.50:1)
+2025-10-10 18:40:49,999 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-10-10 18:40:49,999 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-10-10 18:40:49,999 - INFO -    • Press F11 to toggle fullscreen mode
+2025-10-10 18:40:50,000 - INFO -    • Press ESC to exit fullscreen
+2025-10-10 18:40:50,000 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-10-10 18:40:50,007 - INFO - Starting application main loop
+2025-10-10 18:40:54,355 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:40:54,420 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:40:55,248 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:40:55,264 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:40:55,295 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:40:55,328 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:40:55,702 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:40:55,736 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:40:55,769 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:41:03,431 - INFO - Selected spell: Warding Wind
+2025-10-10 18:42:28,558 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:43:00,372 - INFO - Selected spell: Misty Step
+2025-10-10 18:43:01,771 - INFO - Selected spell: Shatter
+2025-10-10 18:43:03,111 - INFO - Selected spell: Magic Missile
+2025-10-10 18:43:05,758 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:43:07,313 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:43:10,010 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:43:12,038 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:43:12,954 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:43:15,081 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:43:15,739 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:43:16,139 - INFO - Selected spell: Rime's Binding Ice
+2025-10-10 18:43:25,001 - INFO - Window resized to 1152x768 (3:2 ratio maintained: 1.500:1)
+2025-10-10 18:43:27,679 - INFO - Window resized to 1441x961 (3:2 ratio maintained: 1.499:1)
+2025-10-10 18:43:33,975 - INFO - Selected spell: Warding Wind
+2025-10-10 18:43:48,509 - INFO - Selected action: Indomitable
+2025-10-10 18:43:56,475 - INFO - Selected weapon: Mithril Versitlie (One-Handed)
+2025-10-10 18:44:39,464 - INFO - Character data saved successfully to character_data.json

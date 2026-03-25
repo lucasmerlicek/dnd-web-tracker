@@ -1,0 +1,32 @@
+2025-10-10 17:14:53,155 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251010_171453.log
+2025-10-10 17:14:53,480 - INFO - Pygame initialized successfully
+2025-10-10 17:14:53,483 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-10-10 17:14:53,483 - INFO - Screen resolution: 1920x1080
+2025-10-10 17:14:53,483 - INFO - Work area: 1920x1008
+2025-10-10 17:14:53,484 - INFO - Adaptive window size: 1152x768 (aspect ratio: 1.500)
+2025-10-10 17:14:53,484 - INFO - Creating D&D Character Tool application
+2025-10-10 17:14:54,305 - INFO - Loading character data from character_data.json
+2025-10-10 17:14:54,328 - INFO - Loaded character: Barian the Broken
+2025-10-10 17:14:54,329 - INFO - Weapons loaded: 3
+2025-10-10 17:14:54,329 - INFO - Fighting styles: {'dueling': True, 'dueling_bonus': 2}
+2025-10-10 17:14:54,330 - INFO - Window initialized at 1152x768 (aspect ratio: 1.50:1)
+2025-10-10 17:14:54,333 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-10-10 17:14:54,333 - INFO -    • Locked to 16:9 aspect ratio for optimal viewing
+2025-10-10 17:14:54,333 - INFO -    • Press F11 to toggle fullscreen mode
+2025-10-10 17:14:54,333 - INFO -    • Press ESC to exit fullscreen
+2025-10-10 17:14:54,334 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-10-10 17:14:54,342 - INFO - Starting application main loop
+2025-10-10 17:14:58,337 - INFO - Window resized to 1387x925 (3:2 ratio maintained: 1.499:1)
+2025-10-10 17:15:02,184 - INFO - Selected action: Second Wind
+2025-10-10 17:15:08,182 - INFO - Selected spell: Sword Burst
+2025-10-10 17:15:08,397 - ERROR - An error occurred: 'ModernButton' object has no attribute 'ui_box_image'
+2025-10-10 17:15:08,398 - ERROR - Full traceback:
+2025-10-10 17:15:08,398 - ERROR - Traceback (most recent call last):
+  File "C:\Users\lucas\OneDrive\Documents\D&D\Tracker\main.py", line 4214, in main
+    app.run()
+  File "C:\Users\lucas\OneDrive\Documents\D&D\Tracker\main.py", line 3731, in run
+    self.handle_input(event)
+  File "C:\Users\lucas\OneDrive\Documents\D&D\Tracker\main.py", line 2356, in handle_input
+    cast_button.text, cast_button.color, cast_button.ui_box_image)
+AttributeError: 'ModernButton' object has no attribute 'ui_box_image'
+

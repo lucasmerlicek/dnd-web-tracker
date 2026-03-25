@@ -1,0 +1,27 @@
+2025-11-09 12:37:48,577 - INFO - D&D Character Tracker started - Log file: logs\dnd_tracker_20251109_123748.log
+2025-11-09 12:37:48,841 - INFO - Pygame initialized successfully
+2025-11-09 12:37:48,844 - INFO - Detected DPI: 144, Scale factor: 1.50
+2025-11-09 12:37:48,844 - INFO - Screen resolution: 1920x1080
+2025-11-09 12:37:48,844 - INFO - Work area: 1920x1008
+2025-11-09 12:37:48,844 - INFO - Adaptive window size: 1305x870 (aspect ratio: 1.500)
+2025-11-09 12:37:48,846 - INFO - Creating D&D Character Tool application
+2025-11-09 12:37:49,585 - INFO - Loading character data from C:\Users\lucas\OneDrive\Documents\D&D\Tracker_Ramil\character_data.json
+2025-11-09 12:37:49,586 - INFO - Loaded spell slots: {}
+2025-11-09 12:37:49,586 - INFO - Loaded current spell slots: {}
+2025-11-09 12:37:49,586 - INFO - Loaded character: Ramil al-Sayif
+2025-11-09 12:37:49,586 - INFO - Weapons loaded: 3
+2025-11-09 12:37:49,587 - INFO - Fighting styles: {'two_weapon_fighting': True, 'dueling': False, 'dueling_bonus': 0}
+2025-11-09 12:37:49,587 - INFO - Window initialized at 1305x870 (aspect ratio: 1.50:1)
+2025-11-09 12:37:49,589 - INFO -    • Window automatically adjusts to display scaling (100%, 125%, 150%)
+2025-11-09 12:37:49,589 - INFO -    • Locked to 3:2 aspect ratio (1536x1024) for optimal viewing
+2025-11-09 12:37:49,589 - INFO -    • Press F11 to toggle fullscreen mode
+2025-11-09 12:37:49,589 - INFO -    • Press ESC to exit fullscreen
+2025-11-09 12:37:49,590 - INFO -    • Window is resizable - aspect ratio maintained automatically
+2025-11-09 12:37:49,608 - INFO - Starting application main loop
+2025-11-09 12:37:51,063 - INFO - Launched world map viewer.
+2025-11-09 12:39:29,169 - INFO - Fullscreen resolution: 2880x1620 (scale: 1.50)
+2025-11-09 12:39:29,190 - INFO - Switched to fullscreen mode (2880x1620)
+2025-11-09 12:39:41,664 - INFO - Switched to windowed mode (1305x870, aspect ratio: 1.500:1)
+2025-11-09 12:39:42,587 - INFO - Window resized to 1305x870 (aspect ratio maintained: 1.500:1)
+2025-11-09 12:39:47,385 - INFO - Window resized to 2271x1514 (aspect ratio maintained: 1.500:1)
+2025-11-09 12:40:02,917 - INFO - Character data saved successfully (7 characters)
