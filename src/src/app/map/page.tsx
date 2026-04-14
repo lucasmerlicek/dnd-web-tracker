@@ -4,8 +4,8 @@ import { useMapMarkers } from "@/hooks/useMapMarkers";
 import NavButtons from "@/components/ui/NavButtons";
 import UIPanel from "@/components/ui/UIPanel";
 import AmbientEffects from "@/components/ui/AmbientEffects";
-import { useState, useRef } from "react";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { useState, useRef, useEffect } from "react";
+import { TransformWrapper, TransformComponent, type ReactZoomPanPinchRef } from "react-zoom-pan-pinch";
 import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import type { MapMarker } from "@/types";
@@ -59,6 +59,13 @@ export default function MapPage() {
   const [editing, setEditing] = useState<MapMarker | null>(null);
   const [currentScale, setCurrentScale] = useState(1);
   const mapRef = useRef<HTMLDivElement>(null);
+  const transformRef = useRef<ReactZoomPanPinchRef>(null);
+
+  // Reset zoom/pan to default when switching maps or floors
+  useEffect(() => {
+    transformRef.current?.resetTransform(0);
+    setCurrentScale(1);
+  }, [activeMap, floor]);
 
   const { markers, mutate } = useMapMarkers(activeMap, activeMap === "aetherion" ? floor : undefined);
 
@@ -158,7 +165,15 @@ export default function MapPage() {
 
         {/* Map */}
         <div className="overflow-hidden rounded-lg border border-dark-border">
-          <TransformWrapper minScale={0.5} maxScale={4} initialScale={1} onTransformed={(_ref, state) => setCurrentScale(state.scale)}>
+          <TransformWrapper
+            ref={transformRef}
+            minScale={1}
+            maxScale={5}
+            initialScale={1}
+            limitToBounds={true}
+            smooth={true}
+            onTransformed={(_ref, state) => setCurrentScale(state.scale)}
+          >
             <TransformComponent wrapperClass="!w-full" contentClass="!w-full">
               <div ref={mapRef} className="relative cursor-crosshair" onDoubleClick={handleMapClick}>
                 <Image src={mapSrc} alt={`${activeMap} map`} width={1600} height={1067} className="w-full" priority />

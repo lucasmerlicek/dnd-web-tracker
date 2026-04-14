@@ -2,10 +2,13 @@
 
 import { useSession } from "next-auth/react";
 import { useCharacterData } from "@/hooks/useCharacterData";
+import { useCursorNavigation } from "@/hooks/useCursorNavigation";
 import ScreenBackground from "@/components/ui/ScreenBackground";
 import NavButtons from "@/components/ui/NavButtons";
 import UIPanel from "@/components/ui/UIPanel";
 import AmbientEffects from "@/components/ui/AmbientEffects";
+import CursorIndicator from "@/components/ui/CursorIndicator";
+import IconImage from "@/components/ui/IconImage";
 import { useState } from "react";
 
 const CATEGORIES = ["gear", "utility", "treasure"] as const;
@@ -14,25 +17,54 @@ const COINS = ["cp", "sp", "ep", "gp", "pp"] as const;
 export default function BagPage() {
   const { data: session } = useSession();
   const { data, loading, mutate } = useCharacterData();
-  const [newItem, setNewItem] = useState<Record<string, string>>({ gear: "", utility: "", treasure: "" });
-  const characterId = (session?.user as { characterId?: string })?.characterId ?? "madea";
+  const [newItem, setNewItem] = useState<Record<string, string>>({
+    gear: "", utility: "", treasure: "",
+  });
+  const characterId =
+    (session?.user as { characterId?: string })?.characterId ?? "madea";
 
-  if (loading || !data) return <div className="flex min-h-screen items-center justify-center text-parchment/50">Loading...</div>;
+  const gearCursor = useCursorNavigation({
+    itemCount: data?.inventory?.gear?.length ?? 0,
+  });
+  const utilityCursor = useCursorNavigation({
+    itemCount: data?.inventory?.utility?.length ?? 0,
+  });
+  const treasureCursor = useCursorNavigation({
+    itemCount: data?.inventory?.treasure?.length ?? 0,
+  });
+  const cursorMap = {
+    gear: gearCursor,
+    utility: utilityCursor,
+    treasure: treasureCursor,
+  } as const;
 
-  const addItem = (cat: typeof CATEGORIES[number]) => {
+  if (loading || !data)
+    return (
+      <div className="flex min-h-screen items-center justify-center text-ff12-text-dim">
+        Loading...
+      </div>
+    );
+
+  const addItem = (cat: (typeof CATEGORIES)[number]) => {
     const item = newItem[cat].trim();
     if (!item) return;
-    const updated = { ...data.inventory, [cat]: [...data.inventory[cat], item] };
+    const updated = {
+      ...data.inventory,
+      [cat]: [...data.inventory[cat], item],
+    };
     mutate({ inventory: updated });
     setNewItem({ ...newItem, [cat]: "" });
   };
 
-  const removeItem = (cat: typeof CATEGORIES[number], idx: number) => {
-    const updated = { ...data.inventory, [cat]: data.inventory[cat].filter((_, i) => i !== idx) };
+  const removeItem = (cat: (typeof CATEGORIES)[number], idx: number) => {
+    const updated = {
+      ...data.inventory,
+      [cat]: data.inventory[cat].filter((_, i) => i !== idx),
+    };
     mutate({ inventory: updated });
   };
 
-  const updateCoin = (coin: typeof COINS[number], value: string) => {
+  const updateCoin = (coin: (typeof COINS)[number], value: string) => {
     const num = Math.max(0, parseInt(value) || 0);
     mutate({ coins: { ...data.coins, [coin]: num } });
   };
@@ -46,18 +78,23 @@ export default function BagPage() {
 
         {/* Coins */}
         <UIPanel variant="fancy">
-          <h2 className="mb-3 font-serif text-sm text-gold/70">Coins</h2>
+          <h2 className="mb-3 text-sm text-gold/70">Coins</h2>
           <div className="flex flex-wrap gap-4">
             {COINS.map((coin) => (
               <div key={coin} className="text-center">
-                <label htmlFor={`coin-${coin}`} className="text-xs uppercase text-parchment/50">{coin}</label>
+                <label
+                  htmlFor={`coin-${coin}`}
+                  className="text-xs uppercase text-ff12-text-dim"
+                >
+                  {coin}
+                </label>
                 <input
                   id={`coin-${coin}`}
                   type="number"
                   min={0}
                   value={data.coins[coin]}
                   onChange={(e) => updateCoin(coin, e.target.value)}
-                  className="mt-1 w-20 rounded border border-dark-border bg-dark-bg px-2 py-1 text-center font-serif text-gold"
+                  className="mt-1 w-20 rounded border border-ff12-border-dim bg-dark-bg px-2 py-1 text-center text-gold"
                 />
               </div>
             ))}
@@ -65,31 +102,60 @@ export default function BagPage() {
         </UIPanel>
 
         {/* Inventory Categories */}
-        {CATEGORIES.map((cat) => (
-          <UIPanel key={cat} variant="box1">
-            <h2 className="mb-3 font-serif text-sm capitalize text-gold/70">{cat}</h2>
-            <ul className="mb-3 space-y-1">
-              {data.inventory[cat].map((item, i) => (
-                <li key={i} className="flex items-center justify-between rounded px-2 py-1 hover:bg-dark-border">
-                  <span className="text-sm text-parchment/80">{item}</span>
-                  <button onClick={() => removeItem(cat, i)} className="min-h-[44px] px-2 text-xs text-crimson hover:text-crimson/80" aria-label={`Remove ${item}`}>✕</button>
-                </li>
-              ))}
-            </ul>
-            <div className="flex gap-2">
-              <input
-                type="text"
-                value={newItem[cat]}
-                onChange={(e) => setNewItem({ ...newItem, [cat]: e.target.value })}
-                onKeyDown={(e) => e.key === "Enter" && addItem(cat)}
-                placeholder={`Add ${cat} item...`}
-                className="flex-1 rounded border border-dark-border bg-dark-bg px-3 py-2 text-sm text-parchment"
-                aria-label={`New ${cat} item`}
-              />
-              <button onClick={() => addItem(cat)} className="min-h-[44px] rounded bg-gold-dark px-4 py-2 text-sm text-parchment hover:bg-gold">Add</button>
-            </div>
-          </UIPanel>
-        ))}
+        {CATEGORIES.map((cat) => {
+          const cursor = cursorMap[cat];
+          return (
+            <UIPanel key={cat} variant="box1">
+              <h2 className="mb-3 text-sm capitalize text-gold/70">{cat}</h2>
+              <ul
+                {...cursor.containerProps}
+                className="mb-3 space-y-1"
+              >
+                {data.inventory[cat].map((item, i) => (
+                  <li
+                    key={i}
+                    {...cursor.getItemProps(i)}
+                    className={`flex items-center justify-between rounded px-2 py-1 hover:bg-ff12-panel-light ${
+                      cursor.isActive(i) ? "bg-white/10" : ""
+                    }`}
+                  >
+                    <span className="flex items-center gap-2 text-sm text-ff12-text/80">
+                      <CursorIndicator visible={cursor.isActive(i)} />
+                      <IconImage type="item" name={item} size={20} />
+                      {item}
+                    </span>
+                    <button
+                      onClick={() => removeItem(cat, i)}
+                      className="min-h-[44px] px-2 text-xs text-ff12-danger hover:text-ff12-danger/80"
+                      aria-label={`Remove ${item}`}
+                    >
+                      ✕
+                    </button>
+                  </li>
+                ))}
+              </ul>
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  value={newItem[cat]}
+                  onChange={(e) =>
+                    setNewItem({ ...newItem, [cat]: e.target.value })
+                  }
+                  onKeyDown={(e) => e.key === "Enter" && addItem(cat)}
+                  placeholder={`Add ${cat} item...`}
+                  className="flex-1 rounded border border-ff12-border-dim bg-dark-bg px-3 py-2 text-sm text-ff12-text"
+                  aria-label={`New ${cat} item`}
+                />
+                <button
+                  onClick={() => addItem(cat)}
+                  className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text hover:bg-ff12-panel-light/80"
+                >
+                  Add
+                </button>
+              </div>
+            </UIPanel>
+          );
+        })}
       </div>
     </div>
   );

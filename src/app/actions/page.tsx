@@ -1,21 +1,36 @@
 "use client";
 
+import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useCharacterData } from "@/hooks/useCharacterData";
 import { useDiceRoll } from "@/hooks/useDiceRoll";
+import { useCursorNavigation } from "@/hooks/useCursorNavigation";
+import { UNIVERSAL_ACTIONS } from "@/data/universal-actions";
 import ScreenBackground from "@/components/ui/ScreenBackground";
 import NavButtons from "@/components/ui/NavButtons";
 import UIPanel from "@/components/ui/UIPanel";
 import AmbientEffects from "@/components/ui/AmbientEffects";
 import DiceResultOverlay from "@/components/ui/DiceResultOverlay";
+import CursorIndicator from "@/components/ui/CursorIndicator";
 
 export default function ActionsPage() {
   const { data: session } = useSession();
   const { data, loading, mutate } = useCharacterData();
   const { currentRoll, result, rollDice, dismiss } = useDiceRoll();
   const characterId = (session?.user as { characterId?: string })?.characterId ?? "madea";
+  const [expandedUniversal, setExpandedUniversal] = useState<string | null>(null);
 
-  if (loading || !data) return <div className="flex min-h-screen items-center justify-center text-parchment/50">Loading...</div>;
+  const actionCardCursor = useCursorNavigation({
+    itemCount: 0, // will be set after data loads via containerProps
+    columns: 2,
+  });
+
+  const universalCursor = useCursorNavigation({
+    itemCount: UNIVERSAL_ACTIONS.length,
+    columns: 2,
+  });
+
+  if (loading || !data) return <div className="flex min-h-screen items-center justify-center text-ff12-text-dim">Loading...</div>;
 
   const cr = data.classResources;
   const hasBladesong = cr.bladesongMaxUses !== undefined;
@@ -97,17 +112,6 @@ export default function ActionsPage() {
     });
   };
 
-  // --- Free-cast flag toggles ---
-  const toggleFeyBane = () => {
-    mutate({ classResources: { ...cr, feyBaneUsed: !cr.feyBaneUsed } });
-  };
-  const toggleFeyMistyStep = () => {
-    mutate({ classResources: { ...cr, feyMistyStepUsed: !cr.feyMistyStepUsed } });
-  };
-  const toggleDruidCharmPerson = () => {
-    mutate({ classResources: { ...cr, druidCharmPersonUsed: !cr.druidCharmPersonUsed } });
-  };
-
   // Filter out second_wind and bladesong from generic actions (they have dedicated UI)
   const genericActions = Object.entries(data.actions).filter(
     ([key]) => key !== "second_wind" && key !== "bladesong" && key !== "raven_form"
@@ -125,8 +129,8 @@ export default function ActionsPage() {
           <UIPanel variant="fancy">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-serif text-gold">Bladesong</h3>
-                <p className="text-xs text-parchment/50">
+                <h3 className="text-gold">Bladesong</h3>
+                <p className="text-xs text-ff12-text-dim">
                   Uses: {cr.bladesongUsesRemaining}/{cr.bladesongMaxUses}
                 </p>
                 {cr.bladesongActive && (
@@ -136,7 +140,7 @@ export default function ActionsPage() {
                 )}
               </div>
               <div className="flex items-center gap-3">
-                <span className={`text-xs ${cr.bladesongActive ? "text-emerald-400" : "text-parchment/40"}`}>
+                <span className={`text-xs ${cr.bladesongActive ? "text-emerald-400" : "text-ff12-text-dim"}`}>
                   {cr.bladesongActive ? "Active" : "Inactive"}
                 </span>
                 <button
@@ -144,8 +148,8 @@ export default function ActionsPage() {
                   disabled={!cr.bladesongActive && (cr.bladesongUsesRemaining ?? 0) <= 0}
                   className={`min-h-[44px] rounded px-4 py-2 text-sm transition ${
                     cr.bladesongActive
-                      ? "bg-gold text-dark-bg"
-                      : "bg-dark-border text-parchment hover:bg-gold-dark disabled:opacity-30"
+                      ? "bg-ff12-select/20 text-ff12-select"
+                      : "bg-ff12-panel-light text-ff12-text-dim hover:bg-ff12-border-dim disabled:opacity-30"
                   }`}
                 >
                   {cr.bladesongActive ? "Deactivate" : "Activate"}
@@ -160,18 +164,18 @@ export default function ActionsPage() {
           <UIPanel variant="box1">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-serif text-gold">Second Wind</h3>
-                <p className="text-xs text-parchment/50">
+                <h3 className="text-gold">Second Wind</h3>
+                <p className="text-xs text-ff12-text-dim">
                   Heal 1d10 + {data.actions["second_wind"].bonus ?? 1} HP · Short rest recharge
                 </p>
-                <p className="text-xs text-parchment/50">
+                <p className="text-xs text-ff12-text-dim">
                   Uses: {data.actions["second_wind"].uses}/{data.actions["second_wind"].maxUses ?? 1}
                 </p>
               </div>
               <button
                 onClick={useSecondWind}
                 disabled={(data.actions["second_wind"].uses ?? 0) <= 0}
-                className="min-h-[44px] rounded bg-gold-dark px-4 py-2 text-sm text-parchment transition hover:bg-gold disabled:opacity-30"
+                className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text transition hover:bg-ff12-border-dim disabled:opacity-30"
               >
                 Use
               </button>
@@ -184,13 +188,13 @@ export default function ActionsPage() {
           <UIPanel variant="fancy">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="font-serif text-gold">Raven Form</h3>
-                <p className="text-xs text-parchment/50">
+                <h3 className="text-gold">Raven Form</h3>
+                <p className="text-xs text-ff12-text-dim">
                   Uses: {cr.ravenFormUsesRemaining}/{cr.ravenFormMaxUses}
                 </p>
               </div>
               <div className="flex items-center gap-3">
-                <span className={`text-xs ${cr.ravenFormActive ? "text-emerald-400" : "text-parchment/40"}`}>
+                <span className={`text-xs ${cr.ravenFormActive ? "text-emerald-400" : "text-ff12-text-dim"}`}>
                   {cr.ravenFormActive ? "Active" : "Inactive"}
                 </span>
                 <button
@@ -198,8 +202,8 @@ export default function ActionsPage() {
                   disabled={!cr.ravenFormActive && (cr.ravenFormUsesRemaining ?? 0) <= 0}
                   className={`min-h-[44px] rounded px-4 py-2 text-sm transition ${
                     cr.ravenFormActive
-                      ? "bg-gold text-dark-bg"
-                      : "bg-dark-border text-parchment hover:bg-gold-dark disabled:opacity-30"
+                      ? "bg-ff12-select/20 text-ff12-select"
+                      : "bg-ff12-panel-light text-ff12-text-dim hover:bg-ff12-border-dim disabled:opacity-30"
                   }`}
                 >
                   {cr.ravenFormActive ? "Deactivate" : "Activate"}
@@ -209,74 +213,76 @@ export default function ActionsPage() {
           </UIPanel>
         )}
 
-        {/* Free-Cast Flags */}
-        {(isMadea || isRamil) && (
-          <UIPanel variant="box2">
-            <h2 className="mb-3 font-serif text-sm text-gold/70">Free Casts (1/long rest)</h2>
-            <div className="flex flex-wrap gap-3">
-              {isMadea && (
-                <>
-                  <button
-                    onClick={toggleFeyBane}
-                    className={`min-h-[44px] rounded px-4 py-2 text-sm transition ${
-                      cr.feyBaneUsed
-                        ? "bg-dark-border text-parchment/30 line-through"
-                        : "bg-dark-border text-parchment hover:bg-gold-dark"
-                    }`}
-                  >
-                    Bane (Fey Touched) {cr.feyBaneUsed ? "✗" : "✓"}
-                  </button>
-                  <button
-                    onClick={toggleFeyMistyStep}
-                    className={`min-h-[44px] rounded px-4 py-2 text-sm transition ${
-                      cr.feyMistyStepUsed
-                        ? "bg-dark-border text-parchment/30 line-through"
-                        : "bg-dark-border text-parchment hover:bg-gold-dark"
-                    }`}
-                  >
-                    Misty Step (Fey Touched) {cr.feyMistyStepUsed ? "✗" : "✓"}
-                  </button>
-                </>
-              )}
-              {isRamil && (
-                <button
-                  onClick={toggleDruidCharmPerson}
-                  className={`min-h-[44px] rounded px-4 py-2 text-sm transition ${
-                    cr.druidCharmPersonUsed
-                      ? "bg-dark-border text-parchment/30 line-through"
-                      : "bg-dark-border text-parchment hover:bg-gold-dark"
-                  }`}
-                >
-                  Charm Person (Druid Initiate) {cr.druidCharmPersonUsed ? "✗" : "✓"}
-                </button>
-              )}
-            </div>
-          </UIPanel>
-        )}
-
         {/* Generic Actions */}
         {genericActions.length > 0 && (
-          <div className="grid gap-4 lg:grid-cols-2">
-            {genericActions.map(([key, action]) => (
-              <UIPanel key={key} variant="box1">
-                <div className="mb-2 flex items-center justify-between">
-                  <h3 className="font-serif text-gold">{action.name}</h3>
-                  <span className="text-xs text-parchment/50">
-                    {action.uses}/{action.maxUses} · {action.recharge.replace("_", " ")}
-                  </span>
-                </div>
-                <p className="mb-3 text-sm text-parchment/70">{action.description}</p>
-                <button
-                  onClick={() => activateAction(key)}
-                  disabled={action.uses <= 0}
-                  className="min-h-[44px] rounded bg-gold-dark px-4 py-2 text-sm text-parchment transition hover:bg-gold disabled:opacity-30"
-                >
-                  Use
-                </button>
-              </UIPanel>
+          <div {...actionCardCursor.containerProps} className="grid gap-4 lg:grid-cols-2">
+            {genericActions.map(([key, action], index) => (
+              <div
+                key={key}
+                {...actionCardCursor.getItemProps(index)}
+                className={`transition ${actionCardCursor.isActive(index) ? "rounded bg-white/10" : ""}`}
+              >
+                <UIPanel variant="box1">
+                  <div className="mb-2 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                      <CursorIndicator visible={actionCardCursor.isActive(index)} />
+                      <h3 className="text-gold">{action.name}</h3>
+                    </div>
+                    <span className="text-xs text-ff12-text-dim">
+                      {action.uses}/{action.maxUses} · {action.recharge.replace("_", " ")}
+                    </span>
+                  </div>
+                  <p className="mb-3 text-sm text-ff12-text-dim">{action.description}</p>
+                  <button
+                    onClick={() => activateAction(key)}
+                    disabled={action.uses <= 0}
+                    className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text transition hover:bg-ff12-border-dim disabled:opacity-30"
+                  >
+                    Use
+                  </button>
+                </UIPanel>
+              </div>
             ))}
           </div>
         )}
+
+        {/* Universal Actions */}
+        <div>
+          <h2 className="mb-3 text-lg text-gold/80">Universal Actions</h2>
+          <div {...universalCursor.containerProps} className="grid gap-3 lg:grid-cols-2">
+            {UNIVERSAL_ACTIONS.map((action, index) => (
+              <div
+                key={action.name}
+                {...universalCursor.getItemProps(index)}
+                className={`transition ${universalCursor.isActive(index) ? "rounded bg-white/10" : ""}`}
+              >
+                <UIPanel variant="box1">
+                  <button
+                    onClick={() =>
+                      setExpandedUniversal(
+                        expandedUniversal === action.name ? null : action.name
+                      )
+                    }
+                    className="flex w-full items-center justify-between text-left"
+                  >
+                    <div className="flex items-center gap-2">
+                      <CursorIndicator visible={universalCursor.isActive(index)} />
+                      <h3 className="text-gold">{action.name}</h3>
+                    </div>
+                    <span className="text-xs text-ff12-text-dim">
+                      {expandedUniversal === action.name ? "▲" : "▼"}
+                    </span>
+                  </button>
+                  {expandedUniversal === action.name && (
+                    <p className="mt-2 text-sm leading-relaxed text-ff12-text-dim">
+                      {action.description}
+                    </p>
+                  )}
+                </UIPanel>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       {currentRoll && <DiceResultOverlay roll={currentRoll} result={result} onDismiss={dismiss} />}
     </div>

@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useCharacterData } from "@/hooks/useCharacterData";
 import { useDiceRoll } from "@/hooks/useDiceRoll";
+import { UNIVERSAL_ACTIONS } from "@/data/universal-actions";
 import ScreenBackground from "@/components/ui/ScreenBackground";
 import NavButtons from "@/components/ui/NavButtons";
 import UIPanel from "@/components/ui/UIPanel";
@@ -14,6 +16,7 @@ export default function ActionsPage() {
   const { data, loading, mutate } = useCharacterData();
   const { currentRoll, result, rollDice, dismiss } = useDiceRoll();
   const characterId = (session?.user as { characterId?: string })?.characterId ?? "madea";
+  const [expandedUniversal, setExpandedUniversal] = useState<string | null>(null);
 
   if (loading || !data) return <div className="flex min-h-screen items-center justify-center text-parchment/50">Loading...</div>;
 
@@ -277,6 +280,35 @@ export default function ActionsPage() {
             ))}
           </div>
         )}
+
+        {/* Universal Actions */}
+        <div>
+          <h2 className="mb-3 font-serif text-lg text-gold/80">Universal Actions</h2>
+          <div className="grid gap-3 lg:grid-cols-2">
+            {UNIVERSAL_ACTIONS.map((action) => (
+              <UIPanel key={action.name} variant="box1">
+                <button
+                  onClick={() =>
+                    setExpandedUniversal(
+                      expandedUniversal === action.name ? null : action.name
+                    )
+                  }
+                  className="flex w-full items-center justify-between text-left"
+                >
+                  <h3 className="font-serif text-gold">{action.name}</h3>
+                  <span className="text-xs text-parchment/40">
+                    {expandedUniversal === action.name ? "▲" : "▼"}
+                  </span>
+                </button>
+                {expandedUniversal === action.name && (
+                  <p className="mt-2 text-sm leading-relaxed text-parchment/70">
+                    {action.description}
+                  </p>
+                )}
+              </UIPanel>
+            ))}
+          </div>
+        </div>
       </div>
       {currentRoll && <DiceResultOverlay roll={currentRoll} result={result} onDismiss={dismiss} />}
     </div>

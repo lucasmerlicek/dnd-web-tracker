@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useCharacterData } from "@/hooks/useCharacterData";
 import { useDiceRoll } from "@/hooks/useDiceRoll";
+import { useCursorNavigation } from "@/hooks/useCursorNavigation";
 import ScreenBackground from "@/components/ui/ScreenBackground";
 import NavButtons from "@/components/ui/NavButtons";
 import UIPanel from "@/components/ui/UIPanel";
@@ -11,6 +12,7 @@ import CounterControl from "@/components/ui/CounterControl";
 import DiceResultOverlay from "@/components/ui/DiceResultOverlay";
 import DeathSaveTracker from "@/components/dashboard/DeathSaveTracker";
 import RestModal from "@/components/ui/RestModal";
+import CursorIndicator from "@/components/ui/CursorIndicator";
 import { useState } from "react";
 import type { AbilityName, CharacterData } from "@/types";
 
@@ -23,8 +25,42 @@ export default function DashboardPage() {
 
   const characterId = (session?.user as { characterId?: string })?.characterId ?? "madea";
 
+  const ABILITY_ORDER: AbilityName[] = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
+
+  const rollAbilityAtIndex = (index: number) => {
+    if (!data) return;
+    const stat = ABILITY_ORDER[index];
+    rollDice({
+      dice: [{ sides: 20, count: 1 }],
+      modifier: data.stats[stat].modifier,
+      label: `${stat} Check`,
+    });
+  };
+
+  const rollSkillAtIndex = (index: number) => {
+    if (!data) return;
+    const skill = data.skills[index];
+    rollDice({
+      dice: [{ sides: 20, count: 1 }],
+      modifier: skill.modifier,
+      label: `${skill.name}`,
+    });
+  };
+
+  const abilityCursor = useCursorNavigation({
+    itemCount: ABILITY_ORDER.length,
+    columns: 6,
+    onActivate: rollAbilityAtIndex,
+  });
+
+  const skillsCursor = useCursorNavigation({
+    itemCount: data?.skills.length ?? 0,
+    columns: 3,
+    onActivate: rollSkillAtIndex,
+  });
+
   if (loading || !data) {
-    return <div className="flex min-h-screen items-center justify-center text-parchment/50">Loading...</div>;
+    return <div className="flex min-h-screen items-center justify-center text-ff12-text-dim">Loading...</div>;
   }
 
   const rollAbility = (stat: AbilityName) => {
@@ -132,12 +168,6 @@ export default function DashboardPage() {
   };
 
   const handleLongRest = () => {
-    // Req 12.1: Restore HP to max
-    // Req 12.3: Restore hit dice to max
-    // Req 12.7/12.8/12.9: Deactivate Shield, Mage Armor, Bladesong
-    // Req 12.9: Reset luck to 3, increment inspiration (capped at 10)
-    // Req 12.2: Restore all spell slots to max
-    // Req 12.10: Clear created spell slots
     const updates: Partial<CharacterData> = {
       currentHp: data.maxHp,
       hitDiceAvailable: data.hitDiceTotal,
@@ -148,7 +178,6 @@ export default function DashboardPage() {
       currentSpellSlots: { ...data.spellSlots },
       createdSpellSlots: {},
       baseAc: data.defaultBaseAc,
-      // AC is simply defaultBaseAc — all toggles (shield, mage armor, bladesong) are deactivated
       ac: data.defaultBaseAc,
     };
 
@@ -176,8 +205,6 @@ export default function DashboardPage() {
     setRestType(null);
   };
 
-  const ABILITY_ORDER: AbilityName[] = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
-
   return (
     <div className="relative min-h-screen">
       <ScreenBackground screen="dashboard" characterId={characterId} />
@@ -190,12 +217,12 @@ export default function DashboardPage() {
         <UIPanel variant="fancy">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="font-serif text-2xl text-gold">{data.characterName}</h1>
-              <p className="text-sm text-parchment/70">{data.race} · {data.charClass} · Level {data.level}</p>
+              <h1 className="text-2xl text-gold">{data.characterName}</h1>
+              <p className="text-sm text-ff12-text-dim">{data.race} · {data.charClass} · Level {data.level}</p>
             </div>
             <div className="flex gap-2">
-              <button onClick={() => setRestType("short")} className="min-h-[44px] rounded bg-dark-border px-4 py-2 text-sm text-parchment transition hover:bg-gold-dark">Short Rest</button>
-              <button onClick={() => setRestType("long")} className="min-h-[44px] rounded bg-dark-border px-4 py-2 text-sm text-parchment transition hover:bg-gold-dark">Long Rest</button>
+              <button onClick={() => setRestType("short")} className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text transition hover:bg-ff12-border-dim">Short Rest</button>
+              <button onClick={() => setRestType("long")} className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text transition hover:bg-ff12-border-dim">Long Rest</button>
             </div>
           </div>
         </UIPanel>
@@ -205,11 +232,11 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
             <div>
               <div className="mb-2 flex items-center justify-between">
-                <span className="text-sm text-parchment/70">HP</span>
-                <span className="font-serif text-lg text-gold">{data.currentHp} / {data.maxHp}</span>
+                <span className="text-sm text-ff12-text-dim">HP</span>
+                <span className="text-lg tabular-nums text-gold">{data.currentHp} / {data.maxHp}</span>
               </div>
-              <div className="h-3 overflow-hidden rounded-full bg-dark-border">
-                <div className="h-full rounded-full bg-crimson transition-all" style={{ width: `${(data.currentHp / data.maxHp) * 100}%` }} />
+              <div className="h-3 overflow-hidden rounded-full bg-ff12-panel-light">
+                <div className="h-full rounded-full bg-gradient-to-r from-ff12-hp-start to-ff12-hp-end transition-all" style={{ width: `${(data.currentHp / data.maxHp) * 100}%` }} />
               </div>
               <div className="mt-2 flex gap-2">
                 <input
@@ -217,22 +244,22 @@ export default function DashboardPage() {
                   value={dmgHealValue}
                   onChange={(e) => setDmgHealValue(e.target.value)}
                   placeholder="Amount"
-                  className="w-20 rounded border border-dark-border bg-dark-bg px-2 py-2 text-sm text-parchment"
+                  className="w-20 rounded border border-ff12-border-dim bg-ff12-panel-dark px-2 py-2 text-sm text-ff12-text"
                   aria-label="Damage or healing amount"
                 />
-                <button onClick={applyDamage} className="min-h-[44px] rounded bg-crimson/80 px-3 py-2 text-xs text-parchment hover:bg-crimson">Damage</button>
-                <button onClick={applyHealing} className="min-h-[44px] rounded bg-green-800/80 px-3 py-2 text-xs text-parchment hover:bg-green-700">Heal</button>
+                <button onClick={applyDamage} className="min-h-[44px] rounded bg-ff12-danger/40 px-3 py-2 text-xs text-ff12-text hover:bg-ff12-danger/60">Damage</button>
+                <button onClick={applyHealing} className="min-h-[44px] rounded bg-green-800/40 px-3 py-2 text-xs text-ff12-text hover:bg-green-800/60">Heal</button>
               </div>
             </div>
             <div className="space-y-2">
               <div className="flex items-center justify-between">
-                <span className="text-sm text-parchment/70">AC</span>
-                <span className="font-serif text-lg text-gold">{data.ac}</span>
+                <span className="text-sm text-ff12-text-dim">AC</span>
+                <span className="text-lg tabular-nums text-gold">{data.ac}</span>
               </div>
-              <button onClick={toggleShield} className={`min-h-[44px] w-full rounded px-3 py-2 text-xs transition ${data.shieldActive ? "bg-gold-dark text-parchment" : "bg-dark-border text-parchment/70 hover:bg-dark-surface"}`}>
+              <button onClick={toggleShield} className={`min-h-[44px] w-full rounded px-3 py-2 text-xs transition ${data.shieldActive ? "bg-ff12-border-dim text-ff12-text" : "bg-ff12-panel-light text-ff12-text-dim hover:bg-ff12-border-dim"}`}>
                 Shield {data.shieldActive ? "(Active)" : ""}
               </button>
-              <button onClick={toggleMageArmor} className={`min-h-[44px] w-full rounded px-3 py-2 text-xs transition ${data.mageArmorActive ? "bg-gold-dark text-parchment" : "bg-dark-border text-parchment/70 hover:bg-dark-surface"}`}>
+              <button onClick={toggleMageArmor} className={`min-h-[44px] w-full rounded px-3 py-2 text-xs transition ${data.mageArmorActive ? "bg-ff12-border-dim text-ff12-text" : "bg-ff12-panel-light text-ff12-text-dim hover:bg-ff12-border-dim"}`}>
                 Mage Armor {data.mageArmorActive ? "(Active)" : ""}
               </button>
             </div>
@@ -249,18 +276,22 @@ export default function DashboardPage() {
 
         {/* Ability Scores */}
         <UIPanel variant="box2">
-          <h2 className="mb-3 font-serif text-sm text-gold/70">Ability Scores</h2>
-          <div className="grid grid-cols-3 gap-3 md:grid-cols-6">
-            {ABILITY_ORDER.map((stat) => (
+          <h2 className="mb-3 text-sm text-ff12-text-dim">Ability Scores</h2>
+          <div {...abilityCursor.containerProps} className="grid grid-cols-3 gap-3 md:grid-cols-6">
+            {ABILITY_ORDER.map((stat, index) => (
               <button
                 key={stat}
+                {...abilityCursor.getItemProps(index)}
                 onClick={() => rollAbility(stat)}
-                className="min-h-[44px] rounded border border-dark-border bg-dark-bg p-3 text-center transition hover:border-gold-dark"
+                className={`min-h-[44px] rounded border border-ff12-border-dim bg-ff12-panel-dark p-3 text-center transition hover:border-ff12-border ${abilityCursor.isActive(index) ? "bg-white/10" : ""}`}
                 aria-label={`Roll ${stat} check`}
               >
-                <div className="text-xs text-parchment/50">{stat}</div>
-                <div className="font-serif text-xl text-parchment">{data.stats[stat].value}</div>
-                <div className="text-sm text-gold">
+                <div className="flex items-center justify-center gap-1">
+                  <CursorIndicator visible={abilityCursor.isActive(index)} />
+                  <span className="text-xs text-ff12-text-dim">{stat}</span>
+                </div>
+                <div className="text-xl tabular-nums text-ff12-text">{data.stats[stat].value}</div>
+                <div className="text-sm tabular-nums text-gold">
                   {data.stats[stat].modifier >= 0 ? "+" : ""}{data.stats[stat].modifier}
                 </div>
               </button>
@@ -270,20 +301,22 @@ export default function DashboardPage() {
 
         {/* Skills */}
         <UIPanel variant="box">
-          <h2 className="mb-3 font-serif text-sm text-gold/70">Skills</h2>
-          <div className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-3">
-            {data.skills.map((skill) => (
+          <h2 className="mb-3 text-sm text-ff12-text-dim">Skills</h2>
+          <div {...skillsCursor.containerProps} className="grid grid-cols-1 gap-1 sm:grid-cols-2 lg:grid-cols-3">
+            {data.skills.map((skill, index) => (
               <button
                 key={skill.name}
+                {...skillsCursor.getItemProps(index)}
                 onClick={() => rollSkill(skill.name, skill.modifier)}
-                className="flex min-h-[44px] items-center justify-between rounded px-3 py-2 text-left text-sm transition hover:bg-dark-border"
+                className={`flex min-h-[44px] items-center justify-between rounded px-3 py-2 text-left text-sm transition hover:bg-white/10 ${skillsCursor.isActive(index) ? "bg-white/10" : ""}`}
                 aria-label={`Roll ${skill.name}`}
               >
                 <span className="flex items-center gap-1">
+                  <CursorIndicator visible={skillsCursor.isActive(index)} />
                   {skill.proficient && <span className="h-1.5 w-1.5 rounded-full bg-gold" aria-label="Proficient" />}
-                  <span className="text-parchment/80">{skill.name}</span>
+                  <span className="text-ff12-text/80">{skill.name}</span>
                 </span>
-                <span className="text-gold">{skill.modifier >= 0 ? "+" : ""}{skill.modifier}</span>
+                <span className="tabular-nums text-gold">{skill.modifier >= 0 ? "+" : ""}{skill.modifier}</span>
               </button>
             ))}
           </div>
@@ -292,10 +325,10 @@ export default function DashboardPage() {
         {/* Feats & Traits */}
         {data.featsTraits.length > 0 && (
           <UIPanel variant="dark">
-            <h2 className="mb-2 font-serif text-sm text-gold/70">Feats & Traits</h2>
+            <h2 className="mb-2 text-sm text-ff12-text-dim">Feats & Traits</h2>
             <ul className="grid grid-cols-2 gap-1 md:grid-cols-3">
               {data.featsTraits.map((feat) => (
-                <li key={feat} className="text-sm text-parchment/80">{feat}</li>
+                <li key={feat} className="text-sm text-ff12-text/80">{feat}</li>
               ))}
             </ul>
           </UIPanel>

@@ -2,9 +2,10 @@
 
 import { useState } from "react";
 import type { SpellData } from "@/types/spell";
-import type { CharacterData } from "@/types/character";
+import type { CharacterData, SpellCreatedWeapon } from "@/types/character";
 import type { DiceRoll, DieSpec } from "@/types/dice";
 import { METAMAGIC_OPTIONS, LEVEL_KEYS } from "@/types/spell";
+import IconImage from "@/components/ui/IconImage";
 import {
   calcSpellAttackBonus,
   calcSpellSaveDC,
@@ -58,6 +59,16 @@ export default function SpellCard({
   const isWizard = characterData.classResources.preparedSpells !== undefined;
   const spellcastingAbility = getSpellcastingAbility(characterData.charClass);
   const currentSP = characterData.classResources.currentSorceryPoints ?? 0;
+
+  // Free cast system for Druid Initiate / Fey Touched spells
+  const freeCastMap: Record<string, keyof typeof characterData.classResources> = {
+    "Charm Person": "druidCharmPersonUsed",
+    "Bane": "feyBaneUsed",
+    "Misty Step": "feyMistyStepUsed",
+  };
+  const freeCastFlag = freeCastMap[spellName];
+  const freeCastUsed = freeCastFlag ? (characterData.classResources[freeCastFlag] as boolean ?? false) : false;
+  const hasFreeCast = freeCastFlag !== undefined;
 
   // Determine the effective cast level for upcast spells
   const baseLevel = spellData?.level ?? 0;
@@ -138,12 +149,75 @@ export default function SpellCard({
       onWarning(result.error ?? `No ${slotKey} slots remaining!`);
       return;
     }
-    onMutate({ currentSpellSlots: result.newSlots });
+
+    const mutations: Partial<CharacterData> = { currentSpellSlots: result.newSlots };
+
+    // If the spell creates a weapon, add it to spellCreatedWeapons
+    if (spellData?.createsWeapon) {
+      const cw = spellData.createsWeapon;
+      let damageDice = cw.damageDice;
+
+      if (cw.upcastDice && effectiveCastLevel > baseLevel) {
+        const baseMatch = cw.damageDice.match(/(\d+)d(\d+)/);
+        const upMatch = cw.upcastDice.match(/(\d+)d/);
+        if (baseMatch && upMatch) {
+          const baseCount = parseInt(baseMatch[1]);
+          const sides = baseMatch[2];
+          const upCount = parseInt(upMatch[1]);
+          const additionalDice = (effectiveCastLevel - baseLevel) * upCount;
+          damageDice = `${baseCount + additionalDice}d${sides}`;
+        }
+      }
+
+      const weapon: SpellCreatedWeapon = {
+        id: crypto.randomUUID(),
+        name: cw.name,
+        sourceSpell: spellName,
+        castLevel: effectiveCastLevel,
+        damageDice,
+        damageType: cw.damageType,
+        attackStat: cw.attackStat,
+        properties: cw.properties,
+        magicBonus: 0,
+        active: true,
+      };
+
+      mutations.spellCreatedWeapons = [
+        ...(characterData.spellCreatedWeapons ?? []),
+        weapon,
+      ];
+    }
+
+    // Auto-toggle Shield when cast
+    if (spellName === "Shield" && !characterData.shieldActive) {
+      mutations.shieldActive = true;
+    }
+    // Auto-toggle Mage Armor when cast
+    if (spellName === "Mage Armor" && !characterData.mageArmorActive) {
+      mutations.mageArmorActive = true;
+    }
+
+    onMutate(mutations);
   };
 
   const handleRitualCast = () => {
     // Ritual cast does NOT consume a spell slot — just a visual confirmation
     onWarning(`${spellName} cast as ritual (no slot consumed)`);
+  };
+
+  const handleFreeCast = () => {
+    if (!freeCastFlag || freeCastUsed) return;
+    const mutations: Partial<CharacterData> = {
+      classResources: {
+        ...characterData.classResources,
+        [freeCastFlag]: true,
+      },
+    };
+    // Auto-toggle for Shield/Mage Armor applies to free casts too
+    if (spellName === "Shield" && !characterData.shieldActive) mutations.shieldActive = true;
+    if (spellName === "Mage Armor" && !characterData.mageArmorActive) mutations.mageArmorActive = true;
+    onMutate(mutations);
+    onWarning(`${spellName} cast for free (1/long rest)`);
   };
 
   const handleMetamagic = (option: "empowered" | "quickened") => {
@@ -181,22 +255,23 @@ export default function SpellCard({
   // --- Render ---
 
   return (
-    <div className="rounded border border-dark-border/50 bg-dark-border/20">
+    <div className="w-full rounded border border-ff12-border-dim/50 bg-ff12-panel-light/20">
       {/* Collapsed header — always visible */}
       <button
         onClick={onToggle}
-        className="flex w-full items-center justify-between px-3 py-2 text-left transition hover:bg-dark-border/40"
+        className="flex w-full items-center justify-between px-3 py-2 text-left transition hover:bg-ff12-panel-light/40"
         aria-expanded={isExpanded}
       >
         <div className="flex items-center gap-2">
-          <span className="text-sm text-parchment">{spellName}</span>
+          <IconImage type="spell" name={spellName} size={24} />
+          <span className="text-sm text-ff12-text">{spellName}</span>
           {!isCantrip && (
-            <span className="rounded bg-dark-border px-1.5 py-0.5 text-[10px] text-gold/70">
+            <span className="rounded bg-ff12-panel-light px-1.5 py-0.5 text-[10px] text-gold/70">
               {spellLevel}
             </span>
           )}
           {isCantrip && (
-            <span className="rounded bg-dark-border px-1.5 py-0.5 text-[10px] text-parchment/50">
+            <span className="rounded bg-ff12-panel-light px-1.5 py-0.5 text-[10px] text-ff12-text-dim">
               cantrip
             </span>
           )}
@@ -205,22 +280,27 @@ export default function SpellCard({
               R
             </span>
           )}
+          {hasFreeCast && (
+            <span className={`rounded px-1 py-0.5 text-[10px] ${freeCastUsed ? "bg-ff12-panel-light text-ff12-text-dim/30" : "bg-emerald-800/30 text-emerald-400"}`}>
+              Free
+            </span>
+          )}
         </div>
         <div className="flex items-center gap-2">
           {isWizard && !isCantrip && (
-            <span className={`text-[10px] ${isAutoPrepared ? "text-gold/60" : isPrepared ? "text-gold" : "text-parchment/30"}`}>
+            <span className={`text-[10px] ${isAutoPrepared ? "text-gold/60" : isPrepared ? "text-gold" : "text-ff12-text-dim/30"}`}>
               {isAutoPrepared ? "Auto" : isPrepared ? "Prepared" : ""}
             </span>
           )}
-          <span className="text-xs text-parchment/30">{isExpanded ? "▲" : "▼"}</span>
+          <span className="text-xs text-ff12-text-dim/30">{isExpanded ? "▲" : "▼"}</span>
         </div>
       </button>
 
       {/* Expanded content */}
       {isExpanded && spellData && (
-        <div className="border-t border-dark-border/30 px-3 pb-3 pt-2">
+        <div className="border-t border-ff12-border-dim/30 px-3 pb-3 pt-2">
           {/* Metadata header */}
-          <div className="mb-2 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-parchment/50">
+          <div className="mb-2 flex flex-wrap gap-x-3 gap-y-1 text-[11px] text-ff12-text-dim">
             <span>{spellData.school}</span>
             <span>{spellData.castingTime}</span>
             <span>{spellData.range}</span>
@@ -240,16 +320,24 @@ export default function SpellCard({
           </div>
 
           {/* Description */}
-          <p className="mb-3 text-xs leading-relaxed text-parchment/70">
+          <p className="mb-3 text-xs leading-relaxed text-ff12-text-dim">
             {spellData.description}
           </p>
 
+          {/* Upcast description */}
+          {spellData.upcastDescription && (
+            <p className="mb-3 text-xs leading-relaxed text-gold/70 italic">
+              <span className="font-semibold not-italic">At Higher Levels: </span>
+              {spellData.upcastDescription}
+            </p>
+          )}
+
           {/* Damage dice display (for reference) */}
           {effectiveDamage && (
-            <div className="mb-2 text-xs text-parchment/50">
+            <div className="mb-2 text-xs text-ff12-text-dim">
               Damage: <span className="text-gold">{effectiveDamage}</span>
               {spellData.damageType && (
-                <span className="ml-1 text-parchment/40">{spellData.damageType}</span>
+                <span className="ml-1 text-ff12-text-dim/60">{spellData.damageType}</span>
               )}
             </div>
           )}
@@ -257,7 +345,7 @@ export default function SpellCard({
           {/* Save DC badge */}
           {spellData.saveType && (
             <div className="mb-2">
-              <span className="rounded bg-dark-border px-2 py-1 text-xs font-bold text-gold">
+              <span className="rounded bg-ff12-panel-light px-2 py-1 text-xs font-bold text-gold">
                 DC{" "}
                 {calcSpellSaveDC(
                   characterData.proficiencyBonus,
@@ -272,11 +360,11 @@ export default function SpellCard({
           {/* Level selector for upcasting */}
           {upcastLevels.length > 1 && (
             <div className="mb-2 flex items-center gap-2">
-              <label className="text-xs text-parchment/50">Cast at:</label>
+              <label className="text-xs text-ff12-text-dim">Cast at:</label>
               <select
                 value={effectiveCastLevel}
                 onChange={(e) => setCastLevel(Number(e.target.value))}
-                className="rounded bg-dark-border px-2 py-1 text-xs text-parchment"
+                className="rounded bg-ff12-panel-light px-2 py-1 text-xs text-ff12-text"
               >
                 {upcastLevels.map((lvl) => {
                   const key = LEVEL_KEYS[lvl];
@@ -293,7 +381,7 @@ export default function SpellCard({
 
           {/* Remaining slots display */}
           {!isCantrip && remainingSlots !== null && (
-            <div className="mb-2 text-xs text-parchment/40">
+            <div className="mb-2 text-xs text-ff12-text-dim/60">
               Slots remaining ({slotKey}): <span className="text-gold">{remainingSlots}</span>
             </div>
           )}
@@ -305,11 +393,11 @@ export default function SpellCard({
               <div className="flex items-center gap-1">
                 <button
                   onClick={handleSpellAttack}
-                  className="min-h-[44px] rounded bg-dark-border px-3 py-2 text-xs text-parchment hover:bg-gold-dark"
+                  className="min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim"
                 >
                   Spell Attack
                 </button>
-                <label className="flex items-center gap-1 text-[10px] text-parchment/50">
+                <label className="flex items-center gap-1 text-[10px] text-ff12-text-dim">
                   <input
                     type="checkbox"
                     checked={advantage}
@@ -321,7 +409,7 @@ export default function SpellCard({
                   />
                   Adv
                 </label>
-                <label className="flex items-center gap-1 text-[10px] text-parchment/50">
+                <label className="flex items-center gap-1 text-[10px] text-ff12-text-dim">
                   <input
                     type="checkbox"
                     checked={disadvantage}
@@ -340,7 +428,7 @@ export default function SpellCard({
             {effectiveDamage && (
               <button
                 onClick={handleDamageRoll}
-                className="min-h-[44px] rounded bg-dark-border px-3 py-2 text-xs text-parchment hover:bg-gold-dark"
+                className="min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim"
               >
                 Damage ({effectiveDamage})
               </button>
@@ -350,9 +438,24 @@ export default function SpellCard({
             {showRitual && (
               <button
                 onClick={handleRitualCast}
-                className="min-h-[44px] rounded bg-dark-border px-3 py-2 text-xs text-gold hover:bg-gold-dark"
+                className="min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-gold hover:bg-ff12-border-dim"
               >
                 Cast as Ritual
+              </button>
+            )}
+
+            {/* Free Cast button */}
+            {hasFreeCast && (
+              <button
+                onClick={handleFreeCast}
+                disabled={freeCastUsed}
+                className={`min-h-[44px] rounded px-3 py-2 text-xs transition ${
+                  freeCastUsed
+                    ? "bg-ff12-panel-light text-ff12-text-dim/30 line-through cursor-not-allowed"
+                    : "bg-emerald-800/40 text-ff12-text hover:bg-emerald-800/60"
+                }`}
+              >
+                Free Cast {freeCastUsed ? "✗" : "✓"}
               </button>
             )}
 
@@ -361,7 +464,7 @@ export default function SpellCard({
               <button
                 onClick={handleCast}
                 disabled={remainingSlots === 0}
-                className={`min-h-[44px] rounded bg-dark-border px-3 py-2 text-xs text-parchment hover:bg-gold-dark ${
+                className={`min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim ${
                   remainingSlots === 0 ? "cursor-not-allowed opacity-50" : ""
                 }`}
               >
@@ -372,8 +475,8 @@ export default function SpellCard({
 
           {/* Metamagic row — Sorcerer only */}
           {isSorcerer && (
-            <div className="mt-2 border-t border-dark-border/30 pt-2">
-              <div className="mb-1 text-[10px] text-parchment/40">
+            <div className="mt-2 border-t border-ff12-border-dim/30 pt-2">
+              <div className="mb-1 text-[10px] text-ff12-text-dim/60">
                 Metamagic — SP: <span className="text-gold">{currentSP}</span>
               </div>
               <div className="flex flex-wrap gap-2">
@@ -382,7 +485,7 @@ export default function SpellCard({
                   <button
                     onClick={() => handleMetamagic("empowered")}
                     disabled={currentSP < METAMAGIC_OPTIONS.empowered.cost}
-                    className={`min-h-[44px] rounded bg-dark-border px-3 py-2 text-xs text-parchment hover:bg-gold-dark ${
+                    className={`min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim ${
                       currentSP < METAMAGIC_OPTIONS.empowered.cost
                         ? "cursor-not-allowed opacity-50"
                         : ""
@@ -397,7 +500,7 @@ export default function SpellCard({
                   <button
                     onClick={() => handleMetamagic("quickened")}
                     disabled={currentSP < METAMAGIC_OPTIONS.quickened.cost}
-                    className={`min-h-[44px] rounded bg-dark-border px-3 py-2 text-xs text-parchment hover:bg-gold-dark ${
+                    className={`min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim ${
                       currentSP < METAMAGIC_OPTIONS.quickened.cost
                         ? "cursor-not-allowed opacity-50"
                         : ""
@@ -414,7 +517,7 @@ export default function SpellCard({
 
       {/* Expanded but no spell data */}
       {isExpanded && !spellData && (
-        <div className="border-t border-dark-border/30 px-3 py-2 text-xs text-parchment/40">
+        <div className="border-t border-ff12-border-dim/30 px-3 py-2 text-xs text-ff12-text-dim/60">
           No spell data available in registry.
         </div>
       )}

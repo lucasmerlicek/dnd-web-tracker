@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import type { SpellData } from "@/types/spell";
-import type { CharacterData } from "@/types/character";
+import type { CharacterData, SpellCreatedWeapon } from "@/types/character";
 import type { DiceRoll, DieSpec } from "@/types/dice";
 import { METAMAGIC_OPTIONS, LEVEL_KEYS } from "@/types/spell";
 import {
@@ -138,7 +138,46 @@ export default function SpellCard({
       onWarning(result.error ?? `No ${slotKey} slots remaining!`);
       return;
     }
-    onMutate({ currentSpellSlots: result.newSlots });
+
+    const mutations: Partial<CharacterData> = { currentSpellSlots: result.newSlots };
+
+    // If the spell creates a weapon, add it to spellCreatedWeapons
+    if (spellData?.createsWeapon) {
+      const cw = spellData.createsWeapon;
+      let damageDice = cw.damageDice;
+
+      if (cw.upcastDice && effectiveCastLevel > baseLevel) {
+        const baseMatch = cw.damageDice.match(/(\d+)d(\d+)/);
+        const upMatch = cw.upcastDice.match(/(\d+)d/);
+        if (baseMatch && upMatch) {
+          const baseCount = parseInt(baseMatch[1]);
+          const sides = baseMatch[2];
+          const upCount = parseInt(upMatch[1]);
+          const additionalDice = (effectiveCastLevel - baseLevel) * upCount;
+          damageDice = `${baseCount + additionalDice}d${sides}`;
+        }
+      }
+
+      const weapon: SpellCreatedWeapon = {
+        id: crypto.randomUUID(),
+        name: cw.name,
+        sourceSpell: spellName,
+        castLevel: effectiveCastLevel,
+        damageDice,
+        damageType: cw.damageType,
+        attackStat: cw.attackStat,
+        properties: cw.properties,
+        magicBonus: 0,
+        active: true,
+      };
+
+      mutations.spellCreatedWeapons = [
+        ...(characterData.spellCreatedWeapons ?? []),
+        weapon,
+      ];
+    }
+
+    onMutate(mutations);
   };
 
   const handleRitualCast = () => {
@@ -243,6 +282,14 @@ export default function SpellCard({
           <p className="mb-3 text-xs leading-relaxed text-parchment/70">
             {spellData.description}
           </p>
+
+          {/* Upcast description */}
+          {spellData.upcastDescription && (
+            <p className="mb-3 text-xs leading-relaxed text-gold/70 italic">
+              <span className="font-semibold not-italic">At Higher Levels: </span>
+              {spellData.upcastDescription}
+            </p>
+          )}
 
           {/* Damage dice display (for reference) */}
           {effectiveDamage && (

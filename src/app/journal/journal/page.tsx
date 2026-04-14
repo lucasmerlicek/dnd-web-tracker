@@ -2,10 +2,12 @@
 
 import { useSession } from "next-auth/react";
 import { useCharacterData } from "@/hooks/useCharacterData";
+import { useCursorNavigation } from "@/hooks/useCursorNavigation";
 import ScreenBackground from "@/components/ui/ScreenBackground";
 import NavButtons from "@/components/ui/NavButtons";
 import UIPanel from "@/components/ui/UIPanel";
 import AmbientEffects from "@/components/ui/AmbientEffects";
+import CursorIndicator from "@/components/ui/CursorIndicator";
 import { useState } from "react";
 
 export default function JournalPage() {
@@ -20,7 +22,32 @@ export default function JournalPage() {
   const [renameValue, setRenameValue] = useState("");
   const characterId = (session?.user as { characterId?: string })?.characterId ?? "madea";
 
-  if (loading || !data) return <div className="flex min-h-screen items-center justify-center text-parchment/50">Loading...</div>;
+  const sessionNames = data ? Object.keys(data.journal.sessions) : [];
+  const npcEntries = data ? Object.entries(data.characters) : [];
+  const placeEntries = data ? Object.entries(data.places) : [];
+
+  const sessionCursor = useCursorNavigation({
+    itemCount: sessionNames.length,
+    onActivate: (index) => {
+      if (sessionNames[index]) selectSession(sessionNames[index]);
+    },
+  });
+
+  const npcCursor = useCursorNavigation({
+    itemCount: npcEntries.length,
+    onActivate: (index) => {
+      if (npcEntries[index]) setEditingNpc(npcEntries[index][0]);
+    },
+  });
+
+  const placeCursor = useCursorNavigation({
+    itemCount: placeEntries.length,
+    onActivate: (index) => {
+      if (placeEntries[index]) setEditingPlace(placeEntries[index][0]);
+    },
+  });
+
+  if (loading || !data) return <div className="flex min-h-screen items-center justify-center text-ff12-text-dim">Loading...</div>;
 
   const sessions = data.journal.sessions;
   const currentSession = data.journal.currentSession;
@@ -111,7 +138,7 @@ export default function JournalPage() {
         <div className="grid gap-4 lg:grid-cols-3">
           {/* Session List */}
           <UIPanel variant="box1" className="lg:col-span-1">
-            <h2 className="mb-3 font-serif text-sm text-gold/70">Sessions</h2>
+            <h2 className="mb-3 text-sm text-gold/70">Sessions</h2>
             <div className="mb-3 flex gap-2">
               <input
                 type="text"
@@ -119,14 +146,14 @@ export default function JournalPage() {
                 onChange={(e) => setNewSession(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && createSession()}
                 placeholder="New session..."
-                className="flex-1 rounded border border-dark-border bg-dark-bg px-2 py-1 text-sm text-parchment"
+                className="flex-1 rounded border border-ff12-border-dim bg-dark-bg px-2 py-1 text-sm text-ff12-text"
                 aria-label="New session name"
               />
-              <button onClick={createSession} className="min-h-[44px] rounded bg-gold-dark px-3 py-2 text-xs text-parchment hover:bg-gold">+</button>
+              <button onClick={createSession} className="min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-panel-light/80">+</button>
             </div>
-            <ul className="max-h-60 space-y-1 overflow-y-auto">
-              {Object.keys(sessions).map((name) => (
-                <li key={name} className="flex items-center gap-1">
+            <ul {...sessionCursor.containerProps} className="max-h-60 space-y-1 overflow-y-auto">
+              {sessionNames.map((name, index) => (
+                <li key={name} {...sessionCursor.getItemProps(index)} className={`flex items-center gap-1 ${sessionCursor.isActive(index) ? "bg-white/10" : ""}`}>
                   {renamingSession === name ? (
                     <input
                       type="text"
@@ -137,21 +164,22 @@ export default function JournalPage() {
                         if (e.key === "Escape") setRenamingSession(null);
                       }}
                       onBlur={confirmRename}
-                      className="min-h-[44px] flex-1 rounded border border-gold-dark bg-dark-bg px-3 py-2 text-sm text-parchment"
+                      className="min-h-[44px] flex-1 rounded border border-ff12-border-dim bg-dark-bg px-3 py-2 text-sm text-ff12-text"
                       autoFocus
                       aria-label="Rename session"
                     />
                   ) : (
                     <>
+                      <CursorIndicator visible={sessionCursor.isActive(index)} />
                       <button
                         onClick={() => selectSession(name)}
-                        className={`min-h-[44px] flex-1 rounded px-3 py-2 text-left text-sm transition ${name === currentSession ? "bg-gold-dark text-parchment" : "text-parchment/70 hover:bg-dark-border"}`}
+                        className={`min-h-[44px] flex-1 rounded px-3 py-2 text-left text-sm transition ${name === currentSession ? "bg-ff12-panel-light text-ff12-text" : "text-ff12-text-dim hover:bg-ff12-panel-light"}`}
                       >
                         {name}
                       </button>
                       <button
                         onClick={() => startRenaming(name)}
-                        className="px-1 text-xs text-parchment/40 hover:text-gold"
+                        className="px-1 text-xs text-ff12-text-dim hover:text-gold"
                         aria-label={`Rename ${name}`}
                         title="Rename session"
                       >
@@ -166,12 +194,12 @@ export default function JournalPage() {
 
           {/* Session Editor */}
           <UIPanel variant="box" className="lg:col-span-2">
-            <h2 className="mb-3 font-serif text-sm text-gold/70">{currentSession || "Select a session"}</h2>
+            <h2 className="mb-3 text-sm text-gold/70">{currentSession || "Select a session"}</h2>
             {currentSession && (
               <textarea
                 value={sessions[currentSession] ?? ""}
                 onChange={(e) => updateSessionText(e.target.value)}
-                className="h-64 w-full resize-y rounded border border-dark-border bg-dark-bg p-3 text-sm text-parchment"
+                className="h-64 w-full resize-y rounded border border-ff12-border-dim bg-dark-bg p-3 text-sm text-ff12-text"
                 placeholder="Write your session notes..."
                 aria-label="Session notes"
               />
@@ -181,10 +209,11 @@ export default function JournalPage() {
 
         {/* NPCs */}
         <UIPanel variant="box2">
-          <h2 className="mb-3 font-serif text-sm text-gold/70">NPCs</h2>
-          <div className="mb-3 space-y-1">
-            {Object.entries(data.characters).map(([name, desc]) => (
-              <div key={name} className="flex items-start gap-2 rounded px-2 py-1 hover:bg-dark-border">
+          <h2 className="mb-3 text-sm text-gold/70">NPCs</h2>
+          <div {...npcCursor.containerProps} className="mb-3 space-y-1">
+            {npcEntries.map(([name, desc], index) => (
+              <div key={name} {...npcCursor.getItemProps(index)} className={`flex items-start gap-2 rounded px-2 py-1 hover:bg-ff12-panel-light ${npcCursor.isActive(index) ? "bg-white/10" : ""}`}>
+                <CursorIndicator visible={npcCursor.isActive(index)} className="mt-1" />
                 <div className="flex-1">
                   <span className="text-sm font-semibold text-gold">{name}</span>
                   {editingNpc === name ? (
@@ -192,31 +221,32 @@ export default function JournalPage() {
                       value={desc}
                       onChange={(e) => updateNpc(name, e.target.value)}
                       onBlur={() => setEditingNpc(null)}
-                      className="mt-1 w-full rounded border border-dark-border bg-dark-bg p-1 text-xs text-parchment"
+                      className="mt-1 w-full rounded border border-ff12-border-dim bg-dark-bg p-1 text-xs text-ff12-text"
                       autoFocus
                       aria-label={`Edit ${name} description`}
                     />
                   ) : (
-                    <p className="cursor-pointer text-xs text-parchment/60" onClick={() => setEditingNpc(name)}>{desc || "Click to add description..."}</p>
+                    <p className="cursor-pointer text-xs text-ff12-text-dim" onClick={() => setEditingNpc(name)}>{desc || "Click to add description..."}</p>
                   )}
                 </div>
-                <button onClick={() => deleteNpc(name)} className="min-h-[44px] px-2 text-xs text-crimson hover:text-crimson/80" aria-label={`Delete ${name}`}>✕</button>
+                <button onClick={() => deleteNpc(name)} className="min-h-[44px] px-2 text-xs text-ff12-danger hover:text-ff12-danger/80" aria-label={`Delete ${name}`}>✕</button>
               </div>
             ))}
           </div>
           <div className="flex gap-2">
-            <input type="text" value={newNpc.name} onChange={(e) => setNewNpc({ ...newNpc, name: e.target.value })} placeholder="NPC name" className="flex-1 rounded border border-dark-border bg-dark-bg px-2 py-1 text-sm text-parchment" aria-label="New NPC name" />
-            <input type="text" value={newNpc.desc} onChange={(e) => setNewNpc({ ...newNpc, desc: e.target.value })} placeholder="Description" className="flex-1 rounded border border-dark-border bg-dark-bg px-2 py-1 text-sm text-parchment" aria-label="New NPC description" />
-            <button onClick={addNpc} className="min-h-[44px] rounded bg-gold-dark px-4 py-2 text-sm text-parchment hover:bg-gold">Add</button>
+            <input type="text" value={newNpc.name} onChange={(e) => setNewNpc({ ...newNpc, name: e.target.value })} placeholder="NPC name" className="flex-1 rounded border border-ff12-border-dim bg-dark-bg px-2 py-1 text-sm text-ff12-text" aria-label="New NPC name" />
+            <input type="text" value={newNpc.desc} onChange={(e) => setNewNpc({ ...newNpc, desc: e.target.value })} placeholder="Description" className="flex-1 rounded border border-ff12-border-dim bg-dark-bg px-2 py-1 text-sm text-ff12-text" aria-label="New NPC description" />
+            <button onClick={addNpc} className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text hover:bg-ff12-panel-light/80">Add</button>
           </div>
         </UIPanel>
 
         {/* Places */}
         <UIPanel variant="box2">
-          <h2 className="mb-3 font-serif text-sm text-gold/70">Places</h2>
-          <div className="mb-3 space-y-1">
-            {Object.entries(data.places).map(([name, desc]) => (
-              <div key={name} className="flex items-start gap-2 rounded px-2 py-1 hover:bg-dark-border">
+          <h2 className="mb-3 text-sm text-gold/70">Places</h2>
+          <div {...placeCursor.containerProps} className="mb-3 space-y-1">
+            {placeEntries.map(([name, desc], index) => (
+              <div key={name} {...placeCursor.getItemProps(index)} className={`flex items-start gap-2 rounded px-2 py-1 hover:bg-ff12-panel-light ${placeCursor.isActive(index) ? "bg-white/10" : ""}`}>
+                <CursorIndicator visible={placeCursor.isActive(index)} className="mt-1" />
                 <div className="flex-1">
                   <span className="text-sm font-semibold text-gold">{name}</span>
                   {editingPlace === name ? (
@@ -224,22 +254,22 @@ export default function JournalPage() {
                       value={desc}
                       onChange={(e) => updatePlace(name, e.target.value)}
                       onBlur={() => setEditingPlace(null)}
-                      className="mt-1 w-full rounded border border-dark-border bg-dark-bg p-1 text-xs text-parchment"
+                      className="mt-1 w-full rounded border border-ff12-border-dim bg-dark-bg p-1 text-xs text-ff12-text"
                       autoFocus
                       aria-label={`Edit ${name} description`}
                     />
                   ) : (
-                    <p className="cursor-pointer text-xs text-parchment/60" onClick={() => setEditingPlace(name)}>{desc || "Click to add description..."}</p>
+                    <p className="cursor-pointer text-xs text-ff12-text-dim" onClick={() => setEditingPlace(name)}>{desc || "Click to add description..."}</p>
                   )}
                 </div>
-                <button onClick={() => deletePlace(name)} className="min-h-[44px] px-2 text-xs text-crimson hover:text-crimson/80" aria-label={`Delete ${name}`}>✕</button>
+                <button onClick={() => deletePlace(name)} className="min-h-[44px] px-2 text-xs text-ff12-danger hover:text-ff12-danger/80" aria-label={`Delete ${name}`}>✕</button>
               </div>
             ))}
           </div>
           <div className="flex gap-2">
-            <input type="text" value={newPlace.name} onChange={(e) => setNewPlace({ ...newPlace, name: e.target.value })} placeholder="Place name" className="flex-1 rounded border border-dark-border bg-dark-bg px-2 py-1 text-sm text-parchment" aria-label="New place name" />
-            <input type="text" value={newPlace.desc} onChange={(e) => setNewPlace({ ...newPlace, desc: e.target.value })} placeholder="Description" className="flex-1 rounded border border-dark-border bg-dark-bg px-2 py-1 text-sm text-parchment" aria-label="New place description" />
-            <button onClick={addPlace} className="min-h-[44px] rounded bg-gold-dark px-4 py-2 text-sm text-parchment hover:bg-gold">Add</button>
+            <input type="text" value={newPlace.name} onChange={(e) => setNewPlace({ ...newPlace, name: e.target.value })} placeholder="Place name" className="flex-1 rounded border border-ff12-border-dim bg-dark-bg px-2 py-1 text-sm text-ff12-text" aria-label="New place name" />
+            <input type="text" value={newPlace.desc} onChange={(e) => setNewPlace({ ...newPlace, desc: e.target.value })} placeholder="Description" className="flex-1 rounded border border-ff12-border-dim bg-dark-bg px-2 py-1 text-sm text-ff12-text" aria-label="New place description" />
+            <button onClick={addPlace} className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text hover:bg-ff12-panel-light/80">Add</button>
           </div>
         </UIPanel>
       </div>

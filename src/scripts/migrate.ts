@@ -275,6 +275,148 @@ export function transformMarkers(raw: Record<string, unknown>): MapMarker[] {
 }
 
 // ---------------------------------------------------------------------------
+// New-format migration: convert legacy CharacterData fields to new structures
+// ---------------------------------------------------------------------------
+
+interface HitDicePool {
+  className: string;
+  dieSize: number;
+  total: number;
+  available: number;
+}
+
+interface StatModifier {
+  stat: string;
+  value: number;
+}
+
+interface GearItem {
+  id: string;
+  name: string;
+  description: string;
+  quantity: number;
+  equipped: boolean;
+  requiresAttunement: boolean;
+  attuned: boolean;
+  statModifiers: StatModifier[];
+}
+
+interface UtilityItem {
+  id: string;
+  name: string;
+  description: string;
+  quantity: number;
+}
+
+interface TreasureItem {
+  id: string;
+  name: string;
+  description: string;
+  quantity: number;
+  estimatedValue: number;
+}
+
+interface SpellCreatedWeapon {
+  id: string;
+  name: string;
+  sourceSpell: string;
+  castLevel: number;
+  damageDice: string;
+  damageType: string;
+  attackStat: string;
+  properties: string[];
+  magicBonus: number;
+  active: boolean;
+}
+
+/**
+ * Migrate legacy CharacterData to the new format with structured inventory,
+ * multiclass hit dice pools, and spell-created weapons.
+ *
+ * Only migrates fields that don't already exist on the data object.
+ * Returns a new object — does not mutate the input.
+ */
+export function migrateCharacterData(data: CharacterData): CharacterData {
+  const result = { ...data };
+
+  // --- Migrate inventory.gear/utility/treasure string[] → inventoryItems ---
+  if (!(result as Record<string, unknown>).inventoryItems && result.inventory) {
+    const gear: GearItem[] = (result.inventory.gear ?? []).map((name: string) => ({
+      id: crypto.randomUUID(),
+      name,
+      description: "",
+      quantity: 1,
+      equipped: false,
+      requiresAttunement: false,
+      attuned: false,
+      statModifiers: [],
+    }));
+
+    const utility: UtilityItem[] = (result.inventory.utility ?? []).map((name: string) => ({
+      id: crypto.randomUUID(),
+      name,
+      description: "",
+      quantity: 1,
+    }));
+
+    const treasure: TreasureItem[] = (result.inventory.treasure ?? []).map((name: string) => ({
+      id: crypto.randomUUID(),
+      name,
+      description: "",
+      quantity: 1,
+      estimatedValue: 0,
+    }));
+
+    (result as Record<string, unknown>).inventoryItems = { gear, utility, treasure };
+  }
+
+  // --- Migrate hitDiceTotal/hitDiceAvailable/hitDiceSize → hitDicePools ---
+  if (!(result as Record<string, unknown>).hitDicePools) {
+    let pools: HitDicePool[];
+
+    // Detect Ramil (Fighter 1 / Wizard 4) by class string
+    const charClass = (result.charClass ?? "").toLowerCase();
+    const isMadeaSorcerer = charClass.includes("sorcerer") && !charClass.includes("fighter") && !charClass.includes("wizard");
+    const isRamilMulticlass = charClass.includes("fighter") && charClass.includes("wizard");
+
+    if (isRamilMulticlass) {
+      pools = [
+        { className: "Fighter", dieSize: 10, total: 1, available: 1 },
+        { className: "Wizard", dieSize: 6, total: 4, available: 4 },
+      ];
+    } else if (isMadeaSorcerer) {
+      pools = [
+        {
+          className: "Sorcerer",
+          dieSize: result.hitDiceSize,
+          total: result.hitDiceTotal,
+          available: result.hitDiceAvailable,
+        },
+      ];
+    } else {
+      // Default: single pool using existing fields
+      pools = [
+        {
+          className: result.charClass.split(" ")[0] || "Unknown",
+          dieSize: result.hitDiceSize,
+          total: result.hitDiceTotal,
+          available: result.hitDiceAvailable,
+        },
+      ];
+    }
+
+    (result as Record<string, unknown>).hitDicePools = pools;
+  }
+
+  // --- Default spellCreatedWeapons to [] ---
+  if (!(result as Record<string, unknown>).spellCreatedWeapons) {
+    (result as Record<string, unknown>).spellCreatedWeapons = [] as SpellCreatedWeapon[];
+  }
+
+  return result;
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 
@@ -286,7 +428,7 @@ async function main() {
   const madeaRaw = JSON.parse(
     fs.readFileSync(path.join(legacyDir, "Tracker_Madea/character_data.json"), "utf-8")
   );
-  const madeaData = transformCharacter(madeaRaw, "madea");
+  const madeaData = migrateCharacterData(transformCharacter(madeaRaw, "madea"));
   await kv.set("character:madea", madeaData);
   console.log("  ✓ character:madea");
 
@@ -305,7 +447,7 @@ async function main() {
   const ramilRaw = JSON.parse(
     fs.readFileSync(path.join(legacyDir, "Tracker_Ramil/character_data.json"), "utf-8")
   );
-  const ramilData = transformCharacter(ramilRaw, "ramil");
+  const ramilData = migrateCharacterData(transformCharacter(ramilRaw, "ramil"));
   await kv.set("character:ramil", ramilData);
   console.log("  ✓ character:ramil");
 

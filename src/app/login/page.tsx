@@ -32,16 +32,16 @@ export default function LoginPage() {
     <div className="flex min-h-screen items-center justify-center bg-dark-bg">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-sm space-y-6 rounded-lg border border-parchment-dark/15 bg-dark-surface/70 p-8 backdrop-blur-sm"
+        className="w-full max-w-sm space-y-6 rounded-lg border border-ff12-border-dim bg-ff12-panel-dark p-8"
       >
-        <h1 className="text-center font-serif text-2xl text-gold">
-          D&amp;D Character Tracker
+        <h1 className="text-center text-2xl text-gold">
+          D&D Character Tracker
         </h1>
         {error && (
-          <p className="text-center text-sm text-crimson" role="alert">{error}</p>
+          <p className="text-center text-sm text-ff12-danger" role="alert">{error}</p>
         )}
         <div>
-          <label htmlFor="username" className="mb-1 block text-sm text-parchment">
+          <label htmlFor="username" className="mb-1 block text-sm text-ff12-text">
             Character Name
           </label>
           <input
@@ -49,12 +49,12 @@ export default function LoginPage() {
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="w-full rounded border border-dark-border bg-dark-bg px-3 py-2 text-parchment focus:border-gold focus:outline-none"
+            className="w-full rounded border border-ff12-border-dim bg-dark-bg px-3 py-2 text-ff12-text focus:border-gold focus:outline-none"
             required
           />
         </div>
         <div>
-          <label htmlFor="password" className="mb-1 block text-sm text-parchment">
+          <label htmlFor="password" className="mb-1 block text-sm text-ff12-text">
             Password
           </label>
           <input
@@ -62,14 +62,14 @@ export default function LoginPage() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded border border-dark-border bg-dark-bg px-3 py-2 text-parchment focus:border-gold focus:outline-none"
+            className="w-full rounded border border-ff12-border-dim bg-dark-bg px-3 py-2 text-ff12-text focus:border-gold focus:outline-none"
             required
           />
         </div>
         <button
           type="submit"
           disabled={loading}
-          className="min-h-[44px] w-full rounded bg-parchment-dark/25 py-2.5 font-serif text-parchment transition hover:bg-parchment-dark/40 disabled:opacity-50"
+          className="min-h-[44px] w-full rounded bg-ff12-panel-light py-2.5 text-ff12-text transition hover:bg-gold disabled:opacity-50"
         >
           {loading ? "Entering..." : "Enter"}
         </button>

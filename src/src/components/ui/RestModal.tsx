@@ -3,10 +3,13 @@
 import { useState } from "react";
 import type { CharacterData, Action } from "@/types";
 
+/** Maps className → number of dice to spend from that pool */
+export type PoolSelections = Record<string, number>;
+
 interface Props {
   type: "short" | "long";
   characterData: CharacterData;
-  onConfirm: (hitDiceToSpend?: number) => void;
+  onConfirm: (hitDiceToSpend?: number, poolSelections?: PoolSelections) => void;
   onCancel: () => void;
 }
 
@@ -74,8 +77,46 @@ function buildLongRestItems(cd: CharacterData): string[] {
 }
 
 export default function RestModal({ type, characterData, onConfirm, onCancel }: Props) {
-  const available = characterData.hitDiceAvailable;
-  const [hitDice, setHitDice] = useState(Math.min(1, available));
+  const pools = characterData.hitDicePools;
+  const hasMulticlassPools = pools && pools.length > 0;
+
+  // Legacy single-pool state
+  const legacyAvailable = characterData.hitDiceAvailable;
+  const [hitDice, setHitDice] = useState(Math.min(1, legacyAvailable));
+
+  // Multiclass pool selections: className → count to spend
+  const [poolSelections, setPoolSelections] = useState<PoolSelections>(() => {
+    if (!hasMulticlassPools) return {};
+    const init: PoolSelections = {};
+    for (const p of pools) {
+      init[p.className] = 0;
+    }
+    return init;
+  });
+
+  const totalPoolAvailable = hasMulticlassPools
+    ? pools.reduce((sum, p) => sum + p.available, 0)
+    : 0;
+
+  const totalPoolSelected = Object.values(poolSelections).reduce((s, v) => s + v, 0);
+
+  const updatePoolSelection = (className: string, value: number) => {
+    const pool = pools!.find((p) => p.className === className);
+    if (!pool) return;
+    const clamped = Math.min(pool.available, Math.max(0, value));
+    setPoolSelections((prev) => ({ ...prev, [className]: clamped }));
+  };
+
+  const handleConfirm = () => {
+    if (type === "long") {
+      onConfirm(undefined, undefined);
+    } else if (hasMulticlassPools) {
+      onConfirm(totalPoolSelected, poolSelections);
+    } else {
+      onConfirm(hitDice, undefined);
+    }
+  };
+
   const longRestItems = type === "long" ? buildLongRestItems(characterData) : [];
 
   return (
@@ -86,25 +127,59 @@ export default function RestModal({ type, characterData, onConfirm, onCancel }: 
         </h2>
         {type === "short" ? (
           <div className="space-y-4">
-            <p className="text-sm text-parchment/70">
-              Available hit dice: {available} (d{characterData.hitDiceSize})
-            </p>
-            {available > 0 ? (
-              <div className="flex items-center gap-3">
-                <label htmlFor="hitDiceCount" className="text-sm text-parchment">Spend:</label>
-                <input
-                  id="hitDiceCount"
-                  type="number"
-                  min={0}
-                  max={available}
-                  value={hitDice}
-                  onChange={(e) => setHitDice(Math.min(available, Math.max(0, Number(e.target.value))))}
-                  className="w-16 rounded border border-dark-border bg-dark-bg px-2 py-1 text-center text-parchment"
-                />
-                <span className="text-sm text-parchment/70">hit dice</span>
-              </div>
+            {hasMulticlassPools ? (
+              <>
+                <p className="text-sm text-parchment/70">Hit dice pools:</p>
+                {totalPoolAvailable > 0 ? (
+                  <div className="space-y-2">
+                    {pools.map((pool) => (
+                      <div key={pool.className} className="flex items-center justify-between gap-3">
+                        <span className="text-sm text-parchment">
+                          d{pool.dieSize} {pool.className}: {pool.available}/{pool.total}
+                        </span>
+                        <div className="flex items-center gap-2">
+                          <label htmlFor={`pool-${pool.className}`} className="text-xs text-parchment/50">Spend:</label>
+                          <input
+                            id={`pool-${pool.className}`}
+                            type="number"
+                            min={0}
+                            max={pool.available}
+                            value={poolSelections[pool.className] ?? 0}
+                            onChange={(e) => updatePoolSelection(pool.className, Number(e.target.value))}
+                            disabled={pool.available === 0}
+                            className="w-14 rounded border border-dark-border bg-dark-bg px-2 py-1 text-center text-sm text-parchment disabled:opacity-40"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-sm text-crimson">No hit dice available.</p>
+                )}
+              </>
             ) : (
-              <p className="text-sm text-crimson">No hit dice available.</p>
+              <>
+                <p className="text-sm text-parchment/70">
+                  Available hit dice: {legacyAvailable} (d{characterData.hitDiceSize})
+                </p>
+                {legacyAvailable > 0 ? (
+                  <div className="flex items-center gap-3">
+                    <label htmlFor="hitDiceCount" className="text-sm text-parchment">Spend:</label>
+                    <input
+                      id="hitDiceCount"
+                      type="number"
+                      min={0}
+                      max={legacyAvailable}
+                      value={hitDice}
+                      onChange={(e) => setHitDice(Math.min(legacyAvailable, Math.max(0, Number(e.target.value))))}
+                      className="w-16 rounded border border-dark-border bg-dark-bg px-2 py-1 text-center text-parchment"
+                    />
+                    <span className="text-sm text-parchment/70">hit dice</span>
+                  </div>
+                ) : (
+                  <p className="text-sm text-crimson">No hit dice available.</p>
+                )}
+              </>
             )}
             <p className="text-xs text-parchment/50">
               Short rest also recharges short-rest abilities.
@@ -131,7 +206,7 @@ export default function RestModal({ type, characterData, onConfirm, onCancel }: 
             Cancel
           </button>
           <button
-            onClick={() => onConfirm(type === "short" ? hitDice : undefined)}
+            onClick={handleConfirm}
             className="rounded bg-gold-dark px-4 py-2 text-sm text-parchment transition hover:bg-gold"
           >
             {type === "short" ? "Rest" : "Long Rest"}

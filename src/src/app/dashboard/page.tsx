@@ -3,6 +3,7 @@
 import { useSession } from "next-auth/react";
 import { useCharacterData } from "@/hooks/useCharacterData";
 import { useDiceRoll } from "@/hooks/useDiceRoll";
+import { useUndoStack } from "@/hooks/useUndoStack";
 import ScreenBackground from "@/components/ui/ScreenBackground";
 import NavButtons from "@/components/ui/NavButtons";
 import UIPanel from "@/components/ui/UIPanel";
@@ -12,11 +13,17 @@ import DiceResultOverlay from "@/components/ui/DiceResultOverlay";
 import DeathSaveTracker from "@/components/dashboard/DeathSaveTracker";
 import RestModal from "@/components/ui/RestModal";
 import { useState } from "react";
+import { calculateAC } from "@/lib/ac-calc";
+import { getEquippedAcBonus } from "@/lib/gear-stats";
+import { calculatePassivePerception } from "@/lib/passive-perception";
+import { spendHitDie, longRestRestore } from "@/lib/hit-dice";
 import type { AbilityName, CharacterData } from "@/types";
+import type { PoolSelections } from "@/components/ui/RestModal";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
   const { data, loading, mutate } = useCharacterData();
+  const { undoableMutate } = useUndoStack(data, mutate);
   const { currentRoll, result, rollDice, dismiss } = useDiceRoll();
   const [restType, setRestType] = useState<"short" | "long" | null>(null);
   const [dmgHealValue, setDmgHealValue] = useState("");
@@ -55,7 +62,7 @@ export default function DashboardPage() {
       updates.deathSaves = { successes: data.deathSaves.successes, failures: newFailures };
     }
 
-    mutate(updates);
+    undoableMutate(updates);
     setDmgHealValue("");
   };
 
@@ -72,37 +79,79 @@ export default function DashboardPage() {
       updates.currentHp = Math.min(data.maxHp, data.currentHp + val);
     }
 
-    mutate(updates);
+    undoableMutate(updates);
     setDmgHealValue("");
   };
 
   const toggleShield = () => {
     const active = !data.shieldActive;
-    mutate({ shieldActive: active, ac: active ? data.ac + 5 : data.ac - 5 });
+    const gearAcBonuses = data.inventoryItems
+      ? [getEquippedAcBonus(data.inventoryItems.gear)]
+      : [];
+    const { ac, baseAc } = calculateAC({
+      defaultBaseAc: data.defaultBaseAc,
+      dexModifier: data.stats.DEX.modifier,
+      mageArmorActive: data.mageArmorActive,
+      shieldActive: active,
+      bladesongActive: data.classResources.bladesongActive ?? false,
+      intModifier: data.stats.INT.modifier,
+      gearAcBonuses,
+    });
+    undoableMutate({ shieldActive: active, ac, baseAc });
   };
 
   const toggleMageArmor = () => {
     const active = !data.mageArmorActive;
-    const dexMod = data.stats.DEX.modifier;
-    const newBaseAc = active ? 13 + dexMod : data.defaultBaseAc;
-    const acDiff = newBaseAc - data.baseAc;
-    mutate({ mageArmorActive: active, baseAc: newBaseAc, ac: data.ac + acDiff });
+    const gearAcBonuses = data.inventoryItems
+      ? [getEquippedAcBonus(data.inventoryItems.gear)]
+      : [];
+    const { ac, baseAc } = calculateAC({
+      defaultBaseAc: data.defaultBaseAc,
+      dexModifier: data.stats.DEX.modifier,
+      mageArmorActive: active,
+      shieldActive: data.shieldActive,
+      bladesongActive: data.classResources.bladesongActive ?? false,
+      intModifier: data.stats.INT.modifier,
+      gearAcBonuses,
+    });
+    undoableMutate({ mageArmorActive: active, ac, baseAc });
   };
 
-  const handleShortRest = (hitDiceToSpend?: number) => {
-    const diceToSpend = Math.max(0, hitDiceToSpend ?? 0);
+  const handleShortRest = (hitDiceToSpend?: number, poolSelections?: PoolSelections) => {
     const conMod = data.stats.CON.modifier;
+    const updates: Partial<CharacterData> = {};
 
-    // Roll hit dice for healing
-    let totalHealing = 0;
-    for (let i = 0; i < diceToSpend; i++) {
-      totalHealing += Math.max(1, Math.floor(Math.random() * data.hitDiceSize) + 1 + conMod);
+    if (data.hitDicePools && data.hitDicePools.length > 0 && poolSelections) {
+      // Multiclass pool path: use spendHitDie for each class
+      let pools = [...data.hitDicePools.map((p) => ({ ...p }))];
+      let totalHealing = 0;
+
+      for (const [className, count] of Object.entries(poolSelections)) {
+        const pool = pools.find((p) => p.className === className);
+        if (!pool || count <= 0) continue;
+
+        for (let i = 0; i < count; i++) {
+          const result = spendHitDie(pools, className);
+          if (!result) break; // pool exhausted
+          pools = result;
+          totalHealing += Math.max(1, Math.floor(Math.random() * pool.dieSize) + 1 + conMod);
+        }
+      }
+
+      updates.hitDicePools = pools;
+      // Also sync legacy fields for backward compatibility
+      updates.hitDiceAvailable = pools.reduce((sum, p) => sum + p.available, 0);
+      updates.currentHp = Math.min(data.maxHp, data.currentHp + totalHealing);
+    } else {
+      // Legacy single-pool path
+      const diceToSpend = Math.max(0, hitDiceToSpend ?? 0);
+      let totalHealing = 0;
+      for (let i = 0; i < diceToSpend; i++) {
+        totalHealing += Math.max(1, Math.floor(Math.random() * data.hitDiceSize) + 1 + conMod);
+      }
+      updates.currentHp = Math.min(data.maxHp, data.currentHp + totalHealing);
+      updates.hitDiceAvailable = data.hitDiceAvailable - diceToSpend;
     }
-
-    const updates: Partial<CharacterData> = {
-      currentHp: Math.min(data.maxHp, data.currentHp + totalHealing),
-      hitDiceAvailable: data.hitDiceAvailable - diceToSpend,
-    };
 
     // Recharge short rest actions
     const updatedActions = { ...data.actions };
@@ -141,10 +190,17 @@ export default function DashboardPage() {
     const updates: Partial<CharacterData> = {
       currentHp: data.maxHp,
       hitDiceAvailable: data.hitDiceTotal,
+      ...(data.hitDicePools ? (() => {
+        const restoredPools = longRestRestore(data.hitDicePools);
+        return {
+          hitDicePools: restoredPools,
+          hitDiceAvailable: restoredPools.reduce((sum, p) => sum + p.available, 0),
+        };
+      })() : {}),
       shieldActive: false,
       mageArmorActive: false,
       luckPoints: 3,
-      inspiration: Math.min(10, data.inspiration + 1),
+      inspiration: Math.min(2, data.inspiration + 1),
       currentSpellSlots: { ...data.spellSlots },
       createdSpellSlots: {},
       baseAc: data.defaultBaseAc,
@@ -176,6 +232,17 @@ export default function DashboardPage() {
     setRestType(null);
   };
 
+  // Req 16.1, 16.6: Passive Perception = 10 + Perception skill modifier
+  const passivePerception = calculatePassivePerception(data.skills);
+
+  const rollInitiative = () => {
+    rollDice({
+      dice: [{ sides: 20, count: 1 }],
+      modifier: data.stats.DEX.modifier,
+      label: "Initiative",
+    });
+  };
+
   const ABILITY_ORDER: AbilityName[] = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
 
   return (
@@ -203,7 +270,7 @@ export default function DashboardPage() {
         {/* HP and Resources */}
         <UIPanel variant="box1">
           <div className="grid grid-cols-1 gap-4 md:grid-cols-3">
-            <div>
+            <div className="mx-auto w-full max-w-sm">
               <div className="mb-2 flex items-center justify-between">
                 <span className="text-sm text-parchment/70">HP</span>
                 <span className="font-serif text-lg text-gold">{data.currentHp} / {data.maxHp}</span>
@@ -211,7 +278,7 @@ export default function DashboardPage() {
               <div className="h-3 overflow-hidden rounded-full bg-dark-border">
                 <div className="h-full rounded-full bg-crimson transition-all" style={{ width: `${(data.currentHp / data.maxHp) * 100}%` }} />
               </div>
-              <div className="mt-2 flex gap-2">
+              <div className="mt-2 flex justify-center gap-2">
                 <input
                   type="number"
                   value={dmgHealValue}
@@ -225,26 +292,43 @@ export default function DashboardPage() {
               </div>
             </div>
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <span className="text-sm text-parchment/70">AC</span>
-                <span className="font-serif text-lg text-gold">{data.ac}</span>
+              <div className="flex flex-col items-center justify-center rounded border border-gold-dark/30 bg-dark-bg/50 py-2">
+                <span className="text-xs text-parchment/50 uppercase tracking-wider">Armor Class</span>
+                <span className="font-serif text-4xl font-bold text-gold">{data.ac}</span>
               </div>
-              <button onClick={toggleShield} className={`min-h-[44px] w-full rounded px-3 py-2 text-xs transition ${data.shieldActive ? "bg-gold-dark text-parchment" : "bg-dark-border text-parchment/70 hover:bg-dark-surface"}`}>
-                Shield {data.shieldActive ? "(Active)" : ""}
-              </button>
-              <button onClick={toggleMageArmor} className={`min-h-[44px] w-full rounded px-3 py-2 text-xs transition ${data.mageArmorActive ? "bg-gold-dark text-parchment" : "bg-dark-border text-parchment/70 hover:bg-dark-surface"}`}>
-                Mage Armor {data.mageArmorActive ? "(Active)" : ""}
-              </button>
+              <div className="flex gap-2">
+                <button onClick={toggleShield} className={`min-h-[32px] flex-1 rounded px-2 py-1 text-[10px] transition ${data.shieldActive ? "bg-gold-dark text-parchment" : "bg-dark-border text-parchment/70 hover:bg-dark-surface"}`}>
+                  Shield {data.shieldActive ? "(Active)" : ""}
+                </button>
+                <button onClick={toggleMageArmor} className={`min-h-[32px] flex-1 rounded px-2 py-1 text-[10px] transition ${data.mageArmorActive ? "bg-gold-dark text-parchment" : "bg-dark-border text-parchment/70 hover:bg-dark-surface"}`}>
+                  Mage Armor {data.mageArmorActive ? "(Active)" : ""}
+                </button>
+              </div>
+              <div className="flex gap-2">
+                <div className="flex flex-1 flex-col items-center rounded border border-dark-border bg-dark-bg/50 py-1">
+                  <span className="text-[10px] text-parchment/50 uppercase tracking-wider">Passive Perception</span>
+                  <span className="font-serif text-lg font-bold text-gold">{passivePerception}</span>
+                </div>
+                <button
+                  onClick={rollInitiative}
+                  className="min-h-[32px] flex-1 rounded bg-dark-border px-2 py-1 text-[10px] text-parchment transition hover:bg-gold-dark"
+                  aria-label="Roll Initiative"
+                >
+                  Initiative (d20{data.stats.DEX.modifier >= 0 ? "+" : ""}{data.stats.DEX.modifier})
+                </button>
+              </div>
             </div>
             <div className="space-y-2">
-              <CounterControl label="Inspiration" value={data.inspiration} min={0} max={10} onChange={(v) => mutate({ inspiration: v })} />
-              <CounterControl label="Luck" value={data.luckPoints} min={0} max={3} onChange={(v) => mutate({ luckPoints: v })} />
+              <CounterControl label="Inspiration" value={data.inspiration} min={0} max={2} onChange={(v) => undoableMutate({ inspiration: v })} />
+              {data.featsTraits.includes("Lucky") && (
+                <CounterControl label="Luck" value={data.luckPoints} min={0} max={3} onChange={(v) => undoableMutate({ luckPoints: v })} />
+              )}
             </div>
           </div>
         </UIPanel>
 
         {data.currentHp === 0 && (
-          <DeathSaveTracker data={data} mutate={mutate} onRoll={rollDice} />
+          <DeathSaveTracker data={data} mutate={undoableMutate} onRoll={rollDice} />
         )}
 
         {/* Ability Scores */}

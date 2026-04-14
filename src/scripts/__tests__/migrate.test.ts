@@ -6,6 +6,7 @@ import {
   convertKeys,
   transformCharacter,
   transformMarkers,
+  migrateCharacterData,
 } from "../migrate";
 
 describe("snakeToCamel", () => {
@@ -197,5 +198,188 @@ describe("transformMarkers", () => {
     );
     const result = transformMarkers(raw);
     expect(result).toEqual([]);
+  });
+});
+
+
+describe("migrateCharacterData", () => {
+  it("converts Madea inventory strings to structured inventoryItems", () => {
+    const raw = JSON.parse(
+      fs.readFileSync(
+        path.resolve(__dirname, "../../../legacy/Tracker_Madea/character_data.json"),
+        "utf-8"
+      )
+    );
+    const base = transformCharacter(raw, "madea");
+    const migrated = migrateCharacterData(base);
+
+    // inventoryItems should exist
+    const items = (migrated as Record<string, unknown>).inventoryItems as {
+      gear: Array<{ id: string; name: string; description: string; quantity: number; equipped: boolean; requiresAttunement: boolean; attuned: boolean; statModifiers: unknown[] }>;
+      utility: Array<{ id: string; name: string; description: string; quantity: number }>;
+      treasure: Array<{ id: string; name: string; description: string; quantity: number; estimatedValue: number }>;
+    };
+    expect(items).toBeDefined();
+
+    // Gear items match original inventory.gear
+    expect(items.gear.length).toBe(base.inventory.gear.length);
+    expect(items.gear[0].name).toBe("Dagger");
+    expect(items.gear[0].quantity).toBe(1);
+    expect(items.gear[0].equipped).toBe(false);
+    expect(items.gear[0].requiresAttunement).toBe(false);
+    expect(items.gear[0].attuned).toBe(false);
+    expect(items.gear[0].statModifiers).toEqual([]);
+    expect(items.gear[0].id).toBeTruthy();
+    expect(items.gear[0].description).toBe("");
+
+    // Utility items
+    expect(items.utility.length).toBe(base.inventory.utility.length);
+    expect(items.utility[0].name).toBe("Herbalism Kit");
+    expect(items.utility[0].quantity).toBe(1);
+
+    // Treasure items (Madea has empty treasure)
+    expect(items.treasure.length).toBe(0);
+
+    // Legacy inventory should still exist
+    expect(migrated.inventory.gear).toContain("Dagger");
+  });
+
+  it("converts Ramil inventory strings to structured inventoryItems", () => {
+    const raw = JSON.parse(
+      fs.readFileSync(
+        path.resolve(__dirname, "../../../legacy/Tracker_Ramil/character_data.json"),
+        "utf-8"
+      )
+    );
+    const base = transformCharacter(raw, "ramil");
+    const migrated = migrateCharacterData(base);
+
+    const items = (migrated as Record<string, unknown>).inventoryItems as {
+      gear: Array<{ name: string; quantity: number }>;
+      utility: Array<{ name: string; quantity: number }>;
+      treasure: Array<{ name: string; quantity: number; estimatedValue: number }>;
+    };
+
+    expect(items.gear.length).toBe(4);
+    expect(items.utility.length).toBe(5);
+    expect(items.treasure.length).toBe(1);
+    expect(items.treasure[0].name).toBe("Malekirs Neclace (86GP, 7SP)");
+    expect(items.treasure[0].estimatedValue).toBe(0);
+  });
+
+  it("creates Madea hitDicePools as single Sorcerer pool", () => {
+    const raw = JSON.parse(
+      fs.readFileSync(
+        path.resolve(__dirname, "../../../legacy/Tracker_Madea/character_data.json"),
+        "utf-8"
+      )
+    );
+    const base = transformCharacter(raw, "madea");
+    const migrated = migrateCharacterData(base);
+
+    const pools = (migrated as Record<string, unknown>).hitDicePools as Array<{
+      className: string; dieSize: number; total: number; available: number;
+    }>;
+    expect(pools).toHaveLength(1);
+    expect(pools[0].className).toBe("Sorcerer");
+    expect(pools[0].dieSize).toBe(6);
+    expect(pools[0].total).toBe(5);
+    expect(pools[0].available).toBe(5);
+  });
+
+  it("creates Ramil hitDicePools as Fighter d10 + Wizard d6", () => {
+    const raw = JSON.parse(
+      fs.readFileSync(
+        path.resolve(__dirname, "../../../legacy/Tracker_Ramil/character_data.json"),
+        "utf-8"
+      )
+    );
+    const base = transformCharacter(raw, "ramil");
+    const migrated = migrateCharacterData(base);
+
+    const pools = (migrated as Record<string, unknown>).hitDicePools as Array<{
+      className: string; dieSize: number; total: number; available: number;
+    }>;
+    expect(pools).toHaveLength(2);
+    expect(pools[0]).toEqual({ className: "Fighter", dieSize: 10, total: 1, available: 1 });
+    expect(pools[1]).toEqual({ className: "Wizard", dieSize: 6, total: 4, available: 4 });
+  });
+
+  it("defaults spellCreatedWeapons to empty array", () => {
+    const raw = JSON.parse(
+      fs.readFileSync(
+        path.resolve(__dirname, "../../../legacy/Tracker_Madea/character_data.json"),
+        "utf-8"
+      )
+    );
+    const base = transformCharacter(raw, "madea");
+    const migrated = migrateCharacterData(base);
+
+    expect((migrated as Record<string, unknown>).spellCreatedWeapons).toEqual([]);
+  });
+
+  it("does not overwrite existing inventoryItems", () => {
+    const raw = JSON.parse(
+      fs.readFileSync(
+        path.resolve(__dirname, "../../../legacy/Tracker_Madea/character_data.json"),
+        "utf-8"
+      )
+    );
+    const base = transformCharacter(raw, "madea");
+
+    // Pre-set inventoryItems
+    const existing = { gear: [], utility: [], treasure: [] };
+    (base as Record<string, unknown>).inventoryItems = existing;
+
+    const migrated = migrateCharacterData(base);
+    expect((migrated as Record<string, unknown>).inventoryItems).toBe(existing);
+  });
+
+  it("does not overwrite existing hitDicePools", () => {
+    const raw = JSON.parse(
+      fs.readFileSync(
+        path.resolve(__dirname, "../../../legacy/Tracker_Madea/character_data.json"),
+        "utf-8"
+      )
+    );
+    const base = transformCharacter(raw, "madea");
+
+    const existingPools = [{ className: "Custom", dieSize: 8, total: 3, available: 2 }];
+    (base as Record<string, unknown>).hitDicePools = existingPools;
+
+    const migrated = migrateCharacterData(base);
+    expect((migrated as Record<string, unknown>).hitDicePools).toBe(existingPools);
+  });
+
+  it("does not overwrite existing spellCreatedWeapons", () => {
+    const raw = JSON.parse(
+      fs.readFileSync(
+        path.resolve(__dirname, "../../../legacy/Tracker_Madea/character_data.json"),
+        "utf-8"
+      )
+    );
+    const base = transformCharacter(raw, "madea");
+
+    const existingWeapons = [{ id: "test", name: "Shadow Blade" }];
+    (base as Record<string, unknown>).spellCreatedWeapons = existingWeapons;
+
+    const migrated = migrateCharacterData(base);
+    expect((migrated as Record<string, unknown>).spellCreatedWeapons).toBe(existingWeapons);
+  });
+
+  it("does not mutate the input object", () => {
+    const raw = JSON.parse(
+      fs.readFileSync(
+        path.resolve(__dirname, "../../../legacy/Tracker_Madea/character_data.json"),
+        "utf-8"
+      )
+    );
+    const base = transformCharacter(raw, "madea");
+    const baseCopy = JSON.parse(JSON.stringify(base));
+
+    migrateCharacterData(base);
+
+    // Original should be unchanged
+    expect(base).toEqual(baseCopy);
   });
 });
