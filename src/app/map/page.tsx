@@ -12,44 +12,7 @@ import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import type { MapMarker } from "@/types";
 
-const CATEGORIES = ["artifact", "treasure", "enemy", "person", "note"] as const;
-type Category = typeof CATEGORIES[number];
-
-const CATEGORY_LABELS: Record<Category, string> = {
-  artifact: "Artifacts",
-  treasure: "Treasure",
-  enemy: "Enemy Encounters",
-  person: "Notable People",
-  note: "Notes & Rumors",
-};
-
-const CATEGORY_COLORS: Record<Category, string> = {
-  artifact: "bg-purple-500",
-  treasure: "bg-yellow-500",
-  enemy: "bg-red-500",
-  person: "bg-blue-500",
-  note: "bg-green-500",
-};
-
-const CATEGORY_ICONS: Record<Category, string> = {
-  artifact: "/images/icons/icon_artifact.png",
-  treasure: "/images/icons/icon_treasure.png",
-  enemy: "/images/icons/icon_enemy.png",
-  person: "/images/icons/icon_friend.png",
-  note: "/images/icons/icon_rumor.png",
-};
-
-const FLOOR_LABELS = ["GF", "1", "2", "3", "4", "5", "6"];
-
-const AETHERION_FLOOR_IMAGES: Record<number, string> = {
-  0: "/images/maps/aetherion/GF.png",
-  1: "/images/maps/aetherion/1.png",
-  2: "/images/maps/aetherion/2.png",
-  3: "/images/maps/aetherion/3.png",
-  4: "/images/maps/aetherion/4.png",
-  5: "/images/maps/aetherion/5.png",
-  6: "/images/maps/aetherion/6.png",
-};
+import { CATEGORIES, CATEGORY_LABELS, CATEGORY_COLORS, CATEGORY_ICONS, FLOOR_LABELS, AETHERION_FLOOR_IMAGES, type Category } from "./map-constants";
 
 export default function MapPage() {
   const [activeMap, setActiveMap] = useState<"valerion" | "aetherion">("valerion");

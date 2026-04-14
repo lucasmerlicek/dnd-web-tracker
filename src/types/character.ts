@@ -44,6 +44,7 @@ export interface GearItem extends InventoryItemBase {
   statModifiers: StatModifier[];
 }
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export interface UtilityItem extends InventoryItemBase {}
 
 export interface TreasureItem extends InventoryItemBase {

@@ -12,36 +12,35 @@ import Image from "next/image";
 import { v4 as uuidv4 } from "uuid";
 import type { MapMarker } from "@/types";
 
-const CATEGORIES = ["artifact", "treasure", "enemy", "person", "note"] as const;
-type Category = typeof CATEGORIES[number];
-
-const CATEGORY_LABELS: Record<Category, string> = {
-  artifact: "Artifacts",
-  treasure: "Treasure",
-  enemy: "Enemy Encounters",
-  person: "Notable People",
-  note: "Notes & Rumors",
-};
-
-const CATEGORY_COLORS: Record<Category, string> = {
-  artifact: "bg-purple-500",
-  treasure: "bg-yellow-500",
-  enemy: "bg-red-500",
-  person: "bg-blue-500",
-  note: "bg-green-500",
-};
-
-const CATEGORY_ICONS: Record<Category, string> = {
-  artifact: "/images/icons/icon_artifact.png",
-  treasure: "/images/icons/icon_treasure.png",
-  enemy: "/images/icons/icon_enemy.png",
-  person: "/images/icons/icon_friend.png",
-  note: "/images/icons/icon_rumor.png",
-};
-
-const FLOOR_LABELS = ["Ground", "1st", "2nd", "3rd", "4th"];
-
 export default function MapPage() {
+  type Category = "artifact" | "treasure" | "enemy" | "person" | "note";
+  const CATEGORIES: readonly Category[] = ["artifact", "treasure", "enemy", "person", "note"];
+
+  const CATEGORY_LABELS: Record<Category, string> = {
+    artifact: "Artifacts",
+    treasure: "Treasure",
+    enemy: "Enemy Encounters",
+    person: "Notable People",
+    note: "Notes & Rumors",
+  };
+
+  const CATEGORY_COLORS: Record<Category, string> = {
+    artifact: "bg-purple-500",
+    treasure: "bg-yellow-500",
+    enemy: "bg-red-500",
+    person: "bg-blue-500",
+    note: "bg-green-500",
+  };
+
+  const CATEGORY_ICONS: Record<Category, string> = {
+    artifact: "/images/icons/icon_artifact.png",
+    treasure: "/images/icons/icon_treasure.png",
+    enemy: "/images/icons/icon_enemy.png",
+    person: "/images/icons/icon_friend.png",
+    note: "/images/icons/icon_rumor.png",
+  };
+
+  const FLOOR_LABELS = ["Ground", "1st", "2nd", "3rd", "4th"];
   const [activeMap, setActiveMap] = useState<"valerion" | "aetherion">("valerion");
   const [floor, setFloor] = useState(0);
   const [visibleCategories, setVisibleCategories] = useState<Set<Category>>(new Set(CATEGORIES));

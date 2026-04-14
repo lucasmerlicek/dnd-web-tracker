@@ -236,7 +236,6 @@ export default function SpellsPage() {
             level={level}
             spells={spells}
             selectedSpell={selectedSpell}
-            setSelectedSpell={setSelectedSpell}
             isWizard={isWizard}
             data={data}
             togglePrepared={togglePrepared}
@@ -253,7 +252,6 @@ function AltSpellLevelPanel({
   level,
   spells,
   selectedSpell,
-  setSelectedSpell,
   isWizard,
   data,
   togglePrepared,
@@ -261,7 +259,6 @@ function AltSpellLevelPanel({
   level: string;
   spells: string[];
   selectedSpell: { name: string; level: string } | null;
-  setSelectedSpell: (s: { name: string; level: string } | null) => void;
   isWizard: boolean;
   data: import("@/types/character").CharacterData;
   togglePrepared: (spell: string) => void;

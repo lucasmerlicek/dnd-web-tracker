@@ -10,7 +10,6 @@ import UIPanel from "@/components/ui/UIPanel";
 import AmbientEffects from "@/components/ui/AmbientEffects";
 import DiceResultOverlay from "@/components/ui/DiceResultOverlay";
 import CursorIndicator from "@/components/ui/CursorIndicator";
-import IconImage from "@/components/ui/IconImage";
 import { useState } from "react";
 import {
   SP_TO_SLOT_COST,

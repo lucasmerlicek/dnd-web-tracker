@@ -35,7 +35,6 @@ export default function ActionsPage() {
   const cr = data.classResources;
   const hasBladesong = cr.bladesongMaxUses !== undefined;
   const hasRavenForm = cr.ravenFormMaxUses !== undefined;
-  const isMadea = characterId === "madea";
   const isRamil = characterId === "ramil";
   const intMod = data.stats.INT.modifier;
 
