@@ -80,6 +80,9 @@ describe("transformCharacter", () => {
     expect(result.classResources.ravenFormUsesRemaining).toBe(1);
     expect(result.classResources.ravenFormMaxUses).toBe(1);
     expect(result.classResources.sorcerousRestorationUsed).toBe(false);
+    expect(result.classResources.innateSorceryActive).toBe(false);
+    expect(result.classResources.innateSorceryUsesRemaining).toBe(2);
+    expect(result.classResources.innateSorceryMaxUses).toBe(2);
     expect(result.classResources.feyBaneUsed).toBe(false);
     expect(result.classResources.feyMistyStepUsed).toBe(false);
 

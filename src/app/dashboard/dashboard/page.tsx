@@ -12,6 +12,7 @@ import CounterControl from "@/components/ui/CounterControl";
 import DiceResultOverlay from "@/components/ui/DiceResultOverlay";
 import DeathSaveTracker from "@/components/dashboard/DeathSaveTracker";
 import RestModal from "@/components/ui/RestModal";
+import type { PoolSelections } from "@/components/ui/RestModal";
 import CursorIndicator from "@/components/ui/CursorIndicator";
 import { useState } from "react";
 import type { AbilityName, CharacterData } from "@/types";
@@ -125,7 +126,7 @@ export default function DashboardPage() {
     mutate({ mageArmorActive: active, baseAc: newBaseAc, ac: data.ac + acDiff });
   };
 
-  const handleShortRest = (hitDiceToSpend?: number) => {
+  const handleShortRest = (hitDiceToSpend?: number, poolSelections?: PoolSelections, useSorcerousRestoration?: boolean) => {
     const diceToSpend = Math.max(0, hitDiceToSpend ?? 0);
     const conMod = data.stats.CON.modifier;
 
@@ -149,8 +150,8 @@ export default function DashboardPage() {
     }
     updates.actions = updatedActions;
 
-    // Sorcerous Restoration for Madea
-    if (data.classResources.sorceryPointsMax !== undefined && !data.classResources.sorcerousRestorationUsed) {
+    // Sorcerous Restoration — only when opted in
+    if (useSorcerousRestoration && data.classResources.sorceryPointsMax !== undefined && !data.classResources.sorcerousRestorationUsed) {
       const restore = Math.floor(data.level / 2);
       const newSP = Math.min(
         data.classResources.sorceryPointsMax,
@@ -194,6 +195,7 @@ export default function DashboardPage() {
     if (cr.sorceryPointsMax !== undefined) cr.currentSorceryPoints = cr.sorceryPointsMax;
     if (cr.ravenFormMaxUses !== undefined) { cr.ravenFormUsesRemaining = cr.ravenFormMaxUses; cr.ravenFormActive = false; }
     if (cr.bladesongMaxUses !== undefined) { cr.bladesongUsesRemaining = cr.bladesongMaxUses; cr.bladesongActive = false; }
+    if (cr.innateSorceryMaxUses !== undefined) { cr.innateSorceryUsesRemaining = cr.innateSorceryMaxUses; cr.innateSorceryActive = false; }
     cr.sorcerousRestorationUsed = false;
     cr.feyBaneUsed = false;
     cr.feyMistyStepUsed = false;
@@ -347,7 +349,7 @@ export default function DashboardPage() {
 
       {/* Dice Overlay */}
       {currentRoll && (
-        <DiceResultOverlay roll={currentRoll} result={result} onDismiss={dismiss} />
+        <DiceResultOverlay roll={currentRoll} result={result} onDismiss={dismiss} characterData={data} onMutate={mutate} />
       )}
     </div>
   );

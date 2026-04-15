@@ -95,6 +95,12 @@ export default function SpellsPage() {
 
         {warning && <div className="rounded bg-ff12-danger/80 px-4 py-2 text-center text-sm text-ff12-text" role="alert">{warning}</div>}
 
+        {data.classResources.innateSorceryActive && (
+          <div className="rounded bg-emerald-800/40 px-4 py-2 text-center text-sm text-emerald-400">
+            Innate Sorcery Active — Spell attacks have advantage, Save DC +1
+          </div>
+        )}
+
         {/* Spell Slots */}
         <UIPanel variant="box1">
           <h2 className="mb-3 text-sm text-gold/70">Spell Slots</h2>
@@ -199,7 +205,7 @@ export default function SpellsPage() {
           );
         })}
       </div>
-      {currentRoll && <DiceResultOverlay roll={currentRoll} result={result} onDismiss={dismiss} />}
+      {currentRoll && <DiceResultOverlay roll={currentRoll} result={result} onDismiss={dismiss} characterData={data} onMutate={mutate} />}
     </div>
   );
 }

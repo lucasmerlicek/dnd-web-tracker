@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import type { SpellData } from "@/types/spell";
 import type { CharacterData, SpellCreatedWeapon } from "@/types/character";
 import type { DiceRoll, DieSpec } from "@/types/dice";
@@ -51,8 +51,24 @@ export default function SpellCard({
   onWarning,
 }: SpellCardProps) {
   const [castLevel, setCastLevel] = useState<number | null>(null);
-  const [advantage, setAdvantage] = useState(false);
+  const cr = characterData.classResources;
+  const innateSorceryActive = cr.innateSorceryActive ?? false;
+  const hasAttackRoll = spellData?.attackRoll === true;
+  const [advantage, setAdvantage] = useState(
+    hasAttackRoll ? innateSorceryActive : false
+  );
   const [disadvantage, setDisadvantage] = useState(false);
+  const manualAdvantage = useRef(false);
+
+  // Sync advantage when Innate Sorcery toggles
+  useEffect(() => {
+    if (!hasAttackRoll) return;
+    if (innateSorceryActive) {
+      setAdvantage(true);
+    } else if (!manualAdvantage.current) {
+      setAdvantage(false);
+    }
+  }, [innateSorceryActive, hasAttackRoll]);
 
   const isCantrip = spellLevel === "cantrip";
   const isSorcerer = characterData.classResources.sorceryPointsMax !== undefined;
@@ -263,8 +279,8 @@ export default function SpellCard({
         aria-expanded={isExpanded}
       >
         <div className="flex items-center gap-2">
-          <IconImage type="spell" name={spellName} size={24} />
-          <span className="text-sm text-ff12-text">{spellName}</span>
+          <IconImage type="spell" name={spellName} size={34} />
+          <span className="text-base text-ff12-text">{spellName}</span>
           {!isCantrip && (
             <span className="rounded bg-ff12-panel-light px-1.5 py-0.5 text-[10px] text-gold/70">
               {spellLevel}
@@ -351,7 +367,7 @@ export default function SpellCard({
                   characterData.proficiencyBonus,
                   spellcastingAbility,
                   characterData.stats
-                )}{" "}
+                ) + (innateSorceryActive ? 1 : 0)}{" "}
                 {spellData.saveType}
               </span>
             </div>
@@ -403,6 +419,7 @@ export default function SpellCard({
                     checked={advantage}
                     onChange={(e) => {
                       setAdvantage(e.target.checked);
+                      manualAdvantage.current = e.target.checked;
                       if (e.target.checked) setDisadvantage(false);
                     }}
                     className="h-3 w-3"

@@ -1,24 +1,77 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import type { DiceRoll, DiceResult } from "@/types";
+import type { CharacterData } from "@/types/character";
+import { applyEmpoweredReroll } from "@/lib/empowered-spell";
 
 interface Props {
   roll: DiceRoll;
   result: DiceResult | null;
   onDismiss: () => void;
+  characterData?: CharacterData;
+  onMutate?: (partial: Partial<CharacterData>) => void;
 }
 
-export default function DiceResultOverlay({ roll, result, onDismiss }: Props) {
+/** Labels that indicate non-damage rolls — Empowered Spell should NOT appear for these. */
+const NON_DAMAGE_PATTERNS = ["Spell Attack", "Check", "Save", "Second Wind (heal)"];
+
+function isDamageRoll(label: string): boolean {
+  return !NON_DAMAGE_PATTERNS.some((p) => label.includes(p));
+}
+
+export default function DiceResultOverlay({ roll, result, onDismiss, characterData, onMutate }: Props) {
+  const [empoweredUsed, setEmpoweredUsed] = useState(false);
+  const [displayRolls, setDisplayRolls] = useState<number[]>([]);
+  const [displayTotal, setDisplayTotal] = useState(0);
+
+  // Sync display state from result whenever result changes
   useEffect(() => {
     if (result) {
-      const timer = setTimeout(onDismiss, 3000);
-      return () => clearTimeout(timer);
+      setDisplayRolls(result.rolls);
+      setDisplayTotal(result.total);
+      setEmpoweredUsed(false);
     }
-  }, [result, onDismiss]);
+  }, [result]);
+
+  const handleEmpoweredSpell = useCallback(() => {
+    if (!result || !characterData || !onMutate || empoweredUsed) return;
+    const sp = characterData.classResources.currentSorceryPoints ?? 0;
+    if (sp < 1) return;
+
+    // Determine die sides from the roll spec
+    const dieSides = roll.dice[0]?.sides ?? 6;
+
+    const newRolls = applyEmpoweredReroll(displayRolls, dieSides);
+    const newTotal = newRolls.reduce((sum, v) => sum + v, 0) + roll.modifier;
+
+    setDisplayRolls(newRolls);
+    setDisplayTotal(newTotal);
+    setEmpoweredUsed(true);
+
+    // Deduct 1 SP
+    onMutate({
+      classResources: {
+        ...characterData.classResources,
+        currentSorceryPoints: sp - 1,
+      },
+    });
+  }, [result, characterData, onMutate, empoweredUsed, displayRolls, roll]);
 
   const isAdvantageRoll = roll.advantage || roll.disadvantage;
+
+  // Empowered Spell button visibility
+  const showEmpowered =
+    result &&
+    characterData &&
+    onMutate &&
+    (characterData.classResources.currentSorceryPoints ?? 0) >= 1 &&
+    isDamageRoll(roll.label) &&
+    !empoweredUsed;
+
+  const empoweredDisabled =
+    (characterData?.classResources.currentSorceryPoints ?? 0) < 1 || empoweredUsed;
 
   return (
     <motion.div
@@ -47,13 +100,13 @@ export default function DiceResultOverlay({ roll, result, onDismiss }: Props) {
                     : "text-ff12-text"
               }`}
             >
-              {result.total}
+              {displayTotal}
             </p>
 
             {/* Individual rolls — highlight used die for advantage/disadvantage */}
             {isAdvantageRoll && result.usedIndex != null ? (
               <div className="mt-2 flex items-center justify-center gap-2 text-xs">
-                {result.rolls.map((r, i) => {
+                {displayRolls.map((r, i) => {
                   const isUsed = i === result.usedIndex;
                   return (
                     <span
@@ -77,7 +130,7 @@ export default function DiceResultOverlay({ roll, result, onDismiss }: Props) {
               </div>
             ) : (
               <p className="mt-2 text-xs text-ff12-text-dim">
-                [{result.rolls.join(", ")}]
+                [{displayRolls.join(", ")}]
                 {roll.modifier !== 0
                   ? ` ${roll.modifier >= 0 ? "+" : ""}${roll.modifier}`
                   : ""}
@@ -101,6 +154,20 @@ export default function DiceResultOverlay({ roll, result, onDismiss }: Props) {
             )}
             {result.isFumble && (
               <p className="mt-1 text-sm text-ff12-danger">Fumble!</p>
+            )}
+
+            {/* Empowered Spell button */}
+            {showEmpowered && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleEmpoweredSpell();
+                }}
+                disabled={empoweredDisabled}
+                className="mt-3 min-h-[44px] rounded bg-purple-700/60 px-4 py-2 text-sm text-ff12-text transition hover:bg-purple-600/70 disabled:opacity-30"
+              >
+                Empowered Spell (1 SP)
+              </button>
             )}
           </>
         ) : (

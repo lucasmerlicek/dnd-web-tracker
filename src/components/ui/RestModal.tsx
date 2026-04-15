@@ -9,7 +9,7 @@ export type PoolSelections = Record<string, number>;
 interface Props {
   type: "short" | "long";
   characterData: CharacterData;
-  onConfirm: (hitDiceToSpend?: number, poolSelections?: PoolSelections) => void;
+  onConfirm: (hitDiceToSpend?: number, poolSelections?: PoolSelections, useSorcerousRestoration?: boolean) => void;
   onCancel: () => void;
 }
 
@@ -47,10 +47,16 @@ function buildLongRestItems(cd: CharacterData): string[] {
       items.push("Raven Form uses: " + (cr.ravenFormUsesRemaining ?? 0) + " -> " + cr.ravenFormMaxUses);
     }
   }
+  if (cr.innateSorceryMaxUses !== undefined) {
+    if ((cr.innateSorceryUsesRemaining ?? 0) < cr.innateSorceryMaxUses) {
+      items.push("Innate Sorcery uses: " + (cr.innateSorceryUsesRemaining ?? 0) + " -> " + cr.innateSorceryMaxUses);
+    }
+  }
 
   if (cd.shieldActive) items.push("Shield deactivated");
   if (cd.mageArmorActive) items.push("Mage Armor deactivated");
   if (cr.bladesongActive) items.push("Bladesong deactivated");
+  if (cr.innateSorceryActive) items.push("Innate Sorcery deactivated");
 
   const flagsToReset: string[] = [];
   if (cr.feyBaneUsed) flagsToReset.push("Fey Bane");
@@ -94,6 +100,9 @@ export default function RestModal({ type, characterData, onConfirm, onCancel }: 
     return init;
   });
 
+  // Sorcerous Restoration opt-in state
+  const [useSorcerousRestoration, setUseSorcerousRestoration] = useState(false);
+
   const totalPoolAvailable = hasMulticlassPools
     ? pools.reduce((sum, p) => sum + p.available, 0)
     : 0;
@@ -111,9 +120,9 @@ export default function RestModal({ type, characterData, onConfirm, onCancel }: 
     if (type === "long") {
       onConfirm(undefined, undefined);
     } else if (hasMulticlassPools) {
-      onConfirm(totalPoolSelected, poolSelections);
+      onConfirm(totalPoolSelected, poolSelections, useSorcerousRestoration);
     } else {
-      onConfirm(hitDice, undefined);
+      onConfirm(hitDice, undefined, useSorcerousRestoration);
     }
   };
 
@@ -184,6 +193,24 @@ export default function RestModal({ type, characterData, onConfirm, onCancel }: 
             <p className="text-xs text-ff12-text-dim">
               Short rest also recharges short-rest abilities.
             </p>
+            {/* Sorcerous Restoration checkbox */}
+            {characterData.classResources.sorceryPointsMax !== undefined && (
+              <div className="flex items-center gap-2">
+                <input
+                  id="sorcerousRestoration"
+                  type="checkbox"
+                  checked={useSorcerousRestoration}
+                  onChange={(e) => setUseSorcerousRestoration(e.target.checked)}
+                  disabled={characterData.classResources.sorcerousRestorationUsed === true}
+                  className="h-4 w-4 rounded border-ff12-border accent-gold disabled:opacity-40"
+                />
+                <label htmlFor="sorcerousRestoration" className={`text-sm ${characterData.classResources.sorcerousRestorationUsed ? "text-ff12-text-dim" : "text-ff12-text"}`}>
+                  {characterData.classResources.sorcerousRestorationUsed
+                    ? "Sorcerous Restoration (already used)"
+                    : `Sorcerous Restoration (+${Math.floor(characterData.level / 2)} SP)`}
+                </label>
+              </div>
+            )}
           </div>
         ) : (
           <div className="space-y-3">

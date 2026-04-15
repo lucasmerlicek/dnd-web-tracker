@@ -83,6 +83,9 @@ export interface ClassResources {
   ravenFormUsesRemaining?: number;
   ravenFormMaxUses?: number;
   sorcerousRestorationUsed?: boolean;
+  innateSorceryActive?: boolean;
+  innateSorceryUsesRemaining?: number;
+  innateSorceryMaxUses?: number;
 
   // Wizard/Bladesinger (Ramil)
   bladesongActive?: boolean;

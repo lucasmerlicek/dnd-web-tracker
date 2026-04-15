@@ -40,6 +40,7 @@ function applyLongRest(data: CharacterData): Partial<CharacterData> {
   if (cr.sorceryPointsMax !== undefined) cr.currentSorceryPoints = cr.sorceryPointsMax;
   if (cr.ravenFormMaxUses !== undefined) { cr.ravenFormUsesRemaining = cr.ravenFormMaxUses; cr.ravenFormActive = false; }
   if (cr.bladesongMaxUses !== undefined) { cr.bladesongUsesRemaining = cr.bladesongMaxUses; cr.bladesongActive = false; }
+  if (cr.innateSorceryMaxUses !== undefined) { cr.innateSorceryUsesRemaining = cr.innateSorceryMaxUses; cr.innateSorceryActive = false; }
   cr.sorcerousRestorationUsed = false;
   cr.feyBaneUsed = false;
   cr.feyMistyStepUsed = false;

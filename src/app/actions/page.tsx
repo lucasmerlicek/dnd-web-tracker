@@ -35,6 +35,7 @@ export default function ActionsPage() {
   const cr = data.classResources;
   const hasBladesong = cr.bladesongMaxUses !== undefined;
   const hasRavenForm = cr.ravenFormMaxUses !== undefined;
+  const hasInnateSorcery = cr.innateSorceryMaxUses !== undefined;
   const isRamil = characterId === "ramil";
   const intMod = data.stats.INT.modifier;
 
@@ -90,6 +91,29 @@ export default function ActionsPage() {
           : cr.ravenFormUsesRemaining,
       },
     });
+  };
+
+  // --- Innate Sorcery toggle (Madea only) ---
+  const toggleInnateSorcery = () => {
+    const active = !cr.innateSorceryActive;
+    if (active) {
+      if ((cr.innateSorceryUsesRemaining ?? 0) < 1 || (cr.currentSorceryPoints ?? 0) < 2) return;
+      mutate({
+        classResources: {
+          ...cr,
+          innateSorceryActive: true,
+          innateSorceryUsesRemaining: (cr.innateSorceryUsesRemaining ?? 0) - 1,
+          currentSorceryPoints: (cr.currentSorceryPoints ?? 0) - 2,
+        },
+      });
+    } else {
+      mutate({
+        classResources: {
+          ...cr,
+          innateSorceryActive: false,
+        },
+      });
+    }
   };
 
   // --- Second Wind (Ramil only): heal 1d10 + Fighter level (1) ---
@@ -212,6 +236,39 @@ export default function ActionsPage() {
           </UIPanel>
         )}
 
+        {/* Innate Sorcery Tracker (Madea only) */}
+        {hasInnateSorcery && (
+          <UIPanel variant="fancy">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-gold">Innate Sorcery</h3>
+                <p className="text-xs text-ff12-text-dim">
+                  Uses: {cr.innateSorceryUsesRemaining}/{cr.innateSorceryMaxUses}
+                </p>
+                <p className="text-xs text-ff12-text-dim">
+                  2 SP per activation
+                </p>
+              </div>
+              <div className="flex items-center gap-3">
+                <span className={`text-xs ${cr.innateSorceryActive ? "text-emerald-400" : "text-ff12-text-dim"}`}>
+                  {cr.innateSorceryActive ? "Active" : "Inactive"}
+                </span>
+                <button
+                  onClick={toggleInnateSorcery}
+                  disabled={!cr.innateSorceryActive && ((cr.innateSorceryUsesRemaining ?? 0) === 0 || (cr.currentSorceryPoints ?? 0) < 2)}
+                  className={`min-h-[44px] rounded px-4 py-2 text-sm transition ${
+                    cr.innateSorceryActive
+                      ? "bg-ff12-select/20 text-ff12-select"
+                      : "bg-ff12-panel-light text-ff12-text-dim hover:bg-ff12-border-dim disabled:opacity-30"
+                  }`}
+                >
+                  {cr.innateSorceryActive ? "Deactivate" : "Activate"}
+                </button>
+              </div>
+            </div>
+          </UIPanel>
+        )}
+
         {/* Generic Actions */}
         {genericActions.length > 0 && (
           <div {...actionCardCursor.containerProps} className="grid gap-4 lg:grid-cols-2">
@@ -283,7 +340,7 @@ export default function ActionsPage() {
           </div>
         </div>
       </div>
-      {currentRoll && <DiceResultOverlay roll={currentRoll} result={result} onDismiss={dismiss} />}
+      {currentRoll && <DiceResultOverlay roll={currentRoll} result={result} onDismiss={dismiss} characterData={data} onMutate={mutate} />}
     </div>
   );
 }

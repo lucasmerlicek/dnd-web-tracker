@@ -167,7 +167,7 @@ export default function DashboardPage() {
     undoableMutate({ mageArmorActive: active, ac, baseAc });
   };
 
-  const handleShortRest = (hitDiceToSpend?: number, poolSelections?: PoolSelections) => {
+  const handleShortRest = (hitDiceToSpend?: number, poolSelections?: PoolSelections, useSorcerousRestoration?: boolean) => {
     const conMod = data.stats.CON.modifier;
     const updates: Partial<CharacterData> = {};
 
@@ -212,8 +212,8 @@ export default function DashboardPage() {
     }
     updates.actions = updatedActions;
 
-    // Sorcerous Restoration for Madea
-    if (data.classResources.sorceryPointsMax !== undefined && !data.classResources.sorcerousRestorationUsed) {
+    // Sorcerous Restoration — only when opted in
+    if (useSorcerousRestoration && data.classResources.sorceryPointsMax !== undefined && !data.classResources.sorcerousRestorationUsed) {
       const restore = Math.floor(data.level / 2);
       const newSP = Math.min(
         data.classResources.sorceryPointsMax,
