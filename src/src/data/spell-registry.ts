@@ -485,6 +485,69 @@ export const SPELL_REGISTRY: Record<string, SpellData> = {
       "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.",
   },
 
+  "Wall of Sand": {
+    name: "Wall of Sand",
+    level: 3,
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "90 feet",
+    components: { verbal: true, somatic: true, material: true, materialDescription: "a handful of sand" },
+    duration: "Concentration, up to 10 minutes",
+    description:
+      "You conjure up a wall of swirling sand on the ground at a point you can see within range. You can make the wall up to 30 feet long, 10 feet high, and 10 feet thick, and it vanishes when the spell ends. It blocks line of sight but not movement. A creature is blinded while in the wall's space and must spend 3 feet of movement for every 1 foot it moves there.",
+  },
+
+  "Fireball": {
+    name: "Fireball",
+    level: 3,
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "150 feet",
+    components: { verbal: true, somatic: true, material: true, materialDescription: "a tiny ball of bat guano and sulfur" },
+    duration: "Instantaneous",
+    description:
+      "A bright streak flashes from your pointing finger to a point you choose within range then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot radius must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.",
+    damageDice: "8d6",
+    damageType: "fire",
+    saveType: "DEX",
+    upcast: { perLevel: "1d6" },
+    upcastDescription:
+      "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.",
+  },
+
+  "Counterspell": {
+    name: "Counterspell",
+    level: 3,
+    school: "Abjuration",
+    castingTime: "1 reaction, which you take when you see a creature within 60 feet of yourself casting a spell with Verbal, Somatic, or Material components",
+    range: "60 feet",
+    components: { verbal: false, somatic: true, material: false },
+    duration: "Instantaneous",
+    description:
+      "You attempt to interrupt a creature in the process of casting a spell. The creature makes a Constitution saving throw. On a failed save, the spell dissipates with no effect, and the action, Bonus Action, or Reaction used to cast it is wasted. If that spell was cast with a spell slot, the slot isn't expended.",
+    saveType: "CON",
+  },
+
+  // ─── 4TH LEVEL SPELLS ─────────────────────────────────────────────
+
+  "Banishment": {
+    name: "Banishment",
+    level: 4,
+    school: "Abjuration",
+    castingTime: "1 action",
+    range: "30 feet",
+    components: { verbal: true, somatic: true, material: true, materialDescription: "a pentacle" },
+    duration: "Concentration, up to 1 minute",
+    description:
+      "One creature that you can see within range must succeed on a Charisma saving throw or be transported to a harmless demiplane for the duration. While there, the target has the Incapacitated condition. When the spell ends, the target reappears in the space it left or in the nearest unoccupied space if that space is occupied. If the target is an Aberration, a Celestial, an Elemental, a Fey, or a Fiend, the target doesn't return if the spell lasts for 1 minute. The target is instead transported to a random location on a plane (DM's choice) associated with its creature type.",
+    saveType: "CHA",
+    upcast: { perLevel: "1 target" },
+    upcastDescription:
+      "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th.",
+  },
+
+  // ─── CLASS FEATURES (Level 0) ─────────────────────────────────────
+
   "Hound of Ill Omen": {
     name: "Hound of Ill Omen",
     level: 0,

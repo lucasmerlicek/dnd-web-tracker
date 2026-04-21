@@ -457,6 +457,149 @@ export function migrateCharacterData(data: CharacterData): CharacterData {
 }
 
 // ---------------------------------------------------------------------------
+// Level-up migration: Madea level 5 → 7
+// ---------------------------------------------------------------------------
+
+/**
+ * Apply level-up changes for Madea from level 5 to level 7 (Shadow Sorcerer).
+ *
+ * Pure function — does not mutate the input. Returns a new CharacterData with:
+ * - level 7, proficiency bonus 3
+ * - +16 HP (2 levels × (4 avg d6 + 2 CON mod) + 4 Tough feat)
+ * - +1 3rd-level spell slot, +1 4th-level spell slot
+ * - Counterspell added to 3rd-level spells
+ * - Banishment added to 4th-level spells
+ * - Sorcery points max = 7, current = 7
+ * - Innate Sorcery max uses = 2, uses remaining = 2
+ * - Verifies Hound of Ill Omen is present in spell data
+ *
+ * Requirements: 1.1, 1.2, 2.1, 2.2, 3.1, 3.2, 3.3, 3.4, 4.3, 5.4, 6.1, 6.2, 8.4, 8.5, 11.2
+ */
+export function levelUpMadeaToLevel7(data: CharacterData): CharacterData {
+  const result = { ...data };
+
+  // Req 1.1: level → 7
+  result.level = 7;
+
+  // Req 1.2: proficiency bonus → 3
+  result.proficiencyBonus = 3;
+
+  // Req 2.1: maxHp += 16 (2 × (4 + 2) + 4 for Tough feat, CON mod = +2)
+  result.maxHp = data.maxHp + 16;
+
+  // Req 2.2: currentHp += 16
+  result.currentHp = data.currentHp + 16;
+
+  // Deep-clone spell slots to avoid mutating input
+  result.spellSlots = { ...data.spellSlots };
+  result.currentSpellSlots = { ...data.currentSpellSlots };
+
+  // Req 3.1, 3.2: add 1 to 3rd-level spell slots
+  result.spellSlots["3rd"] = (data.spellSlots["3rd"] ?? 0) + 1;
+  result.currentSpellSlots["3rd"] = (data.currentSpellSlots["3rd"] ?? 0) + 1;
+
+  // Req 3.3, 3.4: add 1 4th-level spell slot
+  result.spellSlots["4th"] = (data.spellSlots["4th"] ?? 0) + 1;
+  result.currentSpellSlots["4th"] = (data.currentSpellSlots["4th"] ?? 0) + 1;
+
+  // Deep-clone spells to avoid mutating input
+  result.spells = { ...data.spells };
+
+  // Req 4.3: append Counterspell to 3rd-level spells
+  const spells3rd = [...(data.spells["3rd"] ?? [])];
+  if (!spells3rd.includes("Counterspell")) {
+    spells3rd.push("Counterspell");
+  }
+  result.spells["3rd"] = spells3rd;
+
+  // Req 5.4: create 4th-level spells with Banishment
+  const spells4th = [...(data.spells["4th"] ?? [])];
+  if (!spells4th.includes("Banishment")) {
+    spells4th.push("Banishment");
+  }
+  result.spells["4th"] = spells4th;
+
+  // Deep-clone classResources to avoid mutating input
+  result.classResources = { ...data.classResources };
+  const cr = result.classResources as Record<string, unknown>;
+
+  // Req 6.1: sorcery points max → 7
+  cr.sorceryPointsMax = 7;
+
+  // Req 6.2: current sorcery points → 7
+  cr.currentSorceryPoints = 7;
+
+  // Req 8.5: innate sorcery max uses → 2
+  cr.innateSorceryMaxUses = 2;
+
+  // Req 8.4: innate sorcery uses remaining → 2
+  cr.innateSorceryUsesRemaining = 2;
+
+  // Req 11.2: verify Hound of Ill Omen is present in spell data
+  const allSpells = Object.values(result.spells).flat();
+  if (!allSpells.includes("Hound of Ill Omen")) {
+    throw new Error(
+      "Level-up migration failed: 'Hound of Ill Omen' is not present in the character's spell data"
+    );
+  }
+
+  return result;
+}
+
+// Level-up migration: Ramil level 5 → 6 (Fighter 1 / Wizard 4 → Fighter 1 / Wizard 5)
+// ---------------------------------------------------------------------------
+
+/**
+ * Apply level-up changes for Ramil from level 5 to level 6 (Fighter 1 / Wizard 5).
+ *
+ * Pure function — does not mutate the input. Returns a new CharacterData with:
+ * - level 6, charClass updated to "Fighter 1 / Wizard 5 (Bladesinger)"
+ * - +6 HP (4 avg d6 + 2 CON mod)
+ * - +2 3rd-level spell slots
+ * - Wall of Sand and Fireball added to 3rd-level spells
+ * - proficiencyBonus stays at 3 (levels 5-8)
+ */
+export function levelUpRamilToLevel6(data: CharacterData): CharacterData {
+  const result = { ...data };
+
+  // level → 6
+  result.level = 6;
+
+  // Update class description
+  result.charClass = "Fighter 1 / Wizard 5 (Bladesinger)";
+
+  // proficiency bonus stays at 3 (levels 5-8)
+  result.proficiencyBonus = 3;
+
+  // maxHp += 6 (4 avg d6 + 2 CON mod)
+  result.maxHp = data.maxHp + 6;
+  result.currentHp = data.currentHp + 6;
+
+  // Deep-clone spell slots
+  result.spellSlots = { ...data.spellSlots };
+  result.currentSpellSlots = { ...data.currentSpellSlots };
+
+  // Add 2 3rd-level spell slots
+  result.spellSlots["3rd"] = (data.spellSlots["3rd"] ?? 0) + 2;
+  result.currentSpellSlots["3rd"] = (data.currentSpellSlots["3rd"] ?? 0) + 2;
+
+  // Deep-clone spells
+  result.spells = { ...data.spells };
+
+  // Add Wall of Sand and Fireball to 3rd-level spells
+  const spells3rd = [...(data.spells["3rd"] ?? [])];
+  if (!spells3rd.includes("Wall of Sand")) {
+    spells3rd.push("Wall of Sand");
+  }
+  if (!spells3rd.includes("Fireball")) {
+    spells3rd.push("Fireball");
+  }
+  result.spells["3rd"] = spells3rd;
+
+  return result;
+}
+
+// ---------------------------------------------------------------------------
 // Main
 // ---------------------------------------------------------------------------
 

@@ -5,9 +5,10 @@
  *   1st-level slot = 2 SP
  *   2nd-level slot = 3 SP
  *   3rd-level slot = 5 SP
+ *   4th-level slot = 6 SP
  *
  * Slot-to-SP conversion:
- *   Any slot → SP equal to the slot's level (1st = 1 SP, 2nd = 2 SP, 3rd = 3 SP)
+ *   Any slot → SP equal to the slot's level (1st = 1 SP, 2nd = 2 SP, 3rd = 3 SP, 4th = 4 SP)
  */
 
 /** Cost in sorcery points to create a spell slot of the given level key. */
@@ -15,11 +16,12 @@ export const SP_TO_SLOT_COST: Record<string, number> = {
   "1st": 2,
   "2nd": 3,
   "3rd": 5,
+  "4th": 6,
 };
 
 /** Map a spell slot level key (e.g. "1st") to its numeric level. */
 export function slotLevelNumber(level: string): number {
-  const map: Record<string, number> = { "1st": 1, "2nd": 2, "3rd": 3 };
+  const map: Record<string, number> = { "1st": 1, "2nd": 2, "3rd": 3, "4th": 4 };
   return map[level] ?? 0;
 }
 

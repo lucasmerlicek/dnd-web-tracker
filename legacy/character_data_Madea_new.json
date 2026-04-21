@@ -1,0 +1,303 @@
+{
+  "character_name": "Madea Blackthorn",
+  "race": "Human",
+  "char_class": "Sorcerer 4",
+  "level": 4,
+  "current_hp": 34,
+  "max_hp": 34,
+  "ac": 10,
+  "base_ac": 10,
+  "default_base_ac": 10,
+  "inspiration": 1,
+  "luck_points": 3,
+  "shield_active": false,
+  "mage_armor_active": false,
+  "raven_form_active": false,
+  "raven_form_uses_remaining": 1,
+  "raven_form_max_uses": 1,
+  "hit_dice_total": 4,
+  "hit_dice_available": 4,
+  "hit_dice_size": 6,
+  "sorcery_points_max": 4,
+  "current_sorcery_points": 4,
+  "proficiency_bonus": 2,
+  "stats": {
+    "STR": {
+      "value": 8,
+      "modifier": -1
+    },
+    "DEX": {
+      "value": 10,
+      "modifier": 0
+    },
+    "CON": {
+      "value": 14,
+      "modifier": 2
+    },
+    "INT": {
+      "value": 14,
+      "modifier": 2
+    },
+    "WIS": {
+      "value": 10,
+      "modifier": 0
+    },
+    "CHA": {
+      "value": 20,
+      "modifier": 5
+    }
+  },
+  "skills": [
+    {
+      "name": "Acrobatics",
+      "stat": "DEX",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Animal Handling",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Arcana",
+      "stat": "INT",
+      "proficient": true,
+      "modifier": 4
+    },
+    {
+      "name": "Athletics",
+      "stat": "STR",
+      "proficient": false,
+      "modifier": -1
+    },
+    {
+      "name": "Deception",
+      "stat": "CHA",
+      "proficient": true,
+      "modifier": 7
+    },
+    {
+      "name": "History",
+      "stat": "INT",
+      "proficient": false,
+      "modifier": 2
+    },
+    {
+      "name": "Insight",
+      "stat": "WIS",
+      "proficient": true,
+      "modifier": 2
+    },
+    {
+      "name": "Intimidation",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": 5
+    },
+    {
+      "name": "Investigation",
+      "stat": "INT",
+      "proficient": false,
+      "modifier": 2
+    },
+    {
+      "name": "Medicine",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Nature",
+      "stat": "INT",
+      "proficient": false,
+      "modifier": 2
+    },
+    {
+      "name": "Perception",
+      "stat": "WIS",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Performance",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": 5
+    },
+    {
+      "name": "Persuasion",
+      "stat": "CHA",
+      "proficient": false,
+      "modifier": 5
+    },
+    {
+      "name": "Religion",
+      "stat": "INT",
+      "proficient": false,
+      "modifier": 2
+    },
+    {
+      "name": "Sleight of Hand",
+      "stat": "DEX",
+      "proficient": false,
+      "modifier": 0
+    },
+    {
+      "name": "Stealth",
+      "stat": "DEX",
+      "proficient": true,
+      "modifier": 2
+    },
+    {
+      "name": "Survival",
+      "stat": "WIS",
+      "proficient": true,
+      "modifier": 2
+    }
+  ],
+  "feats_traits": [
+    "Variant Human Traits: Resourceful, Skillful, Versatile",
+    "Feat: Tough (+2 HP per level)",
+    "Feat: Fey Touched (Bane & Misty Step 1/long rest)",
+    "Sorcerer Origin: Eyes of the Dark",
+    "Sorcerer Origin: Strength of the Grave"
+  ],
+  "spell_slots": {
+    "1st": 4,
+    "2nd": 3
+  },
+  "current_spell_slots": {
+    "1st": 4,
+    "2nd": 3
+  },
+  "created_spell_slots": {},
+  "druid_charm_person_used": false,
+  "fey_bane_used": false,
+  "fey_misty_step_used": false,
+  "sorcerous_restoration_used": false,
+  "cantrips": [
+    "Poison Spray",
+    "Fire Bolt",
+    "Mage Hand",
+    "Infestation",
+    "Message"
+  ],
+  "spells": {
+    "1st": [
+      "Mage Armor",
+      "Shield",
+      "Silvery Barbs",
+      "Chromatic Orb",
+      "Bane",
+      "Thunderwave"
+    ],
+    "2nd": [
+      "Misty Step",
+      "Darkness",
+      "Aganazzar's Scorcher",
+      "Web"
+    ]
+  },
+  "weapons": [
+    {
+      "name": "Dagger",
+      "damage_dice": "1d4",
+      "damage_type": "piercing",
+      "attack_stat": "DEX",
+      "properties": [
+        "finesse",
+        "light",
+        "thrown"
+      ],
+      "magic_bonus": 0,
+      "uses_dueling": false,
+      "two_handed": false
+    }
+  ],
+  "fighting_styles": {},
+  "save_proficiencies": [
+    "CON",
+    "CHA"
+  ],
+  "death_saves": {
+    "successes": 0,
+    "failures": 0
+  },
+  "actions": {
+    "raven_form": {
+      "name": "Raven Form",
+      "description": "Bonus Action: Transform into raven (1/short rest)",
+      "available": true,
+      "recharge": "short_rest",
+      "uses": 1,
+      "max_uses": 1
+    }
+  },
+  "inventory": {
+    "gear": [
+      "Dagger",
+      "Arcane Focus (Crystal)",
+      "Quill of a raven",
+      "5 herbs",
+      "vial of river water"
+    ],
+    "utility": [
+      "Herbalisme kit",
+      "Scarabeaus bug (alarm for danger on the expedition",
+      "0.1 star cristall from Artefactology",
+      "The mask of the Matriarch (Blackthorn)"
+    ],
+    "treasure": []
+  },
+  "coins": {
+    "cp": 0,
+    "sp": 0,
+    "ep": 0,
+    "gp": 10,
+    "pp": 0
+  },
+  "journal": {
+    "sessions": {
+      "Session 1": "Madea Blackthorn",
+      "Session 2": "Session: Session 2\n\nDate: 13.11.2025\n\nNotes:\nSitting on a desk in the class of Citaly.\nTmrw first expedition is announce: Calderen (newest ruin they found from the dawn forged),\n first ruin they found in the last five years.\nMidnight menagerie tonight for students (near the dormitory?)\nTmrw at 6 o'clock sharp-->ready at the docks.\nOn the party: Madea drinks a nightowl espresso (southern temptation).\nStarfall tea: makes you very clear in the head.\n\nCalamity at  Blutquell Cyluviel comes to us and tells us he has news about the catastroph:\n\nWitch fires, trembling of the earth, light, lone figure in black robe, man/ spirit born of the mountain.\nSorcery at places, necromancy-->witness tell of the dead standing up again and fighting against them.\n\nFrom the Church of Shak'Asat: corpus Grimrock-->the name made whispering voices appear, everything\nturned dark around them. Cursed name? A pupil who turned to necromancy. He has broken the\nsecret oath of the scholars. Decree: all who practice necromancy can legally be hunted down.\n\nThe dead rose again and people had to slay people they knew once. Blutquell seems to develop a\nhate against everyone studying magic, not only necromancy.\n\nThe North is already thinking about becoming their own state. Now with the incident in Blutquell \nSouth blames the North even more.\n\nRamir and Madea have a heated discussion about the articles (Madea thinks they have the right to\nbe scared of magic now, while Ramil condemns the hatred in the articles).\n\nRamil tries to make amends befor turning to the dormitories but the discussion but they don't find\ncommon ground.\n\nMadea tries to read the journal of her mother in her bed at night:\nCan't read the scribblings (foreign language)\n\nSix sections:\n1. Runes and weird stuff\n2. sketches of dungeon entries\n3. Rituals and diagramms\n4. Wild scribbles\n5. Weird maps\n6. Listed names (some of them are crossed out)\n\nBecause of the night-owl espresso Madea can't sleep for hours (was awake till 4 in the morning)\nIn the morning she pays the price.\n\nAfter 20 hours of traveling on a flying ship, we arrive in the south mountains called Kel Daren.\nCitaly tells us he forgot something and boarded the ship and flew away.\nWe agree that this is probably a test.\n\nWe enter the ruin and the door closes behind us. Ivan (assistant of the prof) is there. We explore.\nMadea recognizes a rune on a obelisk from the the journal of her mother (a circle with three vertica\nand one diagonal line).\nRamil touches a sword of corpses (looking like dawn forged) and the ground breaks away, we fall,\nland on a slope. Feel water.\nWe found ourselve in a room with a standing coffin enwrapped in chains, some of them glowing with\nember. The temperature is ice cold and hot at the same time. We landed in a lake or something and\ngo into the room.\nMadea gets an uneasy burning sensation and feels dizzy.\nWhere the lake once was is now solid floor.\nRamil and Philiador open the coffin with stones and there is a skeleton inside with a metal globe,\nwhich is extremly magic. Philiador touches the crystal thing (=world fragment) and we all get a \nvision of black clad soldiers, thousands of them, marching, corpses around them as they march. \nSoldier Madea will recognize everywhere...the ones who hunted her mother and her...and killed her.\nOnce we open our eyes again we found ourselves in a long hallway, with many doors, behind which\nwe hear our class camerads scream behind those doors. And have the dooming feeling that we have\nfreed a magic that was asleep for a very long time.\nIn the hallways different coffins are standing along the wall, imbued with hyroglyphes.\nWe have such a strong feeling that what just happened needs to stay a secret at all costs.\nPhiliador gets hit by an arrow (for stepping on a pressure plate) and when he falls down he hits two\nmore tiles. There also appears a mirror imagine of him.\nMadea almost gets hit as well, but only her dress gets a scratch and the poison evaporates.\nPhiliador almost dies, they get saved by Ivan (the assistant) and their class mates all tell them they\nhave been missing for three days although for the main group it felt like three hours.\n(At the end we get XP for finding a legendary artifact and get to level 4).\nWe fly back with Rusty Pete.\nOn her shoulder plate the black clad soldiers had a symbol (red and black) like a red sun. \nWe come back to the school,in the school everyone is gathered (students and professor), at first \nwe think its for us. But its the High Priest of the Church. To ensure safety and responsibility for the\nrealm. (looks like a angel)\nMadea is happy that at least the church is here to keep an eye on the magic and ensure safety.\nHer mother has never mentioned the church in either a good or a bad way. Madea new it excisted,\nheard from it, but is pretty neutral against it.\nBalar Osiriand and Falar and Talaf have declared independence against the Republic (the North).\nThe whole North wants to be independent.\nAll magic that destroys was forbidden. Anfauglith is the only exception (for research).\nWe are urged to write letters to our closest ones.\n\n",
+      "Session 3": "Session: Session 3\n\nDate: 27th November\n\nNotes: warm up from last session\nDecree (Anordnung): a person seen practicing necromancy can be killed upon sight. (Decree of the church-->from last session)\nBad person-->Corvus Grimmrock\nNorthern provinces want to be independent\nUniversity got the face-less (High Priest of the Church)  got sent as a spokes person for the church or something\n\nStart of session:\nMadea wakes up to the magical artifact (the world fragment) hovering over her bed, just under the ceiling of her bed. She springs out of bed to wake Levinia in panic but once they rush back to Madeas bed it's gone and Levinia doubts  that Madea actually saw something and didn't just had a bad dream. The girls decided to still figure out more about the artifact they saw the day before. Madea feels a weird lingering of magic she felt before.\n\nManu Baba tells us we get the day free and have lunch at 12 am. And we have to choose a racer and a runner for the races.\n\nRamil and Kai come to our room and  Madea tells him about the artifact she saw. They all check their bed and no one finds something (kai thinks he saw a sword).\nMadea opens up about having seen the soldiers from the  vision once before: while being hunted out of their home. She tells them how they killed her mother. But none of them have ever seen anything like the soldiers. Ramil wants to enjoy the outside sun and Madea is offended that he can think about relaxing when she just saw the orb. She storms out.\n\nAfter she cooled down she went to the library she asked about books about armies and black clad soldiers. The library tells her she will find the book on the second floor and that two of her classmates already were here and asked about the books.\nLevina and Ramil and Kai came behind her and asked about other things but they all get sent to the second floor.\n\nOn the third floor she sees every seat occupated except  the one on the table on which the faceless sits (the High Priest). Madea takes three promising books and sits to the table with them.\nStudent/staff names on the High Priests name: Cyuviel Orthon, dean of the university.\nThe High Priest saw Madea looking at his documents and scolds her, she is embarressed and tries to read her books, but the most promising one is written in old english, how she found out through a professor who was in the library as well (Panda professor) and he told her you learn to read old english in the second year (and all the professors can read it of course).\n\nMadea has a talk with the faceless and asks how the Church stands towards the massacre of Blutquell and what they know about it. The faceless tells Madea to come seek him in the church of the school for answers and that he will see to it that something doesn't happen again.\n\nBefore heading to the lunch Madea passes by the post office and gets her letter from Abigail. But before she has time to read it she has to run to lunch to not be late.\nKai, Ramil, Levina, Philiador? and her have a lunch with the dean (second highest).\nAfter lunch she reads the letter in her room and sheds some tears about the encouracing words of her dearest friend but is also worried about her warnings about the University. Abigail remainds her to trust the emperor and the church who want to control magic.\n\nRamil and Duneon get Madea  in her room and tell her that her classmates all meet in the tea room to discuss the runner and racer for the tournament.\nThe tea room is above the herb room. Madea feels at  home and asks if there is a job for her since it reminds her of home.\n\nLevina gets decided as the racer (one in the whole year), and Madea as the runner (kind of the obstacle cours where magic can be used), one in each class gets chosen.\n\nMadea then heads to the school church to meet the faceless to ask him more about the incident in Blutquell and how the Church thinks to protect the people from it never happening again.\nMadea had a very unnerving conversation with the High Priest. She was hoping for reassurance in the eyes of the darkness of magic but she got an uneasy feeling as he not only condemned  necromancy but also every kind of magic that hurts others (fire and eyes magic etc.) and she noticed that she would fall under this category and was starting to think the church was fanatic. Also the High priest was interested in the name of Madeas mother which made her uneasy as she doesn't know but always had the feeling that maybe her mother also practiced some not so allowed magic sometimes.\n\n\n\n\n\n\n \n \n\n\n\n\n",
+      "Session 4": "Session: Session 4\n\nDate: 9.12.2025\n\nNotes:  The girls get waken up by Ivan who tells them that they have to attend a ceremony of the faceless before their first class in the morning.\nThey all walk to the chapell. Their is a  weird fresc like the Michelangelo (golden hand on top with a red apple and the lower hand is a figure dressed in the robes of the faceless, seems to glow although its fabric). Also some Menorahs.\nThe faceless is behind the altar with a black book with a golden ingraving and a sun on it. Seems to glow as well.  Almost seems like the sun is moving on the cover.\nIn the front row the dean (dragonborne) is sitting there. Made joins Kai who reserved his class some seats in the second  row.\nThe faceless just said that if one is ever burdened he has an open ear.\n\nThey have Archeomancy with Professor Citaly (just in the room next to the chapel). Announcement of a new expedition.\nCitaly assured us that as long as one wears the robes we can use magic outside of Atherion (without breaking any law).\n\nThe second expedition brings them to the three pillars near Hagendorf. The village were Madea has been many times before in her childhood. Massive cristals. Under Landrot there is a massive dawn forged city and some canals go to the cristals and they were pushed up. So we know they were put there but we don't really know why yet. Often the power source of magical artifacts. \n\"Eldalie\"\n\nThey touch the glittering water of the river beside the cristals. In the shade of a tree and out of sight of the others Madea takes of her glove and puts her hand into the water, scared to rot something. And fills up two of the vials with water from the river. When her left hand touches the water it feels soothing. Pleased and intrigued Madea plans to find out more about the abilities of the water.\nThey go to the cristal. Climb up the stairs to the top. Little plattform there.\nWhen Madea touches the cristal it absorbs their magic (shown through a dark shadow in the cristal), feels soothing but not too good for Madea. It amplified a spell of Kai.\n\nIn the evening they go to Hagendorf. Small market in the middle, merchant village. Bad weather, seems like a storm is starting to brew. Mist in the air. A little windy. Their professor told them to go into the village and try to help the people there.\n\nMassacre at Hagendorf while were there. Regina and Duneon dead. We get picked up by Citaly and in the distance we see that Landrot, Grimmfels, Hagendorf ad Hallow Anwesen were also attacked.\nMadea writes a letter to Abigail in Godrick praying that the village was not attacked.\n\nIn the great hall of Atheorien everyone gathers and Brandsson gives a speech and honours the sacrifice of Duneon and Regina. The faceless stands still, everyone else is sitting. Tom stands up and starts to sing (he's in the harmonic club)-->they sing a mixture of dawn forged and orgish (eldalie).\n\nWTF. Levinia suddenly feels something under her robe during the singing when she looks she sees the artifact (world fragment) under her robe the inner ring now red instead of copper. And Levina feels that if she pulls the energy from it, she can see through some memory that was tampered with. And suddenly she sees all clearly: Duneone never existed. She was a zombie/undead all along. She was controlled by a puppeteer or something. Levina didn't tell anyone yet though.\n\n  \n\n\n\n\n\n\n\n    \n",
+      "Session 5": "Session: Session 5\n\nDate: 13th January 2026\n\nNotes: we find ourselves in the boys dormitory. The world fragment in the room inner two rings are red. The last two weeks are a blurr for us. We can't remember why we are in the room right now. Madea can't seem to remember Duneone. All standing in a circle.  After trying to get through to the artifact Madea suddenly can through the magic and remembers her . All remember her now. Tom comes to get them, he doesn't seem to remember  Duneone. They go to Celuviel who tells them the news.\nNews read by Celuviel:\nEmergency chancellor appointed, it's the emperor (highest figure in the senate, and has emergency executive authority). Chancellor Eonix. He coordinated a force \"protection of civilians\" main part assembling in Udun (right on the map).\nGrimmfell is about to starve? Whole of Nurnen. Grimmfell and Landrot had a supply route which was severed by the North. The North has officially attacked Nurnen (the South).\nThey go to the classroom of Artefactology. Golden skeleton of a animal hanging on the ceiling.\nStrongest artefacts are from the dawn forged, haven't figured out how they got them that potent. Two main group of artifacts: the conscious and the unconscious. The conscious are rarer because they kinda controll their magic.\nFurther distinctions.\nHarmful conscious artifacts= cursed artifacts (prohibited on university grounds unless accompagned by a professor).\nLehrstreit about the university itself if it is a conscious or an unconscious artifact. Our professor thinks its conscious (she hears the walls speaking to her) but  most scholars think of it as unconscious.\nAn artifact is created by a master and the artifact is a servant. The master inflict its will on the artifact.\nSometimes an artifact cannot hold all of the magic and the magic has to be split up in more than one artifacts.\nThe mightier the spell the more space it takes up in an artifact. Like literal space. Meteor shower is the mightiest spell but not even the castle would be enough. But the dawn forged have found a way/technique with the splitting of the magic to more artifacts. With that you can use two small artifacts with a link to carry meteor shower. To infuse an object with magic you need star cristalls (the pillers are star cristalls). It's called chaining artifacts together. The dawn forged were able to connect up to five artifacts together. Our university only ever managed three last year. They don't know how the dawn forged did it.\n0.1 star cristal.\nAfter class in the corridor we find a new room that appeared and wasn't there before. Philiador is standing inside of it.\nThe room has a wooden table inside, it looks old as is it has a story. Pristine wood. El Daher wood apparently. From an old tree that lived in Atheorien 10'000 years old. It was felled. Four candles with different stages of beeing burned down. All are lit but it seems as if the wax would not melt. It has one window. It has a book shelve, high and old but empty. No dust. A wooden boxwith a lock and a key inside of it. There is a lock pile and Madea takes one and throws it in the fire. The embers form the word \"Welcome\". With every piece of wood madea throws into the fire she gets an answer to her question. She asked who she is talking to and gets the answer \"the-in-between\". It doesn't answer the question if it is a conscious artefact. Its the  room apparently who is called the in between and it is there for thoughts and  secret discussions? Almost like the room of requirements kinda?\nThe boys storm in after they were sneaking into the artefact classroom and Ramil has stolen one artefact. \nMadea explains the fire-mechanics to the others. All start to ask questions. We're the only ones who have access. Apparently the professors knew about the room in the early times but apparently not anymore. The room remembers Catlin, but said she was never a formal student.\nThey find a bag in a chest and find out that it is connected. If you put something in the bag it'll appear in the chest and vice versa.\nApparently the world fragment reacts to other artifacts, the closer it gets the brighter it gets. When the boys search for the place where its the brightest they get to Madea. It seems to react to Madea and a burning sensation in her chest whenever she touches it.\nRamil touches the world fragment and gets cursed (radiant damage). He feels Madeas chest (no not like that an Arcana check) and it feels just like the world fragment.\nEveryone is now suspicious why Madea is artefactlike and why she has a weird heart beat, slow and weird???\nRamil casts identified on Madeas chest...he gets cursed as well, but sees that Madea has a second world fragment in the form of a heart. And its the reason why she's alive. And scares  inside but not seen on the outside. It was put in there artifically. She was not born with it.  And somethings tells to \"protect us\".\nWe meet in the main entrance of the university with Atsur Brandson. He tells us that the races and runs will start in two weeks. In artiomancy and artefactology we will have exams in three weeks. In also three weeks its christmas.\nUnderground floors: 1st  underground archives\n2nd hot springs\n3rd breeding grounds for Aeorodons?\nWe have to go and bond with a Aeorodon and prepare it for the races/runs.\nWe arrive at the breeding spots, no railing, cliffs. Aeorodons look like a gigantic owl but fluffy and dragonlike. We meet a tinman like man (Raknar J\u00f6rvason, Chef- und Reisekoch) makes music for the Aerodons.\nAeorodons are very open and kindhearted species, they age similarly to us. Connection for life.\nApproaching: make eye contact when it looks at you, if it comes closer we do a back and forth and put down the head till our fronts touch. They like sardins\nMadea spots an Aeorodon that is dark blue with white patterns and black throat and yellow eyes.\nMadea bonds with it and calls it Nox. Madea thinks \"let's go Nox\" and Nox goes into a dive off the cliff. Madea holds on for dear life. Madea sees dragons as she flies through the clouds with her Aeorodon. We all glide along with Atsur Brandson. Tom has a red Aerodon with yellow feathers and has no control. They end their first flight. Levina and Madea get reminded to practice often for the races/runs. Nox is described as a little bit of a diva oh boy. Nox is male btw. It's always different obstacles you can't really prepare.\nMadea goes somewhere quiet to write a letter to Abigail and to figure more out about the situation in Nurnen.\n    \n\n       \n     \n\n\n       \n    \n\n  \n",
+      "Session 6": "Session: Session 6 (Ramil, Philiador Madea special)\n\nDate: 25th January 2026\n\nNotes: While the others were discovering more about Catlin Duneone Madea spent her day writing a letter to Abigail and training with Nox for the run and also  have some talks with the faceless. She tries to  gain his favour. She doesn't agree with his views and thinks him dangerous but she thinks it a better action to try and act as if she's on his side and play a loyal pet to him.\nShe later finds out that Philiador and Tom had terrible encounters with him.   Phil even has a scar \u00e0 la  Umbridge on his wrist, the words written on it are \"sinner\"\nMadea also went on to study the notebook of her mother.\nRunes\nDungeons\nRituals\nNotes\nWeird maps\nNames (crossed out) Madea feels like one or two names could have been the same as the one on the list of the faceless.\nDungeons and weird maps describe the same place a cave that Madea remembers from her childhood south of Rabenhall in the hills. There seems to be a big cave system and the cave from her memory and in the notebook has staffs and skulls depicted with it.\nPhil and Ramil tell Madea, that they found a book in the library that shouldn't have been there, signed by Unnamed who romanticises and explains how to do Necromancy. A handwritten note in it, suggest to visit a cave near Rabenhall for answers. They think it's the same cave Madea  remembers from her childhood.\nRamil has a visit at the morgue and discovers Duneons body. She did in fact exist, but died over a year ago and was probably reanimated and had a dark star crystall imbued in her neck. So someone with access to the morgue must have reanimated her.\nThey all update each other and want to go investigate the caves. Levina and Madea are suddenly affected or corrupted? by the artifacts (Levina  through the artefact we found and  Madea through the one in her chest).\nThey are absoultely adamant about bringing the artefact to the cave.\nLevina and Madea go to Brandson. Brandson allows Madea to go to the forests of Nurnen with the whole class to mourn her mothers dead.\nThey fly away with their Aerodons. They see the war raging on flying over the landscape.\nThey stay at Madeas home in the wood after a days flight. She sees her mothers room with etched in words of \"witch, burn in hell\". Madeas room is burned completly. The windows are broken in, clearly some people randalized it. Madea goes to her herb garden and everything is overgrown, she picks some useful herbs and goes back. In a tree she sees a black arrow. She tries to remove it but is not strong enough. Frustrated she punches the tree and sinks down on it. Crying. Her Aerodon joins to comfort her.  After a while she turns back and joins the other.\n The others explained everything to Kai who was not yet in the loop.\nThe next morning they find the cave with the skulls on a spike. Madea remembers her mother brought herbs and a tome in her memory of that cave of the childhood.\nBig tome, chain to close it, golden inscription.\nIn the cave they take the right path. Big room, big wall, brighter than the rest, seems like there is something written on it.\nThey all cast illuminate and find a gigantic panting on the wall. Real gold was used. There is a godess like women on the right and people raise their weapons against her. On the left there is a dark pharao like figure casting a curse on her. Could the people be dawn forged?\nMadea tries to draw it in her mothers notebook.  \n\n\n \n \n",
+      "Session 7": "Session: Session 7\n\nDate: 22th February 2026\n\nNotes:\nIn the cave there are holes in ceiling (25m in the air) the painting in front and doors on the right and left.\nCitaly is suspicious because he was the only one who had access to the morgue (and all the other top tier deans and headmasters of the school).\nThey hear something in the caves and suddenly a fight begins. It looks like insect like crabs or roaches. They are rachnes? They count as beasts and not animals. They have a leader the queen, her generals are called mothers. We're facing mothers. It's a hive mindset. The holes in the walls are probably from them and means were near a nest. Every rachne gets a certain mission upon birth and we are also facing archer and warrior and worker rachnes. They all came from the floor and it's an ambush. They start fighting.\nRamil gets knocked out by the mothers, a lot of the other beasts get kill and the others flee.\nAfter the fight Ramil is blind and deaf due to a last attack of the mother. Madea makes him a concoction from the cristal water of the pillars with some herbs. He is instantly healed and gets all spells back and feels energized and alive. \nThey proceed through the door on the left where they hear wind. They find a hanging bridge \u00e0 la squid game were they have to go across. Madea goes first and falls but turns into a raven.\nWalking across: right, left right, left, left, jump, left, right, jump, right, left, left. Ramil gets across with a robe (on the other side is Kai and Phil holding him if he falls), Levina turns in to a bat and they all get across. Madea manages to open the door as a raven. Behind the door is long floor full of rubber. There is a treasure chest but the party suspects it's a mimic (creature that poses as an object to lure people in). Madea flies past it and finds a  corridor with metal  bars. Not even as a raven can she get past it. In another room is a riddle on a wall it is a mirror riddle which Madea can solve instantly but she can not put the plate on the right place because she is a raven. She waits for Ramil and Levina who help her. A narrow small corridor opens and they crouch in and find another door. It has dispel magic on it and they enter it.\nThere is a room with a stone centry (dormant and indistructable) and a table with six chairs and a set table with six chalice with similar but different liquids.\nUnder the chairs something is written:\nSentry= seargent \nLevina= major\nMadea= captain\nRamil= leutnant\nPhil= deputy\nKai= chief\n\nThey had to drink the cups in the right order (lowest to highest, the sentry started)\nThey manage and another  small hallway opens. They crouch through\nAnother riddle: \"Don't forget three is right and you will find the light\"\n\nThey enter a square room with four doors on each wall. One has a  candle beside, one has a book with the title \"light\" and, one has a morning star,  and the last has a sun etched into it.\n\nThey enter the door on the right side were a hallway carries on. In all the other doors there is a equal square room with exactly the same interior as the first.\nThe party follows the hallway. They find a small room with another hallway leading out and a big double door which is closed.\nMentichor is written over a door.\nMANTICORE: the solution is that the door itself (which was speaking) has to say Manticore.\nThey can enter and are suddenly in  a very fancy mansion.  Once they enter suddenly behind them is a goblin  on a gigantic frog: Skarsnik Catacoomb and the frog gumbo\nThe mansion is called tzentch manor.\nThey rest in a room.\nThey follow the frog guy into a room with two portraits. One says lord Grimmrock with a pest  mask and the other \"Matriarch Blackthorn\"...also with a mask. Madea is thunder struck. Maybe a relative. \nThe butler leads us to the \"dinner\" with the matriarch.\nThere is a gigantic table with a lot of chairs. On the head and the chairs right beside it is the only cutlery.\nThe Matriarch enters, like on the portrait, but with a human face, young, not much older than Madea.\n\"I was expecting you\". She is 205 years old and is Madeas great-grand-mother.\nBlackthorn is the leading family of the grand witch covent. The devout followers Tzeentch. So the Blackthorns are all witches. The Matriarch tells her that her mother maybe didn't tell Madea about the Matriarch because she was trying to protect her from her destiny.\nMadeas a letter of her mother in which she explains a prophecy of a stillborne child and her role as a future Matriarch.\nThe  Matriarch says the one on the left is Nagash on the big portrait. \nLord Grimmrock is the leader of the mortuary cult. One of the five faces of the many faced gods.\n\nThe Matriarch kills herself with the comment that Madeas time has come now. She turns into ashes and only ashes and the mask of the Matriarch remains. Madea gets the mask and can wear it (it's an item).  \nThey convince Skarsnik to lead  them into the office.\n\nThey roam around in the office.\nThey found a document that the mortuary cult sent something to the grand witch covent. WF (world fragment)  highly volatile. It was a Lieferservice of magical artifacts.\n\n Carthian Family seal. The emissary who delivered it is Mr. Al-Saif. Ramil thinks it was his uncle Malikir. He was involved with the trades of artifacts.\nThere are some letters which only can be read with the Martriarchs mask: a contract between the Martriarch and Corvus Grimmrock. The witches from the grand witch covenant will search for the left eye and the left hand of Nagash in exchange that the mortuary cult gave the witches a world fragment. It was already given to the Carthian family. (contract was already fulfilled by giving the WF to the Carthian family who transports the artifact and Al-Saif helped to deliver it. But no proof that it was actually delivered). 24 years ago.\nThey find the tome of her mother she saw in her memories.  Levina find it in the office. Ramil senses divine magic in the book. A weird kind of magic but not like Shak'Asat magic. It's a religious textbook. More like a choir book for the many faced god. And there are five chapters for the five faces:\n-Nurgle: god of life and disease\n-Slaanesh:  godess of longing and hatred\n-Morvath: god of death and memory\n-Chorne: god of war and love\n-Tzeentch: god of science and lies (we follow that dude the witches)\n\nSkarsnik tells Madea that she can only get in contact with other surviving witches of the convent through the rituals. There is a pentagramm on the floor and  a corpse with a corrupted star cristall around her neck. Skarsnik said it is so the witches can talk to Corvus.\n\nMany witches died at Blutquell. It seems as if the covent was betrayed by the mortuary cult.\nThe previous Martriarch was staying here a lot.\nOne of the grand witches were  called to a gathering in Blutquell a and almost all of them died. So it seems like it was a setup.\nThey find a button near the door and some cristalls drop from the wand. They are numbered.\nMadea touches one and feels like her mind goes through a tunnel to another cristall. She hears voices. She hears \"Abigail go down here we need to hide\".\nMadea faints and gets caught by Ramil. Skarsnik tries to cure her with cheese and the smells gets her awake.\nSkarsnik leads them to a back excit (without traps and stuff). They get out on a river in the cave where they started.\nThey run out. They find Tom circled by Aerodons all sleeping. Madea begs them to go save Abigail.\nThey take off. From high in the sky they see Rabenhall in flames and Grimmfells in ashes. The forest of Nurnen is burning as well.\nMadea runs to the hut and sees three horses. She storms in and sees Abigail, her mother and her father on the table injured badly. They embrace each other and Madea tries to heal him with pillar water.\nOnce the father is stabilized Madea and Abigail head out to talk. The troupes from the emperor tried to defend Godrick. They tried to evacuate and hold the town as long as possible. The attacking troupes used magic and were from the north.\nAbigails tells Madea they plan to stay in her hut if it's fine by Madea because the armies just try to take the big towns and cities and they find it safer to stay in Nurnen.\nMadea gets a letter from Atsur Brandson (condolences and that he will pick them up).\nLevina wants to share something with the group: her uncle was in the senate (extremy high position) her sister has written a letter to her.\nThe north didn't want to attack but they stationed troups near Hagendorf but they were not planned to attack. But someone gave the order to attack. Her uncle was sent to the South to talks things out but disappeared on the way.\nIn order to save face the North then went with the attack and took responsibility for it . But in reality they do not know who actually gave the order. Levinas sister wants her to show a declaration of the Northern command in the school, so everyone knows the truth. It basically tells that Arche Mage Aaren is the leader in the North to represent etc.\nArche Mage Savos Aaren one of the most famous wizards of all time has taken the lead in the North.\nSo almost the same as the South who gave all the powers to the Chancellor. It was a legitimate transfer of power in the North and in the South by the democratic parties? Or the council. Levinas father has a spying network. But they still don't know who gave the order. Conrad was the first in command? But doesn't seem to match the description Levina gave of the one leading the attack. The whole army belongs to her father. Adelfa is the name of Levina.\nTom joins the group and tells them he got a letter: his brother was sent into the battle field, he's from the North (balar) and his brother will sail to Arvenien. Philiador is from there and is shocked that Toms brother is supposed to circle Nirndorf? \n \n  \n\n  \n"
+    },
+    "current_session": "Session 7"
+  },
+  "characters": {
+    "Tom Dike": "",
+    "Cyluviel Orthon": "",
+    "Regina Amber": "Died in the battle of Hagendorf. Was an half orc.",
+    "Magistrate Olgon": "",
+    "Atsur Brandsson": "Research Dea",
+    "DeanAmmonius Ra-Meses Khaem": "",
+    "Citaly": "",
+    "Ramir Al-Sayi (P)": "",
+    "Kai Hyeojin (P)": "",
+    "Philiodor Le Blanc (P)": "",
+    "Catlin Duneon": "Died at the battle of Hagendorf.",
+    "Leona Greifenhart": "Beastiology student (second year).",
+    "Jeany Wright": "Her eyes are covered up, has six arms, is our captain for our first excursion.",
+    "The High Priest of the Church": "Introduced himself as the faceless.\nHe kinda looks like a dark angel. And is installed in the university permanently now.",
+    "Manu Baba": "Third year dean or  something\nThird year assistant of Citaly",
+    "Levina Raiden (P)": "",
+    "Branko": "Librarian. ",
+    "Zaahira al-Fares": "Female. Professor of Artefactology.\n",
+    "Jh'Zargo": "Chefarzt bei der Leichenhalle (mourge)",
+    "Dust plumb?": "Cute flying  rabbit animal.",
+    "Skarsnik": "My insufferable manor butler."
+  },
+  "current_character": "Skarsnik",
+  "character_page": 1,
+  "places": {
+    "Kel Daron": "Newest found ruin of the dawn forge (= Kelaria, academic name of the dawn forged)\nFirst excursion of the research class.\nNecra= undead, often found in the ruins.\n"
+  },
+  "current_place": "Kel Daron",
+  "place_page": 0
+}

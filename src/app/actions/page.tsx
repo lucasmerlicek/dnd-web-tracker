@@ -94,26 +94,45 @@ export default function ActionsPage() {
   };
 
   // --- Innate Sorcery toggle (Madea only) ---
+  // Two-phase activation (Sorcery Incarnate):
+  //   Phase 1: Free uses remaining → activate for free (decrement uses only)
+  //   Phase 2: No free uses, SP >= 2 → activate by spending 2 SP
   const toggleInnateSorcery = () => {
-    const active = !cr.innateSorceryActive;
-    if (active) {
-      if ((cr.innateSorceryUsesRemaining ?? 0) < 1 || (cr.currentSorceryPoints ?? 0) < 2) return;
-      mutate({
-        classResources: {
-          ...cr,
-          innateSorceryActive: true,
-          innateSorceryUsesRemaining: (cr.innateSorceryUsesRemaining ?? 0) - 1,
-          currentSorceryPoints: (cr.currentSorceryPoints ?? 0) - 2,
-        },
-      });
-    } else {
+    if (cr.innateSorceryActive) {
       mutate({
         classResources: {
           ...cr,
           innateSorceryActive: false,
         },
       });
+      return;
     }
+
+    // Phase 1: Free activation
+    if ((cr.innateSorceryUsesRemaining ?? 0) > 0) {
+      mutate({
+        classResources: {
+          ...cr,
+          innateSorceryActive: true,
+          innateSorceryUsesRemaining: (cr.innateSorceryUsesRemaining ?? 0) - 1,
+        },
+      });
+      return;
+    }
+
+    // Phase 2: Paid activation (2 SP)
+    if ((cr.currentSorceryPoints ?? 0) >= 2) {
+      mutate({
+        classResources: {
+          ...cr,
+          innateSorceryActive: true,
+          currentSorceryPoints: (cr.currentSorceryPoints ?? 0) - 2,
+        },
+      });
+      return;
+    }
+
+    // Neither condition met — cannot activate
   };
 
   // --- Second Wind (Ramil only): heal 1d10 + Fighter level (1) ---
@@ -246,7 +265,9 @@ export default function ActionsPage() {
                   Uses: {cr.innateSorceryUsesRemaining}/{cr.innateSorceryMaxUses}
                 </p>
                 <p className="text-xs text-ff12-text-dim">
-                  2 SP per activation
+                  {(cr.innateSorceryUsesRemaining ?? 0) > 0
+                    ? "Free activation"
+                    : "2 SP per activation"}
                 </p>
               </div>
               <div className="flex items-center gap-3">
@@ -255,7 +276,7 @@ export default function ActionsPage() {
                 </span>
                 <button
                   onClick={toggleInnateSorcery}
-                  disabled={!cr.innateSorceryActive && ((cr.innateSorceryUsesRemaining ?? 0) === 0 || (cr.currentSorceryPoints ?? 0) < 2)}
+                  disabled={!cr.innateSorceryActive && ((cr.innateSorceryUsesRemaining ?? 0) === 0 && (cr.currentSorceryPoints ?? 0) < 2)}
                   className={`min-h-[44px] rounded px-4 py-2 text-sm transition ${
                     cr.innateSorceryActive
                       ? "bg-ff12-select/20 text-ff12-select"

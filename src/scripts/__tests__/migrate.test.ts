@@ -7,6 +7,7 @@ import {
   transformCharacter,
   transformMarkers,
   migrateCharacterData,
+  levelUpMadeaToLevel7,
 } from "../migrate";
 
 describe("snakeToCamel", () => {
@@ -384,5 +385,105 @@ describe("migrateCharacterData", () => {
 
     // Original should be unchanged
     expect(base).toEqual(baseCopy);
+  });
+});
+
+
+describe("levelUpMadeaToLevel7", () => {
+  function getMadeaBase() {
+    const raw = JSON.parse(
+      fs.readFileSync(
+        path.resolve(__dirname, "../../../legacy/Tracker_Madea/character_data.json"),
+        "utf-8"
+      )
+    );
+    return migrateCharacterData(transformCharacter(raw, "madea"));
+  }
+
+  it("sets level to 7 and proficiencyBonus to 3", () => {
+    const base = getMadeaBase();
+    const result = levelUpMadeaToLevel7(base);
+
+    expect(result.level).toBe(7);
+    expect(result.proficiencyBonus).toBe(3);
+  });
+
+  it("increases maxHp and currentHp by 16", () => {
+    const base = getMadeaBase();
+    const result = levelUpMadeaToLevel7(base);
+
+    expect(result.maxHp).toBe(base.maxHp + 16);
+    expect(result.currentHp).toBe(base.currentHp + 16);
+  });
+
+  it("adds 3rd-level and 4th-level spell slots", () => {
+    const base = getMadeaBase();
+    const result = levelUpMadeaToLevel7(base);
+
+    expect(result.spellSlots["3rd"]).toBe((base.spellSlots["3rd"] ?? 0) + 1);
+    expect(result.currentSpellSlots["3rd"]).toBe((base.currentSpellSlots["3rd"] ?? 0) + 1);
+    expect(result.spellSlots["4th"]).toBe((base.spellSlots["4th"] ?? 0) + 1);
+    expect(result.currentSpellSlots["4th"]).toBe((base.currentSpellSlots["4th"] ?? 0) + 1);
+  });
+
+  it("adds Counterspell to 3rd-level spells", () => {
+    const base = getMadeaBase();
+    const result = levelUpMadeaToLevel7(base);
+
+    expect(result.spells["3rd"]).toContain("Counterspell");
+  });
+
+  it("adds Banishment to 4th-level spells", () => {
+    const base = getMadeaBase();
+    const result = levelUpMadeaToLevel7(base);
+
+    expect(result.spells["4th"]).toContain("Banishment");
+  });
+
+  it("sets sorcery points max to 7 and current to 7", () => {
+    const base = getMadeaBase();
+    const result = levelUpMadeaToLevel7(base);
+
+    const cr = result.classResources as Record<string, unknown>;
+    expect(cr.sorceryPointsMax).toBe(7);
+    expect(cr.currentSorceryPoints).toBe(7);
+  });
+
+  it("sets innate sorcery max uses to 2 and uses remaining to 2", () => {
+    const base = getMadeaBase();
+    const result = levelUpMadeaToLevel7(base);
+
+    const cr = result.classResources as Record<string, unknown>;
+    expect(cr.innateSorceryMaxUses).toBe(2);
+    expect(cr.innateSorceryUsesRemaining).toBe(2);
+  });
+
+  it("verifies Hound of Ill Omen is present in spell data", () => {
+    const base = getMadeaBase();
+    const result = levelUpMadeaToLevel7(base);
+
+    const allSpells = Object.values(result.spells).flat();
+    expect(allSpells).toContain("Hound of Ill Omen");
+  });
+
+  it("does not mutate the input object", () => {
+    const base = getMadeaBase();
+    const baseCopy = JSON.parse(JSON.stringify(base));
+
+    levelUpMadeaToLevel7(base);
+
+    expect(base).toEqual(baseCopy);
+  });
+
+  it("throws if Hound of Ill Omen is missing from spell data", () => {
+    const base = getMadeaBase();
+    // Remove Hound of Ill Omen from all spell levels
+    for (const level of Object.keys(base.spells)) {
+      base.spells[level] = base.spells[level].filter(
+        (s: string) => s !== "Hound of Ill Omen"
+      );
+    }
+
+    expect(() => levelUpMadeaToLevel7(base)).toThrow("Hound of Ill Omen");
   });
 });
