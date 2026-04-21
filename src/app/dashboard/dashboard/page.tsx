@@ -66,79 +66,6 @@ export default function DashboardPage() {
     onActivate: rollSkillAtIndex,
   });
 
-  if (loading || !data) {
-    return <div className="flex min-h-screen items-center justify-center text-ff12-text-dim">Loading...</div>;
-  }
-
-  const rollAbility = (stat: AbilityName) => {
-    rollDice({
-      dice: [{ sides: 20, count: 1 }],
-      modifier: data.stats[stat].modifier,
-      label: `${stat} Check`,
-    });
-  };
-
-  const rollSkill = (name: string, modifier: number) => {
-    rollDice({
-      dice: [{ sides: 20, count: 1 }],
-      modifier,
-      label: `${name}`,
-    });
-  };
-
-  const applyDamage = () => {
-    const val = parseInt(dmgHealValue);
-    if (isNaN(val) || val <= 0) return;
-    const newHp = Math.max(0, data.currentHp - val);
-
-    // Req 4.9: Damage at 0 HP marks one death save failure
-    if (data.currentHp === 0) {
-      const newFailures = Math.min(3, data.deathSaves.failures + 1);
-      mutate({ deathSaves: { successes: data.deathSaves.successes, failures: newFailures } });
-      setDmgHealValue("");
-      return;
-    }
-
-    // Strength of the Grave: intercept when HP would drop to 0
-    // Available to sorcerers (Shadow Sorcerer subclass feature)
-    const hasFeature = data.classResources.sorceryPointsMax !== undefined;
-    if (
-      hasFeature &&
-      shouldPromptStrengthOfGrave(
-        data.currentHp,
-        newHp,
-        undefined, // damageType not tracked in basic damage input
-        false,     // isCriticalHit — basic damage input is not a crit
-        data.classResources.strengthOfTheGraveUsed ?? false
-      )
-    ) {
-      const dc = calcStrengthOfGraveDC(val);
-      setStrengthOfGravePrompt({ damage: val, dc });
-      setDmgHealValue("");
-      return;
-    }
-
-    mutate({ currentHp: newHp });
-    setDmgHealValue("");
-  };
-
-  const applyHealing = () => {
-    const val = parseInt(dmgHealValue);
-    if (isNaN(val) || val <= 0) return;
-    const updates: Partial<CharacterData> = {};
-
-    // Req 4.10: Healing at 0 HP resets death saves and sets HP to healed amount
-    if (data.currentHp === 0) {
-      updates.currentHp = Math.min(data.maxHp, val);
-      updates.deathSaves = { successes: 0, failures: 0 };
-    } else {
-      updates.currentHp = Math.min(data.maxHp, data.currentHp + val);
-    }
-
-    mutate(updates);
-    setDmgHealValue("");
-  };
-
   const handleStrengthOfGraveRoll = useCallback(async () => {
     if (!strengthOfGravePrompt || !data) return;
     const { dc } = strengthOfGravePrompt;
@@ -168,10 +95,78 @@ export default function DashboardPage() {
   }, [strengthOfGravePrompt, data, rollDice, mutate]);
 
   const handleStrengthOfGraveFail = useCallback(() => {
-    // Player can dismiss the prompt to skip the roll (treat as failure)
     mutate({ currentHp: 0 });
     setStrengthOfGravePrompt(null);
   }, [mutate]);
+
+  if (loading || !data) {
+    return <div className="flex min-h-screen items-center justify-center text-ff12-text-dim">Loading...</div>;
+  }
+
+  const rollAbility = (stat: AbilityName) => {
+    rollDice({
+      dice: [{ sides: 20, count: 1 }],
+      modifier: data.stats[stat].modifier,
+      label: `${stat} Check`,
+    });
+  };
+
+  const rollSkill = (name: string, modifier: number) => {
+    rollDice({
+      dice: [{ sides: 20, count: 1 }],
+      modifier,
+      label: `${name}`,
+    });
+  };
+
+  const applyDamage = () => {
+    const val = parseInt(dmgHealValue);
+    if (isNaN(val) || val <= 0) return;
+    const newHp = Math.max(0, data.currentHp - val);
+
+    if (data.currentHp === 0) {
+      const newFailures = Math.min(3, data.deathSaves.failures + 1);
+      mutate({ deathSaves: { successes: data.deathSaves.successes, failures: newFailures } });
+      setDmgHealValue("");
+      return;
+    }
+
+    const hasFeature = data.classResources.sorceryPointsMax !== undefined;
+    if (
+      hasFeature &&
+      shouldPromptStrengthOfGrave(
+        data.currentHp,
+        newHp,
+        undefined,
+        false,
+        data.classResources.strengthOfTheGraveUsed ?? false
+      )
+    ) {
+      const dc = calcStrengthOfGraveDC(val);
+      setStrengthOfGravePrompt({ damage: val, dc });
+      setDmgHealValue("");
+      return;
+    }
+
+    mutate({ currentHp: newHp });
+    setDmgHealValue("");
+  };
+
+  const applyHealing = () => {
+    const val = parseInt(dmgHealValue);
+    if (isNaN(val) || val <= 0) return;
+    const updates: Partial<CharacterData> = {};
+
+    if (data.currentHp === 0) {
+      updates.currentHp = Math.min(data.maxHp, val);
+      updates.deathSaves = { successes: 0, failures: 0 };
+    } else {
+      updates.currentHp = Math.min(data.maxHp, data.currentHp + val);
+    }
+
+    mutate(updates);
+    setDmgHealValue("");
+  };
 
   const toggleShield = () => {
     const active = !data.shieldActive;
