@@ -14,8 +14,13 @@ import DeathSaveTracker from "@/components/dashboard/DeathSaveTracker";
 import RestModal from "@/components/ui/RestModal";
 import type { PoolSelections } from "@/components/ui/RestModal";
 import CursorIndicator from "@/components/ui/CursorIndicator";
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import type { AbilityName, CharacterData } from "@/types";
+import {
+  shouldPromptStrengthOfGrave,
+  calcStrengthOfGraveDC,
+  applyStrengthOfGraveResult,
+} from "@/lib/strength-of-the-grave";
 
 export default function DashboardPage() {
   const { data: session } = useSession();
@@ -23,6 +28,7 @@ export default function DashboardPage() {
   const { currentRoll, result, rollDice, dismiss } = useDiceRoll();
   const [restType, setRestType] = useState<"short" | "long" | null>(null);
   const [dmgHealValue, setDmgHealValue] = useState("");
+  const [strengthOfGravePrompt, setStrengthOfGravePrompt] = useState<{ damage: number; dc: number } | null>(null);
 
   const characterId = (session?.user as { characterId?: string })?.characterId ?? "madea";
 
@@ -84,15 +90,35 @@ export default function DashboardPage() {
     const val = parseInt(dmgHealValue);
     if (isNaN(val) || val <= 0) return;
     const newHp = Math.max(0, data.currentHp - val);
-    const updates: Partial<CharacterData> = { currentHp: newHp };
 
     // Req 4.9: Damage at 0 HP marks one death save failure
     if (data.currentHp === 0) {
       const newFailures = Math.min(3, data.deathSaves.failures + 1);
-      updates.deathSaves = { successes: data.deathSaves.successes, failures: newFailures };
+      mutate({ deathSaves: { successes: data.deathSaves.successes, failures: newFailures } });
+      setDmgHealValue("");
+      return;
     }
 
-    mutate(updates);
+    // Strength of the Grave: intercept when HP would drop to 0
+    // Available to sorcerers (Shadow Sorcerer subclass feature)
+    const hasFeature = data.classResources.sorceryPointsMax !== undefined;
+    if (
+      hasFeature &&
+      shouldPromptStrengthOfGrave(
+        data.currentHp,
+        newHp,
+        undefined, // damageType not tracked in basic damage input
+        false,     // isCriticalHit — basic damage input is not a crit
+        data.classResources.strengthOfTheGraveUsed ?? false
+      )
+    ) {
+      const dc = calcStrengthOfGraveDC(val);
+      setStrengthOfGravePrompt({ damage: val, dc });
+      setDmgHealValue("");
+      return;
+    }
+
+    mutate({ currentHp: newHp });
     setDmgHealValue("");
   };
 
@@ -112,6 +138,40 @@ export default function DashboardPage() {
     mutate(updates);
     setDmgHealValue("");
   };
+
+  const handleStrengthOfGraveRoll = useCallback(async () => {
+    if (!strengthOfGravePrompt || !data) return;
+    const { dc } = strengthOfGravePrompt;
+    const chaMod = data.stats.CHA.modifier;
+
+    const diceResult = await rollDice({
+      dice: [{ sides: 20, count: 1 }],
+      modifier: chaMod,
+      label: "Strength of the Grave — CHA Save",
+    });
+
+    const { survived } = applyStrengthOfGraveResult(diceResult.total, dc);
+
+    if (survived) {
+      mutate({
+        currentHp: 1,
+        classResources: {
+          ...data.classResources,
+          strengthOfTheGraveUsed: true,
+        },
+      });
+    } else {
+      mutate({ currentHp: 0 });
+    }
+
+    setStrengthOfGravePrompt(null);
+  }, [strengthOfGravePrompt, data, rollDice, mutate]);
+
+  const handleStrengthOfGraveFail = useCallback(() => {
+    // Player can dismiss the prompt to skip the roll (treat as failure)
+    mutate({ currentHp: 0 });
+    setStrengthOfGravePrompt(null);
+  }, [mutate]);
 
   const toggleShield = () => {
     const active = !data.shieldActive;
@@ -200,6 +260,8 @@ export default function DashboardPage() {
     cr.feyBaneUsed = false;
     cr.feyMistyStepUsed = false;
     cr.druidCharmPersonUsed = false;
+    cr.familiars = [];
+    cr.strengthOfTheGraveUsed = false;
     updates.classResources = cr;
 
     // Req 12.11: Persist all changes
@@ -213,7 +275,7 @@ export default function DashboardPage() {
       <AmbientEffects screen="dashboard" />
 
       <div className="relative z-20 mx-auto max-w-6xl space-y-4 p-4">
-        <NavButtons />
+        <NavButtons hasFamiliars={(data?.classResources.familiars?.length ?? 0) > 0} />
 
         {/* Character Header */}
         <UIPanel variant="fancy">
@@ -336,6 +398,37 @@ export default function DashboardPage() {
           </UIPanel>
         )}
       </div>
+
+      {/* Strength of the Grave Prompt */}
+      {strengthOfGravePrompt && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70" role="dialog" aria-label="Strength of the Grave saving throw">
+          <div className="mx-4 w-full max-w-sm rounded-lg border border-ff12-border-dim bg-ff12-panel-dark p-6 shadow-2xl">
+            <h2 className="mb-1 text-lg text-gold">Strength of the Grave</h2>
+            <p className="mb-4 text-sm text-ff12-text-dim">
+              You would drop to 0 HP. Make a Charisma saving throw to cling to life.
+            </p>
+            <div className="mb-4 rounded border border-ff12-border-dim bg-ff12-panel-light px-4 py-3 text-center">
+              <span className="text-sm text-ff12-text-dim">DC </span>
+              <span className="text-2xl tabular-nums text-gold">{strengthOfGravePrompt.dc}</span>
+              <span className="ml-2 text-xs text-ff12-text-dim">({strengthOfGravePrompt.damage} damage taken)</span>
+            </div>
+            <div className="flex gap-2">
+              <button
+                onClick={handleStrengthOfGraveRoll}
+                className="min-h-[44px] flex-1 rounded bg-purple-700/60 px-4 py-2 text-sm text-ff12-text transition hover:bg-purple-700/80"
+              >
+                Roll CHA Save (d20{data.stats.CHA.modifier >= 0 ? "+" : ""}{data.stats.CHA.modifier})
+              </button>
+              <button
+                onClick={handleStrengthOfGraveFail}
+                className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text-dim transition hover:bg-ff12-border-dim"
+              >
+                Skip
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Rest Modal */}
       {restType && (

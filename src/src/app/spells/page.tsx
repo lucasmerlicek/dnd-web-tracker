@@ -80,7 +80,7 @@ export default function SpellsPage() {
       <ScreenBackground screen="spells" characterId={characterId} />
       <AmbientEffects screen="spells" />
       <div className="relative z-20 mx-auto max-w-6xl space-y-4 p-4">
-        <NavButtons />
+        <NavButtons hasFamiliars={(data?.classResources.familiars?.length ?? 0) > 0} />
 
         {warning && <div className="rounded bg-crimson/80 px-4 py-2 text-center text-sm text-parchment" role="alert">{warning}</div>}
 

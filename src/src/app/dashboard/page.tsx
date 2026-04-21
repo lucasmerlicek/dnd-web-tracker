@@ -251,7 +251,7 @@ export default function DashboardPage() {
       <AmbientEffects screen="dashboard" />
 
       <div className="relative z-20 mx-auto max-w-6xl space-y-4 p-4">
-        <NavButtons />
+        <NavButtons hasFamiliars={(data?.classResources.familiars?.length ?? 0) > 0} />
 
         {/* Character Header */}
         <UIPanel variant="fancy">

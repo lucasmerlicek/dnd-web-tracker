@@ -113,7 +113,7 @@ export default function AttackPage() {
       <ScreenBackground screen="attack" characterId={characterId} />
       <AmbientEffects screen="attack" />
       <div className="relative z-20 mx-auto max-w-6xl space-y-4 p-4">
-        <NavButtons />
+        <NavButtons hasFamiliars={(data?.classResources.familiars?.length ?? 0) > 0} />
 
         {/* Advantage Toggle */}
         <UIPanel variant="box2">

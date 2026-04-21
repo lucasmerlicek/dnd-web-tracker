@@ -53,6 +53,9 @@ function buildLongRestItems(cd: CharacterData): string[] {
     }
   }
 
+  if ((cr.familiars?.length ?? 0) > 0) items.push("All familiars dismissed");
+  if (cr.strengthOfTheGraveUsed) items.push("Strength of the Grave reset");
+
   if (cd.shieldActive) items.push("Shield deactivated");
   if (cd.mageArmorActive) items.push("Mage Armor deactivated");
   if (cr.bladesongActive) items.push("Bladesong deactivated");

@@ -86,6 +86,8 @@ const CLASS_RESOURCE_KEYS: string[] = [
   "feyBaneUsed",
   "feyMistyStepUsed",
   "druidCharmPersonUsed",
+  "strengthOfTheGraveUsed",
+  "familiars",
 ];
 
 // Keys from legacy data that are UI-only and not part of CharacterData
@@ -414,6 +416,41 @@ export function migrateCharacterData(data: CharacterData): CharacterData {
   // --- Default spellCreatedWeapons to [] ---
   if (!(result as Record<string, unknown>).spellCreatedWeapons) {
     (result as Record<string, unknown>).spellCreatedWeapons = [] as SpellCreatedWeapon[];
+  }
+
+  // --- Default familiars to [] in classResources ---
+  // Deep-clone classResources and spells to avoid mutating the input
+  result.classResources = { ...result.classResources } as typeof result.classResources;
+  const cr = result.classResources as Record<string, unknown>;
+  if (cr.familiars === undefined) {
+    cr.familiars = [];
+  }
+
+  // --- Madea: add strengthOfTheGraveUsed and familiar spells ---
+  const charClass = (result.charClass ?? "").toLowerCase();
+  const isSorcerer = charClass.includes("sorcerer") && !charClass.includes("fighter") && !charClass.includes("wizard");
+  result.spells = { ...result.spells };
+  if (isSorcerer) {
+    if (cr.strengthOfTheGraveUsed === undefined) {
+      cr.strengthOfTheGraveUsed = false;
+    }
+    const spells1st = [...(result.spells["1st"] ?? [])];
+    if (!spells1st.includes("Find Familiar")) {
+      spells1st.push("Find Familiar");
+    }
+    result.spells["1st"] = spells1st;
+    const spells3rd = [...(result.spells["3rd"] ?? [])];
+    if (!spells3rd.includes("Hound of Ill Omen")) {
+      spells3rd.push("Hound of Ill Omen");
+    }
+    result.spells["3rd"] = spells3rd;
+  } else {
+    // Non-sorcerer (Ramil): add Find Familiar to 1st level spells
+    const spells1st = [...(result.spells["1st"] ?? [])];
+    if (!spells1st.includes("Find Familiar")) {
+      spells1st.push("Find Familiar");
+    }
+    result.spells["1st"] = spells1st;
   }
 
   return result;

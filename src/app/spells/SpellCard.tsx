@@ -17,6 +17,7 @@ import {
   getSpellcastingAbility,
   parseDiceExpression,
 } from "./spell-calc";
+import { createFamiliar } from "@/lib/familiar-logic";
 
 interface SpellCardProps {
   spellName: string;
@@ -51,6 +52,7 @@ export default function SpellCard({
   onWarning,
 }: SpellCardProps) {
   const [castLevel, setCastLevel] = useState<number | null>(null);
+  const [darknessSeeThrough, setDarknessSeeThrough] = useState(false);
   const cr = characterData.classResources;
   const innateSorceryActive = cr.innateSorceryActive ?? false;
   const hasAttackRoll = spellData?.attackRoll === true;
@@ -234,6 +236,55 @@ export default function SpellCard({
     if (spellName === "Mage Armor" && !characterData.mageArmorActive) mutations.mageArmorActive = true;
     onMutate(mutations);
     onWarning(`${spellName} cast for free (1/long rest)`);
+  };
+
+  // --- Darkness SP Cast (Task 4.2) ---
+  const handleDarknessSPCast = () => {
+    if (currentSP < 2) {
+      onWarning("Insufficient sorcery points (need 2)");
+      return;
+    }
+    onMutate({
+      classResources: {
+        ...characterData.classResources,
+        currentSorceryPoints: currentSP - 2,
+      },
+    });
+    setDarknessSeeThrough(true);
+  };
+
+  // --- Find Familiar Summon (Task 4.3) ---
+  const handleSummonFamiliar = () => {
+    const familiarType: "falcon" | "fox" = characterData.characterName.includes("Ramil")
+      ? "falcon"
+      : "fox";
+    const existingFamiliars = characterData.classResources.familiars ?? [];
+    // Dismiss existing familiar of the same type first
+    const filtered = existingFamiliars.filter((f) => f.familiarType !== familiarType);
+    const newFamiliar = createFamiliar(familiarType);
+    onMutate({
+      classResources: {
+        ...characterData.classResources,
+        familiars: [...filtered, newFamiliar],
+      },
+    });
+  };
+
+  // --- Hound of Ill Omen Summon (Task 4.4) ---
+  const handleSummonHound = () => {
+    if (currentSP < 3) {
+      onWarning("Insufficient sorcery points (need 3)");
+      return;
+    }
+    const existingFamiliars = characterData.classResources.familiars ?? [];
+    const newHound = createFamiliar("hound", characterData.level);
+    onMutate({
+      classResources: {
+        ...characterData.classResources,
+        currentSorceryPoints: currentSP - 3,
+        familiars: [...existingFamiliars, newHound],
+      },
+    });
   };
 
   const handleMetamagic = (option: "empowered" | "quickened") => {
@@ -488,7 +539,54 @@ export default function SpellCard({
                 Cast ({slotKey})
               </button>
             )}
+
+            {/* Darkness SP Cast button (Task 4.2) */}
+            {spellName === "Darkness" && isSorcerer && (
+              <button
+                onClick={handleDarknessSPCast}
+                disabled={currentSP < 2}
+                className={`min-h-[44px] rounded px-3 py-2 text-xs transition ${
+                  currentSP < 2
+                    ? "bg-ff12-panel-light text-ff12-text-dim/30 cursor-not-allowed opacity-50"
+                    : "bg-purple-800/40 text-ff12-text hover:bg-purple-800/60"
+                }`}
+              >
+                Cast with SP (2)
+              </button>
+            )}
+
+            {/* Find Familiar Summon button (Task 4.3) */}
+            {spellName === "Find Familiar" && (
+              <button
+                onClick={handleSummonFamiliar}
+                className="min-h-[44px] rounded bg-emerald-800/40 px-3 py-2 text-xs text-ff12-text hover:bg-emerald-800/60"
+              >
+                Summon <span className="ml-1 text-[10px] text-emerald-400">Free</span>
+              </button>
+            )}
+
+            {/* Hound of Ill Omen Summon button (Task 4.4) */}
+            {spellName === "Hound of Ill Omen" && isSorcerer && (
+              <button
+                onClick={handleSummonHound}
+                disabled={currentSP < 3}
+                className={`min-h-[44px] rounded px-3 py-2 text-xs transition ${
+                  currentSP < 3
+                    ? "bg-ff12-panel-light text-ff12-text-dim/30 cursor-not-allowed opacity-50"
+                    : "bg-purple-800/40 text-ff12-text hover:bg-purple-800/60"
+                }`}
+              >
+                Summon (3 SP)
+              </button>
+            )}
           </div>
+
+          {/* Darkness see-through indicator (Task 4.2) */}
+          {spellName === "Darkness" && darknessSeeThrough && (
+            <div className="mt-2 rounded bg-purple-900/30 px-3 py-2 text-xs text-purple-300">
+              ✦ You can see through this darkness
+            </div>
+          )}
 
           {/* Metamagic row — Sorcerer only */}
           {isSorcerer && (

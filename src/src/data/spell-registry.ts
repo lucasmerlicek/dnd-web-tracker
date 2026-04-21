@@ -343,6 +343,18 @@ export const SPELL_REGISTRY: Record<string, SpellData> = {
     ritual: true,
   },
 
+  "Find Familiar": {
+    name: "Find Familiar",
+    level: 1,
+    school: "Conjuration",
+    castingTime: "1 bonus action",
+    range: "10 feet",
+    components: { verbal: true, somatic: true, material: false },
+    duration: "Instantaneous",
+    description:
+      "You summon your bonded familiar to a point within range. The familiar appears in an unoccupied space and acts independently but obeys your commands.",
+  },
+
   // ─── 2ND LEVEL SPELLS ─────────────────────────────────────────────
 
   "Misty Step": {
@@ -471,5 +483,17 @@ export const SPELL_REGISTRY: Record<string, SpellData> = {
     upcast: { perLevel: "1d6" },
     upcastDescription:
       "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.",
+  },
+
+  "Hound of Ill Omen": {
+    name: "Hound of Ill Omen",
+    level: 0,
+    school: "Necromancy",
+    castingTime: "1 bonus action",
+    range: "30 feet of target",
+    components: { verbal: false, somatic: false, material: false },
+    duration: "Until dismissed or destroyed",
+    description:
+      "You spend 3 sorcery points to summon a hound of ill omen to target one creature you can see within 120 feet. The hound uses the dire wolf statistics with modifications.",
   },
 };

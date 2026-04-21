@@ -10,6 +10,7 @@ const SCREEN_BACKGROUNDS: Record<string, string> = {
   actions: "action_backround.png",
   bag: "bag_background.png",
   journal: "journal_background.png",
+  familiars: "spells_background.png",
 };
 
 interface Props {

@@ -1,5 +1,5 @@
 /**
- * One-off patch: adds innateSorcery fields to Madea's KV data
+ * One-off patch: adds missing fields to character KV data
  * without overwriting existing state.
  *
  * Usage: npx tsx src/scripts/patch-innate-sorcery.ts
@@ -42,11 +42,46 @@ async function main() {
     cr.innateSorceryUsesRemaining = 2;
     cr.innateSorceryMaxUses = 2;
     data.classResources = cr;
-
     await kv.set("character:madea", data);
     console.log("  ✓ Added innateSorcery fields (active=false, uses=2/2)");
   } else {
-    console.log("  ✓ Fields already present, no changes needed");
+    console.log("  ✓ innateSorcery fields already present");
+  }
+
+  // Patch strengthOfTheGraveUsed and familiars
+  let patched = false;
+  if (cr.strengthOfTheGraveUsed === undefined) {
+    cr.strengthOfTheGraveUsed = false;
+    patched = true;
+    console.log("  ✓ Added strengthOfTheGraveUsed = false");
+  }
+  if (cr.familiars === undefined) {
+    cr.familiars = [];
+    patched = true;
+    console.log("  ✓ Added familiars = []");
+  }
+  if (patched) {
+    data.classResources = cr;
+    await kv.set("character:madea", data);
+  }
+
+  // Also patch Ramil
+  console.log("Patching Ramil...");
+  const ramilData = await kv.get<Record<string, unknown>>("character:ramil");
+  if (ramilData) {
+    const ramilCr = (ramilData.classResources ?? {}) as Record<string, unknown>;
+    let ramilPatched = false;
+    if (ramilCr.familiars === undefined) {
+      ramilCr.familiars = [];
+      ramilPatched = true;
+      console.log("  ✓ Added familiars = [] to Ramil");
+    }
+    if (ramilPatched) {
+      ramilData.classResources = ramilCr;
+      await kv.set("character:ramil", ramilData);
+    } else {
+      console.log("  ✓ Ramil already has familiars field");
+    }
   }
 
   console.log("Done!");

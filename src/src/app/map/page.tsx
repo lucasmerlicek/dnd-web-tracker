@@ -1,6 +1,7 @@
 "use client";
 
 import { useMapMarkers } from "@/hooks/useMapMarkers";
+import { useCharacterData } from "@/hooks/useCharacterData";
 import NavButtons from "@/components/ui/NavButtons";
 import UIPanel from "@/components/ui/UIPanel";
 import AmbientEffects from "@/components/ui/AmbientEffects";
@@ -50,6 +51,7 @@ const AETHERION_FLOOR_IMAGES: Record<number, string> = {
 };
 
 export default function MapPage() {
+  const { data } = useCharacterData();
   const [activeMap, setActiveMap] = useState<"valerion" | "aetherion">("valerion");
   const [floor, setFloor] = useState(0);
   const [visibleCategories, setVisibleCategories] = useState<Set<Category>>(new Set(CATEGORIES));
@@ -136,7 +138,7 @@ export default function MapPage() {
     <div className="relative min-h-screen bg-dark-bg">
       <AmbientEffects screen="map" />
       <div className="relative z-20 mx-auto max-w-7xl space-y-4 p-4">
-        <NavButtons />
+        <NavButtons hasFamiliars={(data?.classResources.familiars?.length ?? 0) > 0} />
 
         {/* Controls */}
         <div className="flex flex-wrap items-center gap-4">

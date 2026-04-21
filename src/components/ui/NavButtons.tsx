@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { signOut } from "next-auth/react";
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useCursorNavigation } from "@/hooks/useCursorNavigation";
 import CursorIndicator from "@/components/ui/CursorIndicator";
 
-const SCREENS = [
+const BASE_SCREENS = [
   { href: "/dashboard", label: "Dashboard" },
   { href: "/attack", label: "Attack" },
   { href: "/spells", label: "Spells" },
@@ -20,11 +20,19 @@ const SCREENS = [
 
 interface NavButtonsProps {
   currentScreen?: string;
+  hasFamiliars?: boolean;
 }
 
-export default function NavButtons({ currentScreen }: NavButtonsProps = {}) {
+export default function NavButtons({ currentScreen, hasFamiliars }: NavButtonsProps = {}) {
   const pathname = usePathname();
   const router = useRouter();
+
+  const screens = useMemo(() => {
+    if (hasFamiliars) {
+      return [...BASE_SCREENS, { href: "/familiars", label: "Familiars" }];
+    }
+    return BASE_SCREENS;
+  }, [hasFamiliars]);
 
   const isActive = (href: string) => {
     if (currentScreen) {
@@ -35,14 +43,14 @@ export default function NavButtons({ currentScreen }: NavButtonsProps = {}) {
 
   const onActivate = useCallback(
     (index: number) => {
-      router.push(SCREENS[index].href);
+      router.push(screens[index].href);
     },
-    [router]
+    [router, screens]
   );
 
   const { containerProps, getItemProps, isActive: isCursorActive } = useCursorNavigation({
-    itemCount: SCREENS.length,
-    columns: SCREENS.length,
+    itemCount: screens.length,
+    columns: screens.length,
     onActivate,
   });
 
@@ -53,8 +61,9 @@ export default function NavButtons({ currentScreen }: NavButtonsProps = {}) {
       role="navigation"
       aria-label="Main navigation"
     >
-      {SCREENS.map((s, index) => {
+      {screens.map((s, index) => {
         const itemProps = getItemProps(index);
+        const isFamiliars = s.href === "/familiars";
         return (
           <Link
             key={s.href}
@@ -66,9 +75,13 @@ export default function NavButtons({ currentScreen }: NavButtonsProps = {}) {
             onClick={itemProps.onClick}
             aria-current={isActive(s.href) ? "page" : undefined}
             className={`flex min-h-[44px] shrink-0 items-center gap-1 rounded px-3 py-2 text-sm transition-colors ${
-              isActive(s.href)
-                ? "bg-ff12-panel-light/50 text-ff12-text-bright"
-                : "text-ff12-text-dim hover:text-ff12-text"
+              isFamiliars
+                ? isActive(s.href)
+                  ? "bg-blue-900/30 text-blue-300"
+                  : "text-blue-400 hover:text-blue-300"
+                : isActive(s.href)
+                  ? "bg-ff12-panel-light/50 text-ff12-text-bright"
+                  : "text-ff12-text-dim hover:text-ff12-text"
             } ${isCursorActive(index) ? "bg-white/10" : ""}`}
           >
             <CursorIndicator visible={isCursorActive(index)} />

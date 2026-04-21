@@ -61,7 +61,7 @@ export default function SavesPage() {
       <ScreenBackground screen="saves" characterId={characterId} />
       <AmbientEffects screen="saves" />
       <div className="relative z-20 mx-auto max-w-6xl space-y-4 p-4">
-        <NavButtons />
+        <NavButtons hasFamiliars={(data?.classResources.familiars?.length ?? 0) > 0} />
         <UIPanel variant="box2">
           <div {...rollModeCursor.containerProps} className="flex flex-wrap items-center gap-3">
             <span className="text-sm text-ff12-text-dim">Roll Mode:</span>

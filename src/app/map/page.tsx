@@ -1,6 +1,7 @@
 "use client";
 
 import { useMapMarkers } from "@/hooks/useMapMarkers";
+import { useCharacterData } from "@/hooks/useCharacterData";
 import { useCursorNavigation } from "@/hooks/useCursorNavigation";
 import NavButtons from "@/components/ui/NavButtons";
 import UIPanel from "@/components/ui/UIPanel";
@@ -15,6 +16,7 @@ import type { MapMarker } from "@/types";
 import { CATEGORIES, CATEGORY_LABELS, CATEGORY_COLORS, CATEGORY_ICONS, FLOOR_LABELS, AETHERION_FLOOR_IMAGES, type Category } from "./map-constants";
 
 export default function MapPage() {
+  const { data } = useCharacterData();
   const [activeMap, setActiveMap] = useState<"valerion" | "aetherion">("valerion");
   const [floor, setFloor] = useState(0);
   const [visibleCategories, setVisibleCategories] = useState<Set<Category>>(new Set(CATEGORIES));
@@ -114,7 +116,7 @@ export default function MapPage() {
     <div className="relative min-h-screen bg-dark-bg">
       <AmbientEffects screen="map" />
       <div className="relative z-20 mx-auto max-w-7xl space-y-4 p-4">
-        <NavButtons />
+        <NavButtons hasFamiliars={(data?.classResources.familiars?.length ?? 0) > 0} />
 
         {/* Controls */}
         <div className="flex flex-wrap items-center gap-4">

@@ -137,7 +137,7 @@ export default function ActionsPage() {
 
   // Filter out second_wind and bladesong from generic actions (they have dedicated UI)
   const genericActions = Object.entries(data.actions).filter(
-    ([key]) => key !== "second_wind" && key !== "bladesong" && key !== "raven_form"
+    ([key]) => key !== "second_wind" && key !== "bladesong" && key !== "raven_form" && key !== "secondWind" && key !== "ravenForm"
   );
 
   return (
@@ -145,7 +145,7 @@ export default function ActionsPage() {
       <ScreenBackground screen="actions" characterId={characterId} />
       <AmbientEffects screen="actions" />
       <div className="relative z-20 mx-auto max-w-6xl space-y-4 p-4">
-        <NavButtons />
+        <NavButtons hasFamiliars={(data?.classResources.familiars?.length ?? 0) > 0} />
 
         {/* Bladesong Tracker (Ramil only) */}
         {hasBladesong && (

@@ -133,7 +133,7 @@ export default function JournalPage() {
       <ScreenBackground screen="journal" characterId={characterId} />
       <AmbientEffects screen="journal" />
       <div className="relative z-20 mx-auto max-w-6xl space-y-4 p-4">
-        <NavButtons />
+        <NavButtons hasFamiliars={(data?.classResources.familiars?.length ?? 0) > 0} />
 
         <div className="grid gap-4 lg:grid-cols-3">
           {/* Session List */}

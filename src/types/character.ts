@@ -75,6 +75,33 @@ export interface Action {
   bonus?: number;
 }
 
+export interface FamiliarStatBlock {
+  name: string;
+  type: "beast" | "monstrosity";
+  ac: number;
+  maxHp: number;
+  speed: string;
+  abilities: Record<AbilityName, { value: number; modifier: number }>;
+  passivePerception?: number;
+  traits: string[];
+  attacks?: {
+    name: string;
+    toHit: number;
+    damageDice: string;
+    damageType: string;
+    description?: string;
+  }[];
+}
+
+export interface FamiliarInstance {
+  id: string;
+  familiarType: "falcon" | "fox" | "hound";
+  currentHp: number;
+  maxHp: number;
+  tempHp: number;
+  summonedAt: number;
+}
+
 export interface ClassResources {
   // Sorcerer (Madea)
   sorceryPointsMax?: number;
@@ -86,6 +113,12 @@ export interface ClassResources {
   innateSorceryActive?: boolean;
   innateSorceryUsesRemaining?: number;
   innateSorceryMaxUses?: number;
+
+  // Shadow Sorcerer
+  strengthOfTheGraveUsed?: boolean;
+
+  // Familiars
+  familiars?: FamiliarInstance[];
 
   // Wizard/Bladesinger (Ramil)
   bladesongActive?: boolean;
