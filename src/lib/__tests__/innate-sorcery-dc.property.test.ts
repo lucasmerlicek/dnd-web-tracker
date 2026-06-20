@@ -1,7 +1,7 @@
 import { describe, it, expect } from "vitest";
 import * as fc from "fast-check";
 import type { AbilityName } from "../../types/character";
-import { calcSpellSaveDC } from "../../../app/spells/spell-calc";
+import { calcSpellSaveDC } from "../../app/spells/spell-calc";
 
 // ---------------------------------------------------------------------------
 // Property 5: Innate Sorcery DC bonus
