@@ -36,7 +36,6 @@ export default function ActionsPage() {
   const hasBladesong = cr.bladesongMaxUses !== undefined;
   const hasRavenForm = cr.ravenFormMaxUses !== undefined;
   const hasInnateSorcery = cr.innateSorceryMaxUses !== undefined;
-  const isRamil = characterId === "ramil";
   const intMod = data.stats.INT.modifier;
 
   // --- Action card: decrement uses, mark unavailable at 0 ---
@@ -135,28 +134,13 @@ export default function ActionsPage() {
     // Neither condition met — cannot activate
   };
 
-  // --- Second Wind (Ramil only): heal 1d10 + Fighter level (1) ---
-  const useSecondWind = () => {
-    const action = data.actions["second_wind"];
-    if (!action || action.uses <= 0) return;
-    const newUses = action.uses - 1;
-    mutate({
-      actions: {
-        ...data.actions,
-        second_wind: { ...action, uses: newUses, available: newUses > 0 },
-      },
-    });
-    // Fighter level is 1 for Ramil (Fighter 1 / Wizard 4)
-    rollDice({
-      dice: [{ sides: 10, count: 1 }],
-      modifier: action.bonus ?? 1,
-      label: "Second Wind (heal)",
-    });
-  };
+  // --- Second Wind (Ramil): now rendered as a standard action card in the
+  // generic actions submenu, handled by activateAction (rolls action.dice + bonus). ---
 
-  // Filter out second_wind and bladesong from generic actions (they have dedicated UI)
+  // Filter out bladesong and raven_form from generic actions (they have dedicated UI).
+  // Second Wind is intentionally NOT filtered — it lives in the generic action submenu.
   const genericActions = Object.entries(data.actions).filter(
-    ([key]) => key !== "second_wind" && key !== "bladesong" && key !== "raven_form" && key !== "secondWind" && key !== "ravenForm"
+    ([key]) => key !== "bladesong" && key !== "raven_form" && key !== "ravenForm"
   );
 
   return (
@@ -201,29 +185,7 @@ export default function ActionsPage() {
           </UIPanel>
         )}
 
-        {/* Second Wind (Ramil only) */}
-        {isRamil && data.actions["second_wind"] && (
-          <UIPanel variant="box1">
-            <div className="flex items-center justify-between">
-              <div>
-                <h3 className="text-gold">Second Wind</h3>
-                <p className="text-xs text-ff12-text-dim">
-                  Heal 1d10 + {data.actions["second_wind"].bonus ?? 1} HP · Short rest recharge
-                </p>
-                <p className="text-xs text-ff12-text-dim">
-                  Uses: {data.actions["second_wind"].uses}/{data.actions["second_wind"].maxUses ?? 1}
-                </p>
-              </div>
-              <button
-                onClick={useSecondWind}
-                disabled={(data.actions["second_wind"].uses ?? 0) <= 0}
-                className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text transition hover:bg-ff12-border-dim disabled:opacity-30"
-              >
-                Use
-              </button>
-            </div>
-          </UIPanel>
-        )}
+        {/* Second Wind (Ramil) is rendered in the Generic Actions submenu below */}
 
         {/* Raven Form Tracker (Madea only) */}
         {hasRavenForm && (

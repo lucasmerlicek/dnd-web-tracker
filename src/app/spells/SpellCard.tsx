@@ -78,13 +78,21 @@ export default function SpellCard({
   const spellcastingAbility = getSpellcastingAbility(characterData.charClass);
   const currentSP = characterData.classResources.currentSorceryPoints ?? 0;
 
-  // Free cast system for Druid Initiate / Fey Touched spells
-  const freeCastMap: Record<string, keyof typeof characterData.classResources> = {
-    "Charm Person": "druidCharmPersonUsed",
-    "Bane": "feyBaneUsed",
-    "Misty Step": "feyMistyStepUsed",
+  // Free cast system for Druid Initiate / Fey Touched spells.
+  // Each entry is gated to the character whose feat grants the free cast,
+  // so feat-specific free casts don't bleed across characters:
+  //   - Fey Touched (Bane, Misty Step) → Madea (Sorcerer)
+  //   - Druid Initiate (Charm Person)  → Ramil (Wizard)
+  const freeCastMap: Record<
+    string,
+    { flag: keyof typeof characterData.classResources; eligible: boolean }
+  > = {
+    "Charm Person": { flag: "druidCharmPersonUsed", eligible: isWizard },
+    "Bane": { flag: "feyBaneUsed", eligible: isSorcerer },
+    "Misty Step": { flag: "feyMistyStepUsed", eligible: isSorcerer },
   };
-  const freeCastFlag = freeCastMap[spellName];
+  const freeCastEntry = freeCastMap[spellName];
+  const freeCastFlag = freeCastEntry?.eligible ? freeCastEntry.flag : undefined;
   const freeCastUsed = freeCastFlag ? (characterData.classResources[freeCastFlag] as boolean ?? false) : false;
   const hasFreeCast = freeCastFlag !== undefined;
 

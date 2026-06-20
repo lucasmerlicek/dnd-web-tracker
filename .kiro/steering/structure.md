@@ -1,45 +1,67 @@
 # Project Structure
 
-## Layout
-
-Each D&D character has a self-contained tracker folder. Trackers are independent copies of the app, customized per character. There is no shared library or common module between them.
-
+## Top Level
 ```
-Tracker_{CharacterName}/
-├── main.py                 # Main application (single-file monolith)
-├── character_data.json     # Persisted character state
-├── map_viewer.py           # World map viewer (optional, newer trackers)
-├── map_data.py             # Map marker CRUD and categories (optional)
-├── map_markers.json        # Map marker persistence (optional)
-├── images/                 # Background images, UI textures, map images, icons
-├── logs/                   # Timestamped log files (auto-generated)
-├── save_states/            # Backup character data snapshots
-└── *.txt                   # Character backstory / notes
+src/                     # All application source (tsconfig maps @/* → ./src/*)
+public/images/           # Runtime assets: backgrounds, UI textures, icons, maps
+data/                    # Source icon assets (BG3 spell/weapon icons) used by fetch scripts
+.kiro/                   # Specs and steering
+.env.local(.example)     # NextAuth + Vercel KV credentials
+CLEANUP.md               # Record of the 2026-06-20 repo/infra cleanup
+next.config.mjs, postcss.config.mjs, tailwind/eslint configs, vitest.config.ts
 ```
 
-## Active Trackers
-- `Tracker_Barian/` — Barian the Broken (older, simpler variant ~4300 lines)
-- `Tracker_Madea/` — Madea Blackthorn, Shadow Sorcerer (~5000+ lines, has map viewer)
-- `Tracker_Ramil/` — Ramil al-Sayif, Fighter/Wizard multiclass (~6500 lines, most features)
-- `Tracker_Ramil_WIP/` — Work-in-progress copy of Ramil's tracker
+The old Python `legacy/` tree, a duplicate `src/src/` tree, doubled route folders, and
+committed build/cache junk were removed in the 2026-06-20 cleanup (see `CLEANUP.md`).
+
+## `src/` Layout
+```
+src/
+├── app/                 # Next.js App Router pages + API routes
+│   ├── dashboard/       # Main character screen
+│   ├── attack/          # Attack rolls (attack-calc.ts) + WeaponCard
+│   ├── spells/          # Spells page, SpellCard, spell-calc.ts, sorcery-points.ts
+│   ├── saves/           # Saving throws, death saves
+│   ├── actions/         # Class actions + universal actions
+│   ├── bag/             # Inventory & coins
+│   ├── journal/         # Session journal, characters, places
+│   ├── map/             # Map viewer (map-constants.ts)
+│   ├── familiars/       # Familiars tab (conditional)
+│   ├── login/           # Credentials login
+│   ├── layout.tsx, page.tsx, globals.css
+│   └── api/
+│       ├── auth/[...nextauth]/   # NextAuth handler
+│       ├── character/get|update/ # Character data read/write
+│       └── markers/get|update/   # Map marker read/write
+├── components/          # Reusable UI (ui/, attack/, bag/, dashboard/, dice/, familiars/, providers/)
+├── data/                # Static registries: spell-registry.ts, familiar-registry.ts, universal-actions.ts
+├── hooks/               # useCharacterData, useDiceRoll, useMapMarkers, useAutoSave, useUndoStack, useCursorNavigation
+├── lib/                 # Pure logic & helpers (kv.ts, auth.ts, *-calc.ts, ac-calc, hit-dice, etc.)
+├── scripts/             # One-off KV maintenance scripts (run with npx tsx; excluded from build)
+├── types/               # Shared TypeScript types (character.ts, spell.ts, map.ts, dice.ts)
+└── middleware.ts        # Route protection
+```
 
 ## Code Architecture
-- Each `main.py` is a single-file monolith containing two classes:
-  - `ModernButton` — reusable UI button with hover, selection, optional advantage checkbox
-  - `DnDCharacterTool` — the entire application (init, game loop, all screens, all logic)
-- Screen-based navigation: `main`, `attack`, `spells`, `saves`, `actions`, `bag`, `journal`
-- Each screen has `create_*_buttons()`, `draw_*_menu()`, `handle_*_menu_clicks()` methods
-- Scaling is relative to a base resolution of 1536×1024 (3:2 aspect ratio)
-
-## Other Workspace Contents
-- Root-level PDFs — D&D 5E rulebooks and character sheets
-- `inspo/`, `inspo_app/` — visual inspiration/reference images
-- `Maps/` — world map images and PDFs
-- Root-level `.txt` / `.docx` — character backstories and in-game letters
+- **Screen-based App Router**: each screen is a `page.tsx` client component under `src/app/<screen>/`.
+- **Data flow**: `useCharacterData` loads/persists the active character via the
+  `api/character` routes, which read/write Vercel KV through `src/lib/kv.ts`. Components call
+  `mutate(partial)` to apply partial updates (deep-merged server-side).
+- **Character identity**: the NextAuth session carries `characterId` (`madea` | `ramil`);
+  pages read it to render class-specific features conditionally.
+- **Single source of truth for state**: `CharacterData` (`src/types/character.ts`), including
+  `classResources` for per-class features and feat free-cast flags.
+- **Static game data** (spells, familiars, universal actions) lives in `src/data/`; live
+  per-character state (known spells, prepared spells, actions, inventory) lives in KV.
+- **Pure logic in `src/lib/`** is unit/property tested; UI components stay thin.
 
 ## Conventions
-- File paths use `os.path` with `BASE_DIR = os.path.dirname(os.path.abspath(__file__))`
-- Images are always in `images/` subdirectory relative to the tracker
-- Logs auto-create in `logs/` with format `dnd_tracker_YYYYMMDD_HHMMSS.log`
-- Character data JSON is loaded on startup and saved after every state change
-- No code sharing between trackers — features are copy-pasted and adapted per character
+- Path alias `@/*` → `src/*` (used in both app code and tests).
+- Tests are colocated in `__tests__/` folders; property tests use `*.property.test.ts` and are
+  tagged `Feature: <spec>, Property <n>: <text>`.
+- Runtime images load from `public/images/` (referenced by absolute `/images/...` paths).
+- Class-specific code branches on `characterId` or on the presence of a `classResources` field
+  (e.g. `sorceryPointsMax` ⇒ Sorcerer, `preparedSpells` ⇒ Wizard) rather than hardcoding where
+  avoidable.
+- KV mutations from scripts go through `createClient` + `.env.local` loading (see existing
+  scripts in `src/scripts/`).

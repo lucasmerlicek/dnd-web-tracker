@@ -485,16 +485,19 @@ export const SPELL_REGISTRY: Record<string, SpellData> = {
       "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.",
   },
 
-  "Wall of Sand": {
-    name: "Wall of Sand",
+  "Dispel Magic": {
+    name: "Dispel Magic",
     level: 3,
-    school: "Evocation",
+    school: "Abjuration",
     castingTime: "1 action",
-    range: "90 feet",
-    components: { verbal: true, somatic: true, material: true, materialDescription: "a handful of sand" },
-    duration: "Concentration, up to 10 minutes",
+    range: "120 feet",
+    components: { verbal: true, somatic: true, material: false },
+    duration: "Instantaneous",
     description:
-      "You conjure up a wall of swirling sand on the ground at a point you can see within range. You can make the wall up to 30 feet long, 10 feet high, and 10 feet thick, and it vanishes when the spell ends. It blocks line of sight but not movement. A creature is blinded while in the wall's space and must spend 3 feet of movement for every 1 foot it moves there.",
+      "Choose any creature, object, or magical effect within range. Any ongoing spell of level 3 or lower on the target ends. For each ongoing spell of level 4 or higher on the target, make an ability check using your spellcasting ability (DC 10 plus that spell's level). On a successful check, the spell ends.",
+    upcast: { perLevel: "1 level" },
+    upcastDescription:
+      "When you cast this spell using a spell slot of 4th level or higher, you automatically end the effects of a spell on the target if the spell's level is equal to or less than the level of the spell slot you used.",
   },
 
   "Fireball": {
