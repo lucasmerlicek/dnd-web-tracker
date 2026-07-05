@@ -15,6 +15,7 @@ import IconImage from "@/components/ui/IconImage";
 import { useState } from "react";
 import type { Weapon, SpellCreatedWeapon } from "@/types";
 import { calcAttackBonus, calcDamageBonus } from "./attack-calc";
+import { getCmeBonusDice, cmeLabelSuffix } from "@/lib/cme";
 
 type AdvMode = "normal" | "advantage" | "disadvantage";
 
@@ -80,10 +81,14 @@ export default function AttackPage() {
     const count = parseInt(match[1]);
     const sides = parseInt(match[2]) as 4 | 6 | 8 | 10 | 12 | 20;
     const modifier = calcDamageBonus(w, data.stats, bladesongActive, isOffHand, hasTwoWeaponFighting);
+    const dice = [{ sides, count }];
+    // Conjure Minor Elementals: add bonus elemental dice to the attack while active
+    const cmeDie = getCmeBonusDice(data.classResources);
+    if (cmeDie) dice.push(cmeDie);
     rollDice({
-      dice: [{ sides, count }],
+      dice,
       modifier,
-      label: `${isOffHand ? "Off-hand " : ""}Damage — ${w.name} (${w.damageType})`,
+      label: `${isOffHand ? "Off-hand " : ""}Damage — ${w.name} (${w.damageType})${cmeLabelSuffix(data.classResources)}`,
     });
   };
 

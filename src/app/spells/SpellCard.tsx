@@ -228,6 +228,16 @@ export default function SpellCard({
     if (spellName === "Mage Armor" && !characterData.mageArmorActive) {
       mutations.mageArmorActive = true;
     }
+    // Auto-activate Conjure Minor Elementals when cast; scale the bonus dice with
+    // the slot level (2d8 at 4th, +1d8 per slot level above 4).
+    if (spellName === "Conjure Minor Elementals") {
+      const bonusCount = 2 + Math.max(0, effectiveCastLevel - 4);
+      mutations.classResources = {
+        ...(mutations.classResources ?? characterData.classResources),
+        cmeActive: true,
+        cmeDice: `${bonusCount}d8`,
+      };
+    }
 
     onMutate(mutations);
   };
