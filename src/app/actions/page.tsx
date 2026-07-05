@@ -36,6 +36,7 @@ export default function ActionsPage() {
   const hasBladesong = cr.bladesongMaxUses !== undefined;
   const hasRavenForm = cr.ravenFormMaxUses !== undefined;
   const hasInnateSorcery = cr.innateSorceryMaxUses !== undefined;
+  const hasCME = cr.cmeDice !== undefined;
   const intMod = data.stats.INT.modifier;
 
   // --- Action card: decrement uses, mark unavailable at 0 ---
@@ -75,6 +76,12 @@ export default function ActionsPage() {
       },
       ac: active ? data.ac + intMod : data.ac - intMod,
     });
+  };
+
+  // --- Conjure Minor Elementals toggle (Ramil): concentration effect that adds
+  // bonus elemental dice to each attack (weapon or spell attack) while active. ---
+  const toggleCME = () => {
+    mutate({ classResources: { ...cr, cmeActive: !cr.cmeActive } });
   };
 
   // --- Raven Form toggle (Madea only) ---
@@ -179,6 +186,40 @@ export default function ActionsPage() {
                   }`}
                 >
                   {cr.bladesongActive ? "Deactivate" : "Activate"}
+                </button>
+              </div>
+            </div>
+          </UIPanel>
+        )}
+
+        {/* Conjure Minor Elementals Tracker (Ramil only) */}
+        {hasCME && (
+          <UIPanel variant="fancy">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-gold">Conjure Minor Elementals</h3>
+                <p className="text-xs text-ff12-text-dim">
+                  Adds {cr.cmeDice}{cr.cmeDamageType ? ` ${cr.cmeDamageType}` : " elemental"} to each attack that hits
+                </p>
+                {cr.cmeActive && (
+                  <p className="text-xs text-emerald-400">
+                    Bonus damage active on weapon &amp; spell attacks
+                  </p>
+                )}
+              </div>
+              <div className="flex items-center gap-3">
+                <span className={`text-xs ${cr.cmeActive ? "text-emerald-400" : "text-ff12-text-dim"}`}>
+                  {cr.cmeActive ? "Active" : "Inactive"}
+                </span>
+                <button
+                  onClick={toggleCME}
+                  className={`min-h-[44px] rounded px-4 py-2 text-sm transition ${
+                    cr.cmeActive
+                      ? "bg-ff12-select/20 text-ff12-select"
+                      : "bg-ff12-panel-light text-ff12-text-dim hover:bg-ff12-border-dim"
+                  }`}
+                >
+                  {cr.cmeActive ? "Deactivate" : "Activate"}
                 </button>
               </div>
             </div>

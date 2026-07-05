@@ -18,6 +18,7 @@ import {
   parseDiceExpression,
 } from "./spell-calc";
 import { createFamiliar } from "@/lib/familiar-logic";
+import { getCmeBonusDice, cmeLabelSuffix } from "@/lib/cme";
 
 interface SpellCardProps {
   spellName: string;
@@ -158,13 +159,18 @@ export default function SpellCard({
     const parsed = parseDiceExpression(effectiveDamage);
     if (!parsed) return;
     const die = toDieSpec(parsed);
-    const damageLabel = spellData?.damageType
+    const dice = [die];
+    // Conjure Minor Elementals adds bonus elemental dice to spell *attacks*
+    // (attack-roll spells), not save-based spells.
+    const cmeDie = hasAttackRoll ? getCmeBonusDice(cr) : null;
+    if (cmeDie) dice.push(cmeDie);
+    const baseLabel = spellData?.damageType
       ? `${spellName} — ${effectiveDamage} ${spellData.damageType}`
       : `${spellName} — ${effectiveDamage}`;
     onRollDice({
-      dice: [die],
+      dice,
       modifier: 0,
-      label: damageLabel,
+      label: baseLabel + (cmeDie ? cmeLabelSuffix(cr) : ""),
     });
   };
 

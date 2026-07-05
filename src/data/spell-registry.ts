@@ -518,6 +518,19 @@ export const SPELL_REGISTRY: Record<string, SpellData> = {
       "When you cast this spell using a spell slot of 4th level or higher, the damage increases by 1d6 for each slot level above 3rd.",
   },
 
+  "Hypnotic Pattern": {
+    name: "Hypnotic Pattern",
+    level: 3,
+    school: "Illusion",
+    castingTime: "1 action",
+    range: "120 feet",
+    components: { verbal: false, somatic: true, material: true, materialDescription: "a pinch of confetti" },
+    duration: "Concentration, up to 1 minute",
+    description:
+      "You create a twisting pattern of colors in a 30-foot Cube within range. The pattern appears for a moment and vanishes. Each creature in the area who can see the pattern must succeed on a Wisdom saving throw or have the Charmed condition for the duration. While Charmed, the creature has the Incapacitated condition and a Speed of 0. The spell ends for an affected creature if it takes any damage or if someone else uses an action to shake it out of its stupor.",
+    saveType: "WIS",
+  },
+
   "Counterspell": {
     name: "Counterspell",
     level: 3,
@@ -547,6 +560,63 @@ export const SPELL_REGISTRY: Record<string, SpellData> = {
     upcast: { perLevel: "1 target" },
     upcastDescription:
       "When you cast this spell using a spell slot of 5th level or higher, you can target one additional creature for each slot level above 4th.",
+  },
+
+  "Polymorph": {
+    name: "Polymorph",
+    level: 4,
+    school: "Transmutation",
+    castingTime: "1 action",
+    range: "60 feet",
+    components: { verbal: true, somatic: true, material: true, materialDescription: "a caterpillar cocoon" },
+    duration: "Concentration, up to 1 hour",
+    description:
+      "You attempt to transform a creature that you can see within range into a Beast. The target must succeed on a Wisdom saving throw or shape-shift into a Beast form for the duration. That form can be any Beast you choose that has a Challenge Rating equal to or less than the target's (or the target's level if it doesn't have a Challenge Rating). The target's game statistics are replaced by the stat block of the chosen Beast, but the target retains its alignment, personality, creature type, Hit Points, and Hit Point Dice. The target gains Temporary Hit Points equal to the Hit Points of the Beast form. The target is limited by the anatomy of its new form and can't speak or cast spells. The target's gear melds into the new form.",
+    saveType: "WIS",
+  },
+
+  "Dimension Door": {
+    name: "Dimension Door",
+    level: 4,
+    school: "Conjuration",
+    castingTime: "1 action",
+    range: "500 feet",
+    components: { verbal: true, somatic: false, material: false },
+    duration: "Instantaneous",
+    description:
+      "You teleport to a location within range. You arrive at exactly the spot desired — a place you can see, visualize, or describe by distance and direction. You can also teleport one willing creature within 5 feet of you to a space within 5 feet of your destination. If you or the creature would arrive in an occupied space, each takes 4d6 Force damage and the teleportation fails.",
+  },
+
+  "Conjure Minor Elementals": {
+    name: "Conjure Minor Elementals",
+    level: 4,
+    school: "Conjuration",
+    castingTime: "1 action",
+    range: "Self",
+    components: { verbal: true, somatic: true, material: false },
+    duration: "Concentration, up to 10 minutes",
+    description:
+      "You conjure spirits from the Elemental Planes that flit around you in a 15-foot Emanation for the duration. Until the spell ends, any attack you make deals an extra 2d8 damage when you hit a creature in the Emanation. This damage is Acid, Cold, Fire, or Lightning (your choice when you make the attack). In addition, the ground in the Emanation is Difficult Terrain for your enemies.",
+    damageDice: "2d8",
+    damageType: "elemental",
+    upcast: { perLevel: "1d8" },
+    upcastDescription:
+      "Using a higher-level spell slot, the extra damage increases by 1d8 for each slot level above 4.",
+  },
+
+  "Synaptic Static": {
+    name: "Synaptic Static",
+    level: 5,
+    school: "Enchantment",
+    castingTime: "1 action",
+    range: "120 feet",
+    components: { verbal: true, somatic: true, material: false },
+    duration: "Instantaneous",
+    description:
+      "You cause psychic energy to erupt at a point within range. Each creature in a 20-foot-radius Sphere centered on that point makes an Intelligence saving throw, taking 8d6 Psychic damage on a failed save or half as much damage on a successful one. On a failed save, a target also has muddled thoughts for 1 minute, subtracting 1d6 from all its attack rolls and ability checks, as well as any Constitution saving throws to maintain Concentration. The target repeats the save at the end of each of its turns, ending the effect on itself on a success.",
+    damageDice: "8d6",
+    damageType: "psychic",
+    saveType: "INT",
   },
 
   // ─── CLASS FEATURES (Level 0) ─────────────────────────────────────

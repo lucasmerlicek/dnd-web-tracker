@@ -127,6 +127,13 @@ export interface ClassResources {
   preparedSpells?: string[];
   autoPreparedSpells?: string[];
 
+  // Conjure Minor Elementals (Ramil) — concentration toggle that adds bonus
+  // damage dice to each attack (weapon or spell attack) while active.
+  // Presence of `cmeDice` gates the UI (like bladesongMaxUses for Bladesong).
+  cmeActive?: boolean;
+  cmeDice?: string; // e.g. "2d8" (scales +1d8 per slot level above 4)
+  cmeDamageType?: string; // "acid" | "cold" | "fire" | "lightning"
+
   // Shared feat flags
   feyBaneUsed?: boolean;
   feyMistyStepUsed?: boolean;

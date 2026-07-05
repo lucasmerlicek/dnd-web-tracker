@@ -285,6 +285,7 @@ export default function DashboardPage() {
     if (cr.sorceryPointsMax !== undefined) cr.currentSorceryPoints = cr.sorceryPointsMax;
     if (cr.ravenFormMaxUses !== undefined) { cr.ravenFormUsesRemaining = cr.ravenFormMaxUses; cr.ravenFormActive = false; }
     if (cr.bladesongMaxUses !== undefined) { cr.bladesongUsesRemaining = cr.bladesongMaxUses; cr.bladesongActive = false; }
+    if (cr.cmeDice !== undefined) cr.cmeActive = false;
     cr.sorcerousRestorationUsed = false;
     cr.feyBaneUsed = false;
     cr.feyMistyStepUsed = false;
@@ -360,6 +361,11 @@ export default function DashboardPage() {
               {data.classResources.bladesongActive && (
                 <div className="flex justify-center">
                   <span className="rounded bg-ff12-select/20 px-2 py-0.5 text-xs text-ff12-select">Bladesong</span>
+                </div>
+              )}
+              {data.classResources.cmeActive && (
+                <div className="flex justify-center">
+                  <span className="rounded bg-ff12-select/20 px-2 py-0.5 text-xs text-ff12-select">Conjure Minor Elementals</span>
                 </div>
               )}
               {data.classResources.ravenFormActive && (

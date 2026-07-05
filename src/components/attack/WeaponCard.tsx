@@ -4,6 +4,7 @@ import { useState } from "react";
 import UIPanel from "@/components/ui/UIPanel";
 import IconImage from "@/components/ui/IconImage";
 import { calcAttackBonus, calcDamageBonus } from "@/app/attack/attack-calc";
+import { getCmeBonusDice, cmeLabelSuffix } from "@/lib/cme";
 import type { Weapon, CharacterData, DiceRoll, DiceResult } from "@/types";
 
 type AdvMode = "normal" | "advantage" | "disadvantage";
@@ -61,10 +62,14 @@ export default function WeaponCard({ weapon, characterData, onRoll }: WeaponCard
     const modifier = isOffHand
       ? calcDamageBonus(weapon, characterData.stats, bladesongActive, true, hasTwoWeaponFighting)
       : damageBonus;
+    const dice = [{ sides, count }];
+    // Conjure Minor Elementals: add bonus elemental dice while active
+    const cmeDie = getCmeBonusDice(characterData.classResources);
+    if (cmeDie) dice.push(cmeDie);
     onRoll({
-      dice: [{ sides, count }],
+      dice,
       modifier,
-      label: `${isOffHand ? "Off-hand " : ""}Damage — ${weapon.name} (${weapon.damageType})`,
+      label: `${isOffHand ? "Off-hand " : ""}Damage — ${weapon.name} (${weapon.damageType})${cmeLabelSuffix(characterData.classResources)}`,
     });
   };
 
