@@ -115,26 +115,85 @@ export default function SpellsPage() {
         </UIPanel>
 
         {/* Sorcery Points Panel (Sorcerer only) */}
-        {isSorcerer && (
-          <UIPanel variant="fancy">
-            <h2 className="mb-3 text-sm text-gold/70">Sorcery Points</h2>
-            <div className="mb-3 text-lg text-gold">
-              {data.classResources.currentSorceryPoints} / {data.classResources.sorceryPointsMax}
-            </div>
-            <div className="flex flex-wrap gap-2">
-              {Object.entries(SP_TO_SLOT_COST).map(([level, cost]) => (
-                <div key={level} className="flex gap-1">
-                  <button onClick={() => handleConvertSpToSlot(level)} className="min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim">
-                    {cost} SP → {level} slot
-                  </button>
-                  <button onClick={() => handleConvertSlotToSp(level)} className="min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim">
-                    {level} slot → {slotToSpGain(level)} SP
-                  </button>
+        {isSorcerer && (() => {
+          const curSP = data.classResources.currentSorceryPoints ?? 0;
+          const maxSP = data.classResources.sorceryPointsMax ?? 0;
+          // Only offer conversions for slot levels the character actually has
+          // (this naturally enforces the minimum-sorcerer-level requirement).
+          const rows = Object.entries(SP_TO_SLOT_COST).filter(
+            ([lvl]) => data.spellSlots[lvl] !== undefined
+          );
+          return (
+            <UIPanel variant="fancy">
+              <div className="mb-2 flex items-end justify-between">
+                <h2 className="text-sm text-gold/70">Sorcery Points · Font of Magic</h2>
+                <div className="text-gold">
+                  <span className="text-2xl font-bold tabular-nums">{curSP}</span>
+                  <span className="text-sm text-ff12-text-dim"> / {maxSP}</span>
                 </div>
-              ))}
-            </div>
-          </UIPanel>
-        )}
+              </div>
+
+              {/* SP pips */}
+              {maxSP > 0 && (
+                <div className="mb-3 flex flex-wrap gap-1">
+                  {Array.from({ length: maxSP }).map((_, i) => (
+                    <span
+                      key={i}
+                      className={`h-2.5 w-2.5 rounded-full transition ${
+                        i < curSP ? "bg-gold" : "bg-ff12-panel-light/40 ring-1 ring-ff12-border-dim/40"
+                      }`}
+                    />
+                  ))}
+                </div>
+              )}
+
+              {/* Conversion grid */}
+              <div className="divide-y divide-ff12-border-dim/30 rounded border border-ff12-border-dim/40">
+                <div className="flex items-center justify-between bg-ff12-panel-dark/40 px-3 py-1.5 text-[10px] uppercase tracking-wider text-ff12-text-dim">
+                  <span>Slot / Available</span>
+                  <span>Convert</span>
+                </div>
+                {rows.map(([lvl, cost]) => {
+                  const cur = data.currentSpellSlots[lvl] ?? 0;
+                  const max = data.spellSlots[lvl] ?? 0;
+                  const gain = slotToSpGain(lvl);
+                  return (
+                    <div key={lvl} className="flex items-center justify-between px-3 py-2">
+                      <div className="flex items-center gap-3">
+                        <span className="w-8 text-sm text-gold">{lvl}</span>
+                        <span className="text-sm tabular-nums text-ff12-text-dim">
+                          {cur}
+                          <span className="text-ff12-text-dim/50">/{max}</span>
+                        </span>
+                      </div>
+                      <div className="flex items-center gap-1.5">
+                        <button
+                          onClick={() => handleConvertSpToSlot(lvl)}
+                          disabled={curSP < cost}
+                          title={`Spend ${cost} SP to create a ${lvl} slot`}
+                          className="min-h-[36px] rounded bg-ff12-panel-light px-2.5 py-1 text-xs text-ff12-text transition hover:bg-ff12-border-dim disabled:cursor-not-allowed disabled:opacity-30"
+                        >
+                          + Slot <span className="text-gold/70">(−{cost})</span>
+                        </button>
+                        <button
+                          onClick={() => handleConvertSlotToSp(lvl)}
+                          disabled={cur <= 0}
+                          title={`Break a ${lvl} slot into ${gain} SP`}
+                          className="min-h-[36px] rounded bg-ff12-panel-light px-2.5 py-1 text-xs text-ff12-text transition hover:bg-ff12-border-dim disabled:cursor-not-allowed disabled:opacity-30"
+                        >
+                          + SP <span className="text-gold/70">(+{gain})</span>
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <p className="mt-2 text-[10px] text-ff12-text-dim/60">
+                Bonus action · break a slot for SP equal to its level · can’t create slots above 5th
+              </p>
+            </UIPanel>
+          );
+        })()}
 
         {/* Spell Preparation Panel (Wizard only) */}
         {isWizard && (

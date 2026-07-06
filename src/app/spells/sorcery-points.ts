@@ -1,13 +1,11 @@
 /**
- * Pure sorcery point conversion logic.
+ * Pure sorcery point conversion logic (Font of Magic, D&D 5E).
  *
- * SP-to-slot costs (D&D 5E):
- *   1st-level slot = 2 SP
- *   2nd-level slot = 3 SP
- *   3rd-level slot = 5 SP
+ * SP-to-slot costs (you can't create a slot higher than 5th):
+ *   1st = 2 SP · 2nd = 3 SP · 3rd = 5 SP · 4th = 6 SP · 5th = 7 SP
  *
  * Slot-to-SP conversion:
- *   Any slot → SP equal to the slot's level (1st = 1 SP, 2nd = 2 SP, 3rd = 3 SP)
+ *   Any slot → SP equal to the slot's level (1st = 1 SP … 9th = 9 SP)
  */
 
 /** Cost in sorcery points to create a spell slot of the given level key. */
@@ -15,11 +13,16 @@ export const SP_TO_SLOT_COST: Record<string, number> = {
   "1st": 2,
   "2nd": 3,
   "3rd": 5,
+  "4th": 6,
+  "5th": 7,
 };
 
 /** Map a spell slot level key (e.g. "1st") to its numeric level. */
 export function slotLevelNumber(level: string): number {
-  const map: Record<string, number> = { "1st": 1, "2nd": 2, "3rd": 3 };
+  const map: Record<string, number> = {
+    "1st": 1, "2nd": 2, "3rd": 3, "4th": 4, "5th": 5,
+    "6th": 6, "7th": 7, "8th": 8, "9th": 9,
+  };
   return map[level] ?? 0;
 }
 
