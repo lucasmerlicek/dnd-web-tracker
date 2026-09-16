@@ -260,6 +260,8 @@ export default function SpellsPage() {
               onRollDice={rollDice}
               onMutate={mutate}
               onWarning={showWarning}
+              preparedCount={preparedCount}
+              maxPrepared={maxPrepared}
             />
           );
         })}
@@ -279,6 +281,8 @@ function SpellLevelPanel({
   onRollDice,
   onMutate,
   onWarning,
+  preparedCount,
+  maxPrepared,
 }: {
   level: string;
   spells: string[];
@@ -288,6 +292,8 @@ function SpellLevelPanel({
   onRollDice: (roll: import("@/types/dice").DiceRoll) => void;
   onMutate: (partial: Partial<import("@/types/character").CharacterData>) => void;
   onWarning: (msg: string) => void;
+  preparedCount: number;
+  maxPrepared: number;
 }) {
   const cursor = useCursorNavigation({
     itemCount: spells.length,
@@ -314,6 +320,8 @@ function SpellLevelPanel({
               onRollDice={onRollDice}
               onMutate={onMutate}
               onWarning={onWarning}
+              preparedCount={preparedCount}
+              maxPrepared={maxPrepared}
             />
           </div>
         ))}

@@ -30,6 +30,10 @@ interface SpellCardProps {
   onRollDice: (roll: DiceRoll) => void;
   onMutate: (partial: Partial<CharacterData>) => void;
   onWarning: (msg: string) => void;
+  /** Number of non-auto prepared spells currently selected (Wizard only). */
+  preparedCount?: number;
+  /** Maximum number of spells that can be prepared (Wizard only). */
+  maxPrepared?: number;
 }
 
 const VALID_DIE_SIDES = new Set([4, 6, 8, 10, 12, 20]);
@@ -51,6 +55,8 @@ export default function SpellCard({
   onRollDice,
   onMutate,
   onWarning,
+  preparedCount = 0,
+  maxPrepared = 0,
 }: SpellCardProps) {
   const [castLevel, setCastLevel] = useState<number | null>(null);
   const [darknessSeeThrough, setDarknessSeeThrough] = useState(false);
@@ -333,6 +339,34 @@ export default function SpellCard({
     ? (characterData.classResources.autoPreparedSpells ?? []).includes(spellName)
     : false;
 
+  // Cantrips are always available and auto-prepared spells are locked, so
+  // neither can be toggled.
+  const canTogglePrepared = isWizard && !isCantrip && !isAutoPrepared;
+
+  const handleTogglePrepared = () => {
+    const prepared = characterData.classResources.preparedSpells ?? [];
+    if (isPrepared) {
+      onMutate({
+        classResources: {
+          ...characterData.classResources,
+          preparedSpells: prepared.filter((s) => s !== spellName),
+        },
+      });
+      return;
+    }
+    // Enforce the preparation limit when adding (auto-prepared don't count).
+    if (maxPrepared > 0 && preparedCount >= maxPrepared) {
+      onWarning(`Preparation limit reached (${preparedCount}/${maxPrepared})`);
+      return;
+    }
+    onMutate({
+      classResources: {
+        ...characterData.classResources,
+        preparedSpells: [...prepared, spellName],
+      },
+    });
+  };
+
   // Can this character ritual-cast this spell?
   const showRitual =
     spellData?.ritual === true &&
@@ -378,14 +412,33 @@ export default function SpellCard({
           )}
         </div>
         <div className="flex items-center gap-2">
-          {isWizard && !isCantrip && (
-            <span className={`text-[10px] ${isAutoPrepared ? "text-gold/60" : isPrepared ? "text-gold" : "text-ff12-text-dim/30"}`}>
-              {isAutoPrepared ? "Auto" : isPrepared ? "Prepared" : ""}
-            </span>
+          {isWizard && !isCantrip && isAutoPrepared && (
+            <span className="text-[10px] text-gold/60">Auto</span>
           )}
           <span className="text-xs text-ff12-text-dim/30">{isExpanded ? "▲" : "▼"}</span>
         </div>
       </button>
+
+      {/* Prepare toggle — rendered outside the header button so we don't nest
+          interactive elements. Auto-prepared spells and cantrips aren't toggleable. */}
+      {canTogglePrepared && (
+        <div className="flex justify-end px-3 pb-1">
+          <button
+            onClick={handleTogglePrepared}
+            role="switch"
+            aria-checked={isPrepared}
+            aria-label={`${isPrepared ? "Unprepare" : "Prepare"} ${spellName}`}
+            title={isPrepared ? "Click to unprepare" : "Click to prepare"}
+            className={`min-h-[28px] rounded px-2 py-0.5 text-[10px] transition ${
+              isPrepared
+                ? "bg-gold/20 text-gold hover:bg-gold/30"
+                : "bg-ff12-panel-light text-ff12-text-dim/50 hover:bg-ff12-border-dim hover:text-ff12-text"
+            }`}
+          >
+            {isPrepared ? "✓ Prepared" : "Prepare"}
+          </button>
+        </div>
+      )}
 
       {/* Expanded content */}
       {isExpanded && spellData && (
