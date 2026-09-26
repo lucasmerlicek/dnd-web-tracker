@@ -307,6 +307,7 @@ export default function DashboardPage() {
     if (cr.cmeDice !== undefined) cr.cmeActive = false;
     cr.sorcerousRestorationUsed = false;
     cr.arcaneRecoveryUsed = false;
+    cr.pyramidArtifactUsed = false;
     cr.feyBaneUsed = false;
     cr.feyMistyStepUsed = false;
     cr.druidCharmPersonUsed = false;

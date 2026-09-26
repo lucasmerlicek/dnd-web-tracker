@@ -14,6 +14,7 @@ import DiceResultOverlay from "@/components/ui/DiceResultOverlay";
 import CursorIndicator from "@/components/ui/CursorIndicator";
 import { availableSlotLevels, songOfDefenseReduction, expendSongOfDefense } from "@/lib/song-of-defense";
 import { getWizardLevel } from "@/lib/arcane-recovery";
+import { expendedSlotLevels, hasPyramidArtifact, recoverWithPyramid } from "@/lib/pyramid-artifact";
 
 export default function ActionsPage() {
   const { data: session } = useSession();
@@ -23,6 +24,8 @@ export default function ActionsPage() {
   const [expandedUniversal, setExpandedUniversal] = useState<string | null>(null);
   const [songSlot, setSongSlot] = useState<string>("");
   const [sodMessage, setSodMessage] = useState<string>("");
+  const [pyramidSlot, setPyramidSlot] = useState<string>("");
+  const [pyramidMessage, setPyramidMessage] = useState<string>("");
 
   const actionCardCursor = useCursorNavigation({
     itemCount: 0, // will be set after data loads via containerProps
@@ -55,6 +58,27 @@ export default function ActionsPage() {
     }
     mutate({ currentSpellSlots: res.newSlots });
     setSodMessage(`Expended a ${sodLevel} slot — reduce damage by ${res.reduction}`);
+  };
+
+  // Pyramid Artifact: bonus action, recover one expended slot of any level, 1/long rest.
+  const hasPyramid = hasPyramidArtifact(data);
+  const pyramidUsed = cr.pyramidArtifactUsed === true;
+  const pyramidLevels = expendedSlotLevels(data.spellSlots, data.currentSpellSlots);
+  const pyramidLevel = pyramidLevels.includes(pyramidSlot)
+    ? pyramidSlot
+    : pyramidLevels[pyramidLevels.length - 1] ?? ""; // default to highest expended
+
+  const handlePyramid = () => {
+    const res = recoverWithPyramid(data.spellSlots, data.currentSpellSlots, pyramidLevel, pyramidUsed);
+    if (!res.success) {
+      setPyramidMessage(res.error ?? "Cannot use the Pyramid Artifact");
+      return;
+    }
+    mutate({
+      currentSpellSlots: res.newSlots,
+      classResources: { ...cr, pyramidArtifactUsed: true },
+    });
+    setPyramidMessage(`Recovered a ${pyramidLevel} slot`);
   };
 
   // --- Action card: decrement uses, mark unavailable at 0 ---
@@ -243,6 +267,48 @@ export default function ActionsPage() {
                 <button
                   onClick={handleSongOfDefense}
                   disabled={!cr.bladesongActive || sodLevels.length === 0}
+                  className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text transition hover:bg-ff12-border-dim disabled:opacity-30"
+                >
+                  Use
+                </button>
+              </div>
+            </div>
+          </UIPanel>
+        )}
+
+        {/* Pyramid Artifact (shown to whoever carries it) */}
+        {hasPyramid && (
+          <UIPanel variant="fancy">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 className="text-gold">Pyramid Artifact</h3>
+                <p className="text-xs text-ff12-text-dim">
+                  Bonus action: recover one expended spell slot of any level · 1/long rest
+                </p>
+                <p className={`text-xs ${pyramidUsed ? "text-ff12-text-dim/60" : "text-emerald-400"}`}>
+                  {pyramidUsed ? "Used — recharges on a long rest" : "Available"}
+                </p>
+                {pyramidMessage && <p className="text-xs text-emerald-400" role="status">{pyramidMessage}</p>}
+              </div>
+              <div className="flex items-center gap-2">
+                <label htmlFor="pyramid-slot" className="sr-only">Spell slot to recover</label>
+                <select
+                  id="pyramid-slot"
+                  value={pyramidLevel}
+                  onChange={(e) => setPyramidSlot(e.target.value)}
+                  disabled={pyramidUsed || pyramidLevels.length === 0}
+                  className="min-h-[44px] rounded bg-ff12-panel-light px-2 py-1 text-sm text-ff12-text disabled:opacity-40"
+                >
+                  {pyramidLevels.length === 0 && <option value="">No expended slots</option>}
+                  {pyramidLevels.map((lvl) => (
+                    <option key={lvl} value={lvl}>
+                      {lvl} ({data.currentSpellSlots[lvl] ?? 0}/{data.spellSlots[lvl]})
+                    </option>
+                  ))}
+                </select>
+                <button
+                  onClick={handlePyramid}
+                  disabled={pyramidUsed || pyramidLevels.length === 0}
                   className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text transition hover:bg-ff12-border-dim disabled:opacity-30"
                 >
                   Use

@@ -78,6 +78,7 @@ function buildLongRestItems(cd: CharacterData): string[] {
   if (cr.druidCharmPersonUsed) flagsToReset.push("Druid Charm Person");
   if (cr.sorcerousRestorationUsed) flagsToReset.push("Sorcerous Restoration");
   if (cr.arcaneRecoveryUsed) flagsToReset.push("Arcane Recovery");
+  if (cr.pyramidArtifactUsed) flagsToReset.push("Pyramid Artifact");
   if (flagsToReset.length > 0) {
     items.push("Free casts reset: " + flagsToReset.join(", "));
   }

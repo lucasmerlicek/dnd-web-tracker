@@ -133,6 +133,8 @@ export interface ClassResources {
   autoPreparedSpells?: string[];
   /** Arcane Recovery used since the last long rest (Wizard). */
   arcaneRecoveryUsed?: boolean;
+  /** Pyramid Artifact (recover one slot of any level) used since the last long rest. */
+  pyramidArtifactUsed?: boolean;
 
   // Conjure Minor Elementals (Ramil) — concentration toggle that adds bonus
   // damage dice to each attack (weapon or spell attack) while active.
