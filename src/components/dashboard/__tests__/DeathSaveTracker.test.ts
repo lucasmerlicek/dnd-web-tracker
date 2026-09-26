@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import type { CharacterData } from "@/types";
+import { resolveDeathSave, type DeathSaveState } from "@/lib/death-save";
 
 /**
  * Unit tests for DeathSaveTracker logic.
@@ -8,45 +9,9 @@ import type { CharacterData } from "@/types";
  * Validates: Requirements 3.8, 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.7, 4.8, 4.9, 4.10
  */
 
-// --- Helpers mirroring DeathSaveTracker internals ---
-
-interface DeathSaveState {
-  successes: number;
-  failures: number;
-}
-
-/**
- * Processes a death save roll and returns the partial update to apply.
- * Mirrors the logic in DeathSaveTracker.handleDeathSave.
- */
-function processDeathSave(
-  current: DeathSaveState,
-  natural: number
-): Partial<CharacterData> {
-  if (natural === 20) {
-    // Req 4.5: Nat 20 — set HP to 1, reset saves
-    return { currentHp: 1, deathSaves: { successes: 0, failures: 0 } };
-  }
-
-  let newSuccesses = current.successes;
-  let newFailures = current.failures;
-
-  if (natural === 1) {
-    // Req 4.6: Nat 1 — two failures
-    newFailures += 2;
-  } else if (natural >= 10) {
-    // Req 4.3: ≥10 — one success
-    newSuccesses += 1;
-  } else {
-    // Req 4.4: <10 — one failure
-    newFailures += 1;
-  }
-
-  newSuccesses = Math.min(3, newSuccesses);
-  newFailures = Math.min(3, newFailures);
-
-  return { deathSaves: { successes: newSuccesses, failures: newFailures } };
-}
+// The component calls resolveDeathSave directly, so these tests exercise the real logic.
+const processDeathSave = (current: DeathSaveState, natural: number, bonus = 0) =>
+  resolveDeathSave(current, natural, bonus);
 
 /**
  * Processes damage while at 0 HP.
@@ -131,6 +96,15 @@ describe("DeathSaveTracker death save rolls", () => {
   it("failures never exceed 3", () => {
     const result = processDeathSave({ successes: 0, failures: 3 }, 3);
     expect(result.deathSaves!.failures).toBe(3);
+  });
+
+  it("gear bonus turns a 7 into a success with +3 (Family Ring +2, Ring of Protection +1)", () => {
+    expect(processDeathSave({ successes: 0, failures: 0 }, 7, 3).deathSaves).toEqual({ successes: 1, failures: 0 });
+    expect(processDeathSave({ successes: 0, failures: 0 }, 6, 3).deathSaves).toEqual({ successes: 0, failures: 1 });
+  });
+
+  it("gear bonus never rescues a natural 1", () => {
+    expect(processDeathSave({ successes: 0, failures: 0 }, 1, 9).deathSaves).toEqual({ successes: 0, failures: 2 });
   });
 });
 

@@ -1,13 +1,13 @@
 import { describe, it, expect } from "vitest";
 import * as fc from "fast-check";
-import { aggregateGearModifiers, getEquippedAcBonus } from "../gear-stats";
+import { aggregateGearModifiers, getEquippedAcBonus, getGearBonus, isGearActive } from "../gear-stats";
 import type { GearItem, StatModifier } from "../../types/character";
 
 // ---------------------------------------------------------------------------
 // Generators
 // ---------------------------------------------------------------------------
 
-const STAT_NAMES = ["ac", "attack", "damage"] as const;
+const STAT_NAMES = ["ac", "save", "deathSave"] as const;
 
 const arbStatModifier: fc.Arbitrary<StatModifier> = fc.record({
   stat: fc.constantFrom(...STAT_NAMES),
@@ -44,61 +44,64 @@ describe("Feature: dnd-tracker-enhancements, Property 12: Gear equip/unequip sta
 
         const allEquipped = items.map((item) => ({ ...item, equipped: true }));
         const reUnequipped = allEquipped.map((item) => ({ ...item, equipped: false }));
-        const modsAfterRoundTrip = aggregateGearModifiers(reUnequipped);
-
-        expect(modsAfterRoundTrip).toEqual(modsUnequipped);
+        expect(aggregateGearModifiers(reUnequipped)).toEqual(modsUnequipped);
       }),
       { numRuns: 100 }
     );
   });
 
-  it("aggregateGearModifiers for equipped items equals the sum of individual item modifiers", () => {
+  it("aggregateGearModifiers equals the modifiers of active items (equipped, and attuned if required)", () => {
     fc.assert(
       fc.property(arbGearItems, (items) => {
-        const equippedItems = items.filter((item) => item.equipped);
-        const aggregated = aggregateGearModifiers(items);
-        const expectedModifiers = equippedItems.flatMap((item) => item.statModifiers);
-        expect(aggregated).toEqual(expectedModifiers);
+        const expected = items
+          .filter((i) => i.equipped && (!i.requiresAttunement || i.attuned))
+          .flatMap((i) => i.statModifiers);
+        expect(aggregateGearModifiers(items)).toEqual(expected);
       }),
       { numRuns: 100 }
     );
   });
 
-  it("getEquippedAcBonus equals the sum of AC modifiers from equipped items", () => {
+  it("items that require attunement give nothing until attuned", () => {
     fc.assert(
       fc.property(arbGearItems, (items) => {
-        const acBonus = getEquippedAcBonus(items);
-        const expectedAcBonus = items
-          .filter((item) => item.equipped)
-          .flatMap((item) => item.statModifiers)
-          .filter((mod) => mod.stat === "ac")
-          .reduce((sum, mod) => sum + mod.value, 0);
-        expect(acBonus).toBe(expectedAcBonus);
+        const unattuned = items.map((i) => ({ ...i, equipped: true, requiresAttunement: true, attuned: false }));
+        expect(aggregateGearModifiers(unattuned)).toEqual([]);
+        expect(getEquippedAcBonus(unattuned)).toBe(0);
       }),
       { numRuns: 100 }
     );
   });
 
-  it("unequipping a single item removes only that item's modifiers", () => {
+  it("getEquippedAcBonus / getGearBonus equal the sum of that stat from active items", () => {
+    fc.assert(
+      fc.property(arbGearItems, fc.constantFrom(...STAT_NAMES), (items, stat) => {
+        const expected = items
+          .filter(isGearActive)
+          .flatMap((i) => i.statModifiers)
+          .filter((m) => m.stat === stat)
+          .reduce((s, m) => s + m.value, 0);
+        expect(getGearBonus(items, stat)).toBe(expected);
+        if (stat === "ac") expect(getEquippedAcBonus(items)).toBe(expected);
+      }),
+      { numRuns: 100 }
+    );
+  });
+
+  it("deactivating a single active item removes only that item's modifiers", () => {
     fc.assert(
       fc.property(
-        arbGearItems.filter((items) => items.some((i) => i.equipped)),
+        arbGearItems.filter((items) => items.some(isGearActive)),
         fc.nat(),
         (items, rawIdx) => {
-          const equippedIndices = items
-            .map((item, idx) => (item.equipped ? idx : -1))
-            .filter((idx) => idx >= 0);
-          const targetIdx = equippedIndices[rawIdx % equippedIndices.length];
-
-          const modsBefore = aggregateGearModifiers(items);
-          const removedMods = items[targetIdx].statModifiers;
-
-          const afterUnequip = items.map((item, idx) =>
-            idx === targetIdx ? { ...item, equipped: false } : item
+          const activeIdx = items.map((item, idx) => (isGearActive(item) ? idx : -1)).filter((i) => i >= 0);
+          const targetIdx = activeIdx[rawIdx % activeIdx.length];
+          const before = aggregateGearModifiers(items);
+          const removed = items[targetIdx].statModifiers;
+          const after = aggregateGearModifiers(
+            items.map((item, idx) => (idx === targetIdx ? { ...item, equipped: false } : item))
           );
-          const modsAfter = aggregateGearModifiers(afterUnequip);
-
-          expect(modsAfter.length).toBe(modsBefore.length - removedMods.length);
+          expect(after.length).toBe(before.length - removed.length);
         }
       ),
       { numRuns: 100 }

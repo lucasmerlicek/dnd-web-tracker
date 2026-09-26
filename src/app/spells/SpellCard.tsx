@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import type { SpellData } from "@/types/spell";
 import type { CharacterData, SpellCreatedWeapon } from "@/types/character";
 import type { DiceRoll, DieSpec } from "@/types/dice";
-import { METAMAGIC_OPTIONS, LEVEL_KEYS } from "@/types/spell";
+import { METAMAGIC_OPTIONS, LEVEL_KEYS, type MetamagicOption } from "@/types/spell";
 import IconImage from "@/components/ui/IconImage";
 import {
   calcSpellAttackBonus,
@@ -14,11 +14,14 @@ import {
   canRitualCast,
   consumeSpellSlot,
   applyMetamagic,
+  canExtend,
+  canHeighten,
   getSpellcastingAbility,
   parseDiceExpression,
 } from "./spell-calc";
 import { createFamiliar } from "@/lib/familiar-logic";
 import { getCmeBonusDice, cmeLabelSuffix } from "@/lib/cme";
+import { castContingency, contingencyBindLevels } from "@/lib/contingency";
 
 interface SpellCardProps {
   spellName: string;
@@ -59,6 +62,8 @@ export default function SpellCard({
   maxPrepared = 0,
 }: SpellCardProps) {
   const [castLevel, setCastLevel] = useState<number | null>(null);
+  const isContingency = spellName === "Contingency";
+  const [contingencyBoundLevel, setContingencyBoundLevel] = useState<string>("");
   const [darknessSeeThrough, setDarknessSeeThrough] = useState(false);
   const cr = characterData.classResources;
   const innateSorceryActive = cr.innateSorceryActive ?? false;
@@ -80,6 +85,10 @@ export default function SpellCard({
   }, [innateSorceryActive, hasAttackRoll]);
 
   const isCantrip = spellLevel === "cantrip";
+  // Winter's Clutches note is only relevant to whoever has the gloves equipped.
+  const hasWintersClutches = (characterData.inventoryItems?.gear ?? []).some(
+    (g) => g.equipped && /winter'?s? clu?t?ches/i.test(g.name)
+  );
   const isSorcerer = characterData.classResources.sorceryPointsMax !== undefined;
   const isWizard = characterData.classResources.preparedSpells !== undefined;
   const spellcastingAbility = getSpellcastingAbility(characterData.charClass);
@@ -180,7 +189,29 @@ export default function SpellCard({
     });
   };
 
+  // Contingency: bound-spell levels the character has (5th or lower).
+  const contingencyLevels = isContingency ? contingencyBindLevels(characterData.spellSlots) : [];
+  const effectiveBoundLevel =
+    contingencyBoundLevel ||
+    contingencyLevels.find((l) => (characterData.currentSpellSlots[l] ?? 0) > 0) ||
+    contingencyLevels[0] ||
+    "";
+
+  const handleCastContingency = () => {
+    const result = castContingency(characterData.currentSpellSlots, effectiveBoundLevel);
+    if (!result.success) {
+      onWarning(result.error ?? "Cannot cast Contingency");
+      return;
+    }
+    onMutate({ currentSpellSlots: result.newSlots });
+    onWarning(`Contingency cast (6th + ${effectiveBoundLevel} slot expended)`);
+  };
+
   const handleCast = () => {
+    if (isContingency) {
+      handleCastContingency();
+      return;
+    }
     if (isCantrip || !slotKey) return;
     const result = consumeSpellSlot(characterData.currentSpellSlots, slotKey);
     if (!result.success) {
@@ -317,7 +348,7 @@ export default function SpellCard({
     });
   };
 
-  const handleMetamagic = (option: "empowered" | "quickened") => {
+  const handleMetamagic = (option: MetamagicOption) => {
     const result = applyMetamagic(option, currentSP);
     if (!result.success) {
       onWarning(result.error ?? "Insufficient sorcery points");
@@ -329,6 +360,11 @@ export default function SpellCard({
         currentSorceryPoints: result.newSP,
       },
     });
+    if (option === "heightened") {
+      onWarning(`Heightened: one target has disadvantage on its first ${spellData?.saveType} save`);
+    } else if (option === "extended") {
+      onWarning(`Extended: ${spellName}'s duration is doubled (max 24 hours)`);
+    }
   };
 
   // --- Wizard prepared state ---
@@ -468,6 +504,13 @@ export default function SpellCard({
             {spellData.description}
           </p>
 
+          {/* Gear note (e.g. Winter's Clutches) — only if this character has the item equipped */}
+          {spellData.itemNote && hasWintersClutches && (
+            <p className="mb-3 rounded bg-sky-900/30 px-2 py-1 text-xs leading-relaxed text-sky-300">
+              ❄ {spellData.itemNote}
+            </p>
+          )}
+
           {/* Upcast description */}
           {spellData.upcastDescription && (
             <p className="mb-3 text-xs leading-relaxed text-gold/70 italic">
@@ -501,8 +544,32 @@ export default function SpellCard({
             </div>
           )}
 
+          {/* Contingency: choose the bound spell's level instead of upcasting */}
+          {isContingency && (
+            <div className="mb-2 flex items-center gap-2">
+              <label htmlFor={`contingency-bind-${spellName}`} className="text-xs text-ff12-text-dim">
+                Cast for:
+              </label>
+              <select
+                id={`contingency-bind-${spellName}`}
+                value={effectiveBoundLevel}
+                onChange={(e) => setContingencyBoundLevel(e.target.value)}
+                className="rounded bg-ff12-panel-light px-2 py-1 text-xs text-ff12-text"
+              >
+                {contingencyLevels.map((lvl) => {
+                  const slots = characterData.currentSpellSlots[lvl] ?? 0;
+                  return (
+                    <option key={lvl} value={lvl} disabled={slots === 0}>
+                      {lvl}-level spell ({slots} slots)
+                    </option>
+                  );
+                })}
+              </select>
+            </div>
+          )}
+
           {/* Level selector for upcasting */}
-          {upcastLevels.length > 1 && (
+          {!isContingency && upcastLevels.length > 1 && (
             <div className="mb-2 flex items-center gap-2">
               <label className="text-xs text-ff12-text-dim">Cast at:</label>
               <select
@@ -604,8 +671,25 @@ export default function SpellCard({
               </button>
             )}
 
+            {/* Contingency cast button: expends the 6th slot + the bound-spell slot */}
+            {isContingency && (() => {
+              const canCast =
+                (characterData.currentSpellSlots["6th"] ?? 0) > 0 &&
+                effectiveBoundLevel !== "" &&
+                (characterData.currentSpellSlots[effectiveBoundLevel] ?? 0) > 0;
+              return (
+                <button
+                  onClick={handleCastContingency}
+                  disabled={!canCast}
+                  className="min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  Cast (6th + {effectiveBoundLevel || "—"})
+                </button>
+              );
+            })()}
+
             {/* Cast button (leveled spells only) */}
-            {!isCantrip && (
+            {!isCantrip && !isContingency && (
               <button
                 onClick={handleCast}
                 disabled={remainingSlots === 0}
@@ -699,6 +783,30 @@ export default function SpellCard({
                     }`}
                   >
                     Quickened Spell ({METAMAGIC_OPTIONS.quickened.cost} SP)
+                  </button>
+                )}
+
+                {/* Heightened Spell — only for spells that force a saving throw */}
+                {canHeighten(spellData) && (
+                  <button
+                    onClick={() => handleMetamagic("heightened")}
+                    disabled={currentSP < METAMAGIC_OPTIONS.heightened.cost}
+                    title="One target has disadvantage on its first save against the spell"
+                    className="min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    Heightened Spell ({METAMAGIC_OPTIONS.heightened.cost} SP)
+                  </button>
+                )}
+
+                {/* Extended Spell — only for spells with a duration */}
+                {canExtend(spellData) && (
+                  <button
+                    onClick={() => handleMetamagic("extended")}
+                    disabled={currentSP < METAMAGIC_OPTIONS.extended.cost}
+                    title="Double the spell's duration (max 24 hours)"
+                    className="min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    Extended Spell ({METAMAGIC_OPTIONS.extended.cost} SP)
                   </button>
                 )}
               </div>

@@ -12,6 +12,8 @@ import UIPanel from "@/components/ui/UIPanel";
 import AmbientEffects from "@/components/ui/AmbientEffects";
 import DiceResultOverlay from "@/components/ui/DiceResultOverlay";
 import CursorIndicator from "@/components/ui/CursorIndicator";
+import { availableSlotLevels, songOfDefenseReduction, expendSongOfDefense } from "@/lib/song-of-defense";
+import { getWizardLevel } from "@/lib/arcane-recovery";
 
 export default function ActionsPage() {
   const { data: session } = useSession();
@@ -19,6 +21,8 @@ export default function ActionsPage() {
   const { currentRoll, result, rollDice, dismiss } = useDiceRoll();
   const characterId = (session?.user as { characterId?: string })?.characterId ?? "madea";
   const [expandedUniversal, setExpandedUniversal] = useState<string | null>(null);
+  const [songSlot, setSongSlot] = useState<string>("");
+  const [sodMessage, setSodMessage] = useState<string>("");
 
   const actionCardCursor = useCursorNavigation({
     itemCount: 0, // will be set after data loads via containerProps
@@ -38,6 +42,20 @@ export default function ActionsPage() {
   const hasInnateSorcery = cr.innateSorceryMaxUses !== undefined;
   const hasCME = cr.cmeDice !== undefined;
   const intMod = data.stats.INT.modifier;
+  // Song of Defense unlocks at Wizard 10 (Bladesinger only).
+  const hasSongOfDefense = hasBladesong && getWizardLevel(data.charClass) >= 10;
+  const sodLevels = availableSlotLevels(data.currentSpellSlots);
+  const sodLevel = sodLevels.includes(songSlot) ? songSlot : sodLevels[0] ?? "";
+
+  const handleSongOfDefense = () => {
+    const res = expendSongOfDefense(data.currentSpellSlots, sodLevel, cr.bladesongActive ?? false);
+    if (!res.success) {
+      setSodMessage(res.error ?? "Cannot use Song of Defense");
+      return;
+    }
+    mutate({ currentSpellSlots: res.newSlots });
+    setSodMessage(`Expended a ${sodLevel} slot — reduce damage by ${res.reduction}`);
+  };
 
   // --- Action card: decrement uses, mark unavailable at 0 ---
   const activateAction = (key: string) => {
@@ -186,6 +204,48 @@ export default function ActionsPage() {
                   }`}
                 >
                   {cr.bladesongActive ? "Deactivate" : "Activate"}
+                </button>
+              </div>
+            </div>
+          </UIPanel>
+        )}
+
+        {/* Song of Defense (Bladesinger, Wizard 10+) */}
+        {hasSongOfDefense && (
+          <UIPanel variant="fancy">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <div>
+                <h3 className="text-gold">Song of Defense</h3>
+                <p className="text-xs text-ff12-text-dim">
+                  Reaction while Bladesong is active: expend a slot to reduce damage by 5 × slot level
+                </p>
+                {!cr.bladesongActive && (
+                  <p className="text-xs text-ff12-text-dim/60">Requires active Bladesong</p>
+                )}
+                {sodMessage && <p className="text-xs text-emerald-400" role="status">{sodMessage}</p>}
+              </div>
+              <div className="flex items-center gap-2">
+                <label htmlFor="song-of-defense-slot" className="sr-only">Spell slot to expend</label>
+                <select
+                  id="song-of-defense-slot"
+                  value={sodLevel}
+                  onChange={(e) => setSongSlot(e.target.value)}
+                  disabled={sodLevels.length === 0}
+                  className="min-h-[44px] rounded bg-ff12-panel-light px-2 py-1 text-sm text-ff12-text disabled:opacity-40"
+                >
+                  {sodLevels.length === 0 && <option value="">No slots</option>}
+                  {sodLevels.map((lvl) => (
+                    <option key={lvl} value={lvl}>
+                      {lvl} (−{songOfDefenseReduction(lvl)} dmg · {data.currentSpellSlots[lvl]} left)
+                    </option>
+                  ))}
+                </select>
+                <button
+                  onClick={handleSongOfDefense}
+                  disabled={!cr.bladesongActive || sodLevels.length === 0}
+                  className="min-h-[44px] rounded bg-ff12-panel-light px-4 py-2 text-sm text-ff12-text transition hover:bg-ff12-border-dim disabled:opacity-30"
+                >
+                  Use
                 </button>
               </div>
             </div>

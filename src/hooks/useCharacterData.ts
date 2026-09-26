@@ -1,8 +1,9 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useMemo } from "react";
 import type { CharacterData } from "@/types";
 import { useAutoSave } from "./useAutoSave";
+import { applyGearAbilityScores } from "@/lib/gear-stats";
 
 export function useCharacterData() {
   const [data, setData] = useState<CharacterData | null>(null);
@@ -43,5 +44,10 @@ export function useCharacterData() {
     [save]
   );
 
-  return { data, loading, error, mutate };
+  // Pages see ability scores/skills adjusted by active gear (e.g. Bracers of
+  // Dexterity). Only `partial` updates are persisted, so derived values never
+  // get written back to KV unless a page explicitly sends them.
+  const effectiveData = useMemo(() => (data ? applyGearAbilityScores(data) : null), [data]);
+
+  return { data: effectiveData, loading, error, mutate };
 }

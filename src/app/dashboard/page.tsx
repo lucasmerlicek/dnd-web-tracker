@@ -19,6 +19,7 @@ import { calculateAC } from "@/lib/ac-calc";
 import { getEquippedAcBonus } from "@/lib/gear-stats";
 import { calculatePassivePerception } from "@/lib/passive-perception";
 import { spendHitDie, longRestRestore } from "@/lib/hit-dice";
+import { applyArcaneRecovery, arcaneRecoveryBudget, getWizardLevel } from "@/lib/arcane-recovery";
 import type { AbilityName, CharacterData } from "@/types";
 import type { PoolSelections } from "@/components/ui/RestModal";
 
@@ -167,7 +168,12 @@ export default function DashboardPage() {
     undoableMutate({ mageArmorActive: active, ac, baseAc });
   };
 
-  const handleShortRest = (hitDiceToSpend?: number, poolSelections?: PoolSelections, useSorcerousRestoration?: boolean) => {
+  const handleShortRest = (
+    hitDiceToSpend?: number,
+    poolSelections?: PoolSelections,
+    useSorcerousRestoration?: boolean,
+    arcaneRecoverySelection?: Record<string, number>
+  ) => {
     const conMod = data.stats.CON.modifier;
     const updates: Partial<CharacterData> = {};
 
@@ -224,6 +230,19 @@ export default function DashboardPage() {
         currentSorceryPoints: newSP,
         sorcerousRestorationUsed: true,
       };
+    }
+
+    // Arcane Recovery — restore selected slots, then mark as used until long rest
+    if (arcaneRecoverySelection && !data.classResources.arcaneRecoveryUsed) {
+      const budget = arcaneRecoveryBudget(getWizardLevel(data.charClass));
+      const res = applyArcaneRecovery(data.spellSlots, data.currentSpellSlots, arcaneRecoverySelection, budget);
+      if (res.success) {
+        updates.currentSpellSlots = res.newSlots;
+        updates.classResources = {
+          ...(updates.classResources ?? data.classResources),
+          arcaneRecoveryUsed: true,
+        };
+      }
     }
 
     mutate(updates);
@@ -287,6 +306,7 @@ export default function DashboardPage() {
     if (cr.bladesongMaxUses !== undefined) { cr.bladesongUsesRemaining = cr.bladesongMaxUses; cr.bladesongActive = false; }
     if (cr.cmeDice !== undefined) cr.cmeActive = false;
     cr.sorcerousRestorationUsed = false;
+    cr.arcaneRecoveryUsed = false;
     cr.feyBaneUsed = false;
     cr.feyMistyStepUsed = false;
     cr.druidCharmPersonUsed = false;

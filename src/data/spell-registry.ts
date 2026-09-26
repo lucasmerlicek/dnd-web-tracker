@@ -297,6 +297,8 @@ export const SPELL_REGISTRY: Record<string, SpellData> = {
 
   "Ice Knife": {
     name: "Ice Knife",
+    itemNote:
+      "Winter's Clutches (Ramil's gloves): when this spell deals Cold damage, there's a 20% chance to stun the target.",
     level: 1,
     school: "Conjuration",
     castingTime: "1 action",
@@ -637,6 +639,43 @@ export const SPELL_REGISTRY: Record<string, SpellData> = {
     damageDice: "6d10",
     damageType: "force",
     attackRoll: true,
+  },
+
+  "Wall of Force": {
+    name: "Wall of Force",
+    level: 5,
+    school: "Evocation",
+    castingTime: "1 action",
+    range: "120 feet",
+    components: {
+      verbal: true,
+      somatic: true,
+      material: true,
+      materialDescription: "a pinch of powder made by crushing a clear gemstone",
+    },
+    duration: "Concentration, up to 10 minutes",
+    description:
+      "An invisible wall of force springs into existence at a point you choose within range. The wall appears in any orientation you choose, as a horizontal or vertical barrier or at an angle. It can be free floating or resting on a solid surface. You can form it into a hemispherical dome or a sphere with a radius of up to 10 feet, or you can shape a flat surface made up of ten 10-foot-by-10-foot panels. Each panel must be contiguous with another panel. In any form, the wall is 1/4 inch thick. It lasts for the duration. If the wall cuts through a creature's space when it appears, the creature is pushed to one side of the wall (your choice which side). Nothing can physically pass through the wall. It is immune to all damage and can't be dispelled by dispel magic. A disintegrate spell destroys the wall instantly, however. The wall also extends into the Ethereal Plane, blocking ethereal travel through the wall.",
+  },
+
+  // ─── 6TH LEVEL SPELLS ─────────────────────────────────────────────
+
+  "Contingency": {
+    name: "Contingency",
+    level: 6,
+    school: "Evocation",
+    castingTime: "10 minutes",
+    range: "Self",
+    components: {
+      verbal: true,
+      somatic: true,
+      material: true,
+      materialDescription:
+        "a statuette of yourself carved from ivory and decorated with gems worth at least 1,500 gp",
+    },
+    duration: "10 days",
+    description:
+      "Choose a spell of 5th level or lower that you can cast, that has a casting time of 1 action, and that can target you. You cast that spell—called the contingent spell—as part of casting contingency, expending spell slots for both, but the contingent spell doesn't come into effect. Instead, it takes effect when a certain circumstance occurs. You describe that circumstance when you cast the two spells. The contingent spell takes effect immediately after the circumstance is met for the first time, whether or not you want it to, and then contingency ends. The contingent spell takes effect only on you, even if it can normally target others. You can use only one contingency spell at a time. If you cast this spell again, the effect of another contingency spell on you ends. Also, contingency ends on you if its material component is ever not on your person.",
   },
 
   // ─── CLASS FEATURES (Level 0) ─────────────────────────────────────

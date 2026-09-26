@@ -2,6 +2,8 @@
 
 import UIPanel from "@/components/ui/UIPanel";
 import type { CharacterData, DiceRoll, DiceResult } from "@/types";
+import { getGearBonus } from "@/lib/gear-stats";
+import { resolveDeathSave } from "@/lib/death-save";
 
 interface Props {
   data: CharacterData;
@@ -13,37 +15,21 @@ export default function DeathSaveTracker({ data, mutate, onRoll }: Props) {
   const { successes, failures } = data.deathSaves;
   const isResolved = successes >= 3 || failures >= 3;
 
+  // Death saves get the general save bonus (Ring/Cloak of Protection) plus any
+  // death-save-specific gear bonus (e.g. Ramil's Family Ring +2).
+  const gear = data.inventoryItems?.gear;
+  const deathSaveBonus = getGearBonus(gear, "save") + getGearBonus(gear, "deathSave");
+
   const handleDeathSave = async () => {
     const result = await onRoll({
       dice: [{ sides: 20, count: 1 }],
-      modifier: 0,
-      label: "Death Save",
+      modifier: deathSaveBonus,
+      label: deathSaveBonus ? `Death Save (+${deathSaveBonus})` : "Death Save",
     });
 
-    const nat = result.natural ?? result.total;
-    let newSuccesses = successes;
-    let newFailures = failures;
-
-    if (nat === 20) {
-      mutate({ currentHp: 1, deathSaves: { successes: 0, failures: 0 } });
-      return;
-    } else if (nat === 1) {
-      newFailures += 2;
-    } else if (nat >= 10) {
-      newSuccesses += 1;
-    } else {
-      newFailures += 1;
-    }
-
-    newSuccesses = Math.min(3, newSuccesses);
-    newFailures = Math.min(3, newFailures);
-
-    if (newSuccesses >= 3) {
-      mutate({ deathSaves: { successes: 3, failures: newFailures } });
-      return;
-    }
-
-    mutate({ deathSaves: { successes: newSuccesses, failures: newFailures } });
+    // Nat 1 / nat 20 use the raw die; everything else is d20 + bonus vs DC 10.
+    const nat = result.natural ?? result.total - deathSaveBonus;
+    mutate(resolveDeathSave({ successes, failures }, nat, deathSaveBonus));
   };
 
   const handleClickSuccess = () => {

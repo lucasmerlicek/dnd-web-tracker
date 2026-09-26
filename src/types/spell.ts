@@ -34,6 +34,11 @@ export interface SpellData {
   };
   upcastDescription?: string; // Human-readable upcasting text
   cantripScaling?: boolean; // true if cantrip damage scales with character level
+  /**
+   * Note about gear that affects this spell (currently Winter's Clutches on
+   * cold-damage spells). Only shown to a character wearing that gear.
+   */
+  itemNote?: string;
   createsWeapon?: {
     name: string;
     damageDice: string;
@@ -47,7 +52,11 @@ export interface SpellData {
 export const METAMAGIC_OPTIONS = {
   empowered: { name: "Empowered Spell", cost: 1 },
   quickened: { name: "Quickened Spell", cost: 2 },
+  heightened: { name: "Heightened Spell", cost: 2 },
+  extended: { name: "Extended Spell", cost: 1 },
 } as const;
+
+export type MetamagicOption = keyof typeof METAMAGIC_OPTIONS;
 
 export const LEVEL_KEYS: Record<number, string> = {
   1: "1st",

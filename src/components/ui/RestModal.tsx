@@ -2,6 +2,12 @@
 
 import { useState } from "react";
 import type { CharacterData, Action } from "@/types";
+import {
+  arcaneRecoveryBudget,
+  getWizardLevel,
+  recoverableSlotLevels,
+  selectionCost,
+} from "@/lib/arcane-recovery";
 
 /** Maps className → number of dice to spend from that pool */
 export type PoolSelections = Record<string, number>;
@@ -9,7 +15,12 @@ export type PoolSelections = Record<string, number>;
 interface Props {
   type: "short" | "long";
   characterData: CharacterData;
-  onConfirm: (hitDiceToSpend?: number, poolSelections?: PoolSelections, useSorcerousRestoration?: boolean) => void;
+  onConfirm: (
+    hitDiceToSpend?: number,
+    poolSelections?: PoolSelections,
+    useSorcerousRestoration?: boolean,
+    arcaneRecoverySelection?: Record<string, number>
+  ) => void;
   onCancel: () => void;
 }
 
@@ -66,6 +77,7 @@ function buildLongRestItems(cd: CharacterData): string[] {
   if (cr.feyMistyStepUsed) flagsToReset.push("Fey Misty Step");
   if (cr.druidCharmPersonUsed) flagsToReset.push("Druid Charm Person");
   if (cr.sorcerousRestorationUsed) flagsToReset.push("Sorcerous Restoration");
+  if (cr.arcaneRecoveryUsed) flagsToReset.push("Arcane Recovery");
   if (flagsToReset.length > 0) {
     items.push("Free casts reset: " + flagsToReset.join(", "));
   }
@@ -106,6 +118,24 @@ export default function RestModal({ type, characterData, onConfirm, onCancel }: 
   // Sorcerous Restoration opt-in state
   const [useSorcerousRestoration, setUseSorcerousRestoration] = useState(false);
 
+  // Arcane Recovery (Wizard): choose expended slots up to the budget.
+  const wizardLevel = getWizardLevel(characterData.charClass);
+  const hasArcaneRecovery = wizardLevel > 0;
+  const arcaneUsed = characterData.classResources.arcaneRecoveryUsed === true;
+  const arcaneBudget = arcaneRecoveryBudget(wizardLevel);
+  const arcaneLevels = recoverableSlotLevels(characterData.spellSlots, characterData.currentSpellSlots);
+  const [arcaneSelection, setArcaneSelection] = useState<Record<string, number>>({});
+  const arcaneCost = selectionCost(arcaneSelection);
+
+  const updateArcane = (lvl: string, value: number) => {
+    const expended = (characterData.spellSlots[lvl] ?? 0) - (characterData.currentSpellSlots[lvl] ?? 0);
+    const slotLevel = parseInt(lvl, 10);
+    const others = arcaneCost - (arcaneSelection[lvl] ?? 0) * slotLevel;
+    const maxByBudget = Math.floor((arcaneBudget - others) / slotLevel);
+    const clamped = Math.max(0, Math.min(value, expended, maxByBudget));
+    setArcaneSelection((prev) => ({ ...prev, [lvl]: clamped }));
+  };
+
   const totalPoolAvailable = hasMulticlassPools
     ? pools.reduce((sum, p) => sum + p.available, 0)
     : 0;
@@ -122,10 +152,13 @@ export default function RestModal({ type, characterData, onConfirm, onCancel }: 
   const handleConfirm = () => {
     if (type === "long") {
       onConfirm(undefined, undefined);
-    } else if (hasMulticlassPools) {
-      onConfirm(totalPoolSelected, poolSelections, useSorcerousRestoration);
     } else {
-      onConfirm(hitDice, undefined, useSorcerousRestoration);
+      const arcane = hasArcaneRecovery && !arcaneUsed && arcaneCost > 0 ? arcaneSelection : undefined;
+      if (hasMulticlassPools) {
+        onConfirm(totalPoolSelected, poolSelections, useSorcerousRestoration, arcane);
+      } else {
+        onConfirm(hitDice, undefined, useSorcerousRestoration, arcane);
+      }
     }
   };
 
@@ -213,6 +246,45 @@ export default function RestModal({ type, characterData, onConfirm, onCancel }: 
                     : `Sorcerous Restoration (+${Math.floor(characterData.level / 2)} SP)`}
                 </label>
               </div>
+            )}
+            {/* Arcane Recovery (Wizard) */}
+            {hasArcaneRecovery && (
+              <fieldset className="rounded border border-ff12-border-dim/50 p-3">
+                <legend className="px-1 text-sm text-gold">Arcane Recovery</legend>
+                {arcaneUsed ? (
+                  <p className="text-xs text-ff12-text-dim">Already used — recharges on a long rest.</p>
+                ) : arcaneLevels.length === 0 ? (
+                  <p className="text-xs text-ff12-text-dim">No expended slots of 5th level or lower.</p>
+                ) : (
+                  <>
+                    <p className="mb-2 text-xs text-ff12-text-dim">
+                      Recover slots up to {arcaneBudget} combined levels (max 5th).{" "}
+                      <span className="text-gold">{arcaneCost}/{arcaneBudget}</span> used
+                    </p>
+                    <div className="space-y-1.5">
+                      {arcaneLevels.map((lvl) => {
+                        const expended = (characterData.spellSlots[lvl] ?? 0) - (characterData.currentSpellSlots[lvl] ?? 0);
+                        return (
+                          <div key={lvl} className="flex items-center justify-between gap-3">
+                            <label htmlFor={`arcane-${lvl}`} className="text-sm text-ff12-text">
+                              {lvl} <span className="text-xs text-ff12-text-dim">({expended} expended)</span>
+                            </label>
+                            <input
+                              id={`arcane-${lvl}`}
+                              type="number"
+                              min={0}
+                              max={expended}
+                              value={arcaneSelection[lvl] ?? 0}
+                              onChange={(e) => updateArcane(lvl, Number(e.target.value))}
+                              className="w-14 rounded border border-ff12-border bg-dark-bg px-2 py-1 text-center text-sm text-ff12-text"
+                            />
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </>
+                )}
+              </fieldset>
             )}
           </div>
         ) : (

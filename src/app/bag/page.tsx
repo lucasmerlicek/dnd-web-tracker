@@ -303,7 +303,15 @@ export default function BagPage() {
                                               : "bg-ff12-panel-light text-ff12-text-dim"
                                           }`}
                                         >
-                                          {mod.value >= 0 ? "+" : ""}{mod.value} {mod.stat.toUpperCase()}
+                                          {(() => {
+                                            const label =
+                                              mod.stat === "save" ? "Saves"
+                                              : mod.stat === "deathSave" ? "Death Saves"
+                                              : mod.stat.toUpperCase();
+                                            return mod.mode === "set"
+                                              ? `${label} = ${mod.value}`
+                                              : `${mod.value >= 0 ? "+" : ""}${mod.value} ${label}`;
+                                          })()}
                                         </span>
                                       ))}
                                     </div>

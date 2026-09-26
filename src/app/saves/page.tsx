@@ -13,6 +13,7 @@ import DeathSaveTracker from "@/components/dashboard/DeathSaveTracker";
 import CursorIndicator from "@/components/ui/CursorIndicator";
 import { useState } from "react";
 import type { AbilityName } from "@/types";
+import { getGearBonus } from "@/lib/gear-stats";
 
 type AdvMode = "normal" | "advantage" | "disadvantage";
 const ABILITIES: AbilityName[] = ["STR", "DEX", "CON", "INT", "WIS", "CHA"];
@@ -40,10 +41,13 @@ export default function SavesPage() {
 
   if (loading || !data) return <div className="flex min-h-screen items-center justify-center text-ff12-text-dim">Loading...</div>;
 
+  // Bonus to all saving throws from the wearer's active gear (Ring/Cloak of Protection).
+  const gearSaveBonus = getGearBonus(data.inventoryItems?.gear, "save");
+
   const getSaveMod = (stat: AbilityName) => {
     const base = data.stats[stat].modifier;
     const proficient = data.saveProficiencies.includes(stat);
-    return base + (proficient ? data.proficiencyBonus : 0);
+    return base + (proficient ? data.proficiencyBonus : 0) + gearSaveBonus;
   };
 
   const rollSave = (stat: AbilityName) => {

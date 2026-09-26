@@ -1,6 +1,19 @@
 import type { AbilityName } from "@/types/character";
 import type { SpellData } from "@/types/spell";
-import { METAMAGIC_OPTIONS } from "@/types/spell";
+import { METAMAGIC_OPTIONS, type MetamagicOption } from "@/types/spell";
+
+/** Heightened Spell: only for spells that force a saving throw. */
+export function canHeighten(spell: SpellData | undefined): boolean {
+  return !!spell?.saveType;
+}
+
+/** Extended Spell: only for spells with a duration of 1 minute or longer. */
+export function canExtend(spell: SpellData | undefined): boolean {
+  if (!spell) return false;
+  const d = spell.duration.toLowerCase();
+  if (d.includes("instantaneous") || d.includes("until dispelled")) return false;
+  return /\b(minute|minutes|hour|hours|day|days)\b/.test(d);
+}
 
 /**
  * Parse a dice expression like "8d6" into its count and sides.
@@ -125,7 +138,7 @@ export function consumeSpellSlot(
  * Attempt to apply a Metamagic option. Returns new SP or error.
  */
 export function applyMetamagic(
-  option: "empowered" | "quickened",
+  option: MetamagicOption,
   currentSP: number
 ): { newSP: number; success: boolean; error?: string } {
   const cost = METAMAGIC_OPTIONS[option].cost;

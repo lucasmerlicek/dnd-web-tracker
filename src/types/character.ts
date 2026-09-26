@@ -28,6 +28,11 @@ export interface HitDicePool {
 export interface StatModifier {
   stat: string;
   value: number;
+  /**
+   * "add" (default) adds `value` to the stat. "set" raises an ability score to
+   * `value` if it's lower (e.g. Bracers/Gloves of Dexterity: DEX becomes 18).
+   */
+  mode?: "add" | "set";
 }
 
 export interface InventoryItemBase {
@@ -126,6 +131,8 @@ export interface ClassResources {
   bladesongMaxUses?: number;
   preparedSpells?: string[];
   autoPreparedSpells?: string[];
+  /** Arcane Recovery used since the last long rest (Wizard). */
+  arcaneRecoveryUsed?: boolean;
 
   // Conjure Minor Elementals (Ramil) — concentration toggle that adds bonus
   // damage dice to each attack (weapon or spell attack) while active.
