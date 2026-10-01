@@ -26,6 +26,7 @@ export interface SpellData {
   description: string; // Full spell text
   damageDice?: string; // e.g. "8d6" (base damage)
   damageType?: string; // e.g. "lightning", "fire"
+  damageBonus?: number; // flat damage added to the roll, e.g. 40 for Disintegrate
   saveType?: AbilityName; // e.g. "DEX" for Fireball
   attackRoll?: boolean; // true for spell attack spells
   ritual?: boolean; // true for ritual-tagged spells
@@ -52,6 +53,7 @@ export interface SpellData {
 export const METAMAGIC_OPTIONS = {
   empowered: { name: "Empowered Spell", cost: 1 },
   quickened: { name: "Quickened Spell", cost: 2 },
+  careful: { name: "Careful Spell", cost: 1 },
   heightened: { name: "Heightened Spell", cost: 2 },
   extended: { name: "Extended Spell", cost: 1 },
 } as const;

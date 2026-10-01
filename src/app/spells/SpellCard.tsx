@@ -179,12 +179,14 @@ export default function SpellCard({
     // (attack-roll spells), not save-based spells.
     const cmeDie = hasAttackRoll ? getCmeBonusDice(cr) : null;
     if (cmeDie) dice.push(cmeDie);
+    const bonus = spellData?.damageBonus ?? 0;
+    const diceText = bonus ? `${effectiveDamage}+${bonus}` : effectiveDamage;
     const baseLabel = spellData?.damageType
-      ? `${spellName} — ${effectiveDamage} ${spellData.damageType}`
-      : `${spellName} — ${effectiveDamage}`;
+      ? `${spellName} — ${diceText} ${spellData.damageType}`
+      : `${spellName} — ${diceText}`;
     onRollDice({
       dice,
-      modifier: 0,
+      modifier: bonus,
       label: baseLabel + (cmeDie ? cmeLabelSuffix(cr) : ""),
     });
   };
@@ -783,6 +785,18 @@ export default function SpellCard({
                     }`}
                   >
                     Quickened Spell ({METAMAGIC_OPTIONS.quickened.cost} SP)
+                  </button>
+                )}
+
+                {/* Careful Spell — only for spells that force a saving throw */}
+                {canHeighten(spellData) && (
+                  <button
+                    onClick={() => handleMetamagic("careful")}
+                    disabled={currentSP < METAMAGIC_OPTIONS.careful.cost}
+                    title={`Up to ${Math.max(1, characterData.stats.CHA.modifier)} creature(s) automatically succeed on the save and take no damage on a half-damage save`}
+                    className="min-h-[44px] rounded bg-ff12-panel-light px-3 py-2 text-xs text-ff12-text hover:bg-ff12-border-dim disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    Careful Spell ({METAMAGIC_OPTIONS.careful.cost} SP)
                   </button>
                 )}
 
